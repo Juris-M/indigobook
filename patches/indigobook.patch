@@ -1,0 +1,30 @@
+--- index.html	2016-04-09 20:16:27.877446853 +0900
++++ index-orig.html	2016-04-09 20:20:46.781438732 +0900
+@@ -9,7 +9,12 @@
+ <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Alice' rel='stylesheet' type='text/css'>
+ 
++<link href='./octicons/octicons/octicons.css' rel='stylesheet' type='text/css'>
++<link href='./css/screen.css' rel='stylesheet' type='text/css'>
+ 
++<script src='./js/browser-info.js' type='application/javascript'></script>
++<script src='./js/browser-info.js' type='application/javascript'></script>
++<script src='./js/csl-sampler.js' type='application/javascript'></script>
+ 	
+ <!-- Used to hide the amendment markers dynamically -->
+ <script type="text/javascript">	
+@@ -1025,12 +1030,12 @@
+ 	<li id="R11.2.9"><span class="rule" role="heading" aria-level="5">R11.2.9.</span> <p>Omit “People of,” “State of,” and “Commonwealth of,” unless citing a court located in that state, in which case retain only “People,” “State,” or “Commonwealth.”</p>
+ 
+ 			<p>
+-			<b>Correct:</b> <i>Lessig v. Colorado</i>, 17 U.S. 107 (1998).<br />
++			<b>Correct:</b> <span id="ic0001" class="cite"><i>Lessig v. Colorado</i>, 17 U.S. 107 (1998).</span><br />
+ 			<b>Incorrect:</b> <i>Lessig v. State of Colorado</i>, 17 U.S. 107 (1998).
+ 			</p>
+ 
+ 			<p>
+-			<b>Correct:</b> <i>Lessig v. State</i>, 109 P.3d 224 (Colo. 1997).<br />
++			<b>Correct:</b> <span id="ic0002" class="cite"><i>Lessig v. State</i>, 109 P.3d 224 (Colo. 1997).</span><br />
+ 			<b>Incorrect:</b> <i>Lessig v. State of Colorado</i>, 109 P.3d 224 (Colo. 1997).
+ 			</p></li>
+ 
