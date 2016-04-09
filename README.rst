@@ -7,6 +7,30 @@ citation examples contained in the Indigo Book, a citation manual for
 US law. The repo contains only the code; the text of the manual is
 available separately (link below).
 
+----
+Demo
+----
+
+Here's what it looks like (animated GIF):
+
+.. image:: https://juris-m.github.io/indigobook/indigo-citeproc.gif
+
+----
+ToDo
+----
+
+This code provides a panel of citation samples in four styles under
+an icon, which can potentially be attached to every citation in
+Indigo Book. A further step would be to extend the sample panel to
+serve as a bug-report form for style errata and revision proposals.
+The form would offer a GitHub login button (using a gatekeeper
+instance), and submit issues tagged to the Indigo Book rule that they
+affect, with a diff showing the precise edit suggested by the
+submitter and their comment text.
+
+I will eventually get around to setting this up, but if some
+enterprising soul would like to tackle it, please feel free to fork!
+
 -------------
 Prerequisites
 -------------
