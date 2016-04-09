@@ -239,7 +239,7 @@ function runProcessor (itemID, styleID) {
 };
 
 function setFileData(type, fileStub, XMLstring) {
-    if (data[type][fileStub] || data[type][fileStub]) return;
+    if (data[type][fileStub] || data[type][fileStub] === false) return;
     if (type === 'items') {
         XMLstring = JSON.parse(XMLstring);
     }
