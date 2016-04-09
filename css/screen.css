@@ -18,16 +18,16 @@
 }
 
 .cite-details {
-    display: none;
+    display: block;
     width: 400px;
     position: absolute;
     top: 25px;
     left: 20px;
     z-index: 1;
-    opacity: 0;
-    transition: opacity .25s ease-in-out;
-    -moz-transition: opacity .25s ease-in-out;
-    -webkit-transition: opacity .25s ease-in-out;
+    opacity: 100;
+    transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
     padding-bottom: 12px;
 }
 
@@ -38,16 +38,13 @@
     box-shadow: 10px 10px 5px #888888;
 }
 
-.cite-details.reveal {
-    display: inline-block;
-    opacity: 100;
-}
-
 .small-faint-heading {
     font-family: sans;
-    font-size: smaller;
+    font-size: x-small;
     font-weight: bold;
     color: #999999;
+    line-height: 1.1;
+    margin-top: 0.5em;
 }
 
 .sampler-citation {

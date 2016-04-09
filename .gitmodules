@@ -1,9 +1,6 @@
 [submodule "csl"]
 	path = csl
 	url = https://github.com/Juris-M/jm-styles.git
-[submodule "locale"]
-	path = locale
-	url = https://github.com/citation-style-language/locales.git
 [submodule "octicons"]
 	path = octicons
 	url = https://github.com/github/octicons.git
@@ -13,3 +10,7 @@
 [submodule "juris"]
 	path = juris
 	url = https://github.com/Juris-M/style-modules.git
+
+[submodule "locale"]
+	path = locale
+	url = https://github.com/citation-style-language/locales.git
