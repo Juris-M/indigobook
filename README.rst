@@ -37,7 +37,7 @@ To run the layer, set up as follows:
 
 3. Apply the patch in the ``patches`` subdirectory to the text::
 
-      patch index.html -p1 < ./patches/indigobook.patch
+      patch index.html < ./patches/indigobook.patch
 
 4. Run the tiny webserver::
 
