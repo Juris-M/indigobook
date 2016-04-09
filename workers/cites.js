@@ -210,7 +210,7 @@ function getJuris(pos, jurisModules, itemID, styleID) {
     }
     // If not finished, set juris modules as required
     var jurisModule = jurisModules[pos];
-    getXML(jurisModules[pos], 'juris', function() {
+    getFile(jurisModules[pos], 'juris', function() {
         getJuris(pos+1, jurisModules, itemID, styleID);
     });
 };
@@ -220,10 +220,10 @@ function runProcessor (itemID, styleID) {
     this.styleID = styleID;
     this.itemID = itemID;
     var me = this;
-    getXML(itemID, 'items', function() {
-        getXML(me.styleID, 'styles', function() {
-            getXML('en-US', 'locales', function() {
-                getXML('en-GB', 'locales', function() {
+    getFile(itemID, 'items', function() {
+        getFile(me.styleID, 'styles', function() {
+            getFile('en-US', 'locales', function() {
+                getFile('en-GB', 'locales', function() {
                     var jurisModules = [];
                     if (data.items[me.itemID].jurisdiction) {
                         var lst = data.items[itemID].jurisdiction.split(':');
@@ -239,7 +239,7 @@ function runProcessor (itemID, styleID) {
     });
 };
 
-function setXML(type, fileStub, XMLstring) {
+function setFileData(type, fileStub, XMLstring) {
     if (data[type][fileStub] || data[type][fileStub]) return;
     if (type === 'items') {
         XMLstring = JSON.parse(XMLstring);
@@ -247,7 +247,7 @@ function setXML(type, fileStub, XMLstring) {
     data[type][fileStub] = XMLstring;
 }
 
-function getXML(fileStub, type, callback) {
+function getFile(fileStub, type, callback) {
     var fileName;
     if (type === 'styles') {
         fileName = '../csl/' + fileStub + '.csl';
@@ -265,10 +265,10 @@ function getXML(fileStub, type, callback) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
-                setXML(type, fileStub, xhr.responseText);
+                setFileData(type, fileStub, xhr.responseText);
                 callback ? callback() : null;
             } else if (xhr.status == 404) {
-                setXML(type, fileStub, false);
+                setFileData(type, fileStub, false);
                 callback ? callback() : null;
             }
         }
