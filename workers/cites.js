@@ -209,7 +209,6 @@ function getJuris(pos, jurisModules, itemID, styleID) {
         return;
     }
     // If not finished, set juris modules as required
-    var jurisModule = jurisModules[pos];
     getFile(jurisModules[pos], 'juris', function() {
         getJuris(pos+1, jurisModules, itemID, styleID);
     });
