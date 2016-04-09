@@ -2,10 +2,10 @@
 Indigo Book
 ===========
 
-This is repo has code for layering interactive sampling popups over
-the citation examples contained in the Indigo Book, a citation
-manual for US law. The repo contains only the code; the text of
-manual is available separately (see link below).
+This repo has code for layering interactive sampling popups over the
+citation examples contained in the Indigo Book, a citation manual for
+US law. The repo contains only the code; the text of the manual is
+available separately (link below).
 
 -------------
 Prerequisites
@@ -19,27 +19,37 @@ Prerequisites
 
 To run the layer, set up as follows:
 
-1. Fetch a full working copy of the repo and its submodules:
+1. Fetch a full working copy of the repo and its submodules::
 
        git clone --recursive https://github.com/Juris-M/indigobook.git
 
-2. Download the _`Indigo Book` and save into the repo as ``index.html``:
+2. Enter the top-level directory of the repo::
 
-       curl -o index.html https://law.resource.org/pub/us/code/blue/IndigoBook.html
+      cd indigobook
 
-3. Apply the patch in the ``patches`` subdirectory to the text:
+2. Download the _`Indigo Book` itself, and save it into the repo as ``index.html``::
 
-       patch index.html -p1 < ./patches/indigobook.patch
+      curl -o index.html https://law.resource.org/pub/us/code/blue/IndigoBook.html
 
-4. Run the tiny webserver:
+3. Apply the patch in the ``patches`` subdirectory to the text::
 
-       node ./node-server.js
+      patch index.html -p1 < ./patches/indigobook.patch
+
+4. Run the tiny webserver::
+
+      node ./node-server.js
        
-5. Point a web browser at the document:
+5. Point a web browser at the document::
 
-       http://localhost:16005/index.html
+      http://localhost:16005/index.html
        
 6. Search for "Lessig v" to find the citations decorated by the demo.
    Click on the chevron next to a cite and enjoy the magic.
+
+That's it!
+
+| Frank Bennett
+| Nagoya
+| 2016-04-09
 
 .. _`Indigo Book`: https://law.resource.org/pub/us/code/blue/IndigoBook.html
