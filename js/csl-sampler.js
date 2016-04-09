@@ -140,6 +140,19 @@ worker.onmessage = function(e) {
 }
 
 window.addEventListener('load', function() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '../items/ic0001.json', true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                installSampler();
+            }
+        }
+    }
+    xhr.send(null);
+});
+
+function installSampler() {
     var nodes = document.getElementsByClassName('cite');
     for (var i=0,ilen=nodes.length;i<ilen;i++) {
         var octicon = document.createElement('span');
@@ -184,4 +197,4 @@ window.addEventListener('load', function() {
             }
         }
     }, false)
-});
+};
