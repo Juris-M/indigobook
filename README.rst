@@ -17,6 +17,10 @@ Prerequisites
     a web browser. A simple server written in ``node.js`` is included
     in the sources.
 
+------------
+Installation
+------------
+
 To run the layer, set up as follows:
 
 1. Fetch a full working copy of the repo and its submodules::
