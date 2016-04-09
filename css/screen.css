@@ -45,9 +45,11 @@
 
 .small-faint-heading {
     font-family: sans;
-    font-size: smaller;
+    font-size: x-small;
     font-weight: bold;
     color: #999999;
+    line-height: 1.1;
+    margin-top: 0.5em;
 }
 
 .sampler-citation {
