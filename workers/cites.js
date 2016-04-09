@@ -240,7 +240,7 @@ function runProcessor (itemID, styleID) {
 };
 
 function setXML(type, fileStub, XMLstring) {
-    if (data[type][fileStub]) return;
+    if (data[type][fileStub] || data[type][fileStub]) return;
     if (type === 'items') {
         XMLstring = JSON.parse(XMLstring);
     }
@@ -258,7 +258,7 @@ function getXML(fileStub, type, callback) {
     } else if (type === 'items') {
         fileName = '../items/' + fileStub + '.json';
     }
-    if (data[type][fileStub]) {
+    if (data[type][fileStub] || data[type][fileStub] === false) {
         return callback ? callback() : null
     }
     xhr.open('GET', fileName, true);
@@ -268,6 +268,7 @@ function getXML(fileStub, type, callback) {
                 setXML(type, fileStub, xhr.responseText);
                 callback ? callback() : null;
             } else if (xhr.status == 404) {
+                setXML(type, fileStub, false);
                 callback ? callback() : null;
             }
         }
