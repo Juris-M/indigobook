@@ -210,10 +210,6 @@ function getJuris(pos, jurisModules, itemID, styleID) {
     }
     // If not finished, set juris modules as required
     var jurisModule = jurisModules[pos];
-    if (data.juris[jurisModule]) {
-        // End immediately with we have the jurisdiction (we will have its parents too);
-        pos = (jurisModules.length-1);
-    }
     getXML(jurisModules[pos], 'juris', function() {
         getJuris(pos+1, jurisModules, itemID, styleID);
     });
