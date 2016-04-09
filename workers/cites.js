@@ -1,5 +1,9 @@
 importScripts('../citeproc/citeproc.js');
 
+/*
+ * A few primitives
+ */
+
 var xhr = new XMLHttpRequest();
 var data = {
     styles: {},
@@ -32,6 +36,10 @@ var data = {
     }
 };
 
+/*
+ * Processor hook functions
+ */
+
 CSL.getAbbreviation = function (listname, obj, jurisdiction, category, key, itemType, noHints) {
     if (!obj || !key || !category) return;
     if (!obj.default) {
@@ -45,7 +53,7 @@ CSL.getAbbreviation = function (listname, obj, jurisdiction, category, key, item
             delete obj["default"][category][key];
         }
     }
-}
+};
 
 var sysObject = {
     retrieveItem: function(id) {
@@ -61,23 +69,19 @@ var sysObject = {
     retrieveStyleModule: function(jurisdiction) {
         return data.juris[jurisdiction];
     }
-}
-
-self.addEventListener('message', function(e){
-    runProcessor(e.data.itemID, e.data.styleID);
-});
+};
 
 /*
- * Thingie to make citation samples
+ * Citation sample factory
  */
 
 var CitationFactory = function(){
     this.citations = [];
-}
+};
 
 CitationFactory.prototype.reset = function() {
     this.citations = [];
-}
+};
 
 CitationFactory.prototype.getBreadCrumbs = function () {
     var ret = [];
@@ -85,7 +89,7 @@ CitationFactory.prototype.getBreadCrumbs = function () {
         ret.push(["CITATION-"+(i+1),(i+1)]);
     }
     return ret;
-}
+};
 
 CitationFactory.prototype.addCitation = function(itemID, locator) {
     var citation = [
@@ -107,7 +111,7 @@ CitationFactory.prototype.addCitation = function(itemID, locator) {
         citation[0].citationItems[0].locator = locator;
     }
     this.citations.push(citation);
-}
+};
 
 CitationFactory.prototype.getCitations = function() {
     var cres = [];
@@ -118,7 +122,7 @@ CitationFactory.prototype.getCitations = function() {
         }
     }
     return cres;
-}
+};
 
 CitationFactory.prototype.setupProcessor = function(itemID, styleID) {
     if (!data.processors[styleID]) {
@@ -128,8 +132,106 @@ CitationFactory.prototype.setupProcessor = function(itemID, styleID) {
     this.citeproc.updateItems(['DUMMY',itemID]);
 };
 
-
 var citationFactory = new CitationFactory();
+
+/*
+ * Data acquisition and caching
+ */
+
+function setFileData(type, fileStub, XMLstring) {
+    if (data[type][fileStub] || data[type][fileStub] === false) return;
+    if (type === 'items') {
+        XMLstring = JSON.parse(XMLstring);
+    }
+    data[type][fileStub] = XMLstring;
+};
+
+function getFile(fileStub, type, callback) {
+    var fileName;
+    if (type === 'styles') {
+        fileName = '../csl/' + fileStub + '.csl';
+    } else if (type === 'locales') {
+        fileName = '../locale/locales-' + fileStub + '.xml';
+    } else if (type === 'juris') {
+        fileName = '../juris/juris-' + fileStub + '.csl';
+    } else if (type === 'items') {
+        fileName = '../items/' + fileStub + '.json';
+    }
+    if (data[type][fileStub] || data[type][fileStub] === false) {
+        return callback ? callback() : null
+    }
+    xhr.open('GET', fileName, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                setFileData(type, fileStub, xhr.responseText);
+                callback ? callback() : null;
+            } else if (xhr.status == 404) {
+                setFileData(type, fileStub, false);
+                callback ? callback() : null;
+            }
+        }
+    }
+    xhr.send(null);
+};
+
+/*
+ * Putting it all together
+ *
+ * runProcessor(): the master command, acquires all data but modules
+ * getJuris(): acquires modules
+ * generateSampleCites(): generates citations from cached data
+ */
+
+function runProcessor (itemID, styleID) {
+    this.styleID = styleID;
+    this.itemID = itemID;
+    var me = this;
+    getFile(itemID, 'items', function() {
+        getFile(me.styleID, 'styles', function() {
+            getFile('en-US', 'locales', function() {
+                getFile('en-GB', 'locales', function() {
+                    var jurisModules = [];
+                    if (data.items[me.itemID].jurisdiction) {
+                        var lst = data.items[itemID].jurisdiction.split(':');
+                        for (var i=0,ilen=lst.length;i<ilen;i++) {
+                            jurisModules.push(lst.slice(0,i+1).join(':'));
+                        }
+                    }
+                    jurisModules.reverse();
+                    getJuris(0, jurisModules, itemID, styleID);
+                });
+            });
+        });
+    });
+};
+
+function getJuris(pos, jurisModules, itemID, styleID) {
+    if (pos === jurisModules.length) {
+        try {
+            var cites = generateSampleCites(itemID, styleID);
+            self.postMessage({
+                msgType: 'OK',
+                msgId: 'msg0',
+                msgTxt: 'Processor initialized',
+                itemID: itemID,
+                styleID: styleID,
+                cites: cites
+            });
+        } catch (e) {
+            self.postMessage({
+                msgType: 'ERR',
+                msgId: 'err0',
+                msgTxt: 'Error initializing processor: ' + e
+            });
+        }
+        return;
+    }
+    // If not finished, set juris modules as required
+    getFile(jurisModules[pos], 'juris', function() {
+        getJuris(pos+1, jurisModules, itemID, styleID);
+    });
+};
 
 function generateSampleCites(itemID, styleID) {
     citationFactory.setupProcessor(itemID, styleID);
@@ -181,96 +283,13 @@ function generateSampleCites(itemID, styleID) {
     cites['far-locator'] = res[11];
 
     citationFactory.reset();
-    //citationFactory.addCitation(itemID, null);
-    //var bibliographyResults = citeproc.makeBibliography();
-    //return {citations:citations,bibliography:bibliographyResults[1]};
     return cites;
 };
 
-function getJuris(pos, jurisModules, itemID, styleID) {
-    if (pos === jurisModules.length) {
-        try {
-            var cites = generateSampleCites(itemID, styleID);
-            self.postMessage({
-                msgType: 'OK',
-                msgId: 'msg0',
-                msgTxt: 'Processor initialized',
-                itemID: itemID,
-                styleID: styleID,
-                cites: cites
-            });
-        } catch (e) {
-            self.postMessage({
-                msgType: 'ERR',
-                msgId: 'err0',
-                msgTxt: 'Error initializing processor: ' + e
-            });
-        }
-        return;
-    }
-    // If not finished, set juris modules as required
-    getFile(jurisModules[pos], 'juris', function() {
-        getJuris(pos+1, jurisModules, itemID, styleID);
-    });
-};
+/*
+ * Accept orders from the page
+ */
 
-
-function runProcessor (itemID, styleID) {
-    this.styleID = styleID;
-    this.itemID = itemID;
-    var me = this;
-    getFile(itemID, 'items', function() {
-        getFile(me.styleID, 'styles', function() {
-            getFile('en-US', 'locales', function() {
-                getFile('en-GB', 'locales', function() {
-                    var jurisModules = [];
-                    if (data.items[me.itemID].jurisdiction) {
-                        var lst = data.items[itemID].jurisdiction.split(':');
-                        for (var i=0,ilen=lst.length;i<ilen;i++) {
-                            jurisModules.push(lst.slice(0,i+1).join(':'));
-                        }
-                    }
-                    jurisModules.reverse();
-                    getJuris(0, jurisModules, itemID, styleID);
-                });
-            });
-        });
-    });
-};
-
-function setFileData(type, fileStub, XMLstring) {
-    if (data[type][fileStub] || data[type][fileStub] === false) return;
-    if (type === 'items') {
-        XMLstring = JSON.parse(XMLstring);
-    }
-    data[type][fileStub] = XMLstring;
-}
-
-function getFile(fileStub, type, callback) {
-    var fileName;
-    if (type === 'styles') {
-        fileName = '../csl/' + fileStub + '.csl';
-    } else if (type === 'locales') {
-        fileName = '../locale/locales-' + fileStub + '.xml';
-    } else if (type === 'juris') {
-        fileName = '../juris/juris-' + fileStub + '.csl';
-    } else if (type === 'items') {
-        fileName = '../items/' + fileStub + '.json';
-    }
-    if (data[type][fileStub] || data[type][fileStub] === false) {
-        return callback ? callback() : null
-    }
-    xhr.open('GET', fileName, true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4) {
-            if (xhr.status == 200) {
-                setFileData(type, fileStub, xhr.responseText);
-                callback ? callback() : null;
-            } else if (xhr.status == 404) {
-                setFileData(type, fileStub, false);
-                callback ? callback() : null;
-            }
-        }
-    }
-    xhr.send(null);
-}
+self.addEventListener('message', function(e){
+    runProcessor(e.data.itemID, e.data.styleID);
+});
