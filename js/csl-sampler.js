@@ -82,8 +82,9 @@ function clearLastReveal(itemID) {
         var oldNode = document.getElementById(pageData.lastItemID);
         var oldDetailsNode = oldNode.getElementsByClassName('cite-details')[0];
         if (oldDetailsNode) {
-            oldDetailsNode.classList.remove('reveal');
             oldDetailsNode.previousSibling.classList.remove('selected');
+            oldDetailsNode.previousSibling.setAttribute('title', 'show cite forms');
+            oldDetailsNode.parentNode.removeChild(oldDetailsNode);
         }
     }
     pageData.lastItemID = itemID;
@@ -105,7 +106,6 @@ worker.onmessage = function(e) {
         if (!node.firstChild.nextSibling.classList || !node.firstChild.nextSibling.classList.contains('cite-details')) {
             var newnode = document.createElement('div');
             newnode.classList.add('cite-details');
-            newnode.classList.add('reveal');
             var sampleBlock = composeHTML(e.data.cites);
             newnode.innerHTML = sampleBlock;
             pageData.htmlCache[pageData.styleID][itemID] = sampleBlock;
@@ -123,7 +123,6 @@ worker.onmessage = function(e) {
                 var citeNode = detailNode.getElementsByClassName(form)[0];
                 citeNode.innerHTML = e.data.cites[form];
             }
-            detailNode.classList.add('reveal');
             detailNode.scrollIntoView(pageData.scrollSetting);
             node.firstChild.setAttribute('title', 'hide cite forms');
             pageData.htmlCache[pageData.styleID][itemID] = composeHTML(e.data.cites);
@@ -165,7 +164,6 @@ function installSampler() {
             var node = e.target.parentNode.parentNode.parentNode.parentNode;
             var tab = e.target;
             pageData.styleID = tab.getAttribute('name');
-            //setTab(node);
             worker.postMessage({
                 itemID: itemID,
                 styleID: pageData.styleID
@@ -173,23 +171,20 @@ function installSampler() {
         } else if (e.target.parentNode.classList && e.target.parentNode.classList.contains('cite')) {
             var node = e.target.parentNode;
             itemID = node.id;
-            if (!pageData.htmlCache[pageData.styleID][itemID]) {
+            if (!pageData.htmlCache[pageData.styleID][itemID] || !node.firstChild.nextSibling.classList.contains('cite-details')) {
                 clearLastReveal(itemID);
                 worker.postMessage({
                     itemID: itemID,
                     styleID: pageData.styleID
                 });
             } else {
-                if (node.firstChild.nextSibling.classList.contains('reveal')) {
+                if (node.firstChild.nextSibling.classList.contains('cite-details')) {
                     clearLastReveal(null);
-                    node.firstChild.nextSibling.classList.remove('reveal');
-                    node.firstChild.setAttribute('title', 'show cite forms');
                     selectCite(node, false);
                 } else {
                     clearLastReveal(itemID);
                     node.firstChild.nextSibling.innerHTML = pageData.htmlCache[pageData.styleID][itemID];
                     setTab(node);
-                    node.firstChild.nextSibling.classList.add('reveal');
                     node.firstChild.nextSibling.scrollIntoView(pageData.scrollSetting);
                     node.firstChild.setAttribute('title', 'hide cite forms');
                     selectCite(node, true);
