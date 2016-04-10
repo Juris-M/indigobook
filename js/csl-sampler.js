@@ -1,6 +1,5 @@
 var worker = new Worker('../workers/cites.js');
 
-
 var pageData = {
     styleID: 'jm-indigobook',
     lastItemID: null,
@@ -138,19 +137,6 @@ worker.onmessage = function(e) {
     }
 }
 
-window.addEventListener('load', function() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '../items/ic0001.json', true);
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4) {
-            if (xhr.status == 200) {
-                installSampler();
-            }
-        }
-    }
-    xhr.send(null);
-});
-
 function installSampler() {
     var nodes = document.getElementsByClassName('cite');
     for (var i=0,ilen=nodes.length;i<ilen;i++) {
@@ -171,7 +157,7 @@ function installSampler() {
         } else if (e.target.parentNode.classList && e.target.parentNode.classList.contains('cite')) {
             var node = e.target.parentNode;
             itemID = node.id;
-            if (!pageData.htmlCache[pageData.styleID][itemID] || !node.firstChild.nextSibling.classList.contains('cite-details')) {
+            if (!node.firstChild.nextSibling.classList.contains('cite-details')) {
                 clearLastReveal(itemID);
                 worker.postMessage({
                     itemID: itemID,
@@ -181,15 +167,21 @@ function installSampler() {
                 if (node.firstChild.nextSibling.classList.contains('cite-details')) {
                     clearLastReveal(null);
                     selectCite(node, false);
-                } else {
-                    clearLastReveal(itemID);
-                    node.firstChild.nextSibling.innerHTML = pageData.htmlCache[pageData.styleID][itemID];
-                    setTab(node);
-                    node.firstChild.nextSibling.scrollIntoView(pageData.scrollSetting);
-                    node.firstChild.setAttribute('title', 'hide cite forms');
-                    selectCite(node, true);
                 }
             }
         }
     }, false)
 };
+
+window.addEventListener('load', function() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '../items/ic0001.json', true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                installSampler();
+            }
+        }
+    }
+    xhr.send(null);
+});
