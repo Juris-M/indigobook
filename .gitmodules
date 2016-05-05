@@ -3,7 +3,7 @@
 	url = https://github.com/Juris-M/jm-styles.git
 [submodule "locale"]
 	path = locale
-	url = Xhttps://github.com/citation-style-language/locales.git
+	url = https://github.com/citation-style-language/locales.git
 [submodule "octicons"]
 	path = octicons
 	url = https://github.com/github/octicons.git
