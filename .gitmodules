@@ -10,3 +10,4 @@
 [submodule "juris"]
 	path = juris
 	url = https://github.com/Juris-M/style-modules.git
+
