@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Citation style feedback - proof of concept</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+
+<link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Alice' rel='stylesheet' type='text/css'>
+
+<link href='./octicons/octicons/octicons.css' rel='stylesheet' type='text/css'>
+<link href='./css/screen.css' rel='stylesheet' type='text/css'>
+
+<<script src='./js/browser-info.js' type='application/javascript'></script>
+<script src='./js/csl-sampler.js' type='application/javascript'></script>
+	
+<!-- Used to hide the amendment markers dynamically -->
+<script type="text/javascript">	
+	function ItalicRed () 
+	{
+	var matches = document.querySelectorAll("i") ;
+	for (var i = 0; i < matches.length ; i++) {
+		matches[i].style.color = "#DC143C" ; 
+		}
+	}
+	
+	function ItalicNormal ()
+		{
+	var matches = document.querySelectorAll("i") ;
+	for (var i = 0; i < matches.length ; i++) {
+		matches[i].style.color = "" ; 
+		}
+	}
+</script> 	
+
+<style type="text/css">
+	body { word-wrap: break-word ; font-size: 12pt; line-height: 16pt; font-family: 'Libre Baskerville', Georgia, sans-serif;  }
+	h1 { string-set: doctitle content()  }
+	@page {  border: 0; margin-left: .75in; margin-right: .75in; margin-top: .75in; margin-bottom: .75in; widows:2; orphans:2; 
+	@top-right { content: string(doctitle) ;font-family: 'Libre Baskerville', Georgia, serif; font-style: italic ; }
+	@bottom-right { content: "Page " counter(page) ; font-family: 'Libre Baskerville', Georgia, serif; font-style: italic ; }
+	} 
+	@media screen {
+		body { margin: 0px 1.25em 0px 1.25em ; }
+	}
+	div.bc { border: 2px solid #4B0082 ; padding: 10px; 
+	background-color: rgba(75, 0, 130,0.05); 
+	margin-top: 19px; margin-bottom: 6px; page-break-inside: avoid } 
+	div.bc span.head { color: #4B0082 ; font-weight: bold; font-variant: small-caps; }
+	div.bc p { font-size: 12pt; line-height: 16pt; }
+	cite { font-style: normal ; }
+	span.ob { }
+	var { font-family: "Monaco", Courier, monospace ; color:  #4B0082;   font-style: normal; }
+
+	ol { margin-top: 0; font-weight: normal;  padding-top: 0; margin-left: 2em; }
+	ul { margin-top: 0; font-weight: normal;  padding-top: 0; margin-left: 1em; }
+/*	ul.example { margin-top: 0; font-weight: normal;  padding-top: 0; margin-left: 1em; } */
+	li.example-item { margin-left: 2em; }
+
+
+/*
+	ol { margin-top: 0; font-weight: normal;  padding-top: 0; margin-left: 1em; }
+	ul { margin-top: 0; font-weight: normal;  padding-top: 0; margin-left: -2em;  }
+	
+*/
+
+	ul.leaders { padding: 0; margin-left: 16px; margin-top: 9px; overflow-x: hidden; list-style: none; }
+	ul.leaders li { line-height: 14pt; font-size: 12pt; }
+	ul.leaders span:first-child { padding-right: 0.33em; background: white}
+	ul.leaders span + span { float: right; padding-left: 0.33em; background: white; } 
+	li { text-align:left; margin:10px 0 6px 24px; direction:ltr; text-indent: 0; }	
+	ol.rule, ol.rule2, ol.rule3 { counter-reset: list; list-style-type: none ;  }
+	ol.rule span.rule { position: absolute ;   margin-left: -3.5em ; }
+	ol.rule2 span.rule { position: absolute ; margin-left: -4.5em ; }
+	ol.rule3 span.rule { position: absolute ; margin-left: -5.5em ; }
+	ol ul ul { margin-left: -2em ; }
+	ol ul { margin-left: -.5em ; }
+	ol ol ol { margin-left: -2em ; }
+	div.cover { background-color: #442327 ; padding: 50px; vertical-align: middle ;   }
+	div.cover h1 { text-align: center ; color: #dfbb92 ; font-variant: small-caps ; font-size: 21pt; line-height: 32pt; }
+	div.cover .display { font-size: 58pt; font-variant: small-caps ;   }
+	div.cover p.subtitle { text-align: center ; color: #dfbb92; font-size: 18pt ; padding-top: 20px ; padding-bottom: 20px;  }
+	div.cover p.subwarn { text-align: center ; color: #dfbb92; font-size: 12pt; text-transform: uppercase ;  }
+	@media print { 
+		div.cover { position: absolute; height: 11in; margin-left: 0; margin-top: 0; width: 8in; }
+	}
+	@page:first {
+		@top-right { content: normal }
+		@bottom-right { content: normal }
+		margin: 0 ; 
+	}
+	
+	p, li, td, th, .bc { font-family: 'Libre Baskerville', Georgia, serif;  }
+	p { text-align:left; margin:0; direction:ltr; padding-bottom: 9px; color: #000; text-indent: 0; font-size: 12pt ; line-height: 18pt; }
+
+	h1, p.subtitle, p.subwarn { font-family: Alice, Georgia, serif ; }
+	h2, h3 { font-family: 'Libre Baskerville', Georgia, serif; padding-bottom: 5px; margin-bottom: 0px; text-indent: 0px; }
+	h2	{ color: #990000; font-size: 16pt; line-height: 18pt;margin-top: 22px; }
+	h4	{ text-indent: 0; font-size: 14pt ;margin-bottom: 12px; }       
+	h5 { text-indent: 0; font-size: 14pt ; line-height: 16pt;  margin-bottom: 12px; }  
+	h6 { text-indent: 0; font-size: 12pt ; line-height: 16pt;  margin-bottom: 12px; } 
+
+	span.head { page-break-after: avoid; }
+	blockquote p { text-align: justify; }
+	table { width: 100%; border-width:0; border-collapse:collapse; padding:3px; text-align:left; vertical-align:top; margin-bottom:0; margin-top:0; direction:ltr; height:auto; display:table; float:none; margin: 12px 0; font-size: 10pt; line-height: 11pt;}
+	table tr.state td { border-top: 2px solid #990000 ; border-collapse: collapse; color: #990000 ; font-weight: bold ;  }
+	table tr td.indent { padding-left: 3em; }
+	table tr td span.example { margin-left: 3em; display: block ; }
+	tr.state { page-break-after: avoid ; }
+	
+	img { direction:ltr; margin: 0 auto;     
+		display: block;
+	    margin-left: auto;
+	    margin-right: auto; padding-bottom: 5px; padding-top: 5px; }
+ 
+	table { width: 100%; border-width:0; border-collapse:collapse; padding:3px; text-align:left; vertical-align:top; margin-bottom:0; margin-top:0; direction:ltr; height:auto; display:table; float:none; margin: 12px 0; font-size: 10pt; line-height: 11pt;}
+	tbody { vertical-align:top; height:auto; }
+	tr { vertical-align:top; height:auto }
+	td { text-align:left; vertical-align:top; padding: 5px; border-bottom: 1px solid #ccc;  text-indent: 0; }
+	td p { font-size: 10pt; line-height: 11pt; }
+	th {  text-align: left; vertical-align: bottom; background-color: #eee; padding: 5px; text-indent: 0; }
+	table.line { width: 100%; border-width:0; border-collapse:collapse; padding:3px; text-align:left; vertical-align:top; margin-bottom:0; margin-top:0; direction:ltr; height:auto; display:table; float:none; margin: 12px 0; font-size: 10pt; line-height: 11pt; }
+	table.line, table.line th, table.line td, table.line tr { border: 1px solid #ccc; }
+	table.line { border-collapse: collapse; }
+
+	caption { padding-bottom: 12px; padding-top: 16px; font-weight: bold; color: #900; text-align: center; text-indent: 0; }
+	a.no { color: black ; text-decoration: none ; }
+	a { font-style:normal; font-weight:normal; color: #900;  }
+
+       
+	main, nav { display: block ; }
+	.offscreen {
+		 position: absolute;
+		 width: 1px;
+		 height: 1px;
+		 margin: -1px;
+		 padding: 0;
+		 overflow: hidden;
+		 clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	     clip: rect(1px, 1px, 1px, 1px);
+		 border: 0;
+	}
+	:focus.offscreen {
+		 width: auto;
+		 height: auto;
+		 margin: 0;
+		 overflow: auto;
+		 clip: auto;
+		 display: block;
+		 background: #eee;
+		 color: #000;
+		 text-decoration: underline; 
+		 padding: 1em;
+	}
+	div.offscreen h2 { prince-bookmark-level: none }
+
+	input { width: 100%}
+	legend { border: none; }
+	.field-set{
+    	border-color:#fff;
+	    border-style: none;
+    	font-weight: bold;
+	    margin: 0;
+    	padding: 0;
+	}
+	svg.scale {width: 100%; height: auto;}
+	svg.centered { margin-left: auto; margin-right: auto; display: block; }
+	span.am { color: #990000 ; padding-left: 5px; padding-right: 5px ; font-size: smaller ; font-weight: bold }
+	sup { font-size: smaller; }
+	sub { font-size: smaller; }
+
+	.page-break { page-break-before: always; }
+	.header { width: 100%; text-align: center; line-height: 16pt; }
+	i a, .italics a, blockquote p a { font-family: 'Libre Baskerville'; font-style: italic; }
+	.center { text-align: center; }
+
+    /* For this demo */
+
+	dt {
+        font-weight: bold !important;
+    }
+    dd + dt {
+        margin-top: 1em;
+    }
+
+</style>
+
+	<meta name="author" content="Sprigram et. anon. al." />
+	<meta name="title" content="The Indigo Book: A Manual of Legal Citation" />
+	<meta name="date" content="April 8, 2016" />
+	<meta name="description" content="An open implementation of a system of legal citation." />
+	<meta name="keywords" content="citation, bluebook, legal, law" />
+	<meta name="language" content="English"> 
+	<meta name="generator" content="Public.Resource.Org" />
+
+</head>
+<body>
+<div class="offscreen" role="navigation">
+<h2>Skip Links</h2>
+	<ul>
+		<li><a href="#toc">Skip to Table of Contents</a></li>
+		<li><a href="#sForeword">Skip to Main Content</a></li>
+	</ul>
+</div>
+
+<div class="cover">
+<h1><span class="display" style="font-size: 200%;">Citation Style Maintenance Demo</span></h1>
+</div>
+
+
+<hr/>
+
+<h3 id="mPurpose">Project Overview</h3>
+<p>
+  A legal citation style must cast cites that are compact, readily
+  spotted on the page, and unambiguous. Given the complexity and
+  expanding variety of legal resources, even <i>preparing</i> for
+  editorial discussion by identifying and marshalling potential issues
+  is a daunting task. This page demonstrates a tool for easing this
+  threhold burden of style maintenance.
+</p>
+<p>
+  Style manuals are built around large sets of illustrative
+  citations. We leverage these in several ways here to support
+  effective feedback, using the power of CSL and an "issue tracker"
+  developed for collaborative management of software projects.
+  The primary features illustrated are the following:
+</p>
+<blockquote>
+<dl>
+  <dt>Extended examples</dt>
+  <dd>
+    Clicking on an icon opens a popup display of the eight possible
+    permutations that a citation can have in document context. This by
+    itself is a big win for completeness; a shortcoming of many
+    complex guides is that they provide insufficient guidance on the
+    formatting of back-references to some citation forms. Providing
+    clear examples for all use cases fosters better discussion of
+    alternatives.
+  </dd>
+  <dt>GitHub issue tracker integration</dt>
+  <dd>
+    A button in the popup opens to a GitHub login. The content of the
+    style guide itself needn&rsquo;t be managed in GitHub: this page
+    interacts only with the GH issue tracker. Clicking on
+    &ldquo;Submit&rdquo; captures a user&rsquo;s comment as (in
+    effect) a structured bug report, to be reviewed at leisure by
+    contributing editors.
+  </dd>
+  <dt>Editing of examples</dt>
+  <dd>
+    After login, the text of all examples displayed in the popup are
+    opened for editing, to be saved together with the user&rsquo;s
+    comment. A picture is worth a thousand words: capturing the
+    concrete effects of a proposal eliminates ambiguity and the
+    back-and-forth of supplementary explanation.
+  </dd>
+  <dt>Tagging of entries</dt>
+  <dd>
+    To marshal a potentially large volume of feedback, submitted
+    issues are tagged for the rule, table, or section in which
+    the commented example appears.
+  </dd>
+  <dt>Discussion in the GitHub issue tracker</dt>
+  <dd>
+    Once submitted, issues can be picked up by contributing editors as
+    time permits. The GH tracker supports cross-linking of duplicate
+    and related issues, and the original commenter(s) are tied into
+    discussions by automated email notification. Editorial decisions
+    can tagged for disposition, and archived on closure for future
+    reference.
+  </dd>
+</dl>
+</blockquote>
+
+<hr/>
+
+<main>
+
+<h2 style="page-break-before: always;" id="manifest">Demo</h2>
+
+
+<h3 id="R11">R11. Full citation</h3>
+
+<ol class="rule">
+<li id="R11.1"><span class="rule" role="heading" aria-level="4">R11.1.</span> Elements of a full citation. When providing a full citation to a case, you should generally include the following:
+
+	<ol>
+	<li>case name;</li>
+	<li>volume number, reporter, first page;</li>
+	<li>pincite (the exact page number you are referring to, if necessary);</li>
+	<li>court, year (see special instructions below for pending and unreported cases);</li>
+	<li>explanatory parenthetical (if necessary);</li>
+	<li>prior or subsequent history of the case (if any).</li>
+	</ol>
+
+	<p><b>Examples:</b></p> 
+
+			<ul>
+				<li><i>Leonard v. Pepsico, Inc.</i>, 88 F. Supp. 2d 116, 127 (S.D.N.Y. 1999) (“Plaintiff’s understanding of the commercial as an offer must also be rejected because the Court finds that no objective person could reasonably have concluded that the commercial actually offered consumers a Harrier Jet.”), <i>aff’d</i>, 210 F.3d 88 (2d Cir. 2000).</li>
+				<li><i>Toolson v. N.Y. Yankees, Inc.</i>, 346 U.S. 356 (1953) (per curiam) (affirming baseball’s exemption from the scope of federal antitrust laws).</li>
+			</ul></li>
+
+
+<li id="R11.2"><span class="rule" role="heading" aria-level="4">R11.2.</span> Case Name. Case names are often lengthy. Therefore when citing to a case, do not always include the case name in full. 
+
+	<ol class="rule2">
+	<li id="R11.2.1"><span class="rule" role="heading" aria-level="5">R11.2.1.</span> <p>When referring to a case with an individual’s name in the case name, use the person’s full <span class="ob">family name</span> (i.e., their last name). Delete first name and initials, except when the full name of the person is in a language that lists the surname first, or when referring to the name of a business or where the court has abbreviated the party’s surname.</p>
+
+		<p>
+		<b>Example:</b> <i>Van Leeuwen v. Souto de Moura</i>
+		</p>
+
+		<p>
+		<b>Example:</b> <i>James T. Kirk &amp; Assocs. v. Luke S.</i>
+		</p>
+
+		<p>
+		<b>Correct:</b>  <i>Smith v. Jones</i><br />
+		<b>Incorrect:</b> <i>Jonathan H. Smith v. Allison T. Jones</i>
+		</p>
+
+		<p>
+		<b>Correct:</b> <i>Xu Lanting v. Wong</i><br />
+		<b>Incorrect:</b> <i>Xu Lanting v. James Wong</i>
+		</p>
+		</li>
+
+	<li id="R11.2.2"><span class="rule" role="heading" aria-level="5">R11.2.2.</span> Only include the last name of the first listed party of the plaintiffs and the first listed party of the defendants.</li>
+	<li id="R11.2.3"><span class="rule" role="heading" aria-level="5">R11.2.3.</span> Italicize everything in the case name, but don’t italicize the comma at the end of the case name. Exception for law review articles: <i>do not</i> italicize case names in law review full citations, but <i>do</i> italicize case names in law review article short form citations and procedural phrases such as “<i>In re.</i>”</li>
+	<li id="R11.2.4"><span class="rule" role="heading" aria-level="5">R11.2.4.</span> <p>Delete “et al.”, nicknames, and aliases.</p>
+
+		<p>
+		<b>Correct:</b> <i>Jackson v. Leviston</i><br />
+		<b>Incorrect:</b> <i>Curtis James Jackson III, p/k/a 50 Cent v. Lastonia Leviston</i>
+		</p>
+
+	<li id="R11.2.5"><span class="rule" role="heading" aria-level="5">R11.2.5.</span> Replace <span class="ob">procedural phrases, and omit all besides the first procedural phrase.</span>
+
+		<ol>
+		<li><p>When you see <span class="ob">“on the relation of,” “on behalf of,” and similar expressions</span>, replace with “<i>ex rel.</i>” </p>
+
+			<p>
+			<b>Correct:</b> <i>Affleck ex rel. Damon v. Kimmel</i><br />
+			<b>Incorrect:</b> <i>Ben Affleck, on behalf of Matt Damon v. Jimmy Kimmel, et al.</i>
+			</p></li>
+
+		<li><p>When you see <span class="ob">“in the matter of,” “petition of,” and similar expressions</span>, replace with “<i>In re</i>”, except do not use “<i>In re</i>”, or any procedural phrases besides “<i>ex rel.</i>” when the case name contains the name of an adversary.</p>
+
+			<p>
+			<b>Correct:</b> <i>In re Nat’l Football League Players’ Concussion Injury Litig.</i><br />
+			<b>Incorrect:</b> <i>In the Matter of Nat’l Football League Players’ Concussion Injury Litig.</i>
+			</p>
+
+			<p>
+			<b>Correct:</b> <i>Estate of Jones v. Smith</i><br />
+			<b>Incorrect:</b> <i>In re Estate of Jones v. Smith</i>
+			</p></li></ol></li>
+
+	<li id="R11.2.6"><span class="rule" role="heading" aria-level="5">R11.2.6.</span> <p>Abbreviate words in case names according to <a href="#T11">Table T11</a>. If the resulting abbreviation is not ambiguous, words of eight or more letters may be abbreviated to save <span class="ob">substantial space</span>. Also omit terms such as “L.L.C.” and “Inc.” that indicate the party is a business when that fact is made clear because the party name includes a word such as “Co.” or “Ins.”</p>
+
+			<p>
+			<b>Correct:</b> <i>Cont’l Paper Bag Co. v. E. Paper Bag Co.</i><br />
+			<b>Incorrect:</b> <i>Continental Paper Bag Company v. Eastern Paper Bag Co.</i>
+			</p>
+
+			<p>
+			<b>Exception:</b> do not abbreviate if <span class="ob">the citation appears in a textual sentence as explained in <a href="#R11.2.19">Rule 11.2.19</a>, below</span>
+			</p></li>
+
+	<li id="R11.2.7"><span class="rule" role="heading" aria-level="5">R11.2.7.</span> <p>Abbreviate countries, states, and <span class="ob">other geographical</span> places according to <a href="#T12">Table T12</a>.</p>
+
+			<p>
+			<b>Correct:</b> <i>Church of Scientology of Cal. v. Blackman</i><br />
+			<b>Incorrect:</b> <i>Church of Scientology of California v. Blackman</i>
+			</p>
+
+			<p>
+			<b>Exception:</b> if the geographical place is one of the parties in the case, do not abbreviate it
+			</p>
+
+			<p>
+			<b>Correct:</b> <i>South Dakota v. Fifteen Impounded Cats</i><br />
+			<b>Incorrect:</b> <i>S.D. v. Fifteen Impounded Cats</i>
+			</p>
+
+			<p>
+			<b>Exception:</b> do not abbreviate if <span class="ob">the geographical place is part of a citation that appears in a textual sentence as explained in <a href="#R11.2.19">Rule 11.2.19</a>, below</span>
+			</p></li>
+
+	<li id="R11.2.8"><span class="rule" role="heading" aria-level="5">R11.2.8.</span> <p>Spell out “United States” <span class="ob">when it is a named party.</span></p>
+
+			<p>
+			<b>Correct:</b> <i>United States v. Ninety Five Barrels, More or Less</i><br />
+			<b>Incorrect:</b> <i>U.S. v. Ninety Five Barrels, More or Less</i>
+			</p></li>
+
+	<li id="R11.2.9"><span class="rule" role="heading" aria-level="5">R11.2.9.</span> <p>Omit “People of,” “State of,” and “Commonwealth of,” unless citing a court located in that state, in which case retain only “People,” “State,” or “Commonwealth.”</p>
+
+			<p>
+			<b>Correct:</b> <span id="ic0001" class="cite"><i>Lessig v. Colorado</i>, 17 U.S. 107 (1998).</span><br />
+			<b>Incorrect:</b> <i>Lessig v. State of Colorado</i>, 17 U.S. 107 (1998).
+			</p>
+
+			<p>
+			<b>Correct:</b> <span id="ic0002" class="cite"><i>Lessig v. State</i>, 109 P.3d 224 (Colo. 1997).</span><br />
+			<b>Incorrect:</b> <i>Lessig v. State of Colorado</i>, 109 P.3d 224 (Colo. 1997).
+			</p></li>
+
+	<li id="R11.2.10"><span class="rule" role="heading" aria-level="5">R11.2.10.</span> <p>Omit phrases such as “Town of” and “City of” if the expression does not comprise the first part of the name of a party.</p>
+
+			<p>
+			<b>Correct:</b> <i>James v. Village of Jamestown</i><br />
+			<b>Incorrect:</b> <i>James v. Jamestown</i><br />
+			</p>
+
+			<p>
+			<b>Correct:</b> <i>James v. King of Jamestown</i><br />
+			<b>Incorrect:</b> <i>James v. King of the Village of Jamestown</i>
+			</p></li>
+
+	<li id="R11.2.11"><span class="rule" role="heading" aria-level="5">R11.2.11.</span> <p>Do not include a prepositional phrase indicating location, unless the resulting party name would have only one word, or the phrase is part of a business’ full name.</p>
+
+			<p>
+			<b>Correct:</b> <i>Stevenson v. Board of Trade</i><br />
+			<b>Incorrect:</b> <i>Stevenson v. Board of Trade of Colorado</i>
+			</p>
+
+			<p>
+			<b>Correct:</b> <i>ACLU of N.D. v. Jones</i><br />
+			<b>Incorrect:</b> <i>ACLU v. Jones</i>
+            </p>
+
+			<p>
+			<b>Correct:</b> <i>Dam Things from Denmark v. Russ Berrie &amp; Co.</i><br />
+			<b>Incorrect:</b> <i>Dam Things v. Russ Berrie &amp; Co.</i>
+			</p></li>
+
+
+	<li id="R11.2.12"><span class="rule" role="heading" aria-level="5">R11.2.12.</span> <p>Include <span class="ob">geographical designations introduced by a preposition</span>, but omit those that <span class="ob">follow a comma.</span> Use “United States” instead of “United States of America,” but otherwise omit <span class="ob">designations of national or larger geographical areas.</span></p>
+
+			<p>
+			<b>Correct:</b> <i>Cal. Bd. of Commerce v. City of Sacramento</i><br />
+			<b>Incorrect:</b> <i>Cal. Bd. of Commerce v. City of Sacramento, California</i>
+			</p></li>
+
+
+	<li id="R11.2.13"><span class="rule" role="heading" aria-level="5">R11.2.13.</span> <p>Delete “the” as the first word of a party’s name, unless the party is “<i>The Queen</i>” or the “<i>The King</i>,” or when referring to the <span class="ob">established popular name in a citation or citation clause.</span></p>
+
+
+			<p>
+			<b>Example:</b> <i>The Railroad Comm’n Cases</i>
+			</p>
+
+			<p>
+			<b>Correct:</b> <i>Int’l Soc’y for Krishna Consciousness of Cal., Inc. v. City of Los Angeles</i><br />
+			<b>Incorrect:</b> <i>Int’l Soc’y for Krishna Consciousness of Cal., Inc. v. The City of Los Angeles</i>
+			</p>
+
+			<p>
+			<b>Exception:</b> retain “the” if it is <span class="ob">part of the name of the object of an <i>in rem</i> action.</span>
+			</p>
+
+			<p>
+			<b>Correct:</b> <i>In re the Snug Harbor</i><br />
+			<b>Incorrect:</b> <i>In re Snug Harbor</i>
+			</p></li>
+
+	<li id="R11.2.14"><span class="rule" role="heading" aria-level="5">R11.2.14.</span> The Commissioner of Internal Revenue should be cited as “Commissioner” (abbreviated as “Comm’r” in citations).
+
+			<p>
+			<b>Correct:</b> <i>Plainfield-Union Water Co. v. Comm’r</i><br />
+			<b>Incorrect:</b> <i>Plainfield-Union Water Co. v. Commissioner of Internal Revenue</i>
+			</p></li>
+
+	<li id="R11.2.15"><span class="rule" role="heading" aria-level="5">R11.2.15.</span> <p>For cases <span class="ob">with multiple dispositions</span>, include an italicized identifier if useful. In future citations of that case, the identifier can replace the full case name.</p>
+
+			<p><b>Example:</b> <i>Liriano v. Hobart Corp. </i>(<i>Liriano II</i>), 92 N.Y.2d 232 (1998).</p>
+
+			<p>
+			<b style="visibility:hidden;">Example:</b> <i>Liriano v. Hobart Corp. </i>(<i>Liraino III</i>), 170 F.3d 264, 266 (2d Cir. 1999) (citing <i>Liriano II</i>, 92 N.Y.2d at 236–37).
+			</p></li>
+		
+	<li id="R11.2.16"><span class="rule" role="heading" aria-level="5">R11.2.16.</span> <p>If a mandamus action is known by the <span class="ob">name of the judge against whom the writ is sought</span>, that name can be indicated in an italicized parenthetical. </p>
+
+			<p><b>Example:</b> <i>Jones v. United States District Court (Smith)</i>, 89 U.S. 233 (2011).</p></li>
+
+	<li id="R11.2.17"><span class="rule" role="heading" aria-level="5">R11.2.17.</span> <p>If a case is known both by the reported name and a distinct short form name, always include the reported name in a full citation. The short name may be included in italics in a parenthetical.</p>
+
+			<p>
+			<b>Example:</b> <i>Indus. Union Dep’t, AFL-CIO v. Am. Petroleum Inst. (The Benzene Case)</i>, 448 U.S. 607, 645 (1980).
+			</p></li>
+
+	<li id="R11.2.18"><span class="rule" role="heading" aria-level="5">R11.2.18.</span> <p>Abbreviate any commonly recognized organizations, such as the SEC and the ACLU.</p>
+
+			<p>
+			<b>Correct:</b> <i>Red Lion Broad. Co. v. FCC</i>, 395 U.S. 367 (1969).<br />
+			<b>Incorrect:</b> <i>Red Lion Broad. Co. v. Federal Communications  Commission</i>, 395 U.S. 367 (1969).
+			</p></li>
+
+	<li id="R11.2.19"><span class="rule" role="heading" aria-level="5">R11.2.19.</span> <p>If you’re including the case name within a sentence (instead of a citation sentence or clause or a footnote) do NOT abbreviate words listed in the tables referenced in <a href="#R11.2.6">Rule 11.2.6</a> and <a href="#R11.2.7">Rule 11.2.7</a> above.</p>
+
+			<p>
+			<b>Correct:</b> According to <i>Texas Department of Community Affairs v. Burdine</i>, once the plaintiff has established a <i>prima facie</i> case, there is a rebuttable presumption of unlawful discrimination. 450 U.S. 248, 254 (1981).<br />
+			<b>Incorrect:</b> According to <i>Texas Dep’t of Cmty. Affairs v. Burdine</i>, once the plaintiff has established a <i>prima facie</i> case, there is a rebuttable presumption of unlawful discrimination. 450 U.S. 248, 254 (1981).
+			</p>
+
+			<p>
+			<b>Exception:</b> Shorten well<span class="ob">-known acronyms and</span> the following <span class="ob">eight words: “&amp;,” “Ass’n,” “Bros.,” “Co.,” “Corp.,” “Inc.,” “Ltd.,” and “No.”</span>
+			</p>
+
+			<p>
+			<b>Correct:</b> In <i>McDonnell Douglas Corp. v. Green</i>, the Supreme Court held that in a disparate treatment case, the plaintiff bears the initial burden of establishing a <i>prima facie</i> case of employment discrimination. 411 U.S. 792 (1973).<br />
+			<b>Incorrect:</b> In <i>McDonnell Douglas Corporation v. Green</i>, the Supreme Court held that in a disparate treatment case, the plaintiff bears the initial burden of establishing a <i>prima facie</i> case of employment discrimination. 411 U.S. 792 (1973).
+			</p></li>
+</ol></li></ol>
+
+
+<ol class="rule" start="3">
+<li id="R11.3"><span class="rule" role="heading" aria-level="4">R11.3.</span> Volume Number, Reporter, First page. The citation should include: volume number of the reporter, abbreviated name of the reporter (listed by jurisdiction in accordance with <a href="#T1">Table T1</a>), first page of the case.
+
+	<ul>
+	<li><b>Example:</b> <i>Terrible v. Terrible</i>, 534 P.2d 919 (Nev. 1975) (denying ex-husband’s petition to split up property he and ex-wife owned as tenants in common).</li>
+	</ul>
+
+	<p>This is how you decode case citations. The left column shows what your citation should look like. The right column shows what the citation means for someone looking for the case.</p>
+</li></ol>
+
+
+<table class="line nowidth">
+	<thead>
+	<tr><th>Citation</th><th>Reporter</th></tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><i>Demosthenes v. Baal</i>, 495 U.S. 731 (1990).</td>
+			<td>Vol. 495, p. 731 of United States Reports</td>
+		</tr>
+		<tr>
+			<td><i>United States v. $124,570 U.S. Currency</i>, 873 F.2d 1240 (9th Cir. 1989).</td>
+			<td>Vol. 873, p. 1240 of Federal Reporter, Second Series</td>
+		</tr>
+		<tr>
+			<td>
+				<i>Gucci America, Inc. v. Guess?, Inc.</i>, 831 F. Supp. 2d 723 (S.D.N.Y. 2011).
+			</td>
+			<td>
+				Vol. 831, p. 723 of Federal Supplement, Second Series
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<i>Hamburger v. Fry</i>, 338 P.2d 1088 (Okla. 1958).
+			</td>
+			<td>
+				Vol. 338, p. 1088 of Pacific Reporter, Second Series
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<i>Camp v. Superman</i>, 119 Vt. 62 (1955).
+			</td>
+			<td> Vol. 119, p. 62 of Vermont Reports </td>
+		</tr>
+	</tbody>
+</table>
+
+<ol class="rule" start="4">
+	<li id="R11.4"><span class="rule" role="heading" aria-level="4">R11.4.</span> Pincite. To direct the reader to the specific page you are referring to, you must include a <b>pincite</b> after you list the first page where the case is found in the reporter. If the pincite is the first page of the opinion, be sure to still include it by just repeating the number.
+
+	<ul>
+	<li><b>Example:</b> <i>Mattel, Inc. v. MCA Records, Inc.</i>, 296 F.3d 894, 908 (9th Cir. 2002) (“The parties are advised to chill.”)</li>
+	<li><b>Example:</b> <i>Brown v. State</i>, 216 S.E.2d 356, 356 (Ga. Ct. App. 1975) (“The D. A. was ready. His case was red-hot. Defendant was present, His witness was not.”).</li>
+	</ul></li>
+</ol>
+
+
+
+<ol class="rule" start="5">
+	<li id="R11.5"><span class="rule" role="heading" aria-level="4">R11.5.</span> Pincite referencing multiple pages or a page range:
+
+	<ol>
+	<li>Multiple pages: <i>Gordon v. Secretary of State of New Jersey</i>, 460 F. Supp. 1026, 1026, 1028 (D.N.J. 1978) (dismissing a complaint charging that plaintiff, by reason of his illegal incarceration in jail, had been deprived of the office of the President of the United States).</li>
+	<li>Page range:  <i>Helton v. State</i>, 311 So. 2d 381, 382–84 (Fla. Dist. Ct. App. 1975) (reciting the prosecutor’s closing arguments in a parody of “<i>’Twas the Night Before Christmas</i>”). </li>
+	<li><i>Passim.</i> If your proposition appears in many locations in the opinion, or if you are referring to a general idea that pervades a source, feel free to append the word <i>“passim”</i> instead of a pincite. </li>
+	</ol>
+
+	<ul>
+	<li><b>Example:</b> Anyone alive in the eighteenth century would have known that the problem of determining a ship’s longitude at sea was one of the most prominent scientific quests of the day. Dava Sobel, <i>Longitude: The True Story of a Lone Genius Who Solved the Greatest Scientific Problem of His Time passim</i> (1995).</li>
+	</ul></li>
+</ol>
+
+
+
+<ul>
+	<li><b>Example:</b> <i>Selmon v. Hasbro Bradley, Inc.</i>, 669 F. Supp. 1267, 1272-73 (S.D.N.Y. 1987) (comparing a “Leo-Lamo” (a hybrid lion/lamb animal character) to a “Bumblelion” (a hybrid bumblebee/lion toy animal) in the context of a copyright infringement claim). </li>
+</ul>
+
+
+
+
+<ol class="rule" start="6">
+<li id="R11.6"><span class="rule" role="heading" aria-level="4">R11.6.</span> Citing a footnote. <span class="ob">To cite a footnote,</span> provide a page number followed immediately with a footnote number, using “n.” to show footnote number. There is <span class="ob">no space between “n.” and the footnote number:</span>
+
+	<ul>
+	<li><b>Example:</b> <i>Davis v. City of New York</i>, 902 F. Supp. 2d 405, 412 n.22 (S.D.N.Y. 2012) (describing how Jay-Z “showcased his knowledge of these Fourth Amendment rights” in his song <i>99 Problems</i>).</li>
+	</ul></li>
+
+</ol>
+
+<h3 id="R12">R12. Court &amp; Year</h3>
+
+	<ol class="rule">
+	<li id="R12.1"><span class="rule" role="heading" aria-level="4">R12.1.</span> Citations should include both <span class="ob">the deciding court </span> and the <span class="ob">year of decision</span> in parentheses.</li>
+	<li id="R12.2"><span class="rule" role="heading" aria-level="4">R12.2.</span> See <a href="#T1">Table T1</a> for how to abbreviate the names of all U.S. federal and state courts. </li>
+
+</ol>
+
+<p>
+	See the chart below for common examples:
+</p>
+
+<table class="line nowidth">
+<thead>
+<tr><th>Court</th><th>Rule</th><th>Example</th></tr>
+</thead>
+	<tbody>
+
+
+		<tr>
+			<td><p>United States Supreme Court</p></td>
+			<td>
+			<p>Use U.S. if the opinion is published in the <span class="ob">United States Reports.</span> If not, <span class="ob"></span>use S. Ct.</p>
+			<p>***When citing to a Supreme Court decision, just cite the year and omit the court’s name.</p>
+			</td>
+			<td>
+			<p><i>Two Pesos, Inc. v. Taco Cabana, Inc.</i>, 505 U.S. 763 (1992).</p>
+			<p><i>Brown v. Entm’t Merchs. Ass’n</i>, 131 S. Ct. 2729, 2738 (2011) (noting that Justice Alito has done “considerable independent research” on violent video games for his dissent).</p>
+			</td>
+		</tr>
+		<tr>
+			<td><p>Federal Courts of Appeals</p></td>
+			<td><p>Either F., F.2d, or F.3d, depending on the decision. </p></td>
+			<td>
+			<p><i>Batman v. Commissioner</i>, 189 F.2d 107 (5th Cir. 1951).</p>
+			<p><i>Nance v. United States</i>, 299 F.2d 122, 124 (D.C. Cir. 1962) (“How do you know it was me, when I had a handkerchief over my face?”).</p>
+			</td>
+		</tr>
+		<tr>
+			<td><p>Federal District Courts</p></td>
+			<td><p>Either F. Supp. or F. Supp. 2d depending on the decision.</p></td>
+			<td>
+			<p><i>Frigaliment Importing Co. v. B.N.S. International Sales Corp.</i>, 190 F. Supp. 116, 117 (S.D.N.Y. 1960) (“The issue is, what is chicken?”).</p>
+			<p><i>Cartier v. Aaron Faber Inc.</i>, 512 F. Supp. 2d 165 (S.D.N.Y. 2007).</p>
+			</td>
+		</tr>
+		<tr>
+			<td><p>State High Courts</p></td>
+			<td>
+			<p><span class="ob">Cite to the regional reporter for the region in which the court sits, if the opinion appears</span> there. If not, <span class="ob">cite to the state’s official reporter, as listed in</span> <a href="#T1">Table T1</a>. </p>
+			<p>Note: If citing an official reporter that publishes only decisions of the state’s highest court (e.g., “Cal.” for the California Supreme Court’s reporter), do not include the court’s name in parentheses. </p>
+			</td>
+			<td>
+		<p><i>Terrible v. Terrible</i>, 534 P.2d 919 (Nev. 1975). </p>
+		<p><i>State v. One 1970 2-Door Sedan Rambler</i>, 136 N.W. 59 (Neb. 1974).</p>
+			</td>
+		</tr>
+		<tr>
+			<td><p>Other State Courts</p></td>
+			<td>
+			<p><span class="ob">Cite to the regional reporter for the region in which the court sits, if the opinion appears</span> there. If not, <span class="ob">cite to the state’s official reporter</span> in <a href="#T1">Table T1</a>.</p>
+			<p>Note: Do <b>NOT</b> include the <span class="ob">department or district of intermediate state courts.</span></p>
+	</td>
+			<td>
+			<p><i>Brown v. Swindell</i>, 198 So. 2d 432, 434 (La. Ct. App. 1967) (holding plaintiff could not recover damages for emotional distress allegedly due to embarrassment of owning a three-legged dog).</p>
+			<p><i>State v. Stroud</i>, 30 Wash. App. 392 (1981).</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<ol class="rule" start="3">
+
+<li id="R12.3"><span class="rule" role="heading" aria-level="4">R12.3.</span> Parallel Citation in State Court Documents
+
+	<ol class="rule2">
+	<li id="R12.3.1"><span class="rule" role="heading" aria-level="5">R12.3.1.</span> When submitting documents to state courts, follow the local rules for citations in <a href="#T3">Table T3</a>. </li>
+	<li id="R12.3.2"><span class="rule" role="heading" aria-level="5">R12.3.2.</span> State courts’ local rules <span class="ob">often require</span> a parallel citation: i.e., a citation to both <span class="ob">the official state reporter <i>and</i> the unofficial regional and/or state-specific reporter,</span> the latter following the former.</li>
+	<li id="R12.3.3"><span class="rule" role="heading" aria-level="5">R12.3.3.</span> Two important notes:
+
+		<ul>
+		<li>Use one pincite per <span class="ob">reporter citation.</span></li>
+		<li>When the <span class="ob">official reporter title</span> makes the state or court name apparent, then don’t include it again in parentheses. </li>
+		<li><b>Example:</b> <i>Harden v. Playboy Enterprises, Inc.</i>, 261 Ill. App. 3d 443, 633 N.E.2d 764 (1993).</li>
+		</ul></li>
+
+
+	</ol></li>
+
+<li id="R12.4"><span class="rule" role="heading" aria-level="4">R12.4.</span> Special Note on <span class="ob">Pending and Unreported Cases:</span> Some cases or opinions are not assigned to reporters. They generally can be found in one of the following three sources:
+
+	<ol class="rule2">
+	<li id="R12.4.1"><span class="rule" role="heading" aria-level="5">R12.4.1.</span> 
+		<p><b>LEXIS and Westlaw cases:</b> Citations to these electronic databases are similar to regular citations, except that they (a) replace the case code with a docket number <i>and</i> a database code supplied by LEXIS or Westlaw, and (b) include the full date of the decision in the following parenthetical, not just the year.</p>
+		<p>Citations to these electronic databases should be formatted as follows: <span class="ob"><var>&lt;Case Name&gt;</var>, <var>&lt;case docket number&gt;</var>, <var>&lt;database identifier and electronic report number&gt;</var>, at *<var>&lt;star page number&gt;</var> <var>&lt;(court, full date)&gt;</var>.</span></p>
+	
+		<ul>
+		<li><b>Example:</b> <i>Yates v. United States</i>, No. 13–7451, 2015 U.S. LEXIS 1503, at *40 (Feb. 25, 2015) (Citing Dr. Seuss, Justice Kagan explained, “[a] fish is, of course, a discrete thing that possesses physical form.”). </li>
+		<li><b>Example:</b> <i>State v. Green</i>, No. 2012AP1475–CR, 2013 WL 5811261, at *7 (Wis. Ct. App. Oct. 30, 2013) (rejecting Green’s argument that there was a reversible error due to bailiff’s distribution of leftover Halloween candy to the jury).</li>
+		</ul>
+	</li>
+	<li id="R12.4.2"><span class="rule" role="heading" aria-level="5">R12.4.2.</span> Slip opinions: A slip opinion is a published decision by a court that has not yet been included in a reporter. If there is a slip opinion for an unreported case, but it’s not in LEXIS or Westlaw, include <span class="ob">the docket number, the court, and the full date of the most recent major disposition of the case</span>:
+
+		<ul>
+		<li><b>Example:</b> <i>Beastie Boys v. Monster Energy Co.</i>, No. 12 Civ. 6065 (S.D.N.Y. Dec. 4, 2014).</li>
+		</ul></li>
+	<li id="R12.4.3"><span class="rule" role="heading" aria-level="5">R12.4.3.</span> <span class="ob">Opinions only available online, but not in an electronic database: Some cases, particularly ones that are pending,</span> may <span class="ob">be accessed</span> only <span class="ob">through a court’s website</span>. If so, include the URL.
+
+		<ul>
+		<li><b>Example:</b> <i>Macy’s Inc. v. Martha Stewart Living Omnimedia, Inc.</i>, No. 1728, slip op. at 1 (N.Y. App. Div. Feb. 26, 2015), <a class="no" href="http://www.nycourts.gov/reporter/3dseries/2015/2015_01728.htm">http://www.nycourts.gov/reporter/3dseries/2015/2015_01728.htm</a>.</li>
+		</ul></li>
+		
+	<li id="R12.4.4"><span class="rule" role="heading" aria-level="5">R12.4.4.</span> Different courts and publishers use different acronyms to identify civil and criminal docket numbers (e.g., CIV-A, Civ. A., Civ., No., etc.). Cite to the case docket number exactly as it appears. If a case has more than one docket number, these acronyms do not need to be included after the first reference:
+		<ul>
+		<li><b>Example:</b> <i>In re Salomon Inc. Sec. Litig.</i>, Nos. 91 Civ. 5442 (RPP), 91 Civ. 5471, 1992 WL 150762 (S.D.N.Y. Nov. 13, 1992).</li>
+		</ul></li>
+	
+	</ol></li>
+
+</ol>
+
+<hr/>
+
+<h3 id="mPublisher">Attribution and License</h3>
+<p>This file makes use of text and styling from <a href=""
+
+is a truncated and modified version of text originally published by Public.Resource.Org with the following notice:</p>
+<blockquote>This file was published by Public.Resource.Org, Inc., (“Public Resource”) a California nonprofit corporation registered under I.R.C. § 501(c)(3). Contact information for Public Resource is at <a href="https://public.resource.org/about/">https://public.resource.org/about/</a>.</p>
+<p>Public Resource does not charge for or restrict access to any materials we post. This document is published under a <a href="https://creativecommons.org/about/cc0">CC-0 public domain dedication</a>—“No Rights Reserved” and we waive all copyright and related rights in this work.
+<p style="text-align: center;">
+<svg version="1.1" id="f22" aria-labelledby="f22.title" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="124px" viewBox="-0.5 -0.101 88 31" enable-background="new -0.5 -0.101 88 31" xml:space="preserve">
+	 <title id="f22.title">CC-Zero Stamp: No Rights Reserved</title>
+<g> <path fill="#FFFFFF" d="M1.803,0.482L84.93,0.631c1.161,0,2.198-0.173,2.198,2.333L87.025,30.52h-87.32V2.862 C-0.295,1.626-0.177,0.482,1.803,0.482z"/> <g> <ellipse fill="#FFFFFF" cx="13.887" cy="15.502" rx="11.101" ry="11.174"/> </g> <path d="M23.271,4.061c3.484,2.592,5.754,6.744,5.755,11.44c-0.001,4.272-1.88,8.095-4.842,10.705h62.853V4.061H23.271z"/> <g> <path fill="#FFFFFF" d="M35.739,7.559c0.392,0,0.728,0.059,1.002,0.173c0.276,0.116,0.5,0.268,0.674,0.456 c0.173,0.189,0.299,0.405,0.379,0.647c0.079,0.242,0.118,0.494,0.118,0.753c0,0.253-0.039,0.503-0.118,0.749 c-0.08,0.244-0.206,0.462-0.379,0.65c-0.174,0.189-0.397,0.341-0.674,0.456c-0.274,0.114-0.61,0.173-1.002,0.173h-1.452v2.267 h-1.382V7.559H35.739z M35.36,10.535c0.158,0,0.312-0.012,0.457-0.035c0.147-0.023,0.276-0.069,0.388-0.137 c0.112-0.068,0.201-0.164,0.269-0.288s0.101-0.287,0.101-0.487c0-0.2-0.033-0.362-0.101-0.487 c-0.067-0.124-0.157-0.221-0.269-0.287c-0.111-0.068-0.24-0.114-0.388-0.138C35.671,8.652,35.518,8.64,35.36,8.64h-1.073v1.896 L35.36,10.535L35.36,10.535z"/> <path fill="#FFFFFF" d="M43.751,13.4c-0.476,0.417-1.133,0.625-1.972,0.625c-0.851,0-1.509-0.207-1.976-0.62 c-0.466-0.412-0.699-1.052-0.699-1.913V7.559h1.381v3.934c0,0.171,0.016,0.338,0.045,0.505c0.029,0.165,0.091,0.311,0.185,0.439 c0.094,0.126,0.225,0.229,0.392,0.309c0.167,0.081,0.392,0.12,0.673,0.12c0.493,0,0.833-0.11,1.021-0.332 c0.188-0.222,0.282-0.568,0.282-1.04V7.559h1.382v3.934C44.464,12.348,44.227,12.983,43.751,13.4z"/> <path fill="#FFFFFF" d="M49.07,7.559c0.3,0,0.572,0.027,0.818,0.081c0.244,0.054,0.457,0.14,0.633,0.261 c0.177,0.121,0.312,0.282,0.41,0.482c0.096,0.201,0.146,0.45,0.146,0.745c0,0.318-0.072,0.584-0.216,0.796 c-0.146,0.212-0.357,0.388-0.639,0.523c0.387,0.112,0.676,0.31,0.865,0.589c0.189,0.281,0.286,0.62,0.286,1.015 c0,0.319-0.062,0.595-0.187,0.828c-0.123,0.232-0.289,0.423-0.496,0.571c-0.209,0.148-0.445,0.257-0.713,0.327 c-0.269,0.07-0.541,0.105-0.822,0.105h-3.047V7.559H49.07z M48.895,10.119c0.246,0,0.448-0.059,0.607-0.178 c0.158-0.118,0.236-0.309,0.236-0.576c0-0.147-0.025-0.269-0.078-0.363c-0.053-0.093-0.123-0.168-0.211-0.221 c-0.09-0.053-0.189-0.091-0.305-0.109C49.029,8.65,48.912,8.64,48.789,8.64h-1.294v1.48L48.895,10.119L48.895,10.119 L48.895,10.119z M48.975,12.804c0.135,0,0.264-0.014,0.387-0.04c0.123-0.026,0.23-0.072,0.326-0.133 c0.092-0.062,0.168-0.147,0.226-0.254c0.056-0.104,0.083-0.241,0.083-0.406c0-0.324-0.092-0.557-0.271-0.695 c-0.182-0.138-0.424-0.208-0.723-0.208h-1.505v1.738h1.479v-0.002H48.975z"/> <path fill="#FFFFFF" d="M54.143,7.559v5.156h3.062v1.168H52.76V7.559H54.143z"/> <path fill="#FFFFFF" d="M59.748,7.559v6.324h-1.382V7.559H59.748z"/> <path fill="#FFFFFF" d="M65.451,9.247c-0.082-0.132-0.186-0.249-0.309-0.349c-0.123-0.102-0.263-0.18-0.418-0.236 c-0.156-0.057-0.316-0.084-0.488-0.084c-0.312,0-0.574,0.062-0.793,0.183c-0.217,0.12-0.394,0.283-0.525,0.486 c-0.136,0.204-0.232,0.436-0.296,0.695c-0.062,0.259-0.093,0.528-0.093,0.806c0,0.267,0.031,0.524,0.093,0.776 c0.062,0.251,0.16,0.477,0.296,0.678c0.134,0.201,0.312,0.361,0.525,0.483c0.219,0.12,0.481,0.181,0.793,0.181 c0.424,0,0.752-0.13,0.99-0.389c0.236-0.26,0.383-0.602,0.437-1.028H67c-0.034,0.396-0.126,0.753-0.271,1.072 c-0.146,0.318-0.342,0.591-0.582,0.815c-0.238,0.225-0.521,0.396-0.845,0.513c-0.323,0.119-0.678,0.178-1.065,0.178 c-0.479,0-0.914-0.084-1.297-0.252c-0.385-0.169-0.709-0.398-0.973-0.695c-0.265-0.295-0.468-0.642-0.607-1.04 c-0.142-0.399-0.211-0.829-0.211-1.289c0-0.473,0.069-0.911,0.211-1.316c0.141-0.404,0.344-0.758,0.607-1.059 c0.264-0.302,0.588-0.536,0.973-0.708c0.384-0.172,0.815-0.258,1.297-0.258c0.348,0,0.676,0.051,0.981,0.15 c0.308,0.102,0.583,0.248,0.827,0.44c0.243,0.191,0.443,0.43,0.604,0.712c0.158,0.283,0.259,0.608,0.301,0.975h-1.34 C65.586,9.524,65.533,9.377,65.451,9.247z"/> <path fill="#FFFFFF" d="M35.615,16.418c0.405,0,0.782,0.062,1.131,0.192c0.35,0.13,0.651,0.324,0.906,0.585 c0.255,0.26,0.455,0.586,0.599,0.975c0.144,0.391,0.216,0.849,0.216,1.371c0,0.463-0.059,0.888-0.176,1.277 c-0.118,0.391-0.295,0.727-0.532,1.012c-0.238,0.281-0.534,0.504-0.89,0.668c-0.354,0.16-0.772,0.242-1.254,0.242h-2.71v-6.322 H35.615z M35.519,21.572c0.199,0,0.393-0.031,0.581-0.098c0.188-0.062,0.354-0.173,0.502-0.323 c0.146-0.151,0.264-0.347,0.352-0.59c0.088-0.241,0.132-0.536,0.132-0.886c0-0.317-0.031-0.606-0.093-0.863 c-0.062-0.256-0.162-0.479-0.304-0.659c-0.141-0.183-0.326-0.323-0.559-0.421c-0.231-0.098-0.517-0.146-0.858-0.146h-0.984v3.986 H35.519z"/> <path fill="#FFFFFF" d="M39.8,18.289c0.141-0.403,0.344-0.756,0.606-1.059c0.265-0.303,0.589-0.538,0.973-0.709 c0.385-0.171,0.816-0.257,1.298-0.257c0.487,0,0.921,0.086,1.303,0.257c0.381,0.171,0.704,0.406,0.969,0.709 c0.264,0.303,0.466,0.652,0.605,1.059c0.143,0.404,0.213,0.845,0.213,1.316c0,0.46-0.07,0.891-0.213,1.288 c-0.142,0.397-0.344,0.744-0.605,1.04c-0.266,0.295-0.588,0.525-0.969,0.695c-0.382,0.166-0.815,0.252-1.303,0.252 c-0.481,0-0.913-0.086-1.298-0.252c-0.384-0.17-0.708-0.4-0.973-0.695c-0.263-0.296-0.466-0.645-0.606-1.04 c-0.14-0.397-0.211-0.828-0.211-1.288C39.589,19.134,39.659,18.694,39.8,18.289z M41.062,20.379 c0.062,0.252,0.16,0.479,0.295,0.68c0.135,0.2,0.312,0.359,0.527,0.482c0.218,0.121,0.481,0.183,0.792,0.183 c0.312,0,0.576-0.062,0.792-0.183c0.218-0.121,0.394-0.281,0.529-0.482c0.134-0.2,0.231-0.428,0.295-0.68 c0.062-0.25,0.092-0.508,0.092-0.774c0-0.276-0.03-0.547-0.092-0.806c-0.062-0.262-0.161-0.492-0.295-0.696 c-0.136-0.201-0.312-0.365-0.529-0.485c-0.216-0.121-0.48-0.184-0.792-0.184c-0.311,0-0.574,0.062-0.792,0.184 c-0.216,0.12-0.393,0.284-0.527,0.485c-0.135,0.204-0.233,0.437-0.295,0.696c-0.062,0.259-0.093,0.527-0.093,0.806 C40.97,19.871,41.001,20.129,41.062,20.379z"/> <path fill="#FFFFFF" d="M49.092,16.418l1.471,4.348h0.02l1.393-4.348h1.942v6.322h-1.294v-4.48h-0.02l-1.539,4.48H50l-1.54-4.437 h-0.019v4.437h-1.293v-6.322H49.092z"/> <path fill="#FFFFFF" d="M58.764,16.418l2.35,6.322H59.68l-0.476-1.408h-2.351l-0.492,1.408h-1.391l2.377-6.322H58.764z M58.844,20.297l-0.793-2.322h-0.018l-0.817,2.322H58.844z"/> <path fill="#FFFFFF" d="M63.547,16.418v6.322h-1.382v-6.322H63.547z"/> <path fill="#FFFFFF" d="M66.604,16.418l2.623,4.242h0.018v-4.242h1.294v6.322h-1.384l-2.611-4.234h-0.02v4.234H65.23v-6.322 H66.604z"/> </g> <path d="M85.852,0H1.147C0.239,0-0.5,0.744-0.5,1.658v28.969C-0.5,30.834-0.333,31-0.128,31h87.256 c0.205,0,0.372-0.166,0.372-0.373V1.658C87.5,0.744,86.762,0,85.852,0z M1.147,0.75h84.705c0.498,0,0.902,0.406,0.902,0.908 c0,0,0,20.121,0,28.557H0.245v-8.426c0-8.435,0-20.131,0-20.131C0.245,1.157,0.65,0.75,1.147,0.75z"/> <g> <ellipse fill="#FFFFFF" cx="14.156" cy="15.661" rx="11.004" ry="11.076"/> <path id="text2809_4_" d="M14.22,8.746c-3.862,0-4.834,3.669-4.834,6.779c0,3.111,0.971,6.779,4.834,6.779 c3.863,0,4.834-3.67,4.834-6.779C19.054,12.414,18.083,8.746,14.22,8.746z M14.22,11.301c0.157,0,0.3,0.024,0.435,0.06 c0.278,0.24,0.414,0.573,0.147,1.038l-2.572,4.76c-0.079-0.603-0.091-1.195-0.091-1.634C12.139,14.155,12.233,11.301,14.22,11.301 z M16.146,13.494c0.137,0.731,0.155,1.493,0.155,2.03c0,1.37-0.094,4.223-2.08,4.223c-0.156,0-0.301-0.017-0.435-0.049 c-0.025-0.01-0.049-0.019-0.074-0.025c-0.04-0.012-0.084-0.024-0.122-0.041c-0.442-0.188-0.721-0.531-0.319-1.139L16.146,13.494z" /> <path id="path2815_4_" d="M14.195,3.748c-3.245,0-5.98,1.137-8.21,3.422c-1.128,1.135-1.99,2.431-2.589,3.876 c-0.585,1.43-0.876,2.921-0.876,4.478c0,1.57,0.291,3.062,0.876,4.479s1.434,2.69,2.548,3.826 c1.128,1.121,2.395,1.985,3.802,2.588c1.421,0.59,2.903,0.884,4.449,0.884c1.547,0,3.05-0.304,4.499-0.907 c1.448-0.604,2.74-1.471,3.883-2.605c1.101-1.078,1.934-2.317,2.49-3.719c0.571-1.415,0.853-2.932,0.853-4.544 c0-1.598-0.281-3.112-0.852-4.528c-0.571-1.429-1.407-2.693-2.507-3.801C20.263,4.895,17.469,3.748,14.195,3.748z M14.244,5.867 c2.646,0,4.904,0.944,6.784,2.836c0.906,0.912,1.6,1.954,2.073,3.119c0.473,1.164,0.713,2.398,0.713,3.703 c0,2.707-0.92,4.952-2.744,6.746c-0.948,0.927-2.012,1.638-3.196,2.128c-1.17,0.489-2.375,0.732-3.63,0.732 c-1.268,0-2.481-0.239-3.638-0.717c-1.156-0.489-2.193-1.191-3.113-2.104c-0.92-0.925-1.629-1.97-2.13-3.135 c-0.487-1.178-0.738-2.391-0.738-3.653c0-1.276,0.251-2.497,0.738-3.662c0.501-1.178,1.211-2.235,2.13-3.175 C9.317,6.809,11.57,5.867,14.244,5.867z"/> </g> </g> </svg>
+</p>
+</blockquote>
+<p>The same terms apply to this file and its associated code.</p>
+
+
+</main>
+</body>
+</html>
