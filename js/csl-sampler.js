@@ -1,4 +1,4 @@
-var worker = new Worker('../workers/cites.js');
+var worker = new Worker('workers/cites.js');
 
 var pageData = {
     styleID: 'jm-indigobook',
@@ -175,7 +175,7 @@ function installSampler() {
 
 window.addEventListener('load', function() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '../items/ic0001.json', true);
+    xhr.open('GET', 'items/ic0001.json', true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4) {
             if (xhr.status == 200) {
