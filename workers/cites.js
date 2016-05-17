@@ -21,13 +21,16 @@ var data = {
         "container-title": {},
         "collection-title": {},
         "institution-entire": {},
-        "institution-part": {},
+        "institution-part": {
+            "district.court": "!here>>>"
+        },
         nickname: {},
         number: {},
         title: {},
         place: {
             "us": "!here>>>",
-            "us:co": "Colo."
+            "us:co": "Colo.",
+            "us:c2:ny.sd": "S.D.N.Y."
         },
         hereinafter: {},
         classic: {},
