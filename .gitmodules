@@ -1,3 +1,7 @@
 [submodule "octicons"]
 	path = octicons
 	url = https://github.com/github/octicons.git
+[submodule "webpage"]
+	path = webpage
+	url = https://github.com/Juris-M/indigobook.git
+	branch = gh-pages
