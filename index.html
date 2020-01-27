@@ -1,8 +1,8 @@
 <html>
   <head>
     <title>Hello World</title>
-    <link rel="stylesheet" href="./assets/css/jquery.modal.css" type="text/css" media="screen" />
-    <link href='./octicons/octicons/octicons.css' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.css" rel="stylesheet">
     <style type="text/css" media="screen">
       html {
       font-size: 18px;
@@ -37,8 +37,16 @@
       h1,h2,h3,h4 { color: #404a50; font-weight: 800; font-size: 1.75em; line-height: 1.1; margin: 0 0 1.5rem 0; }
       h2 a { color: #cad1d5; border: none; }
       h2 a:hover { color: #fa0065; }
-      a { color: #fa0065; font-weight: 700; transition-duration: .2s; text-decoration: none; border-bottom: 2px solid transparent; }
-      a:hover { color: #22272a; border-color: #22272a; }
+      /* ZZZ */
+      a.cite::before {
+        content: '🔎';
+        margin-right: .25em;
+        color: #ffb100;
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+      a.cite { color: inherit; transition-duration: .2s; text-decoration: none; border-bottom: 2px solid transparent; }
+      a.cite:hover { color: #22272a; border-color: #22272a; cursor: pointer; }
       p, ul, ol, pre { margin: 0 auto 1.5rem auto; }
       p code, li code {color: #000080; font-size: .9em; }
       pre { font-size: 14px; line-height: 2; }
@@ -143,17 +151,31 @@
     <p>
       Let's go!
     </p>
-    <div id="ex1" class="modal">
+    <!-- div id="m0003" class="modal">
       <p>Thanks for clicking. That felt good.</p>
       <a href="#" rel="modal:close">Close</a>
-    </div>
+    </div -->
 
     <!-- Link to open the modal -->
     <p>
-      <span id="ic0003" title="cite info" class="cite"><span class="octicon octicon-chevron-down cite-details-button"/><i>Leonard v. Pepsico, Inc.</i>, 88 F. Supp. 2d 116, 127 (S.D.N.Y. 1999)</span> (“Plaintiff’s understanding of the commercial as an offer must also be rejected because the Court finds that no objective person could reasonably have concluded that the commercial actually offered consumers a Harrier Jet.”), <i>aff’d</i>, 210 F.3d 88 (2d Cir. 2000).
-      
-      <a href="#ic0003" rel="modal:open">Open Modal</a></p>
-    
-    <script src="./assets/js/bundle.js"></script>
-  </body>
+      <a id="cJR3MF83A" rel="modal" class="cite" title="cite info"><i>Leonard v. Pepsico, Inc.</i>, 88 F. Supp. 2d 116, 127 (S.D.N.Y. 1999)</a> (“Plaintiff’s understanding of the commercial as an offer must also be rejected because the Court finds that no objective person could reasonably have concluded that the commercial actually offered consumers a Harrier Jet.”), <i>aff’d</i>, 210 F.3d 88 (2d Cir. 2000).
+    </p>
+
+    <!--
+        Okay, fuck this.
+        Load jQuery
+        Load jQuery Modal
+        Load app spinner
+        SEPARATELY
+        Forget browserify, it breaks everything
+      -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/busy-load/dist/app.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <!-- script src="./assets/js/zotero2jurism.js" charset="utf-8"></script>
+    <script src="./assets/js/main.js" charset="utf-8"></script -->
+    <script src="./assets/js/bundle.js" charset="utf-8"></script>
+ </body>
 </html>
+
+
