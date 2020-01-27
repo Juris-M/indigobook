@@ -35,7 +35,9 @@ _exec("browserify "
               console.log(e.message);
               console.log(e);
           } else {
-              console.log("Done "+e);
+              fs.copyFileSync(path.join(__dirname, "assets", "js", "bundle.js"),
+                              path.join(__dirname, "webpage", "assets", "js", "bundle.js"))
+              console.log("Done");
           }
       });
       
