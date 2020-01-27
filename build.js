@@ -37,6 +37,8 @@ _exec("browserify "
           } else {
               fs.copyFileSync(path.join(__dirname, "assets", "js", "bundle.js"),
                               path.join(__dirname, "webpage", "assets", "js", "bundle.js"))
+              fs.copyFileSync(path.join(__dirname, "assets", "css", "screen.css"),
+                              path.join(__dirname, "webpage", "assets", "css", "screen.css"))
               console.log("Done");
           }
       });

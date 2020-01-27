@@ -7,18 +7,21 @@ $(function() {
     var apiStub = "https://api.zotero.org/groups/2319948/items/"
     
     function setField(grid, row, info) {
-        var cell1 = document.createElement("div");
-        var cell2 = document.createElement("div");
-        
-        cell1.setAttribute("style", "font-weight: bold; grid-column:1; grid-row: " + row + ";");
-        cell1.setAttribute("align", "right");
-        cell2.setAttribute("style", "grid-column:2; grid-row: " + row + ";");
+        var label = document.createElement("div");
+        var value = document.createElement("div");
 
-        cell1.innerHTML = info.label + ":";
-        cell2.innerHTML = info.value;
+        label.setAttribute("class", "label");
+        label.setAttribute("align", "right");
+        label.setAttribute("style", "grid-row: " + row + ";");
+
+        value.setAttribute("class", "value");
+        value.setAttribute("style", "grid-row: " + row + ";");
+
+        label.innerHTML = info.label + ":";
+        value.innerHTML = info.value;
         
-        grid.append(cell1);
-        grid.append(cell2);
+        grid.append(label);
+        grid.append(value);
         row++;
         return row;
     }
@@ -38,10 +41,10 @@ $(function() {
             html.setAttribute("class", "modal");
             var grid = document.createElement("div");
             var row = 1;
-            grid.setAttribute("class", "grid");
-            grid.setAttribute("style", "display: grid;grid-gap: 3px; grid-template-columns: 150px auto");
+            grid.setAttribute("class", "citegrid");
             var cite = document.createElement("p");
-            cite.setAttribute("style", "grid-column: 1 / 3; grid-row: " + row + "; border-radius: 0.5em; background: #ccc; padding: 0.5em;");
+            cite.setAttribute("class", "example");
+            cite.setAttribute("style", "grid-row: " + row + ";");
             cite.innerHTML = $("#" + id).html();
             grid.append(cite);
             row++;
@@ -60,22 +63,25 @@ $(function() {
                 }
             }
             var hline = document.createElement("hr");
-            hline.setAttribute("style", "margin: 0.5em 0; grid-column: 1 / 3; grid-row: " + row + ";");
+            hline.setAttribute("class", "hline");
+            hline.setAttribute("style", "grid-row: " + row + ";");
             grid.append(hline);
             html.append(grid);
             row++;
 
-            var buttonDiv = document.createElement("div");
+            var footer = document.createElement("div");
             var button = document.createElement("a");
-            
-            buttonDiv.setAttribute("style", "grid-column: 1 / 3; grid-row: " + row + "; font-size: 110%;");
-            buttonDiv.setAttribute("align", "right");
-            button.setAttribute("style", "cursor: pointer; font-weight: bold; color:white; background: green; border-radius: 1em; padding: 0.5em");
+
+            footer.setAttribute("class", "footer");
+            footer.setAttribute("style", "grid-row: " + row + ";");
+            footer.setAttribute("align", "right");
+
+            button.setAttribute("class", "button");
 
             button.innerHTML = "Login";
             
-            buttonDiv.append(button);
-            grid.append(buttonDiv);
+            footer.append(button);
+            grid.append(footer);
             
             $.busyLoadFull("hide");
             $(html).appendTo('body').modal();
