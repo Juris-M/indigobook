@@ -39,7 +39,7 @@ $(function() {
             var grid = document.createElement("div");
             var row = 1;
             grid.setAttribute("class", "grid");
-            grid.setAttribute("style", "display: grid;grid-gap: 3px; grid-template-columns: 120px auto");
+            grid.setAttribute("style", "display: grid;grid-gap: 3px; grid-template-columns: 150px auto");
             var cite = document.createElement("p");
             cite.setAttribute("style", "grid-column: 1 / 3; grid-row: " + row + "; border-radius: 0.5em; background: #ccc; padding: 0.5em;");
             cite.innerHTML = $("#" + id).html();
