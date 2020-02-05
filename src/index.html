@@ -42,7 +42,12 @@
 	@bottom-right { content: "Page " counter(page) ; font-family: 'Libre Baskerville', Georgia, serif; font-style: italic ; }
 	} 
 	@media screen {
-		body { margin: 0px 1.25em 0px 1.25em ; }
+		body {
+    		margin: 0 auto !important;
+    		float: none !important;
+    		padding: 10px;
+    		max-width: 750px;
+    	}
 	}
 	div.bc { border: 2px solid #4B0082 ; padding: 10px; 
 	background-color: rgba(75, 0, 130,0.05); 
@@ -187,41 +192,6 @@
 </style>
 
 <style type="text/css" media="screen">
-  /*
-      html {
-      font-size: 18px;
-      }
-
-      body {
-      font-weight: 400;
-      font-family: "Nunito", "Helvetica Neue", arial, sans-serif;
-      line-height: 1.666;
-      -webkit-font-smoothing: antialiased;
-      color: #5e6c76;
-      margin: 0;
-      padding: 10px 0 0 0;
-      }
-
-      .band {
-      background-image: linear-gradient(to right, #2a27a8 0%,#8c50bc 50%,#fc6e6c 100%);
-      height: 10px;
-      top: 0;
-      right: 0;
-      left: 0;
-      position: fixed;
-      }
-
-      .wrapper {
-      padding: 2em 20px;
-      max-width: 900px;
-      margin: 0 auto;
-      }
-
-      small { color: #aaa; }
-      h1,h2,h3,h4 { color: #404a50; font-weight: 800; font-size: 1.75em; line-height: 1.1; margin: 0 0 1.5rem 0; }
-      h2 a { color: #cad1d5; border: none; }
-      h2 a:hover { color: #fa0065; }
-*/
       a.cite::before {
         content: '🔎';
         margin-right: .25em;
@@ -229,108 +199,11 @@
         font-size: 1.2em;
         font-weight: bold;
       }
+
       a.cite { color: inherit; transition-duration: .2s; text-decoration: none; border-bottom: 2px solid transparent; }
       a.cite:hover { color: #22272a; border-color: #22272a; cursor: pointer; }
-  /*
-      p, ul, ol, pre { margin: 0 auto 1.5rem auto; }
-      p code, li code {color: #000080; font-size: .9em; }
-      pre { font-size: 14px; line-height: 2; }
-      pre code { overflow: scroll; padding: 1em; border-radius: 4px; background: #f9fafb; color: #475359; }
-      hr { height: 3px; background: #f0f2f3; border: none; margin: 3rem 0; border-radius: 3px; }
-      table {width:100%;border-collapse:collapse;}
-      td { border: 1px solid #eee; padding: 15px; }
-      td pre { margin: 0; }
-      code { font-family: 'fira mono', monospace; }
-      a.btn {
-      color: #fff;
-      background: #FF0066;
-      padding: .5rem 1rem;
-      display: inline-block;
-      border-radius: 4px;
-      transition-duration: .25s;
-      border: none;
-      font-size: 14px;
-      }
-      a.btn:hover {
-      background: #22272a;
-      }
-
-      .header h1 {
-      margin: 1rem 0 .5rem 0;
-      }
-
-      .header iframe {
-      margin-bottom: 2rem;
-      }
-
-      .header p {
-      margin: 0 0 .5rem 0;
-      font-size: 1.25rem;
-      }
-
-      .header ul {
-      list-style-type: none;
-      margin-right: 0;
-      padding: 0;
-      line-height: 2;
-      }
-
-      .header ul li:before {
-      content: '\2714';
-      margin-right: .5em;
-      color: #94be47;
-      font-size: .75em;
-      }
-
-      /* Example 2 (login form) */
-      .login_form.modal {
-      border-radius: 0;
-      line-height: 18px;
-      padding: 0;
-      font-family: "Lucida Grande", Verdana, sans-serif;
-      }
-
-      .login_form h3 {
-      margin: 0;
-      padding: 10px;
-      color: #fff;
-      font-size: 14px;
-      background: -moz-linear-gradient(top, #2e5764, #1e3d47);
-      background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #1e3d47),color-stop(1, #2e5764));
-      }
-
-      .login_form.modal p { padding: 20px 30px; border-bottom: 1px solid #ddd; margin: 0;
-      background: -webkit-gradient(linear,left bottom,left top,color-stop(0, #eee),color-stop(1, #fff));
-      overflow: hidden;
-      }
-      .login_form.modal p:last-child { border: none; }
-      .login_form.modal p label { float: left; font-weight: bold; color: #333; font-size: 13px; width: 110px; line-height: 22px; }
-      .login_form.modal p input[type="text"],
-      .login_form.modal p input[type="password"] {
-      font: normal 12px/18px "Lucida Grande", Verdana;
-      padding: 3px;
-      border: 1px solid #ddd;
-      width: 200px;
-      }
-
-      .part {
-      display: none;
-      }
-*/
       .modal p { margin: 1em 0; }
       .modal a.close-modal { border: none; }
-      
-      /*
-      @media(max-width: 600px) {
-      html {
-      font-size: 14px;
-      }
-      h2 a { display: block; margin-bottom: 0.5em; }
-      pre { font-size: 11px; line-height: 1.5; }
-      pre code { padding: 5px; }
-      a.btn { display: block; text-align: center; padding: 1rem; }
-      }
-      */
       
     </style>
 
@@ -375,14 +248,17 @@
   be tuned to track those requirements with some precision. If the two
   projects are combined, the maintenance burden for both can be
   reduced, while significantly improving user experience—and the tools
-  for doing so exist. The sample text below is excerpted from the
+  for doing so exist.
+</p>
+<p>
+  The sample text below is drawn from the
   public-domain <a href="https://law.resource.org/pub/us/code/blue/IndigoBook.html">Indigo
-  Book</a>. Clicking on the linked citation shows how the item is
-  recorded in the
+  Book</a>. Click the linked citation to see how the item is recorded
+  in the
   open-source <a href="https://juris-m.github.io/downloads">Jurism</a>
-  reference manager. A unified editorial workflow for the Indigo style
-  and the Jurism citation stylesheet is explained
-  in <a href="./ib-edit.pdf">this memo</a>.
+  reference manager. Refer to <a href="./ib-edit.pdf">this memo</a>
+  for a description of how maintenance of the human- and
+  machine-readable versions of the style can be unified.
   
   
 </p>
@@ -400,452 +276,16 @@
 <h3 id="R11">R11. Full citation</h3>
 
 <ol class="rule">
-<li id="R11.1"><span class="rule" role="heading" aria-level="4">R11.1.</span> Elements of a full citation. When providing a full citation to a case, you should generally include the following:
-
-	<ol>
-	<li>case name;</li>
-	<li>volume number, reporter, first page;</li>
-	<li>pincite (the exact page number you are referring to, if necessary);</li>
-	<li>court, year (see special instructions below for pending and unreported cases);</li>
-	<li>explanatory parenthetical (if necessary);</li>
-	<li>prior or subsequent history of the case (if any).</li>
-	</ol>
-
+  <li>
 	<p><b>Examples:</b></p> 
 
 			<ul>
 				<li><a id="cJR3MF83A" rel="modal" class="cite" title="cite info"><i>Leonard v. Pepsico, Inc.</i>, 88 F. Supp. 2d 116, 127 (S.D.N.Y. 1999)</a> (“Plaintiff’s understanding of the commercial as an offer must also be rejected because the Court finds that no objective person could reasonably have concluded that the commercial actually offered consumers a Harrier Jet.”), <i>aff’d</i>, 210 F.3d 88 (2d Cir. 2000).</li>
 				<li><i>Toolson v. N.Y. Yankees, Inc.</i>, 346 U.S. 356 (1953) (per curiam) (affirming baseball’s exemption from the scope of federal antitrust laws).</li>
-			</ul></li>
-
-
-<li id="R11.2"><span class="rule" role="heading" aria-level="4">R11.2.</span> Case Name. Case names are often lengthy. Therefore when citing to a case, do not always include the case name in full. 
-
-	<ol class="rule2">
-	<li id="R11.2.1"><span class="rule" role="heading" aria-level="5">R11.2.1.</span> <p>When referring to a case with an individual’s name in the case name, use the person’s full <span class="ob">family name</span> (i.e., their last name). Delete first name and initials, except when the full name of the person is in a language that lists the surname first, or when referring to the name of a business or where the court has abbreviated the party’s surname.</p>
-
-		<p>
-		<b>Example:</b> <i>Van Leeuwen v. Souto de Moura</i>
-		</p>
-
-		<p>
-		<b>Example:</b> <i>James T. Kirk &amp; Assocs. v. Luke S.</i>
-		</p>
-
-		<p>
-		<b>Correct:</b>  <i>Smith v. Jones</i><br />
-		<b>Incorrect:</b> <i>Jonathan H. Smith v. Allison T. Jones</i>
-		</p>
-
-		<p>
-		<b>Correct:</b> <i>Xu Lanting v. Wong</i><br />
-		<b>Incorrect:</b> <i>Xu Lanting v. James Wong</i>
-		</p>
-		</li>
-
-	<li id="R11.2.2"><span class="rule" role="heading" aria-level="5">R11.2.2.</span> Only include the last name of the first listed party of the plaintiffs and the first listed party of the defendants.</li>
-	<li id="R11.2.3"><span class="rule" role="heading" aria-level="5">R11.2.3.</span> Italicize everything in the case name, but don’t italicize the comma at the end of the case name. Exception for law review articles: <i>do not</i> italicize case names in law review full citations, but <i>do</i> italicize case names in law review article short form citations and procedural phrases such as “<i>In re.</i>”</li>
-	<li id="R11.2.4"><span class="rule" role="heading" aria-level="5">R11.2.4.</span> <p>Delete “et al.”, nicknames, and aliases.</p>
-
-		<p>
-		<b>Correct:</b> <i>Jackson v. Leviston</i><br />
-		<b>Incorrect:</b> <i>Curtis James Jackson III, p/k/a 50 Cent v. Lastonia Leviston</i>
-		</p>
-
-	<li id="R11.2.5"><span class="rule" role="heading" aria-level="5">R11.2.5.</span> Replace <span class="ob">procedural phrases, and omit all besides the first procedural phrase.</span>
-
-		<ol>
-		<li><p>When you see <span class="ob">“on the relation of,” “on behalf of,” and similar expressions</span>, replace with “<i>ex rel.</i>” </p>
-
-			<p>
-			<b>Correct:</b> <i>Affleck ex rel. Damon v. Kimmel</i><br />
-			<b>Incorrect:</b> <i>Ben Affleck, on behalf of Matt Damon v. Jimmy Kimmel, et al.</i>
-			</p></li>
-
-		<li><p>When you see <span class="ob">“in the matter of,” “petition of,” and similar expressions</span>, replace with “<i>In re</i>”, except do not use “<i>In re</i>”, or any procedural phrases besides “<i>ex rel.</i>” when the case name contains the name of an adversary.</p>
-
-			<p>
-			<b>Correct:</b> <i>In re Nat’l Football League Players’ Concussion Injury Litig.</i><br />
-			<b>Incorrect:</b> <i>In the Matter of Nat’l Football League Players’ Concussion Injury Litig.</i>
-			</p>
-
-			<p>
-			<b>Correct:</b> <i>Estate of Jones v. Smith</i><br />
-			<b>Incorrect:</b> <i>In re Estate of Jones v. Smith</i>
-			</p></li></ol></li>
-
-	<li id="R11.2.6"><span class="rule" role="heading" aria-level="5">R11.2.6.</span> <p>Abbreviate words in case names according to <a href="#T11">Table T11</a>. If the resulting abbreviation is not ambiguous, words of eight or more letters may be abbreviated to save <span class="ob">substantial space</span>. Also omit terms such as “L.L.C.” and “Inc.” that indicate the party is a business when that fact is made clear because the party name includes a word such as “Co.” or “Ins.”</p>
-
-			<p>
-			<b>Correct:</b> <i>Cont’l Paper Bag Co. v. E. Paper Bag Co.</i><br />
-			<b>Incorrect:</b> <i>Continental Paper Bag Company v. Eastern Paper Bag Co.</i>
-			</p>
-
-			<p>
-			<b>Exception:</b> do not abbreviate if <span class="ob">the citation appears in a textual sentence as explained in <a href="#R11.2.19">Rule 11.2.19</a>, below</span>
-			</p></li>
-
-	<li id="R11.2.7"><span class="rule" role="heading" aria-level="5">R11.2.7.</span> <p>Abbreviate countries, states, and <span class="ob">other geographical</span> places according to <a href="#T12">Table T12</a>.</p>
-
-			<p>
-			<b>Correct:</b> <i>Church of Scientology of Cal. v. Blackman</i><br />
-			<b>Incorrect:</b> <i>Church of Scientology of California v. Blackman</i>
-			</p>
-
-			<p>
-			<b>Exception:</b> if the geographical place is one of the parties in the case, do not abbreviate it
-			</p>
-
-			<p>
-			<b>Correct:</b> <i>South Dakota v. Fifteen Impounded Cats</i><br />
-			<b>Incorrect:</b> <i>S.D. v. Fifteen Impounded Cats</i>
-			</p>
-
-			<p>
-			<b>Exception:</b> do not abbreviate if <span class="ob">the geographical place is part of a citation that appears in a textual sentence as explained in <a href="#R11.2.19">Rule 11.2.19</a>, below</span>
-			</p></li>
-
-	<li id="R11.2.8"><span class="rule" role="heading" aria-level="5">R11.2.8.</span> <p>Spell out “United States” <span class="ob">when it is a named party.</span></p>
-
-			<p>
-			<b>Correct:</b> <i>United States v. Ninety Five Barrels, More or Less</i><br />
-			<b>Incorrect:</b> <i>U.S. v. Ninety Five Barrels, More or Less</i>
-			</p></li>
-
-	<li id="R11.2.9"><span class="rule" role="heading" aria-level="5">R11.2.9.</span> <p>Omit “People of,” “State of,” and “Commonwealth of,” unless citing a court located in that state, in which case retain only “People,” “State,” or “Commonwealth.”</p>
-
-			<p>
-			<b>Correct:</b> <span id="ic0001" class="cite"><i>Lessig v. Colorado</i>, 17 U.S. 107 (1998).</span><br />
-			<b>Incorrect:</b> <i>Lessig v. State of Colorado</i>, 17 U.S. 107 (1998).
-			</p>
-
-			<p>
-			<b>Correct:</b> <span id="ic0002" class="cite"><i>Lessig v. State</i>, 109 P.3d 224 (Colo. 1997).</span><br />
-			<b>Incorrect:</b> <i>Lessig v. State of Colorado</i>, 109 P.3d 224 (Colo. 1997).
-			</p></li>
-
-	<li id="R11.2.10"><span class="rule" role="heading" aria-level="5">R11.2.10.</span> <p>Omit phrases such as “Town of” and “City of” if the expression does not comprise the first part of the name of a party.</p>
-
-			<p>
-			<b>Correct:</b> <i>James v. Village of Jamestown</i><br />
-			<b>Incorrect:</b> <i>James v. Jamestown</i><br />
-			</p>
-
-			<p>
-			<b>Correct:</b> <i>James v. King of Jamestown</i><br />
-			<b>Incorrect:</b> <i>James v. King of the Village of Jamestown</i>
-			</p></li>
-
-	<li id="R11.2.11"><span class="rule" role="heading" aria-level="5">R11.2.11.</span> <p>Do not include a prepositional phrase indicating location, unless the resulting party name would have only one word, or the phrase is part of a business’ full name.</p>
-
-			<p>
-			<b>Correct:</b> <i>Stevenson v. Board of Trade</i><br />
-			<b>Incorrect:</b> <i>Stevenson v. Board of Trade of Colorado</i>
-			</p>
-
-			<p>
-			<b>Correct:</b> <i>ACLU of N.D. v. Jones</i><br />
-			<b>Incorrect:</b> <i>ACLU v. Jones</i>
-            </p>
-
-			<p>
-			<b>Correct:</b> <i>Dam Things from Denmark v. Russ Berrie &amp; Co.</i><br />
-			<b>Incorrect:</b> <i>Dam Things v. Russ Berrie &amp; Co.</i>
-			</p></li>
-
-
-	<li id="R11.2.12"><span class="rule" role="heading" aria-level="5">R11.2.12.</span> <p>Include <span class="ob">geographical designations introduced by a preposition</span>, but omit those that <span class="ob">follow a comma.</span> Use “United States” instead of “United States of America,” but otherwise omit <span class="ob">designations of national or larger geographical areas.</span></p>
-
-			<p>
-			<b>Correct:</b> <i>Cal. Bd. of Commerce v. City of Sacramento</i><br />
-			<b>Incorrect:</b> <i>Cal. Bd. of Commerce v. City of Sacramento, California</i>
-			</p></li>
-
-
-	<li id="R11.2.13"><span class="rule" role="heading" aria-level="5">R11.2.13.</span> <p>Delete “the” as the first word of a party’s name, unless the party is “<i>The Queen</i>” or the “<i>The King</i>,” or when referring to the <span class="ob">established popular name in a citation or citation clause.</span></p>
-
-
-			<p>
-			<b>Example:</b> <i>The Railroad Comm’n Cases</i>
-			</p>
-
-			<p>
-			<b>Correct:</b> <i>Int’l Soc’y for Krishna Consciousness of Cal., Inc. v. City of Los Angeles</i><br />
-			<b>Incorrect:</b> <i>Int’l Soc’y for Krishna Consciousness of Cal., Inc. v. The City of Los Angeles</i>
-			</p>
-
-			<p>
-			<b>Exception:</b> retain “the” if it is <span class="ob">part of the name of the object of an <i>in rem</i> action.</span>
-			</p>
-
-			<p>
-			<b>Correct:</b> <i>In re the Snug Harbor</i><br />
-			<b>Incorrect:</b> <i>In re Snug Harbor</i>
-			</p></li>
-
-	<li id="R11.2.14"><span class="rule" role="heading" aria-level="5">R11.2.14.</span> The Commissioner of Internal Revenue should be cited as “Commissioner” (abbreviated as “Comm’r” in citations).
-
-			<p>
-			<b>Correct:</b> <i>Plainfield-Union Water Co. v. Comm’r</i><br />
-			<b>Incorrect:</b> <i>Plainfield-Union Water Co. v. Commissioner of Internal Revenue</i>
-			</p></li>
-
-	<li id="R11.2.15"><span class="rule" role="heading" aria-level="5">R11.2.15.</span> <p>For cases <span class="ob">with multiple dispositions</span>, include an italicized identifier if useful. In future citations of that case, the identifier can replace the full case name.</p>
-
-			<p><b>Example:</b> <i>Liriano v. Hobart Corp. </i>(<i>Liriano II</i>), 92 N.Y.2d 232 (1998).</p>
-
-			<p>
-			<b style="visibility:hidden;">Example:</b> <i>Liriano v. Hobart Corp. </i>(<i>Liraino III</i>), 170 F.3d 264, 266 (2d Cir. 1999) (citing <i>Liriano II</i>, 92 N.Y.2d at 236–37).
-			</p></li>
-		
-	<li id="R11.2.16"><span class="rule" role="heading" aria-level="5">R11.2.16.</span> <p>If a mandamus action is known by the <span class="ob">name of the judge against whom the writ is sought</span>, that name can be indicated in an italicized parenthetical. </p>
-
-			<p><b>Example:</b> <i>Jones v. United States District Court (Smith)</i>, 89 U.S. 233 (2011).</p></li>
-
-	<li id="R11.2.17"><span class="rule" role="heading" aria-level="5">R11.2.17.</span> <p>If a case is known both by the reported name and a distinct short form name, always include the reported name in a full citation. The short name may be included in italics in a parenthetical.</p>
-
-			<p>
-			<b>Example:</b> <i>Indus. Union Dep’t, AFL-CIO v. Am. Petroleum Inst. (The Benzene Case)</i>, 448 U.S. 607, 645 (1980).
-			</p></li>
-
-	<li id="R11.2.18"><span class="rule" role="heading" aria-level="5">R11.2.18.</span> <p>Abbreviate any commonly recognized organizations, such as the SEC and the ACLU.</p>
-
-			<p>
-			<b>Correct:</b> <i>Red Lion Broad. Co. v. FCC</i>, 395 U.S. 367 (1969).<br />
-			<b>Incorrect:</b> <i>Red Lion Broad. Co. v. Federal Communications  Commission</i>, 395 U.S. 367 (1969).
-			</p></li>
-
-	<li id="R11.2.19"><span class="rule" role="heading" aria-level="5">R11.2.19.</span> <p>If you’re including the case name within a sentence (instead of a citation sentence or clause or a footnote) do NOT abbreviate words listed in the tables referenced in <a href="#R11.2.6">Rule 11.2.6</a> and <a href="#R11.2.7">Rule 11.2.7</a> above.</p>
-
-			<p>
-			<b>Correct:</b> According to <i>Texas Department of Community Affairs v. Burdine</i>, once the plaintiff has established a <i>prima facie</i> case, there is a rebuttable presumption of unlawful discrimination. 450 U.S. 248, 254 (1981).<br />
-			<b>Incorrect:</b> According to <i>Texas Dep’t of Cmty. Affairs v. Burdine</i>, once the plaintiff has established a <i>prima facie</i> case, there is a rebuttable presumption of unlawful discrimination. 450 U.S. 248, 254 (1981).
-			</p>
-
-			<p>
-			<b>Exception:</b> Shorten well<span class="ob">-known acronyms and</span> the following <span class="ob">eight words: “&amp;,” “Ass’n,” “Bros.,” “Co.,” “Corp.,” “Inc.,” “Ltd.,” and “No.”</span>
-			</p>
-
-			<p>
-			<b>Correct:</b> In <i>McDonnell Douglas Corp. v. Green</i>, the Supreme Court held that in a disparate treatment case, the plaintiff bears the initial burden of establishing a <i>prima facie</i> case of employment discrimination. 411 U.S. 792 (1973).<br />
-			<b>Incorrect:</b> In <i>McDonnell Douglas Corporation v. Green</i>, the Supreme Court held that in a disparate treatment case, the plaintiff bears the initial burden of establishing a <i>prima facie</i> case of employment discrimination. 411 U.S. 792 (1973).
-			</p></li>
-</ol></li></ol>
-
-
-<ol class="rule" start="3">
-<li id="R11.3"><span class="rule" role="heading" aria-level="4">R11.3.</span> Volume Number, Reporter, First page. The citation should include: volume number of the reporter, abbreviated name of the reporter (listed by jurisdiction in accordance with <a href="#T1">Table T1</a>), first page of the case.
-
-	<ul>
-	<li><b>Example:</b> <i>Terrible v. Terrible</i>, 534 P.2d 919 (Nev. 1975) (denying ex-husband’s petition to split up property he and ex-wife owned as tenants in common).</li>
-	</ul>
-
-	<p>This is how you decode case citations. The left column shows what your citation should look like. The right column shows what the citation means for someone looking for the case.</p>
-</li></ol>
-
-
-<table class="line nowidth">
-	<thead>
-	<tr><th>Citation</th><th>Reporter</th></tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td><i>Demosthenes v. Baal</i>, 495 U.S. 731 (1990).</td>
-			<td>Vol. 495, p. 731 of United States Reports</td>
-		</tr>
-		<tr>
-			<td><i>United States v. $124,570 U.S. Currency</i>, 873 F.2d 1240 (9th Cir. 1989).</td>
-			<td>Vol. 873, p. 1240 of Federal Reporter, Second Series</td>
-		</tr>
-		<tr>
-			<td>
-				<i>Gucci America, Inc. v. Guess?, Inc.</i>, 831 F. Supp. 2d 723 (S.D.N.Y. 2011).
-			</td>
-			<td>
-				Vol. 831, p. 723 of Federal Supplement, Second Series
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<i>Hamburger v. Fry</i>, 338 P.2d 1088 (Okla. 1958).
-			</td>
-			<td>
-				Vol. 338, p. 1088 of Pacific Reporter, Second Series
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<i>Camp v. Superman</i>, 119 Vt. 62 (1955).
-			</td>
-			<td> Vol. 119, p. 62 of Vermont Reports </td>
-		</tr>
-	</tbody>
-</table>
-
-<ol class="rule" start="4">
-	<li id="R11.4"><span class="rule" role="heading" aria-level="4">R11.4.</span> Pincite. To direct the reader to the specific page you are referring to, you must include a <b>pincite</b> after you list the first page where the case is found in the reporter. If the pincite is the first page of the opinion, be sure to still include it by just repeating the number.
-
-	<ul>
-	<li><b>Example:</b> <i>Mattel, Inc. v. MCA Records, Inc.</i>, 296 F.3d 894, 908 (9th Cir. 2002) (“The parties are advised to chill.”)</li>
-	<li><b>Example:</b> <i>Brown v. State</i>, 216 S.E.2d 356, 356 (Ga. Ct. App. 1975) (“The D. A. was ready. His case was red-hot. Defendant was present, His witness was not.”).</li>
-	</ul></li>
+			</ul>
+  </li>
 </ol>
 
-
-
-<ol class="rule" start="5">
-	<li id="R11.5"><span class="rule" role="heading" aria-level="4">R11.5.</span> Pincite referencing multiple pages or a page range:
-
-	<ol>
-	<li>Multiple pages: <i>Gordon v. Secretary of State of New Jersey</i>, 460 F. Supp. 1026, 1026, 1028 (D.N.J. 1978) (dismissing a complaint charging that plaintiff, by reason of his illegal incarceration in jail, had been deprived of the office of the President of the United States).</li>
-	<li>Page range:  <i>Helton v. State</i>, 311 So. 2d 381, 382–84 (Fla. Dist. Ct. App. 1975) (reciting the prosecutor’s closing arguments in a parody of “<i>’Twas the Night Before Christmas</i>”). </li>
-	<li><i>Passim.</i> If your proposition appears in many locations in the opinion, or if you are referring to a general idea that pervades a source, feel free to append the word <i>“passim”</i> instead of a pincite. </li>
-	</ol>
-
-	<ul>
-	<li><b>Example:</b> Anyone alive in the eighteenth century would have known that the problem of determining a ship’s longitude at sea was one of the most prominent scientific quests of the day. Dava Sobel, <i>Longitude: The True Story of a Lone Genius Who Solved the Greatest Scientific Problem of His Time passim</i> (1995).</li>
-	</ul></li>
-</ol>
-
-
-
-<ul>
-	<li><b>Example:</b> <i>Selmon v. Hasbro Bradley, Inc.</i>, 669 F. Supp. 1267, 1272-73 (S.D.N.Y. 1987) (comparing a “Leo-Lamo” (a hybrid lion/lamb animal character) to a “Bumblelion” (a hybrid bumblebee/lion toy animal) in the context of a copyright infringement claim). </li>
-</ul>
-
-
-
-
-<ol class="rule" start="6">
-<li id="R11.6"><span class="rule" role="heading" aria-level="4">R11.6.</span> Citing a footnote. <span class="ob">To cite a footnote,</span> provide a page number followed immediately with a footnote number, using “n.” to show footnote number. There is <span class="ob">no space between “n.” and the footnote number:</span>
-
-	<ul>
-	<li><b>Example:</b> <i>Davis v. City of New York</i>, 902 F. Supp. 2d 405, 412 n.22 (S.D.N.Y. 2012) (describing how Jay-Z “showcased his knowledge of these Fourth Amendment rights” in his song <i>99 Problems</i>).</li>
-	</ul></li>
-
-</ol>
-
-<h3 id="R12">R12. Court &amp; Year</h3>
-
-	<ol class="rule">
-	<li id="R12.1"><span class="rule" role="heading" aria-level="4">R12.1.</span> Citations should include both <span class="ob">the deciding court </span> and the <span class="ob">year of decision</span> in parentheses.</li>
-	<li id="R12.2"><span class="rule" role="heading" aria-level="4">R12.2.</span> See <a href="#T1">Table T1</a> for how to abbreviate the names of all U.S. federal and state courts. </li>
-
-</ol>
-
-<p>
-	See the chart below for common examples:
-</p>
-
-<table class="line nowidth">
-<thead>
-<tr><th>Court</th><th>Rule</th><th>Example</th></tr>
-</thead>
-	<tbody>
-
-
-		<tr>
-			<td><p>United States Supreme Court</p></td>
-			<td>
-			<p>Use U.S. if the opinion is published in the <span class="ob">United States Reports.</span> If not, <span class="ob"></span>use S. Ct.</p>
-			<p>***When citing to a Supreme Court decision, just cite the year and omit the court’s name.</p>
-			</td>
-			<td>
-			<p><i>Two Pesos, Inc. v. Taco Cabana, Inc.</i>, 505 U.S. 763 (1992).</p>
-			<p><i>Brown v. Entm’t Merchs. Ass’n</i>, 131 S. Ct. 2729, 2738 (2011) (noting that Justice Alito has done “considerable independent research” on violent video games for his dissent).</p>
-			</td>
-		</tr>
-		<tr>
-			<td><p>Federal Courts of Appeals</p></td>
-			<td><p>Either F., F.2d, or F.3d, depending on the decision. </p></td>
-			<td>
-			<p><i>Batman v. Commissioner</i>, 189 F.2d 107 (5th Cir. 1951).</p>
-			<p><i>Nance v. United States</i>, 299 F.2d 122, 124 (D.C. Cir. 1962) (“How do you know it was me, when I had a handkerchief over my face?”).</p>
-			</td>
-		</tr>
-		<tr>
-			<td><p>Federal District Courts</p></td>
-			<td><p>Either F. Supp. or F. Supp. 2d depending on the decision.</p></td>
-			<td>
-			<p><i>Frigaliment Importing Co. v. B.N.S. International Sales Corp.</i>, 190 F. Supp. 116, 117 (S.D.N.Y. 1960) (“The issue is, what is chicken?”).</p>
-			<p><i>Cartier v. Aaron Faber Inc.</i>, 512 F. Supp. 2d 165 (S.D.N.Y. 2007).</p>
-			</td>
-		</tr>
-		<tr>
-			<td><p>State High Courts</p></td>
-			<td>
-			<p><span class="ob">Cite to the regional reporter for the region in which the court sits, if the opinion appears</span> there. If not, <span class="ob">cite to the state’s official reporter, as listed in</span> <a href="#T1">Table T1</a>. </p>
-			<p>Note: If citing an official reporter that publishes only decisions of the state’s highest court (e.g., “Cal.” for the California Supreme Court’s reporter), do not include the court’s name in parentheses. </p>
-			</td>
-			<td>
-		<p><i>Terrible v. Terrible</i>, 534 P.2d 919 (Nev. 1975). </p>
-		<p><i>State v. One 1970 2-Door Sedan Rambler</i>, 136 N.W. 59 (Neb. 1974).</p>
-			</td>
-		</tr>
-		<tr>
-			<td><p>Other State Courts</p></td>
-			<td>
-			<p><span class="ob">Cite to the regional reporter for the region in which the court sits, if the opinion appears</span> there. If not, <span class="ob">cite to the state’s official reporter</span> in <a href="#T1">Table T1</a>.</p>
-			<p>Note: Do <b>NOT</b> include the <span class="ob">department or district of intermediate state courts.</span></p>
-	</td>
-			<td>
-			<p><i>Brown v. Swindell</i>, 198 So. 2d 432, 434 (La. Ct. App. 1967) (holding plaintiff could not recover damages for emotional distress allegedly due to embarrassment of owning a three-legged dog).</p>
-			<p><i>State v. Stroud</i>, 30 Wash. App. 392 (1981).</p>
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-
-<ol class="rule" start="3">
-
-<li id="R12.3"><span class="rule" role="heading" aria-level="4">R12.3.</span> Parallel Citation in State Court Documents
-
-	<ol class="rule2">
-	<li id="R12.3.1"><span class="rule" role="heading" aria-level="5">R12.3.1.</span> When submitting documents to state courts, follow the local rules for citations in <a href="#T3">Table T3</a>. </li>
-	<li id="R12.3.2"><span class="rule" role="heading" aria-level="5">R12.3.2.</span> State courts’ local rules <span class="ob">often require</span> a parallel citation: i.e., a citation to both <span class="ob">the official state reporter <i>and</i> the unofficial regional and/or state-specific reporter,</span> the latter following the former.</li>
-	<li id="R12.3.3"><span class="rule" role="heading" aria-level="5">R12.3.3.</span> Two important notes:
-
-		<ul>
-		<li>Use one pincite per <span class="ob">reporter citation.</span></li>
-		<li>When the <span class="ob">official reporter title</span> makes the state or court name apparent, then don’t include it again in parentheses. </li>
-		<li><b>Example:</b> <i>Harden v. Playboy Enterprises, Inc.</i>, 261 Ill. App. 3d 443, 633 N.E.2d 764 (1993).</li>
-		</ul></li>
-
-
-	</ol></li>
-
-<li id="R12.4"><span class="rule" role="heading" aria-level="4">R12.4.</span> Special Note on <span class="ob">Pending and Unreported Cases:</span> Some cases or opinions are not assigned to reporters. They generally can be found in one of the following three sources:
-
-	<ol class="rule2">
-	<li id="R12.4.1"><span class="rule" role="heading" aria-level="5">R12.4.1.</span> 
-		<p><b>LEXIS and Westlaw cases:</b> Citations to these electronic databases are similar to regular citations, except that they (a) replace the case code with a docket number <i>and</i> a database code supplied by LEXIS or Westlaw, and (b) include the full date of the decision in the following parenthetical, not just the year.</p>
-		<p>Citations to these electronic databases should be formatted as follows: <span class="ob"><var>&lt;Case Name&gt;</var>, <var>&lt;case docket number&gt;</var>, <var>&lt;database identifier and electronic report number&gt;</var>, at *<var>&lt;star page number&gt;</var> <var>&lt;(court, full date)&gt;</var>.</span></p>
-	
-		<ul>
-		<li><b>Example:</b> <i>Yates v. United States</i>, No. 13–7451, 2015 U.S. LEXIS 1503, at *40 (Feb. 25, 2015) (Citing Dr. Seuss, Justice Kagan explained, “[a] fish is, of course, a discrete thing that possesses physical form.”). </li>
-		<li><b>Example:</b> <i>State v. Green</i>, No. 2012AP1475–CR, 2013 WL 5811261, at *7 (Wis. Ct. App. Oct. 30, 2013) (rejecting Green’s argument that there was a reversible error due to bailiff’s distribution of leftover Halloween candy to the jury).</li>
-		</ul>
-	</li>
-	<li id="R12.4.2"><span class="rule" role="heading" aria-level="5">R12.4.2.</span> Slip opinions: A slip opinion is a published decision by a court that has not yet been included in a reporter. If there is a slip opinion for an unreported case, but it’s not in LEXIS or Westlaw, include <span class="ob">the docket number, the court, and the full date of the most recent major disposition of the case</span>:
-
-		<ul>
-		<li><b>Example:</b> <i>Beastie Boys v. Monster Energy Co.</i>, No. 12 Civ. 6065 (S.D.N.Y. Dec. 4, 2014).</li>
-		</ul></li>
-	<li id="R12.4.3"><span class="rule" role="heading" aria-level="5">R12.4.3.</span> <span class="ob">Opinions only available online, but not in an electronic database: Some cases, particularly ones that are pending,</span> may <span class="ob">be accessed</span> only <span class="ob">through a court’s website</span>. If so, include the URL.
-
-		<ul>
-		<li><b>Example:</b> <i>Macy’s Inc. v. Martha Stewart Living Omnimedia, Inc.</i>, No. 1728, slip op. at 1 (N.Y. App. Div. Feb. 26, 2015), <a class="no" href="http://www.nycourts.gov/reporter/3dseries/2015/2015_01728.htm">http://www.nycourts.gov/reporter/3dseries/2015/2015_01728.htm</a>.</li>
-		</ul></li>
-		
-	<li id="R12.4.4"><span class="rule" role="heading" aria-level="5">R12.4.4.</span> Different courts and publishers use different acronyms to identify civil and criminal docket numbers (e.g., CIV-A, Civ. A., Civ., No., etc.). Cite to the case docket number exactly as it appears. If a case has more than one docket number, these acronyms do not need to be included after the first reference:
-		<ul>
-		<li><b>Example:</b> <i>In re Salomon Inc. Sec. Litig.</i>, Nos. 91 Civ. 5442 (RPP), 91 Civ. 5471, 1992 WL 150762 (S.D.N.Y. Nov. 13, 1992).</li>
-		</ul></li>
-	
-	</ol></li>
-
-</ol>
 
 <hr/>
 
