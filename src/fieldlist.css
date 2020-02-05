@@ -1,0 +1,26 @@
+div.table-display {
+	margin: 0.5em 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: 30% 70%;
+	grid-column-gap: 0.5rem;
+}
+
+.table-display .label {
+    font-weight: bold;
+    text-align: right;
+}
+
+.table-display .label:after {
+    content: ": ";
+    text-align: left;
+	font-weight: bold;
+}
+
+.table-display .value {
+	font-weight: normal;
+}
+
+.spin-central {
+    text-align: center;
+}
