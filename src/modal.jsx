@@ -6,6 +6,13 @@ import { FieldList } from './fieldlist.jsx';
 
 import "./modal.css";
 
+var urlStub = null;
+if (!(window.location.host.startsWith("127.0.0.1")) && !(window.location.host.startsWith("localhost"))) {
+    urlStub = 'https://raw.githubusercontent.com/Juris-M/indigobook/gh-pages/';
+} else {
+    urlStub = '/'
+}
+
 export const App = () => {
     // States to report things into React
     const [popupOn, setPopup] = useState(false);
@@ -21,11 +28,6 @@ export const App = () => {
             cite: ev.currentTarget.innerHTML
         }
     }))
-    const getBibdata = useCallback(() => setBibdata(bibdata => {
-        return {
-            wow: 'it worked'
-        }
-    }), [])
 
     // An effect to set up the event listeners
     useEffect(() => {
@@ -47,7 +49,6 @@ export const App = () => {
         closeOnDocumentClick
         closeOnEscape
         onClose={closeModal}
-        onOpen={getBibdata}
     >
     {close => {
     return (
@@ -58,7 +59,7 @@ export const App = () => {
         <div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(evdata.cite)}}></div>
         <div className="content">
           {" "}
-          <FieldList id={evdata.id}/>
+          <FieldList id={evdata.id} urlStub={urlStub}/>
         </div>
         <div className="actions">
           <div className="login-note">

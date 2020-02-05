@@ -3,12 +3,15 @@ import Spinner from './spinner.jsx';
 import axios from 'axios';
 import './fieldlist.css';
 
+
+
 export const FieldList = props => {
     const [listItems, setListItems] = useState([]);
     const getItems = useCallback((data) => setListItems((listItems) => listItems = data), []);
     useEffect(() => {
         const key = props.id.slice(-8);
-        axios.get('https://raw.githubusercontent.com/Juris-M/indigobook/gh-pages/itemdata/' + key + '.json')
+      
+        axios.get(props.urlStub + 'itemdata/' + key + '.json')
         .then((response) =>{
             getItems(response.data);
             }).catch((err) => {
