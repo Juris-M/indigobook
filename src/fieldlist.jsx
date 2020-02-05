@@ -8,10 +8,8 @@ export const FieldList = props => {
     const getItems = useCallback((data) => setListItems((listItems) => listItems = data), []);
     useEffect(() => {
         const key = props.id.slice(-8);
-        console.log("try: /itemdata/" + key + ".json")
-        axios.get('/itemdata/' + key + '.json')
+        axios.get('https://raw.githubusercontent.com/Juris-M/indigobook/gh-pages/itemdata/' + key + '.json')
         .then((response) =>{
-            console.log(JSON.stringify(response.data));
             getItems(response.data);
             }).catch((err) => {
             console.log("ERROR: "+err.message);
