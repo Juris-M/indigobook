@@ -118,20 +118,56 @@ function zoteroToJurismData(obj) {
 }
 
 function getLabelsAndVals(obj) {
+    var seq = [];
     var ret = {
         key: obj.key,
         creators: {},
-        fields: {}
+        fields: []
     };
+    var fieldSortList = [
+        "itemType",
+        "caseName",
+        "reporterVolume",
+        "reporter",
+        "firstPage",
+        "dateDecided",
+        "jurisdiction",
+        "court"
+    ];
+    var fieldStopList = {};
+    for (var fieldName in obj) {
+        if (fieldSortList.indexOf(fieldName) > -1) {
+            var fieldLabel = getFieldLabel(fieldName);
+            ret.fields.push({
+                fieldName: fieldName,
+                value: obj[fieldName],
+                label: fieldLabel.split(/\s+/).slice(-1)[0]
+            });
+            fieldStopList[fieldName] = true;
+        }
+    }
+    ret.fields.sort(function(a,b){
+        a = fieldSortList.indexOf(a.fieldName);
+        b = fieldSortList.indexOf(b.fieldName);
+        if (a > b) {
+            return 1;
+        } else if (a < b) {
+            return -1;
+        } else {
+            return 0;
+        }
+    })
     for (var fieldName in obj) {
         if (!obj[fieldName]) continue;
         if (["dateModified", "dateAdded"].indexOf(fieldName) > -1) continue;
+        if (fieldStopList[fieldName]) continue;
         var fieldLabel = getFieldLabel(fieldName);
         if (fieldLabel) {
-            ret.fields[fieldName] = {
+            ret.fields.push({
+                fieldName: fieldName,
                 value: obj[fieldName],
                 label: fieldLabel.split(/\s+/).slice(-1)[0]
-            }
+            });
         }
     }
     for (var i in obj.creators) {
