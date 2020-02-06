@@ -46,7 +46,7 @@ const requireLogin = () => {
         // Get temporary code
         var code = params.code;
         // Remove code from URL
-        history.replaceState({}, document.title, uri.search(""));
+        history.replaceState({}, document.title, url.search(""));
         // Call for validation
         var mode = "indigo";
         if (document.location.host === "fbennett.github.io") {
