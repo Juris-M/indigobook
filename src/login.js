@@ -6,8 +6,7 @@ import axios from 'axios';
 
 var access_token = null;
 
-const parseQuery = () => {
-    const url = window.location.toString();
+const parseQuery = (url) => {
     var regex = /[?&]([^=#]+)=([^&#]*)/g,
         params = {},
         match;
@@ -34,7 +33,8 @@ const requireLogin = () => {
     }
     */
     // GitHub login
-    const params = parseQuery();
+    const url = window.location.toString();
+    const params = parseQuery(url);
     if (!params.code && !access_token) {
         // ID from Juris-M OAuth app reg
         var client_id = "eb529c0faf1bace5811d";
