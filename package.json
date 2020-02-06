@@ -31,9 +31,12 @@
     "@types/react-dom": "^16.9.5",
     "autoprefixer": "^9.7.3",
     "babel-loader": "^8.0.6",
+    "babel-plugin-emotion": "^10.0.27",
     "css-loader": "^3.3.2",
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
+    "htmlparser": "^1.7.7",
+    "jsdom": "^16.1.0",
     "postcss-loader": "^3.0.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^1.0.1",
@@ -48,15 +51,13 @@
     "xpath": "0.0.27"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.27",
     "axios": "^0.19.2",
     "dompurify": "^2.0.7",
-    "htmlparser": "^1.7.7",
-    "jsdom": "^16.1.0",
+    "octonode": "^0.9.5",
+    "pell": "^1.0.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-modal": "^3.11.1",
-    "react-spinners": "^0.8.0",
+    "react-spinner": "^0.2.7",
     "reactjs-popup": "^1.5.0"
   }
 }

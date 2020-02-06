@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import Popup from "reactjs-popup";
 import DOMPurify from 'dompurify'
 import { FieldList } from './fieldlist.jsx';
+/* import { Button } from './button.jsx'; */
+import { loginOK, requireLogin } from './login.js';
 
 import "./modal.css";
 
@@ -70,18 +72,7 @@ export const App = () => {
               Log in to GitHub to propose changes or additions to the Indigo Book examples.
             </p>
           </div>
-          <Popup
-            trigger={<button className="button"> Login </button>}
-            position="top center"
-            closeOnDocumentClick
-          >
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-              magni omnis delectus nemo, maxime molestiae dolorem numquam
-              mollitia, voluptate ea, accusamus excepturi deleniti ratione
-              sapiente! Laudantium, aperiam doloribus. Odit, aut.
-            </span>
-          </Popup>
+          <button onClick={requireLogin}>Login</button>
         </div>
       </div>
     )}}
