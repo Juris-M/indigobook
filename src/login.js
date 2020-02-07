@@ -57,11 +57,17 @@ const finishLogin = (getLoginStateOn, getEvdata, openModal) => {
         var url = 'https://our.law.nagoya-u.ac.jp/juris-m/authenticate/' + code + '?case=' + mode;
         axios.get(url).then((response) => {
             window.localStorage.setItem('access_token', response.data);
-            getLoginStateOn();
+            let cite_id = window.localStorage.getItem('cite_id');
+            let cite_text = window.localStorage.getItem('cite_text');
             getEvdata({
-                id: window.localStorage.getItem('cite_id'),
-                cite: window.localStorage.getItem('cite_text')
+                id: cite_id,
+                cite: cite_text
             });
+            let elem = document.getElementById(cite_id);
+            if (elem) {
+                elem.scrollIntoView();
+            }
+            getLoginStateOn();
             openModal();
         }).catch((error) => {
             console.log("LOGIN ERROR: " + error.message);
