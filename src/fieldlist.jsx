@@ -5,9 +5,6 @@ import Spinner from "react-spinner";
 
 import './react-spinner.css';
 
-
-console.log("??? " + Spinner);
-
 export const FieldList = props => {
     const [listItems, setListItems] = useState([]);
     const getItems = useCallback((data) => setListItems((listItems) => listItems = data), []);
