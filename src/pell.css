@@ -7,7 +7,9 @@
   height: 50px;
   outline: 0;
   overflow-y: auto;
-  padding: 10px; }
+  padding: 10px;
+  background-color: lightgoldenrodyellow;
+}
 
 .pell-actionbar {
   background-color: #4b00ff;
