@@ -5,6 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     entry: './src/modal.jsx',
+    devtool: 'inline-source-map',
     output: {
         path: path.resolve(__dirname, 'webpage'),
         filename: 'bundle.js',
