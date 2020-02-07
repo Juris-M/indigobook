@@ -1,7 +1,7 @@
-[submodule "webpage"]
-	path = webpage
-	url = https://github.com/Juris-M/indigobook.git
-	branch = gh-pages
 [submodule "schema"]
 	path = schema
 	url = git@github.com:Juris-M/zotero-schema.git
+[submodule "webpage"]
+	path = webpage
+	url = https://github.com/fbennett/indigobook.git
+	branch = gh-pages

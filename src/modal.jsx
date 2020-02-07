@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import Popup from "reactjs-popup";
 import DOMPurify from 'dompurify'
 import { FieldList } from './fieldlist.jsx';
+import { startLogin, finishLogin, loginOK, logOut } from './login.js';
+import Editor from './editor.jsx';
 
 import "./modal.css";
 
@@ -18,28 +20,62 @@ export const App = () => {
     const [popupOn, setPopup] = useState(false);
     const [bibdata, setBibdata] = useState({});
     const [evdata, setEvdata] = useState({});
+    const [editCite, setEditCite] = useState(false);
+    const [loginState, setLoginState] = useState(false);
 
     // Callbacks to manipulate the states
     const openModal = useCallback(() => setPopup(popupOn => popupOn = true), []);
-    const closeModal = useCallback(() => setPopup(popupOn => popupOn = false), []);
-    const getEvdata = useCallback((ev) => setEvdata(evdata => {
-        return {
-            id: ev.currentTarget.getAttribute("id"),
-            cite: ev.currentTarget.innerHTML
-        }
-    }))
+
+    // ZZZ We remove the ID and the text from localStorage on discretionary
+    // closing of the popup.
+    const closeModal = useCallback(() => setPopup(popupOn => {
+          popupOn = false;
+          window.localStorage.removeItem('cite_id');
+          window.localStorage.removeItem('cite_text');
+    }), []);
+
+    const getEvdata = useCallback((data) => setEvdata(evdata => data), []);
+    const getEditCiteOn = useCallback(() => setEditCite(editCite => editCite = true), []);
+    const getEditCiteOff = useCallback(() => setEditCite(editCite => editCite = false), []);
+    const getLoginStateOn = useCallback(() => setLoginState(loginState => loginState = true), []);
+    const getLoginStateOff = useCallback(() => setLoginState(loginState => loginState = false), []);
 
     // An effect to set up the event listeners
     useEffect(() => {
+        console.log('Set listeners');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
+            // Pulling details from the event here makes it simpler to
+            // repurpose the open event for login-revisits to the page.
             node.addEventListener("click", (ev) => {
-              getEvdata(ev);
+              let data = {
+                  id: ev.currentTarget.getAttribute("id"),
+                  cite: ev.currentTarget.innerHTML
+              }
+              window.localStorage.setItem('cite_id', data.id);
+              window.localStorage.setItem('cite_text', data.cite);
+              getEvdata(data);
               openModal();
             })
         }
+        //window.addEventListener("beforeunload", function(event) {
+        //    window.localStorage.removeItem('access_token');
+        //    // window.localStorage.setItem('block_login');
+        //});
       }, []);
 
+    useEffect(() => {
+        // ZZZ Setting ID and text in localStore allows us to scroll to the
+        // current location and reopen the popup after the redirect completes.
+        finishLogin(getLoginStateOn, getEvdata, openModal);
+    });
+
+    useEffect(() => {
+        if (loginOK()) {
+            getLoginStateOn();
+        }
+    });
+    
     // The popup
     return (
     <Popup 
@@ -56,36 +92,48 @@ export const App = () => {
         <a className="close" onClick={close}>
           &times;
         </a>
-        <div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(evdata.cite)}}></div>
+        <div className="header">
+        {
+          editCite ? <Editor citeContent={evdata.cite} /> : <div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(evdata.cite)}}></div>
+        }
+        </div>
         <div className="content">
           {" "}
           <FieldList id={evdata.id} urlStub={urlStub}/>
         </div>
-        <div className="actions">
-          <div className="login-note">
-          <p>
-              The citation at the top is generated from the listed Jurism metadata.
-            </p>
-            <p>
-              Log in to GitHub to propose changes or additions to the Indigo Book examples.
-            </p>
-          </div>
-          <Popup
-            trigger={<button className="button"> Login </button>}
-            position="top center"
-            closeOnDocumentClick
-          >
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae
-              magni omnis delectus nemo, maxime molestiae dolorem numquam
-              mollitia, voluptate ea, accusamus excepturi deleniti ratione
-              sapiente! Laudantium, aperiam doloribus. Odit, aut.
-            </span>
-          </Popup>
-        </div>
+        {
+            loginOK() ?
+                editCite ?
+                <div className="actions balanced">
+                    <button onClick={getEditCiteOff}>Cancel</button>
+                    <button>Save</button>
+                </div>
+                :
+                <div className="actions balanced">
+                    <button onClick={() => {logOut(); getLoginStateOff();}}>Logout</button>
+                    <button onClick={getEditCiteOn}>Edit</button>
+                </div>
+            :
+            <div className="actions wideleft">
+                <div className="login-note">
+                    <p>
+                        The Jurism record for the citation are shown above. 
+                    </p>
+                    <p>
+                        Log in to GitHub to propose changes or additions to the cite examples.
+                    </p>
+                </div>
+                <button onClick={startLogin}>Login</button>
+            </div>
+        }
       </div>
     )}}
     </Popup>
 )}
 
 ReactDOM.render(<App />, document.querySelector("#popup-root"));
+
+
+/*
+        <div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(evdata.cite)}}></div>
+*/

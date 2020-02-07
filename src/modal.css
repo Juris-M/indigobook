@@ -11,27 +11,30 @@ img {
     font-size: 14px;
   }
   .modal > .header {
-    width: 100%;
     border-bottom: 1px solid gray;
     text-align: left;
     padding: 5px;
   }
   .modal > .content {
-    width: 100%;
     padding: 10px 5px;
     border-bottom: 1px solid gray;
   }
   .modal > .actions {
-    width: 100%;
     padding: 10px 5px;
     margin: auto;
     display: grid;
-    grid-template-columns: auto 90px;
     grid-column-gap: 0.5em;
-    padding-right: 1em;
     align-items: center;
   }
 
+  .modal > .actions.balanced {
+    grid-template-columns: auto auto;
+  }
+  
+  .modal > .actions.wideleft {
+    grid-template-columns: auto 90px;
+  }
+  
   .modal .login-note p {
     margin: 0 0 0 0;
     font-size: 11px;

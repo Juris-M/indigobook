@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useCallback} from "react";
-import Spinner from './spinner.jsx';
 import axios from 'axios';
 import './fieldlist.css';
+import Spinner from "react-spinner";
 
-
+import './react-spinner.css';
 
 export const FieldList = props => {
     const [listItems, setListItems] = useState([]);
@@ -13,9 +13,9 @@ export const FieldList = props => {
       
         axios.get(props.urlStub + 'itemdata/' + key + '.json')
         .then((response) =>{
-            getItems(response.data);
-            }).catch((err) => {
-            console.log("ERROR: "+err.message);
+              getItems(response.data);
+        }).catch((err) => {
+              console.log("ERROR: "+err.message);
         });
     }, []);
     if (listItems.length) {
@@ -32,6 +32,6 @@ export const FieldList = props => {
             }
         </div>
     } else {
-        return <div className="spin-central"><Spinner /></div>
+        return <Spinner />
     }
 }
