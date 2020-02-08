@@ -60,11 +60,6 @@ img {
     padding-right: 4px;
 }
 
-.modal > .actions .button {
-    margin-right: 1em;
-    height: 1.5rem;
-}
-
 .modal > .close {
     cursor: pointer;
     position: absolute;
@@ -79,7 +74,7 @@ img {
     border: 1px solid #cfcece;
 }
 
-.login-button {
+.modal > .actions.wideleft button {
     padding: 20px;
     border-radius: 8px;
     background: #4b0082;
@@ -88,3 +83,18 @@ img {
     font-size: larger;
 }
 
+.modal > .actions.balanced button {
+    width: 100%;
+    height: 3em;
+    background: #4b0082;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+    cursor: pointer;
+}
+
+.modal > .actions .balance button:first-child {
+    color: black;
+    background: lightgoldenrodyellow;
+}
