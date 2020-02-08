@@ -105,12 +105,15 @@ export const App = () => {
         {
             loginOK() ?
                 editCite ?
-                <table className="actions balanced">
-                  <tr>
-                    <td><button onClick={getEditCiteOff}>Cancel</button></td>
-                    <td><button>Save</button></td>
-                  </tr>
-                </table>
+                <div>
+                  <textarea placeholder="Tell us about the proposed change to this cite form" id="modal-comment"></textarea>
+                  <table className="actions balanced">
+                    <tr>
+                      <td><button onClick={getEditCiteOff}>Cancel</button></td>
+                      <td><button>Save</button></td>
+                    </tr>
+                  </table>
+                </div>
                 :
                 <table className="actions balanced">
                     <td><button onClick={() => {logOut(); getLoginStateOff();}}>Logout</button></td>
@@ -127,7 +130,7 @@ export const App = () => {
                         Log in to GitHub to propose changes or additions to the cite examples.
                     </p>
                 </td>
-                <td><button className="login-button" onClick={startLogin}>Login</button></td>
+                <td><button onClick={startLogin}>Login</button></td>
               </tr>
             </table>
         }

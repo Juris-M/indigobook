@@ -81,6 +81,7 @@ img {
     color: white;
     font-weight: bold;
     font-size: larger;
+    cursor: pointer;
 }
 
 .modal > .actions.balanced button {
@@ -94,7 +95,13 @@ img {
     cursor: pointer;
 }
 
-.modal > .actions .balance button:first-child {
+.modal > .actions.balanced td:first-child button {
     color: black;
     background: lightgoldenrodyellow;
+}
+
+#modal-comment {
+    width: 98%;
+    height: 4em;
+    resize: vertical;
 }
