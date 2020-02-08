@@ -4,61 +4,68 @@ img {
 }
 
 .popup-content {
-  width: 500px !important;
+  width: 600px !important;
 }
 
 .modal {
     font-size: 14px;
-  }
-  .modal > .header {
+}
+.modal > .header {
     border-bottom: 1px solid gray;
     text-align: left;
     padding: 5px;
     width: auto;
-  }
-  .modal > .content {
+}
+.modal > .content {
     padding: 10px 5px;
     border-bottom: 1px solid gray;
-  }
-  .modal > .actions {
+}
+.modal > .actions {
     padding: 10px 5px;
     margin: auto;
-    display: grid;
-    grid-column-gap: 0.5em;
-    align-items: center;
-  }
+    border: none;
+}
 
-  .modal > .actions.balanced {
-    grid-template-columns: auto auto;
-  }
-  
-  .modal > .actions.wideleft {
-    grid-template-columns: auto 90px;
-  }
-  
-  .modal .login-note p {
+.modal > .actions.balanced td:first-child {
+    width: auto;
+}
+
+.modal > .actions.balanced td {
+    width: auto;
+}
+
+.modal > .actions.wideleft td:first-child {
+    width: auto;
+}
+
+.modal > .actions.wideleft td {
+    width: 90px;
+    vertical-align: middle;
+}
+
+.modal .login-note p {
     margin: 0 0 0 0;
     font-size: 11px;
     line-height: 16px;
     margin-left: 20px;
     text-indent: -20px;
     padding-bottom: 6px;
-  }
+}
 
-  .modal .login-note p:before {
-      content: "→";
-      color: red;
-      font-weight: bold;
-      font-size: 16px;
-      padding-right: 4px;
-  }
+.modal .login-note p:before {
+    content: "→";
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+    padding-right: 4px;
+}
 
-  .modal > .actions .button {
+.modal > .actions .button {
     margin-right: 1em;
     height: 1.5rem;
-  }
+}
 
-  .modal > .close {
+.modal > .close {
     cursor: pointer;
     position: absolute;
     display: block;
@@ -70,4 +77,14 @@ img {
     background: #ffffff;
     border-radius: 18px;
     border: 1px solid #cfcece;
-  }
+}
+
+.login-button {
+    padding: 20px;
+    border-radius: 8px;
+    background: #4b0082;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+}
+

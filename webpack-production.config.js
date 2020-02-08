@@ -25,7 +25,26 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                options: {
+                    presets: [
+                        [
+                            '@babel/preset-env',
+                            {
+                                "targets": {
+                                    "chrome": "58",
+                                    "ie": "11",
+                                    "safari": "9"
+                                },
+				                "useBuiltIns": "usage"
+                            }
+                        ]
+                    ],
+                    plugins: [
+                        '@babel/plugin-transform-arrow-functions',
+                        '@babel/plugin-transform-spread'
+                    ]
+                }
             },
             {
                 test: /\.css$/,
@@ -76,5 +95,6 @@ module.exports = {
     optimization: {
         minimize: true,
         minimizer: [new TerserPlugin()],
-      }    
+    },
+    target: "web"
 };

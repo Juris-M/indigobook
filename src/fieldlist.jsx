@@ -19,18 +19,18 @@ export const FieldList = props => {
         });
     }, []);
     if (listItems.length) {
-        return <div className="table-display">
+        return <table className="table-display">
             {
                 listItems.map(info => {
                     return (
-                        <React.Fragment key={info.label}>
-                            <div className="label">{info.label}</div>
-                            <div className="value">{info.value}</div>
-                        </React.Fragment>
+                        <tr key={info.label}>
+                            <td className="label">{info.label}</td>
+                            <td className="value">{info.value}</td>
+                        </tr>
                     )
                 })
             }
-        </div>
+        </table>
     } else {
         return <Spinner />
     }

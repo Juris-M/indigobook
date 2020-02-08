@@ -9,9 +9,10 @@ import Editor from './editor.jsx';
 import "./modal.css";
 
 var urlStub = null;
-if (!(window.location.host.startsWith("127.0.0.1")) && !(window.location.host.startsWith("localhost"))) {
+if (!(window.location.host.startsWith("127.0.0.1")) && !(window.location.host.startsWith("localhost")) || true) {
     urlStub = 'https://raw.githubusercontent.com/Juris-M/indigobook/gh-pages/';
 } else {
+    console.log("local, okay");
     urlStub = '/'
 }
 
@@ -104,27 +105,31 @@ export const App = () => {
         {
             loginOK() ?
                 editCite ?
-                <div className="actions balanced">
-                    <button onClick={getEditCiteOff}>Cancel</button>
-                    <button>Save</button>
-                </div>
+                <table className="actions balanced">
+                  <tr>
+                    <td><button onClick={getEditCiteOff}>Cancel</button></td>
+                    <td><button>Save</button></td>
+                  </tr>
+                </table>
                 :
-                <div className="actions balanced">
-                    <button onClick={() => {logOut(); getLoginStateOff();}}>Logout</button>
-                    <button onClick={getEditCiteOn}>Edit</button>
-                </div>
+                <table className="actions balanced">
+                    <td><button onClick={() => {logOut(); getLoginStateOff();}}>Logout</button></td>
+                    <td><button onClick={getEditCiteOn}>Edit</button></td>
+                </table>
             :
-            <div className="actions wideleft">
-                <div className="login-note">
+            <table className="actions wideleft">
+              <tr>
+                <td className="login-note">
                     <p>
                         The Jurism record for the citation are shown above. 
                     </p>
                     <p>
                         Log in to GitHub to propose changes or additions to the cite examples.
                     </p>
-                </div>
-                <button onClick={startLogin}>Login</button>
-            </div>
+                </td>
+                <td><button className="login-button" onClick={startLogin}>Login</button></td>
+              </tr>
+            </table>
         }
       </div>
     )}}
