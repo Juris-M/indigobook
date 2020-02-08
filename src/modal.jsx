@@ -116,8 +116,10 @@ export const App = () => {
                 </div>
                 :
                 <table className="actions balanced">
+                  <tr>
                     <td><button onClick={() => {logOut(); getLoginStateOff();}}>Logout</button></td>
                     <td><button onClick={getEditCiteOn}>Edit</button></td>
+                  </tr>
                 </table>
             :
             <table className="actions wideleft">
@@ -140,8 +142,3 @@ export const App = () => {
 )}
 
 ReactDOM.render(<App />, document.querySelector("#popup-root"));
-
-
-/*
-        <div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(evdata.cite)}}></div>
-*/

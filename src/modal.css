@@ -84,7 +84,7 @@ img {
     cursor: pointer;
 }
 
-.modal > .actions.balanced button {
+.modal .actions.balanced button {
     width: 100%;
     height: 3em;
     background: #4b0082;
@@ -95,7 +95,7 @@ img {
     cursor: pointer;
 }
 
-.modal > .actions.balanced td:first-child button {
+.modal .actions.balanced tr td:first-child button {
     color: black;
     background: lightgoldenrodyellow;
 }
