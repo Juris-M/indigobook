@@ -17,8 +17,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config webpack-production.config.js --open --hot --mode development",
-    "build": "webpack --config webpack-production.config.js --mode development",
+    "devlocal": "webpack-dev-server --config webpack.config.dev.js --open --hot --mode development",
+    "devremote": "webpack --config webpack.config.dev.js --mode development",
+    "build": "webpack --config webpack.config.prod.js --mode production",
     "getitems": "node ./scripts/getitems.js",
     "babelver": "babel --version"
   },
@@ -50,6 +51,7 @@
     "webpack": "^4.41.3",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2",
     "xmldom": "^0.2.1",
     "xpath": "0.0.27"
   },
