@@ -1,18 +1,11 @@
+// No more xmlHttpRequest
+import axios from 'axios";
 
-// Oh. This isn't the original library, it's code borrowed from it an modified.
+// Hmm. Store persistent details as JSON in a single localStore item,
+// if there is to be more than the access token.
+var username = null;
+var access_token = null;
 
-export GitHub = function(access_token, jurisdictionWorker, validateContent, submitButton){
-    /*
-     * Exports
-     */
-
-    this.githubInit = githubInit;
-    this.submitPullRequest = githubSubmitPullRequest;
-    this.ghMsg = ghMsg;
-    this.username = username;
-
-    var username = null;
-    
     /*
      * General functions
      */
@@ -472,3 +465,11 @@ export GitHub = function(access_token, jurisdictionWorker, validateContent, subm
         ghGetUser(info);
     }
 };
+
+
+export = {
+    githubInit,
+    githubSubmitPullRequest,
+    ghMsg,
+    username
+}
