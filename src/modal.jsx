@@ -59,10 +59,9 @@ export const App = () => {
               openModal();
             })
         }
-        //window.addEventListener("beforeunload", function(event) {
-        //    window.localStorage.removeItem('access_token');
-        //    // window.localStorage.setItem('block_login');
-        //});
+        window.addEventListener("beforeunload", function(event) {
+            window.localStorage.removeItem('access_token');
+        });
       }, []);
 
     useEffect(() => {
