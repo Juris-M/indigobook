@@ -3,18 +3,12 @@ import ReactDOM from "react-dom";
 import Popup from "reactjs-popup";
 import DOMPurify from 'dompurify'
 import { FieldList } from './fieldlist.jsx';
-import { startLogin, finishLogin, loginOK, logOut } from './login.js';
+import { parseQuery, startLogin, finishLogin, loginOK, logOut } from './login.js';
 import Editor from './editor.jsx';
 
 import "./modal.css";
 
-var urlStub = null;
-if (!(window.location.host.startsWith("127.0.0.1")) && !(window.location.host.startsWith("localhost")) || true) {
-    urlStub = 'https://raw.githubusercontent.com/Juris-M/indigobook/gh-pages/';
-} else {
-    console.log("local, okay");
-    urlStub = '/'
-}
+var urlStub = parseQuery().base;
 
 export const App = () => {
     // States to report things into React

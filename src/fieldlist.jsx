@@ -5,21 +5,25 @@ import Spinner from "react-spinner";
 
 import './react-spinner.css';
 
+const axiosGetAsync = async (url) => {
+      var res = await axios(url);
+      return res;
+}
+
 export const FieldList = props => {
     const [listItems, setListItems] = useState([]);
     const getItems = useCallback((data) => setListItems((listItems) => listItems = data), []);
     useEffect(() => {
-        const key = props.id.slice(-8);
-      
-        axios.get(props.urlStub + 'itemdata/' + key + '.json')
-        .then((response) =>{
-              getItems(response.data);
-        }).catch((err) => {
-              console.log("ERROR: "+err.message);
-        });
+        var func = async () => {
+          const key = props.id.slice(-8);
+          var response = await axiosGetAsync(props.urlStub + 'itemdata/' + key + '.json');
+          getItems(response.data);
+        }
+        func();
     }, []);
     if (listItems.length) {
         return <table className="table-display">
+                 <tbody>
             {
                 listItems.map(info => {
                     return (
@@ -30,6 +34,7 @@ export const FieldList = props => {
                     )
                 })
             }
+            </tbody>
         </table>
     } else {
         return <Spinner />
