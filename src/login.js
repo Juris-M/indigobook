@@ -18,10 +18,12 @@ const parseQuery = () => {
         frag = match[1];
     }
     url = url.replace(/\?.*/, "").replace(/\#.*/, "");
+    var base = url.replace(/^(.*\/).*/, "$1");
     return {
         query: query,
         frag: frag,
-        url: url
+        url: url,
+        base: base
     }
 }
 
@@ -89,5 +91,6 @@ export {
     startLogin,
     finishLogin,
     loginOK,
-    logOut
+    logOut,
+    parseQuery
 }
