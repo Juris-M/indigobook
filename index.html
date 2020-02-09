@@ -1,199 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>Citation style feedback - proof of concept</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <head>
+    <title>Indigo Book + Jurism Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
+    <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Alice' rel='stylesheet' type='text/css'>
 
+    <meta name="twitter:title" content=" Juris-M + Indigo Book Demo ">
+    <meta name="twitter:site" content="@fgbjr">
+    <meta name="twitter:description" content="Open-source referencing for law, with your support.">
+    <meta name="twitter:image" content="https://juris-m/github.io/indigobook/indigo-cover.png">
+    <meta name="twitter:card" content="summary">
 
-<link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Alice' rel='stylesheet' type='text/css'>
-
-
-<meta name="twitter:title" content=" Juris-M + Indigo Book Demo ">
-<meta name="twitter:site" content="@fgbjr">
-<meta name="twitter:description" content="Open-source referencing for law, with your support.">
-<meta name="twitter:image" content="https://juris-m/github.io/indigobook/indigo-cover.png">
-<meta name="twitter:card" content="summary">
+    <meta name="author" content="Sprigram et. anon. al." />
+    <meta name="title" content="The Indigo Book: A Manual of Legal Citation" />
+    <meta name="date" content="April 8, 2016" />
+    <meta name="description" content="An open implementation of a system of legal citation." />
+    <meta name="keywords" content="citation, bluebook, legal, law" />
+    <meta name="language" content="English"> 
+    <meta name="generator" content="Public.Resource.Org" />
 
     <link rel="icon" type="image/png" href="favicon-32x32.png">
 
-<script type="text/javascript">	
-	function ItalicRed () 
-	{
-	var matches = document.querySelectorAll("i") ;
-	for (var i = 0; i < matches.length ; i++) {
-		matches[i].style.color = "#DC143C" ; 
-		}
-	}
-	
-	function ItalicNormal ()
-		{
-	var matches = document.querySelectorAll("i") ;
-	for (var i = 0; i < matches.length ; i++) {
-		matches[i].style.color = "" ; 
-		}
-	}
-</script> 	
+    <script type="text/javascript">    
+    function ItalicRed () 
+    {
+    var matches = document.querySelectorAll("i") ;
+    for (var i = 0; i < matches.length ; i++) {
+        matches[i].style.color = "#DC143C" ; 
+        }
+    }
+    
+    function ItalicNormal ()
+        {
+    var matches = document.querySelectorAll("i") ;
+    for (var i = 0; i < matches.length ; i++) {
+        matches[i].style.color = "" ; 
+        }
+    }
+    </script>     
 
-<style type="text/css">
-	body { word-wrap: break-word ; font-size: 12pt; line-height: 16pt; font-family: 'Libre Baskerville', Georgia, sans-serif;  }
-	h1 { string-set: doctitle content()  }
-	@page {  border: 0; margin-left: .75in; margin-right: .75in; margin-top: .75in; margin-bottom: .75in; widows:2; orphans:2; 
-	@top-right { content: string(doctitle) ;font-family: 'Libre Baskerville', Georgia, serif; font-style: italic ; }
-	@bottom-right { content: "Page " counter(page) ; font-family: 'Libre Baskerville', Georgia, serif; font-style: italic ; }
-	} 
-	@media screen {
-		body {
-    		margin: 0 auto !important;
-    		float: none !important;
-    		padding: 10px;
-    		max-width: 800px;
-    	}
-	}
-	div.bc { border: 2px solid #4B0082 ; padding: 10px; 
-	background-color: rgba(75, 0, 130,0.05); 
-	margin-top: 19px; margin-bottom: 6px; page-break-inside: avoid } 
-	div.bc span.head { color: #4B0082 ; font-weight: bold; font-variant: small-caps; }
-	div.bc p { font-size: 12pt; line-height: 16pt; }
-	cite { font-style: normal ; }
-	span.ob { }
-	var { font-family: "Monaco", Courier, monospace ; color:  #4B0082;   font-style: normal; }
+    <style type="text/css">
+    body { word-wrap: break-word ; font-size: 12pt; line-height: 16pt; font-family: 'Libre Baskerville', Georgia, sans-serif;  }
+    h1 { string-set: doctitle content()  }
+    @page {  border: 0; margin-left: .75in; margin-right: .75in; margin-top: .75in; margin-bottom: .75in; widows:2; orphans:2; 
+    @top-right { content: string(doctitle) ;font-family: 'Libre Baskerville', Georgia, serif; font-style: italic ; }
+    @bottom-right { content: "Page " counter(page) ; font-family: 'Libre Baskerville', Georgia, serif; font-style: italic ; }
+    } 
+    @media screen {
+        body {
+            margin: 0 auto !important;
+            float: none !important;
+            padding: 10px;
+            max-width: 800px;
+        }
+    }
+    div.bc { border: 2px solid #4B0082 ; padding: 10px; 
+    background-color: rgba(75, 0, 130,0.05); 
+    margin-top: 19px; margin-bottom: 6px; page-break-inside: avoid } 
+    div.bc span.head { color: #4B0082 ; font-weight: bold; font-variant: small-caps; }
+    div.bc p { font-size: 12pt; line-height: 16pt; }
+    cite { font-style: normal ; }
+    span.ob { }
+    var { font-family: "Monaco", Courier, monospace ; color:  #4B0082;   font-style: normal; }
 
-	ol { margin-top: 0; font-weight: normal;  padding-top: 0; margin-left: 2em; }
-	ul { margin-top: 0; font-weight: normal;  padding-top: 0; margin-left: 1em; }
-/*	ul.example { margin-top: 0; font-weight: normal;  padding-top: 0; margin-left: 1em; } */
-	li.example-item { margin-left: 2em; }
+    ol { margin-top: 0; font-weight: normal;  padding-top: 0; margin-left: 1em; }
+    ul { margin-top: 0; font-weight: normal;  padding-top: 0; margin-left: -2em;  }
+    
+    ul.leaders { padding: 0; margin-left: 16px; margin-top: 9px; overflow-x: hidden; list-style: none; }
+    ul.leaders li { line-height: 14pt; font-size: 12pt; }
+    ul.leaders span:first-child { padding-right: 0.33em; background: white}
+    ul.leaders span + span { float: right; padding-left: 0.33em; background: white; } 
+    li { text-align:left; margin:10px 0 6px 24px; direction:ltr; text-indent: 0; }    
+    ol.rule, ol.rule2, ol.rule3 { counter-reset: list; list-style-type: none ;  }
+    ol.rule span.rule { position: absolute ;   margin-left: -3.5em ; }
+    ol.rule2 span.rule { position: absolute ; margin-left: -4.5em ; }
+    ol.rule3 span.rule { position: absolute ; margin-left: -5.5em ; }
+    ol ul ul { margin-left: -2em ; }
+    ol ul { margin-left: -.5em ; }
+    ol ol ol { margin-left: -2em ; }
+    div.cover { background-color: #442327 ; padding: 5px; vertical-align: middle ;   }
+    div.cover h1 { text-align: center ; color: #dfbb92 ; font-variant: small-caps ; font-size: 21pt; line-height: 32pt; }
+    div.cover .display { font-size: 58pt; font-variant: small-caps ;   }
+    div.cover p.subtitle { text-align: center ; color: #dfbb92; font-size: 18pt ; padding-top: 20px ; padding-bottom: 20px;  }
+    div.cover p.subwarn { text-align: center ; color: #dfbb92; font-size: 12pt; text-transform: uppercase ;  }
+    @media print { 
+        div.cover { position: absolute; height: 11in; margin-left: 0; margin-top: 0; width: 8in; }
+    }
+    @page:first {
+        @top-right { content: normal }
+        @bottom-right { content: normal }
+        margin: 0 ; 
+    }
+    
+    p, li, td, th, .bc { font-family: 'Libre Baskerville', Georgia, serif;  }
+    p { text-align:left; margin:0; direction:ltr; padding-bottom: 9px; color: #000; text-indent: 0; font-size: 12pt ; line-height: 18pt; }
 
+    h1, p.subtitle, p.subwarn { font-family: Alice, Georgia, serif ; }
+    h2, h3 { font-family: 'Libre Baskerville', Georgia, serif; padding-bottom: 5px; margin-bottom: 0px; text-indent: 0px; }
+    h2    { color: #990000; font-size: 16pt; line-height: 18pt;margin-top: 22px; }
+    h4    { text-indent: 0; font-size: 14pt ;margin-bottom: 12px; }       
+    h5 { text-indent: 0; font-size: 14pt ; line-height: 16pt;  margin-bottom: 12px; }  
+    h6 { text-indent: 0; font-size: 12pt ; line-height: 16pt;  margin-bottom: 12px; } 
 
-/*
-	ol { margin-top: 0; font-weight: normal;  padding-top: 0; margin-left: 1em; }
-	ul { margin-top: 0; font-weight: normal;  padding-top: 0; margin-left: -2em;  }
-	
-*/
-
-	ul.leaders { padding: 0; margin-left: 16px; margin-top: 9px; overflow-x: hidden; list-style: none; }
-	ul.leaders li { line-height: 14pt; font-size: 12pt; }
-	ul.leaders span:first-child { padding-right: 0.33em; background: white}
-	ul.leaders span + span { float: right; padding-left: 0.33em; background: white; } 
-	li { text-align:left; margin:10px 0 6px 24px; direction:ltr; text-indent: 0; }	
-	ol.rule, ol.rule2, ol.rule3 { counter-reset: list; list-style-type: none ;  }
-	ol.rule span.rule { position: absolute ;   margin-left: -3.5em ; }
-	ol.rule2 span.rule { position: absolute ; margin-left: -4.5em ; }
-	ol.rule3 span.rule { position: absolute ; margin-left: -5.5em ; }
-	ol ul ul { margin-left: -2em ; }
-	ol ul { margin-left: -.5em ; }
-	ol ol ol { margin-left: -2em ; }
-	div.cover { background-color: #442327 ; padding: 5px; vertical-align: middle ;   }
-	div.cover h1 { text-align: center ; color: #dfbb92 ; font-variant: small-caps ; font-size: 21pt; line-height: 32pt; }
-	div.cover .display { font-size: 58pt; font-variant: small-caps ;   }
-	div.cover p.subtitle { text-align: center ; color: #dfbb92; font-size: 18pt ; padding-top: 20px ; padding-bottom: 20px;  }
-	div.cover p.subwarn { text-align: center ; color: #dfbb92; font-size: 12pt; text-transform: uppercase ;  }
-	@media print { 
-		div.cover { position: absolute; height: 11in; margin-left: 0; margin-top: 0; width: 8in; }
-	}
-	@page:first {
-		@top-right { content: normal }
-		@bottom-right { content: normal }
-		margin: 0 ; 
-	}
-	
-	p, li, td, th, .bc { font-family: 'Libre Baskerville', Georgia, serif;  }
-	p { text-align:left; margin:0; direction:ltr; padding-bottom: 9px; color: #000; text-indent: 0; font-size: 12pt ; line-height: 18pt; }
-
-	h1, p.subtitle, p.subwarn { font-family: Alice, Georgia, serif ; }
-	h2, h3 { font-family: 'Libre Baskerville', Georgia, serif; padding-bottom: 5px; margin-bottom: 0px; text-indent: 0px; }
-	h2	{ color: #990000; font-size: 16pt; line-height: 18pt;margin-top: 22px; }
-	h4	{ text-indent: 0; font-size: 14pt ;margin-bottom: 12px; }       
-	h5 { text-indent: 0; font-size: 14pt ; line-height: 16pt;  margin-bottom: 12px; }  
-	h6 { text-indent: 0; font-size: 12pt ; line-height: 16pt;  margin-bottom: 12px; } 
-
-	span.head { page-break-after: avoid; }
-	blockquote p { text-align: justify; }
-	table { width: 100%; border-width:0; border-collapse:collapse; padding:3px; text-align:left; vertical-align:top; margin-bottom:0; margin-top:0; direction:ltr; height:auto; display:table; float:none; margin: 12px 0; font-size: 10pt; line-height: 11pt;}
-	table tr.state td { border-top: 2px solid #990000 ; border-collapse: collapse; color: #990000 ; font-weight: bold ;  }
-	table tr td.indent { padding-left: 3em; }
-	table tr td span.example { margin-left: 3em; display: block ; }
-	tr.state { page-break-after: avoid ; }
-	
-	img { direction:ltr; margin: 0 auto;     
-		display: block;
-	    margin-left: auto;
-	    margin-right: auto; padding-bottom: 5px; padding-top: 5px; }
+    span.head { page-break-after: avoid; }
+    blockquote p { text-align: justify; }
+    table { width: 100%; border-width:0; border-collapse:collapse; padding:3px; text-align:left; vertical-align:top; margin-bottom:0; margin-top:0; direction:ltr; height:auto; display:table; float:none; margin: 12px 0; font-size: 10pt; line-height: 11pt;}
+    table tr.state td { border-top: 2px solid #990000 ; border-collapse: collapse; color: #990000 ; font-weight: bold ;  }
+    table tr td.indent { padding-left: 3em; }
+    table tr td span.example { margin-left: 3em; display: block ; }
+    tr.state { page-break-after: avoid ; }
+    
+    img { direction:ltr; margin: 0 auto;     
+        display: block;
+        margin-left: auto;
+        margin-right: auto; padding-bottom: 5px; padding-top: 5px; }
  
-	table { width: 100%; border-width:0; border-collapse:collapse; padding:3px; text-align:left; vertical-align:top; margin-bottom:0; margin-top:0; direction:ltr; height:auto; display:table; float:none; margin: 12px 0; font-size: 10pt; line-height: 11pt;}
-	tbody { vertical-align:top; height:auto; }
-	tr { vertical-align:top; height:auto }
-	td { text-align:left; vertical-align:top; padding: 5px; border-bottom: 1px solid #ccc;  text-indent: 0; }
-	td p { font-size: 10pt; line-height: 11pt; }
-	th {  text-align: left; vertical-align: bottom; background-color: #eee; padding: 5px; text-indent: 0; }
-	table.line { width: 100%; border-width:0; border-collapse:collapse; padding:3px; text-align:left; vertical-align:top; margin-bottom:0; margin-top:0; direction:ltr; height:auto; display:table; float:none; margin: 12px 0; font-size: 10pt; line-height: 11pt; }
-	table.line, table.line th, table.line td, table.line tr { border: 1px solid #ccc; }
-	table.line { border-collapse: collapse; }
+    table { width: 100%; border-width:0; border-collapse:collapse; padding:3px; text-align:left; vertical-align:top; margin-bottom:0; margin-top:0; direction:ltr; height:auto; display:table; float:none; margin: 12px 0; font-size: 10pt; line-height: 11pt;}
+    tbody { vertical-align:top; height:auto; }
+    tr { vertical-align:top; height:auto }
+    td { text-align:left; vertical-align:top; padding: 5px; border-bottom: 1px solid #ccc;  text-indent: 0; }
+    td p { font-size: 10pt; line-height: 11pt; }
+    th {  text-align: left; vertical-align: bottom; background-color: #eee; padding: 5px; text-indent: 0; }
+    table.line { width: 100%; border-width:0; border-collapse:collapse; padding:3px; text-align:left; vertical-align:top; margin-bottom:0; margin-top:0; direction:ltr; height:auto; display:table; float:none; margin: 12px 0; font-size: 10pt; line-height: 11pt; }
+    table.line, table.line th, table.line td, table.line tr { border: 1px solid #ccc; }
+    table.line { border-collapse: collapse; }
 
-	caption { padding-bottom: 12px; padding-top: 16px; font-weight: bold; color: #900; text-align: center; text-indent: 0; }
-	a.no { color: black ; text-decoration: none ; }
-	a { font-style:normal; font-weight:normal; color: #900;  }
-
+    caption { padding-bottom: 12px; padding-top: 16px; font-weight: bold; color: #900; text-align: center; text-indent: 0; }
+    a.no { color: black ; text-decoration: none ; }
+    a { font-style:normal; font-weight:normal; color: #900;  }
        
-	main, nav { display: block ; }
-	.offscreen {
-		 position: absolute;
-		 width: 1px;
-		 height: 1px;
-		 margin: -1px;
-		 padding: 0;
-		 overflow: hidden;
-		 clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-	     clip: rect(1px, 1px, 1px, 1px);
-		 border: 0;
-	}
-	:focus.offscreen {
-		 width: auto;
-		 height: auto;
-		 margin: 0;
-		 overflow: auto;
-		 clip: auto;
-		 display: block;
-		 background: #eee;
-		 color: #000;
-		 text-decoration: underline; 
-		 padding: 1em;
-	}
-	div.offscreen h2 { prince-bookmark-level: none }
+    main, nav { display: block ; }
 
-	input { width: 100%}
-	legend { border: none; }
-	.field-set{
-    	border-color:#fff;
-	    border-style: none;
-    	font-weight: bold;
-	    margin: 0;
-    	padding: 0;
-	}
-	svg.scale {width: 100%; height: auto;}
-	svg.centered { margin-left: auto; margin-right: auto; display: block; }
-	span.am { color: #990000 ; padding-left: 5px; padding-right: 5px ; font-size: smaller ; font-weight: bold }
-	sup { font-size: smaller; }
-	sub { font-size: smaller; }
+    input { width: 100%}
+    legend { border: none; }
+    .field-set{
+        border-color:#fff;
+        border-style: none;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+    }
+    svg.scale {width: 100%; height: auto;}
+    svg.centered { margin-left: auto; margin-right: auto; display: block; }
+    span.am { color: #990000 ; padding-left: 5px; padding-right: 5px ; font-size: smaller ; font-weight: bold }
+    sup { font-size: smaller; }
+    sub { font-size: smaller; }
 
-	.page-break { page-break-before: always; }
-	.header { width: 100%; text-align: center; line-height: 16pt; }
-	i a, .italics a, blockquote p a { font-family: 'Libre Baskerville'; font-style: italic; }
-	.center { text-align: center; }
+    .page-break { page-break-before: always; }
+    .header { width: 100%; text-align: center; line-height: 16pt; }
+    i a, .italics a, blockquote p a { font-family: 'Libre Baskerville'; font-style: italic; }
+    .center { text-align: center; }
 
     /* For this demo */
 
-	dt {
+    dt {
         font-weight: bold !important;
     }
     dd + dt {
         margin-top: 1em;
     }
+    </style>
 
-</style>
-
-<style type="text/css" media="screen">
+    <style type="text/css" media="screen">
       a.cite::before {
         content: '🔎';
         margin-right: .25em;
@@ -206,102 +176,83 @@
       a.cite:hover { color: #22272a; border-color: #22272a; cursor: pointer; }
       .modal p { margin: 1em 0; }
       .modal a.close-modal { border: none; }
-      
     </style>
-
-	<meta name="author" content="Sprigram et. anon. al." />
-	<meta name="title" content="The Indigo Book: A Manual of Legal Citation" />
-	<meta name="date" content="April 8, 2016" />
-	<meta name="description" content="An open implementation of a system of legal citation." />
-	<meta name="keywords" content="citation, bluebook, legal, law" />
-	<meta name="language" content="English"> 
-	<meta name="generator" content="Public.Resource.Org" />
-
-</head>
-<body>
-<div id="popup-root"></div>
-<div class="offscreen" role="navigation">
-<h2>Skip Links</h2>
-	<ul>
-		<li><a href="#toc">Skip to Table of Contents</a></li>
-		<li><a href="#sForeword">Skip to Main Content</a></li>
-	</ul>
-</div>
-
-<div class="cover">
-<h1><span class="display" style="font-size: 180%;">Citation Style Maintenance Demo</span></h1>
-</div>
+  </head>
+  <body>
+    <div id="popup-root"></div>
+    <div class="cover">
+      <h1><span class="display" style="font-size: 180%;">Indigo Book + Jurism Demo</span></h1>
+    </div>
 
 
-<hr/>
+    <hr/>
 
-<p>
-  The time is ripe for a fresh approach to legal citation styles and
-  their maintenance. The U.S. jurisdiction, in particular, is
-  notorious for the hypertrophic detail of its citation
-  requirements. Automated citation systems have a 35-year history in
-  the sciences; but legal writing is as cumbersome today as it was in
-  1985. This page is meant to change that.
-</p>
+    <p>
+      The time is ripe for a fresh approach to legal citation styles and
+      their maintenance. The U.S. jurisdiction, in particular, is
+      notorious for the hypertrophic detail of its citation
+      requirements. Automated citation systems have a 35-year history in
+      the sciences; but legal writing is as cumbersome today as it was in
+      1985. This page is meant to change that.
+    </p>
 
-<p>
-  To remain current, a legal style manual must set guidelines for an
-  expanding array of resources. To be useful, an automated style must
-  be tuned to track those requirements with some precision. The burden
-  of these twin tasks can be reduced by managing them as a single
-  process. Tools to make that happen already exist. All that is
-  required is a small amount of programming, and people.
-</p>
-<p>
-  The sample text below is drawn from the
-  public-domain <a href="https://law.resource.org/pub/us/code/blue/IndigoBook.html">Indigo
-  Book</a>. Click on a citation to see how its details are recorded in
-  the
-  open-source <a href="https://juris-m.github.io/downloads">Jurism</a>
-  reference manager. Log in via GitHub to edit the citation text (save
-  is not yet implemented). The workflow that this will support is
-  described in <a href="./ib-edit.pdf">this memo</a>.
-</p>
+    <p>
+      To remain current, a legal style manual must set guidelines for an
+      expanding array of resources. To be useful, an automated style must
+      be tuned to track those requirements with some precision. The burden
+      of these twin tasks can be reduced by managing them as a single
+      process. Tools to make that happen already exist. All that is
+      required is a small amount of programming, and people.
+    </p>
+    <p>
+      The sample text below is drawn from the
+      public-domain <a href="https://law.resource.org/pub/us/code/blue/IndigoBook.html">Indigo
+        Book</a>. Click on a citation to see how its details are recorded in
+      the
+      open-source <a href="https://juris-m.github.io/downloads">Jurism</a>
+      reference manager. Log in via GitHub to edit the citation text (save
+      is not yet implemented). The workflow that this will support is
+      described in <a href="./ib-edit.pdf">this memo</a>.
+    </p>
 
-<hr/>
+    <hr/>
 
-<main>
+    <main>
 
-<h3 id="R11">R11. Full citation</h3>
+      <h3 id="R11">R11. Full citation</h3>
 
-<ol class="rule">
-  <li>
-	<p><b>Examples:</b></p> 
+      <ol class="rule">
+        <li>
+          <p><b>Examples:</b></p> 
 
-			<ul>
-				<li><a id="cJR3MF83A" class="cite" title="cite info"><i>Leonard v. Pepsico, Inc.</i>, 88 F. Supp. 2d 116, 127 (S.D.N.Y. 1999)</a> (“Plaintiff’s understanding of the commercial as an offer must also be rejected because the Court finds that no objective person could reasonably have concluded that the commercial actually offered consumers a Harrier Jet.”), <i>aff’d</i>, 210 F.3d 88 (2d Cir. 2000).</li>
-				<li><a id="c2352WLFZ" class="cite" title="cite info"><i>Toolson v. N.Y. Yankees, Inc.</i>, 346 U.S. 356 (1953)</a> (per curiam) (affirming baseball’s exemption from the scope of federal antitrust laws).</li>
-			</ul>
-  </li>
-</ol>
+          <ul>
+            <li><a id="cJR3MF83A" class="cite" title="cite info"><i>Leonard v. Pepsico, Inc.</i>, 88 F. Supp. 2d 116, 127 (S.D.N.Y. 1999)</a> (“Plaintiff’s understanding of the commercial as an offer must also be rejected because the Court finds that no objective person could reasonably have concluded that the commercial actually offered consumers a Harrier Jet.”), <i>aff’d</i>, 210 F.3d 88 (2d Cir. 2000).</li>
+            <li><a id="c2352WLFZ" class="cite" title="cite info"><i>Toolson v. N.Y. Yankees, Inc.</i>, 346 U.S. 356 (1953)</a> (per curiam) (affirming baseball’s exemption from the scope of federal antitrust laws).</li>
+          </ul>
+        </li>
+      </ol>
+      
+      <hr/>
+      
+      <h3 id="mPublisher">Attribution and License</h3>
+      <p>This file is a truncated and modified version of text originally published by Public.Resource.Org with the following notice:</p>
+      <blockquote style="background:#eee;padding: 1em;border-radius: 1em;">
+        <p>
+          This file was published by Public.Resource.Org, Inc., (“Public
+          Resource”) a California nonprofit corporation registered under
+          I.R.C. § 501(c)(3). Contact information for Public Resource is
+          at <a href="https://public.resource.org/about/">https://public.resource.org/about/</a>.
+        </p>
+        <p>
+          Public Resource does not charge for or restrict access to any
+          materials we post. This document is published under
+          a <a href="https://creativecommons.org/about/cc0">CC-0 public
+            domain dedication</a>—“No Rights Reserved” and we waive all
+          copyright and related rights in this work.
+        </p>
+      </blockquote>
 
 
-<hr/>
-
-<h3 id="mPublisher">Attribution and License</h3>
-<p>This file is a truncated and modified version of text originally published by Public.Resource.Org with the following notice:</p>
-<blockquote style="background:#eee;padding: 1em;border-radius: 1em;">
-  <p>
-    This file was published by Public.Resource.Org, Inc., (“Public
-    Resource”) a California nonprofit corporation registered under
-    I.R.C. § 501(c)(3). Contact information for Public Resource is
-    at <a href="https://public.resource.org/about/">https://public.resource.org/about/</a>.
-  </p>
-  <p>
-    Public Resource does not charge for or restrict access to any
-    materials we post. This document is published under
-    a <a href="https://creativecommons.org/about/cc0">CC-0 public
-    domain dedication</a>—“No Rights Reserved” and we waive all
-    copyright and related rights in this work.
-  </p>
-</blockquote>
-
-
-</main>
-<script type="text/javascript" src="bundle.js"></script></body>
+    </main>
+  <script type="text/javascript" src="bundle.js"></script></body>
 </html>
