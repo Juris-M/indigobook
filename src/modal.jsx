@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 
 import Popup from "reactjs-popup";
 import DOMPurify from 'dompurify'
-// import { FieldList } from './fieldlist.jsx';
 import { urlParts, startLogin, finishLogin, loginOK, logOut } from './login.js';
 import Editor from './editor.jsx';
 
@@ -103,7 +102,13 @@ export const App = () => {
         <div className="content">
           {" "}
           {
+<<<<<<< HEAD
              spitFieldList(evdata, urlStub)
+=======
+            () => {
+              return <FieldList id={evdata.id} urlStub={urlStub}/>
+            }
+>>>>>>> 21de7c23cac4d8c373e2d529a5bb695180c2623b
           }
         </div>
         {
