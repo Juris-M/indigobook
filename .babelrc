@@ -1,17 +1,22 @@
 {
     "presets": [
         [
-          "@babel/preset-env",
-	  {
-	    "targets": {
-	       "chrome": "58"
-	    },
-	    "useBuiltins": "usage"
-	  }
-	],
+            "@babel/preset-env",
+	        {
+	            "targets": {
+	                "chrome": "58"
+	            },
+                "useBuiltIns": "usage",
+                "corejs": {
+                    "version": 3,
+                    "proposals": false
+                }
+	        }
+	    ],
         "@babel/preset-react"
     ],
     "plugins": [
+        "@babel/plugin-syntax-dynamic-import",
         "@babel/plugin-transform-arrow-functions"
     ]
 }

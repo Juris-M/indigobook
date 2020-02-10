@@ -1,77 +1,51 @@
+import axios from 'axios';
+import { urlParts, queryMaker } from './login.js';
 
-// Oh. This isn't the original library, it's code borrowed from it an modified.
+const error = (e) => {
+    console.log(e.toString());
+}
 
-export GitHub = function(access_token, jurisdictionWorker, validateContent, submitButton){
-    /*
-     * Exports
-     */
-
-    this.githubInit = githubInit;
-    this.submitPullRequest = githubSubmitPullRequest;
-    this.ghMsg = ghMsg;
-    this.username = username;
-
-    var username = null;
+const ghMsg = (err, errorSpec) => {
     
-    /*
-     * General functions
-     */
+}
 
-    var debugFlag = true;
-
-    function debugMsg(msg) {
-        if (debugFlag) {
-            console.log("GitHub Lib: " + msg)
-        }
+const ghApi = async (method, path, data, config) => {
+    var query, host, res, access_token = window.localStorage('access_token');
+    if (path.slice(0,1) === '/') {
+        host = 'https://api.github.com';
+    } else {
+        host = '';
     }
-
-    function ghMsg(errorSpec, err) {
-        if (!errorSpec) {
-            return;
+    options = {
+        headers: {
+            'accept': 'application/vnd.github.v3+json',
+            'authorization': `token ${access_token}`
         }
-        if (err && err.message) {
-            //err = err.message;
-        } else if ('string' !== typeof err) {
-            err = false;
-        }
-        err = err ? '<div style="font-size:larger;font-weight:bold;">GitHub says</div><p>' + JSON.stringify(err) + '</p>' : '';
-        $('#submit').popover({
-            html: true,
-            title: errorSpec.type + ' <a class="close" href="#");">&times;</a>',
-            content: '<p>' + errorSpec.desc + '</p>' + err,
-            trigger: 'manual',
-            placement: 'bottom'
-        });
-        $(document).click(function (e) {
-            if (($('.popover').has(e.target).length == 0) || $(e.target).is('.close')) {
-                $('#submit').popover('destroy');
-            }
-        });
-        $('#submit').popover('show');
-        submitButton.stop();
-        if (errorSpec.disable) {
-            submitButton.disable();
-            return false;
-        }
-        return true;
+    };
+    if (method === 'GET') {
+        let query = queryMaker(data);
+        options.url = `${host}${path}${query}`;
+    } else {
+        options.url = `${host}${path}`;
     }
+    options.method = method.toLowerCase();
+    if (config.raw) {
+        options.headers['accept'] = 'application/vnd.github.v3.raw';
+        options.responseType('blob');
+    };
+    res = await axios(options).catch(error);
     
-    function ghApi(method, path, options, errorSpec, callback, raw) {
-        var xhr = new XMLHttpRequest();
-        if (method === 'GET') {
-            var query = options ? '?' + $.param(options) : '';
-            var options = null;
-        } else {
-            var query = '';
-            var options = JSON.stringify(options);
-        }
-        if (path.slice(0,1) === '/') {
-            var host = 'https://api.github.com';
-        } else {
-            var host = '';
-        }
+    // Hold on there, Johnson. res will contain data, status, and headers.
+    // To track original behavior, we'll need to sniff status, and figure
+    // out what to do with it.
+    
+    return res;
+}
+    
+    return axiosGetAsync(host + path + query, );
         xhr.open(method, host + path + query, true);
-        xhr.setRequestHeader('Content-Type','application/json;charset=UTF-8');
+    xhr.setRequestHeader('Content-Type','application/json;charset=UTF-8');
+    // raw should be among options
         if (raw) {
             xhr.setRequestHeader('Accept','application/vnd.github.v3.raw');
         } else {
@@ -83,8 +57,10 @@ export GitHub = function(access_token, jurisdictionWorker, validateContent, subm
             if (this.readyState === 4) {
                 if (this.status >= 200 && this.status < 300 || this.status === 304) {
                     var obj = this.response;
+                    // Will use async, no callbacks.
                     callback(obj);
                 } else {
+                    // errorSpec should be among configs.
                     if (errorSpec) {
                         ghMsg(errorSpec, this.statusText);
                     } else {
@@ -472,3 +448,44 @@ export GitHub = function(access_token, jurisdictionWorker, validateContent, subm
         ghGetUser(info);
     }
 };
+
+
+export = {
+    githubInit,
+    githubSubmitPullRequest,
+    ghMsg,
+    username
+}
+
+
+
+// ZZZ Need some jsx here for error view. Make this its own component!
+const ghMsg = (errorSpec, err) => {
+    if (!errorSpec) return;
+    if (err && err.message) {
+        err = err.message;
+    } else if ('string' !== typeof err) {
+        err = false;
+    }
+    err = err ? '<div style="font-size:larger;font-weight:bold;">GitHub says</div><p>' + JSON.stringify(err) + '</p>' : '';
+    $('#submit').popover({
+        html: true,
+        title: errorSpec.type + ' <a class="close" href="#");">&times;</a>',
+        content: '<p>' + errorSpec.desc + '</p>' + err,
+        trigger: 'manual',
+        placement: 'bottom'
+    });
+    $(document).click(function (e) {
+        if (($('.popover').has(e.target).length == 0) || $(e.target).is('.close')) {
+            $('#submit').popover('destroy');
+        }
+    });
+    $('#submit').popover('show');
+    submitButton.stop();
+    if (errorSpec.disable) {
+        submitButton.disable();
+        return false;
+    }
+    return true;
+}
+    

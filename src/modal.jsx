@@ -1,20 +1,23 @@
 import React, { useState, useCallback, useEffect } from "react";
 import ReactDOM from "react-dom";
+
 import Popup from "reactjs-popup";
 import DOMPurify from 'dompurify'
-import { FieldList } from './fieldlist.jsx';
-import { startLogin, finishLogin, loginOK, logOut } from './login.js';
+// import { FieldList } from './fieldlist.jsx';
+import { urlParts, startLogin, finishLogin, loginOK, logOut } from './login.js';
 import Editor from './editor.jsx';
 
 import "./modal.css";
+import "./favicon-32x32.png";
+import "./indigo-cover.png";
+import "./ib-edit.pdf";
 
-var urlStub = null;
-if (!(window.location.host.startsWith("127.0.0.1")) && !(window.location.host.startsWith("localhost")) || true) {
-    urlStub = 'https://raw.githubusercontent.com/Juris-M/indigobook/gh-pages/';
-} else {
-    console.log("local, okay");
-    urlStub = '/'
-}
+var urlStub = urlParts().base;
+
+const spitFieldList = async (evdata, urlStub) => {
+    await import(/* webpackChunkName: "fieldlist" */ './fieldlist.jsx').catch(e => 'Failed to load fieldlist module');
+    return FieldList;
+};
 
 export const App = () => {
     // States to report things into React
@@ -59,10 +62,9 @@ export const App = () => {
               openModal();
             })
         }
-        //window.addEventListener("beforeunload", function(event) {
-        //    window.localStorage.removeItem('access_token');
-        //    // window.localStorage.setItem('block_login');
-        //});
+        window.addEventListener("beforeunload", function(event) {
+            window.localStorage.removeItem('access_token');
+        });
       }, []);
 
     useEffect(() => {
@@ -100,7 +102,9 @@ export const App = () => {
         </div>
         <div className="content">
           {" "}
-          <FieldList id={evdata.id} urlStub={urlStub}/>
+          {
+             spitFieldList(evdata, urlStub)
+          }
         </div>
         {
             loginOK() ?

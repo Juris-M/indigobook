@@ -4,7 +4,7 @@
 // It should be used only within this module
 import axios from 'axios';
 
-const parseQuery = () => {
+const urlParts = () => {
     var url = window.location.toString();
     var qrex = /[?&]([^=#]+)=([^&#]*)/g,
         frex = /\#(.*)$/g,
@@ -18,18 +18,30 @@ const parseQuery = () => {
         frag = match[1];
     }
     url = url.replace(/\?.*/, "").replace(/\#.*/, "");
+    var base = url.replace(/^(.*\/).*/, "$1");
     return {
         query: query,
         frag: frag,
-        url: url
+        url: url,
+        base: base
     }
+}
+
+const queryMaker = (data) => {
+    var ret = [];
+    for (let key in data) {
+        let val = data[key];
+        ret.push(`${key}=${val}`);
+    }
+    ret = ret.join('&');
+    return '?`${ret}`'
 }
 
 const startLogin = () => {
     const access_token = window.localStorage.getItem('access_token');
     if (access_token) return;
     window.localStorage.removeItem('block_login');
-    const params = parseQuery();
+    const params = urlParts();
     if (!params.query.code) {
         // ID from Juris-M OAuth app reg
         var client_id = "eb529c0faf1bace5811d";
@@ -43,7 +55,7 @@ const startLogin = () => {
 const finishLogin = (getLoginStateOn, getEvdata, openModal) => {
     const block_login = window.localStorage.getItem('block_login');
     if (block_login) return;
-    const params = parseQuery();
+    const params = urlParts();
     if (params.query.code) {
         // Get temporary code
         var code = params.query.code;
@@ -89,5 +101,6 @@ export {
     startLogin,
     finishLogin,
     loginOK,
-    logOut
+    logOut,
+    urlParts
 }
