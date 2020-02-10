@@ -40,8 +40,7 @@ module.exports = {
                         ]
                     ],
                     plugins: [
-                        '@babel/plugin-transform-arrow-functions',
-                        '@babel/plugin-transform-spread'
+                        '@babel/plugin-transform-arrow-functions'
                     ]
                 }
             },
@@ -93,7 +92,7 @@ module.exports = {
     ],
     optimization: {
         minimize: true,
-        minimizer: [new TerserPlugin()],
+        minimizer: [new TerserPlugin()]
     },
     target: "web"
 };

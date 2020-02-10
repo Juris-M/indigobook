@@ -3,12 +3,12 @@ import ReactDOM from "react-dom";
 import Popup from "reactjs-popup";
 import DOMPurify from 'dompurify'
 import { FieldList } from './fieldlist.jsx';
-import { parseQuery, startLogin, finishLogin, loginOK, logOut } from './login.js';
+import { urlParts, startLogin, finishLogin, loginOK, logOut } from './login.js';
 import Editor from './editor.jsx';
 
 import "./modal.css";
 
-var urlStub = parseQuery().base;
+var urlStub = urlParts().base;
 
 export const App = () => {
     // States to report things into React
@@ -93,7 +93,11 @@ export const App = () => {
         </div>
         <div className="content">
           {" "}
-          <FieldList id={evdata.id} urlStub={urlStub}/>
+          {
+            () => {
+              return <FieldList id={evdata.id} urlStub={urlStub}/>
+            }
+          }
         </div>
         {
             loginOK() ?
