@@ -3,6 +3,7 @@
 // Access token should be acquired by interactions below
 // It should be used only within this module
 import axios from 'axios';
+import { urlParts } from './utils.js';
 
 const startLogin = () => {
     const access_token = window.localStorage.getItem('access_token');
