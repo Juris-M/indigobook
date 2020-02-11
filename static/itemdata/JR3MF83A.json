@@ -1,0 +1,42 @@
+[
+  {
+    "fieldName": "itemType",
+    "value": "case",
+    "label": "Type"
+  },
+  {
+    "fieldName": "caseName",
+    "value": "Leonard v. Pepsico, Inc.",
+    "label": "Name"
+  },
+  {
+    "fieldName": "reporterVolume",
+    "value": "116",
+    "label": "Volume"
+  },
+  {
+    "fieldName": "reporter",
+    "value": "F. Supp. 2d",
+    "label": "Reporter"
+  },
+  {
+    "fieldName": "firstPage",
+    "value": "88",
+    "label": "Page"
+  },
+  {
+    "fieldName": "dateDecided",
+    "value": "1999",
+    "label": "Decided"
+  },
+  {
+    "fieldName": "jurisdiction",
+    "value": "US|Second Circuit|S.D. New York",
+    "label": "Jurisdiction"
+  },
+  {
+    "fieldName": "court",
+    "value": "district.court",
+    "label": "Court"
+  }
+]

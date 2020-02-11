@@ -4,34 +4,11 @@
 // It should be used only within this module
 import axios from 'axios';
 
-const parseQuery = () => {
-    var url = window.location.toString();
-    var qrex = /[?&]([^=#]+)=([^&#]*)/g,
-        frex = /\#(.*)$/g,
-        query = {},
-        frag = "",
-        match;
-    while (match = qrex.exec(url)) {
-        query[match[1]] = match[2];
-    }
-    if (match = frex.exec(url)) {
-        frag = match[1];
-    }
-    url = url.replace(/\?.*/, "").replace(/\#.*/, "");
-    var base = url.replace(/^(.*\/).*/, "$1");
-    return {
-        query: query,
-        frag: frag,
-        url: url,
-        base: base
-    }
-}
-
 const startLogin = () => {
     const access_token = window.localStorage.getItem('access_token');
     if (access_token) return;
     window.localStorage.removeItem('block_login');
-    const params = parseQuery();
+    const params = urlParts();
     if (!params.query.code) {
         // ID from Juris-M OAuth app reg
         var client_id = "eb529c0faf1bace5811d";
@@ -45,7 +22,7 @@ const startLogin = () => {
 const finishLogin = (getLoginStateOn, getEvdata, openModal) => {
     const block_login = window.localStorage.getItem('block_login');
     if (block_login) return;
-    const params = parseQuery();
+    const params = urlParts();
     if (params.query.code) {
         // Get temporary code
         var code = params.query.code;
@@ -91,6 +68,5 @@ export {
     startLogin,
     finishLogin,
     loginOK,
-    logOut,
-    parseQuery
+    logOut
 }

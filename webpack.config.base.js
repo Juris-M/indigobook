@@ -1,14 +1,21 @@
 const autoprefixer = require('autoprefixer');
+const { CleanWebpackPlugin } =  require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: './src/modal.jsx',
+    entry: [
+        "core-js/modules/es.promise",
+        "core-js/modules/es.array.iterator",
+        './src/modal.jsx'
+
+    ],
     output: {
-        path: path.resolve(__dirname, 'webpage'),
+        path: path.resolve(__dirname, 'docs'),
         filename: 'bundle.js',
-        chunkFilename: '[id].js',
+        chunkFilename: '[name].js',
         publicPath: ''
     },
     resolve: {
@@ -18,32 +25,13 @@ module.exports = {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
+                loader: 'ts-loader',
                 exclude: /node_modules/,
             },
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/,
-                options: {
-                    presets: [
-                        [
-                            '@babel/preset-env',
-                            {
-                                "targets": {
-                                    "chrome": "58",
-                                    "ie": "11",
-                                    "safari": "9"
-                                },
-				                "useBuiltIns": "usage"
-                            }
-                        ]
-                    ],
-                    plugins: [
-                        '@babel/plugin-transform-arrow-functions',
-                        '@babel/plugin-transform-spread'
-                    ]
-                }
+                exclude: /node_modules/
             },
             {
                 test: /\.css$/,
@@ -85,15 +73,21 @@ module.exports = {
         ]
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: __dirname + '/src/index.html',
             filename: 'index.html',
             inject: 'body'
-        })
+        }),
+        new CopyPlugin([
+            { from: 'static/itemdata', to: 'itemdata' },
+            { from: 'static/images', to: '.' },
+            { from: 'static/pdf', to: '.' }
+        ]),
     ],
     optimization: {
         minimize: true,
-        minimizer: [new TerserPlugin()],
+        minimizer: [new TerserPlugin()]
     },
     target: "web"
 };

@@ -5,7 +5,7 @@ const fs = require("fs");
 const path = require("path");
 const xpath = require("xpath");
 
-const apiStub = "https://api.zotero.org/groups/2319948/items/"
+const apiStub = "https://api.zotero.org/groups/2319948/items/";
 
 function fixHTML(txt) {
     return txt.replace(/&nbsp;/g, "")
@@ -28,16 +28,13 @@ for (var i in lines) {
     lineno = parseInt(i, 10) + 1;
     lines[i] = lineno + " " + lines[i];
 }
-lines = lines.join("\n")
-
-//console.log(lines);
-//process.exit();
+lines = lines.join("\n");
 
 var doc = new dom().parseFromString(xml);
 
 var nodes = xpath.select("//a[contains(@class,'cite')]", doc);
 
-var outputPath = path.join(__dirname, "..", "webpage", "itemdata");
+var outputPath = path.join(__dirname, "..", "static", "itemdata");
 
 if (!fs.existsSync(outputPath)) {
     fs.mkdirSync(outputPath);
@@ -55,7 +52,7 @@ for (var node of nodes) {
         const obj = jMap.fields;
         // const obj = Object.keys(jMap.fields).map(key => jMap.fields[key]);
 	    fs.writeFileSync(
-	        path.join(__dirname, "..", "webpage", "itemdata", jObj.key + ".json"), 
+	        path.join(outputPath, jObj.key + ".json"), 
 	        JSON.stringify(obj, null, 2)
 	    );
         count--;
