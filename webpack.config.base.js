@@ -3,6 +3,7 @@ const { CleanWebpackPlugin } =  require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: [
@@ -26,14 +27,6 @@ module.exports = {
                 test: /\.tsx?$/,
                 loader: 'ts-loader',
                 exclude: /node_modules/,
-            },
-            {
-                test: /\.(png|pdf)$/,
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[ext]'
-                },
-                exclude: /node_modules/
             },
             {
                 test: /\.jsx?$/,
@@ -85,7 +78,12 @@ module.exports = {
             template: __dirname + '/src/index.html',
             filename: 'index.html',
             inject: 'body'
-        })
+        }),
+        new CopyPlugin([
+            { from: 'static/itemdata', to: 'itemdata' },
+            { from: 'static/images', to: '.' },
+            { from: 'static/pdf', to: '.' }
+        ]),
     ],
     optimization: {
         minimize: true,

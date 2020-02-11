@@ -1,9 +1,5 @@
 import axios from 'axios';
-import { urlParts, queryMaker } from './login.js';
-
-const error = (e) => {
-    console.log(e.toString());
-}
+import { urlParts, buildQuery, error } from './utils.js';
 
 const ghMsg = (err, errorSpec) => {
     
@@ -23,7 +19,7 @@ const ghApi = async (method, path, data, config) => {
         }
     };
     if (method === 'GET') {
-        let query = queryMaker(data);
+        let query = buildQuery(data);
         options.url = `${host}${path}${query}`;
     } else {
         options.url = `${host}${path}`;
@@ -42,6 +38,7 @@ const ghApi = async (method, path, data, config) => {
     return res;
 }
     
+/*
     return axiosGetAsync(host + path + query, );
         xhr.open(method, host + path + query, true);
     xhr.setRequestHeader('Content-Type','application/json;charset=UTF-8');
@@ -74,7 +71,7 @@ const ghApi = async (method, path, data, config) => {
         };
         xhr.send(options);
     }
-
+*/
     function ghWaitForFileContents(owner, branch, fileName, callback, fallback) {
         var counter = 0;
         var _ghWaitForFileContents = function(owner, branch, fileName, callback) {
@@ -450,7 +447,7 @@ const ghApi = async (method, path, data, config) => {
 };
 
 
-export = {
+export {
     githubInit,
     githubSubmitPullRequest,
     ghMsg,

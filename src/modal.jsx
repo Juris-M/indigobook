@@ -3,20 +3,14 @@ import ReactDOM from "react-dom";
 
 import Popup from "reactjs-popup";
 import DOMPurify from 'dompurify'
-import { urlParts, startLogin, finishLogin, loginOK, logOut } from './login.js';
+import { urlParts } from './utils.js';
+import { startLogin, finishLogin, loginOK, logOut } from './login.js';
 import Editor from './editor.jsx';
+import LoadableFieldList from './loadable-fieldlist.jsx';
 
 import "./modal.css";
-import "./favicon-32x32.png";
-import "./indigo-cover.png";
-import "./ib-edit.pdf";
 
 var urlStub = urlParts().base;
-
-const spitFieldList = async (evdata, urlStub) => {
-    await import(/* webpackChunkName: "fieldlist" */ './fieldlist.jsx').catch(e => 'Failed to load fieldlist module');
-    return FieldList;
-};
 
 export const App = () => {
     // States to report things into React
@@ -101,9 +95,7 @@ export const App = () => {
         </div>
         <div className="content">
           {" "}
-          {
-             spitFieldList(evdata, urlStub)
-          }
+          <LoadableFieldList id={evdata.id} urlStub={urlStub} />
         </div>
         {
             loginOK() ?
@@ -111,21 +103,26 @@ export const App = () => {
                 <div>
                   <textarea placeholder="Tell us about the proposed change to this cite form" id="modal-comment"></textarea>
                   <table className="actions balanced">
+                    <tbody>
                     <tr>
                       <td><button onClick={getEditCiteOff}>Cancel</button></td>
                       <td><button>Save</button></td>
                     </tr>
+                    </tbody>
                   </table>
                 </div>
                 :
                 <table className="actions balanced">
+                  <tbody>
                   <tr>
                     <td><button onClick={() => {logOut(); getLoginStateOff();}}>Logout</button></td>
                     <td><button onClick={getEditCiteOn}>Edit</button></td>
                   </tr>
+                  </tbody>
                 </table>
             :
             <table className="actions wideleft">
+              <tbody>
               <tr>
                 <td className="login-note">
                     <p>
@@ -137,6 +134,7 @@ export const App = () => {
                 </td>
                 <td><button onClick={startLogin}>Login</button></td>
               </tr>
+              </tbody>
             </table>
         }
       </div>

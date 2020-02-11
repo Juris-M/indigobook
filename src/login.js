@@ -4,39 +4,6 @@
 // It should be used only within this module
 import axios from 'axios';
 
-const urlParts = () => {
-    var url = window.location.toString();
-    var qrex = /[?&]([^=#]+)=([^&#]*)/g,
-        frex = /\#(.*)$/g,
-        query = {},
-        frag = "",
-        match;
-    while (match = qrex.exec(url)) {
-        query[match[1]] = match[2];
-    }
-    if (match = frex.exec(url)) {
-        frag = match[1];
-    }
-    url = url.replace(/\?.*/, "").replace(/\#.*/, "");
-    var base = url.replace(/^(.*\/).*/, "$1");
-    return {
-        query: query,
-        frag: frag,
-        url: url,
-        base: base
-    }
-}
-
-const queryMaker = (data) => {
-    var ret = [];
-    for (let key in data) {
-        let val = data[key];
-        ret.push(`${key}=${val}`);
-    }
-    ret = ret.join('&');
-    return '?`${ret}`'
-}
-
 const startLogin = () => {
     const access_token = window.localStorage.getItem('access_token');
     if (access_token) return;
@@ -101,6 +68,5 @@ export {
     startLogin,
     finishLogin,
     loginOK,
-    logOut,
-    urlParts
+    logOut
 }

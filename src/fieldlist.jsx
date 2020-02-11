@@ -10,7 +10,7 @@ const axiosGetAsync = async (url) => {
       return res;
 }
 
-export default FieldList = props => {
+export default (props) => {
     const [listItems, setListItems] = useState([]);
     const getItems = useCallback((data) => setListItems((listItems) => listItems = data), []);
     useEffect(() => {
@@ -39,4 +39,5 @@ export default FieldList = props => {
     } else {
         return <Spinner />
     }
+    
 }
