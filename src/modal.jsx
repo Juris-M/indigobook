@@ -6,7 +6,7 @@ import DOMPurify from 'dompurify'
 import { urlParts } from './utils.js';
 import { startLogin, finishLogin, loginOK, logOut } from './login.js';
 import Editor from './editor.jsx';
-import LoadableFieldList from './loadable-fieldlist.jsx';
+import FieldList from './fieldlist.jsx';
 
 import "./modal.css";
 
@@ -95,7 +95,7 @@ export const App = () => {
         </div>
         <div className="content">
           {" "}
-          <LoadableFieldList id={evdata.id} urlStub={urlStub} />
+          <FieldList id={evdata.id} urlStub={urlStub} />
         </div>
         {
             loginOK() ?
@@ -141,5 +141,3 @@ export const App = () => {
     )}}
     </Popup>
 )}
-
-ReactDOM.render(<App />, document.querySelector("#popup-root"));
