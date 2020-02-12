@@ -49,21 +49,7 @@ module.exports = {
                                 hashPrefix: 'my-custom-hash'
                             }
                         }
-                     },
-                     { 
-                         loader: 'postcss-loader',
-                         options: {
-                             ident: 'postcss',
-                             plugins: () => [
-                                 autoprefixer({
-                                     browsers: [
-                                        "> 1%",
-                                        "last 2 versions"
-                                     ]
-                                 })
-                             ]
-                         }
-                      }
+                     }
                 ]
             },
             {
@@ -84,10 +70,6 @@ module.exports = {
             { from: 'static/images', to: '.' },
             { from: 'static/pdf', to: '.' }
         ]),
-    ],
-    optimization: {
-        minimize: true,
-        minimizer: [new TerserPlugin()]
-    },
+     ],
     target: "web"
 };

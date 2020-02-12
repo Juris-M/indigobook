@@ -24,7 +24,10 @@
     "babelver": "babel --version"
   },
   "license": "MIT",
-  "browserslist": "> 1%,last 2 versions",
+    "browserslist": [
+        "defaults",
+        "> 1%,last 2 versions"
+    ],
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
