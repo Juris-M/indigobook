@@ -1,0 +1,154 @@
+#+LATEX_CLASS: texMemo
+#+MACRO: NOINDENT @@latex: \noindent@@
+#+MACRO: MDASH @@latex:---@@
+#+TITLE: MEMO
+#+LATEX_HEADER: \memoto{Interested parties}
+#+LATEX_HEADER: \memofrom{Frank Bennett}
+#+LATEX_HEADER: \memosubject{Maintenance infrastructure for Indigo Book and the JM Indigo Book style}
+#+LATEX_HEADER: \memodate{\today}
+#+OPTIONS: toc:nil
+
+* Overview
+
+This memo should be read in conjuction with the [[https://juris-m.github.io/indigobook][Indigo Book + Jurism Demo]] page.
+
+Indigo Book (IB) specifies citation forms for use in writing about US
+law. The guide must be updated from time to time, both to extend its
+scope of coverage, and to reflect periodic changes in bibliographic
+fashion. The JM Indigo Book style (JM-IB) for Jurism is a
+machine implementation of the IB citation rules, capable of generating
+context-sensitive citations in user documents and bibliographies.
+When the IB guide is updated, the code of the JM-IB style must also be
+revised. When the two are aligned, users save time, which can be put
+toward improving arguments and reflecting on ethical obligations.
+
+Development of IB and JM-IB has until now proceeded in parallel, the
+former being the domain of lawyers, and the latter the territory of
+citation geeks versed in the CSL-M style language.[fn:1] This has led
+to discrepancies, holes in coverage, and replication of
+effort. Quality on both sides can be improved, and maintenance burdens
+lightened, by working together to build a common ecosystem for the
+support of legal drafting.
+
+The two projects have arisen as volunteer efforts motivated by
+idealism: IB by the conviction that legal citation standards are a
+public resource that should be freely available; and JM-IB by a belief
+that reference manager support should be brought to bear on legal
+writing. Both have achieved their initial aims through the dedication
+of highly motivated individuals; but there are costs associated with
+maintenance, and the potential benefits of both efforts will depend on
+sustainability.
+
+It is a principle that both the Indigo Book and the Jurism reference
+manager be open-source, open-access tools. This is critical to their
+core objectives, and essential for their broad dissemination. At the
+same time, soliciting voluntary contributions in recognition of their
+existence is unlikely to generate much enthusiasm among users or
+professional bodies: the products are out there, and while their value
+would decline over time if not maintained, there is no cliff-edge
+to access or functionality to motivate a funding drive.
+
+To encourage continuing contributions from end users, access to an
+enhanced copy of Indigo Book, as illustrated in the [[https://juris-m.github.io/indigobook/][demo page]], could
+be offered as a value-added service tied to a Patreon pledge, together
+with a support forum for members. The integration can be fully
+automated. The demo page illustrates login via the [[https://developer.github.com/v3/#authentication][GitHub API]] for
+submission of errata. In a similar fashion, the popup examples
+themselves, currently shown in the clear, could be made to depend on
+login via the [[https://docs.patreon.com/#apiv2-oauth][Patreon API]], and maintenance of a pledge there. If done
+well, the popup guidance should allow users to quickly set to work on
+legal projects in Jurism. Once in the circle, some users will continue
+their support over time, gradually expanding the support base for
+maintenance of both Indigo Book and Jurism.
+
+The remainder of this memo concerns an editorial workflow built around
+an enchanced Indigo Book page, leveraging GitHub and the automated
+citation infrastructure embedded in Jurism.
+
+* Document view
+
+In the HTML view of the IB text, citation examples would be decorated
+with link markup, shown in the example below.
+
+[[./indigo-book-edit-1.png]]
+
+* Feedback popup
+
+Clicking on the link would expose a popup showing the Jurism fields
+from which the citation is generated and, for logged-in users,[fn:2]
+a form for proposing a change to the example.
+
+[[./indigo-book-edit-2.png]]
+
+* Editorial workflow
+
+To casual readers, the popup would thus just show a simple quick
+reference, listing the Jurism metadata needed to produce a correct
+citation. For logged-in users, the popup would also provide a
+self-explanatory mechanism for suggesting changes to the IB guidelines
+and the JM-IB style.
+
+Clicking the "Save" button would open the suggestion for review by an
+editorial panel, leveraging the version control and discussion
+infrastructure of GitHub to manage discussion and disposition. The
+workflow is illustrated in the Appendix below.
+
+* Appendix
+
+[[./workflow.png]]
+
+The moving parts in this diagram may need some explanation.
+
+- Jurism Library Items ::
+	 Each of the examples in the Indigo Book text will have a
+     corresponding item in a companion library online. This will be a
+     standard =zotero.org= shared library (such as [[https://www.zotero.org/groups/2399060/2019-vis-moot/library][this one]]), editable
+     through a Jurism client by editors with appropriate permissions,
+	 and accessible via the Zotero API.
+
+- Popup ::
+		   The popup links written into the IB text will call for item
+           metadata over the Zotero API using JavaScript activated by
+           clicking the link, and use the returned values to build the
+           popup view.
+
+- JM Style Tests ::
+					Each item in the Jurism library will have a
+                    corresponding test fixture, stored in a GitHub
+                    project. The tool for generating and running these
+                    fixtures (=cslrun=, provided by the Node package
+                    [[https://www.npmjs.com/package/citeproc-test-runner][citeproc-test-runner]]) has been developed.
+
+- "Save" button ::
+				   The "Save" button will recompose a test fixture,
+                   and file it as a "pull request," a proposed change
+                   to the existing fixture, via the GitHub API,
+                   accessible to logged-in users.
+- Discussion ::
+				GitHub pull requests are associated with a tracker,
+				where the proposed change can be discussed, possibly
+				modified, and either accepted for merge or rejected.
+				The tracker is similar to an ordinary discussion forum.
+				By leveraging this infrastructure, we avoid the need
+				for maintenance of bespoke editorial support tools
+				specific to IB and JM-IB.
+
+- Update ::
+			From time to time, proposed citation changes that have
+            been discussed and merged can be folded into the IB text
+            for release as a new edition, together with any edits to
+            the IB text itself. The update would be automated by a
+            separate tool, run independently of the workflow for
+            proposed changes by a citation-maintenance editor.
+		   
+* Footnotes
+
+[fn:2] The login mechanism is not shown in this example. It would be
+implemented as a GitHub login, to enable the "saving" of a suggested
+change as a GitHub pull request (see below). In terms of the document
+UI, a simple solution would be to add a "Login" button to the popup,
+immediately below the metadata listing.
+
+[fn:1] CSL-M is short for "Citation Style Language for Juris-M," and
+extension of the CSL grammar recognized by Zotero and other fine
+reference management tools.
