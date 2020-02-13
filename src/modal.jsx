@@ -141,3 +141,5 @@ export const App = () => {
     )}}
     </Popup>
 )}
+
+ReactDOM.render(<App />, document.querySelector("#popup-root"));
