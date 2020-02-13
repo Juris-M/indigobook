@@ -5,6 +5,10 @@ const updateFile = () => {
 	if (fs.existsSync('./frag.txt')) {
 		var index = fs.readFileSync('index.html').toString();
 		var frag = fs.readFileSync('frag.txt').toString().trim();
+        if (!frag) {
+            console.log("Warning: frag.txt was empty, aborting save");
+            return;
+        }
 		// The START comment is weirdly included, so clip it off
 		// if necessary.
 		var fragLst = frag.split("\n");
@@ -12,6 +16,10 @@ const updateFile = () => {
 			fragLst = fragLst.slice(1);
 			frag = fragLst.join("\n");
 		}
+        if (!frag.trim()) {
+            console.log("Warning: frag.txt was empty after stripping, aborting save");
+            return;
+        }
 		var indexLst = index.split('\n');
 		var topLst = [];
 		var tailLst = [];
