@@ -43,7 +43,7 @@ const updateFile = () => {
 		var tail = tailLst.join('\n');
 		var ret = [top, frag, tail].join('\n');
 		fs.writeFileSync('index.html', ret);
-		fs.unlinkSync('./frag.txt');
+		// fs.unlinkSync('./frag.txt');
 	}
 }
 
