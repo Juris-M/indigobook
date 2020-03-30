@@ -1,0 +1,18 @@
+{
+  "personal_communication": "Letter",
+  "author": "Author",
+  "recipient": "Recipient",
+  "title": "Title",
+  "abstract": "Abstract",
+  "genre": "Type",
+  "issued": "Date",
+  "language": "Language",
+  "shortTitle": "Short Title",
+  "URL": "URL",
+  "accessed": "Accessed",
+  "archive": "Archive",
+  "archive_location": "Loc. in Archive",
+  "source": "Library Catalog",
+  "call-number": "Call Number",
+  "note": "Extra"
+}

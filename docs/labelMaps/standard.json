@@ -1,0 +1,23 @@
+{
+  "standard": "Standard",
+  "author": "Author",
+  "editor": "Editor",
+  "translator": "Translator",
+  "reviewed-author": "Reviewed Author",
+  "title": "Title",
+  "abstract": "Abstract",
+  "number": "Number",
+  "publisher": "Publisher",
+  "version": "Version",
+  "issued": "Date",
+  "jurisdiction": "Jurisdiction",
+  "language": "Language",
+  "shortTitle": "Short Title",
+  "URL": "URL",
+  "accessed": "Accessed",
+  "archive": "Archive",
+  "archive_location": "Loc. in Archive",
+  "source": "Library Catalog",
+  "call-number": "Call Number",
+  "note": "Extra"
+}

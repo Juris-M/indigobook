@@ -47,7 +47,7 @@
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
     "htmlparser": "^1.7.7",
-    "jsdom": "^16.1.0",
+    "jsdom": "^16.2.2",
     "postcss-loader": "^3.0.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^1.0.1",
@@ -69,13 +69,17 @@
     "axios": "^0.19.2",
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
+    "base-64": "^0.1.0",
     "core-js": "^3.6.4",
+    "csv": "^5.3.1",
     "dompurify": "^2.0.7",
-    "octonode": "^0.9.5",
+    "libreoffice-convert": "^1.0.4",
     "pell": "^1.0.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-spinner": "^0.2.7",
-    "reactjs-popup": "^1.5.0"
+    "reactjs-popup": "^1.5.0",
+    "textract": "^2.5.0",
+    "utf8": "^3.0.0"
   }
 }

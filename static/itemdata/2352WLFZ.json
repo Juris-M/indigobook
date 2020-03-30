@@ -1,42 +1,17 @@
-[
-  {
-    "fieldName": "itemType",
-    "value": "case",
-    "label": "Type"
+{
+  "id": "2352WLFZ",
+  "type": "legal_case",
+  "title": "Toolson v. N.Y. Yankees, Inc.",
+  "container-title": "U.S.",
+  "volume": "346",
+  "authority": "supreme.court",
+  "page": "356",
+  "issued": {
+    "literal": "Nineteen fifty-three",
+    "date-parts": [
+      [],
+      []
+    ]
   },
-  {
-    "fieldName": "caseName",
-    "value": "Toolson v. N.Y. Yankees, Inc.",
-    "label": "Name"
-  },
-  {
-    "fieldName": "reporterVolume",
-    "value": "346",
-    "label": "Volume"
-  },
-  {
-    "fieldName": "reporter",
-    "value": "U.S.",
-    "label": "Reporter"
-  },
-  {
-    "fieldName": "firstPage",
-    "value": "356",
-    "label": "Page"
-  },
-  {
-    "fieldName": "dateDecided",
-    "value": "1953",
-    "label": "Decided"
-  },
-  {
-    "fieldName": "jurisdiction",
-    "value": "US",
-    "label": "Jurisdiction"
-  },
-  {
-    "fieldName": "court",
-    "value": "supreme.court",
-    "label": "Court"
-  }
-]
+  "jurisdiction": "002usUnited States|US"
+}

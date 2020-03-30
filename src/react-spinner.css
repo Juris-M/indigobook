@@ -11,12 +11,16 @@
   -moz-animation: react-spinner_spin 1.2s linear infinite;
   animation: react-spinner_spin 1.2s linear infinite;
   border-radius: 5px;
-  background-color: black;
+  background-color: white;
   position: absolute;
   width: 20%;
   height: 7.8%;
   top: 46.1%;
   left: 50%;
+}
+
+.black-wheel .react-spinner_bar {
+    background-color: black;
 }
 
 @keyframes react-spinner_spin {

@@ -104,14 +104,6 @@ function zoteroToJurismData(obj) {
                 zObj.creators[creatorMap[pos].pos].multi = creatorData;
             }
         }
-        if (zObj.jurisdiction) {
-            var m = zObj.jurisdiction.match(/^([0-9][0-9][0-9])/);
-            if (m) {
-                var offset = parseInt(m[1]);
-                zObj.jurisdiction = zObj.jurisdiction.slice(offset + 3).split("|").slice(1).join("|");
-
-            }
-        }
     }
     zObj = normalizeNames(zObj);
     return zObj;

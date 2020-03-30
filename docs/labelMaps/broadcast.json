@@ -1,0 +1,22 @@
+{
+  "broadcast": "TV Broadcast",
+  "author": "Director",
+  "title": "Title",
+  "abstract": "Abstract",
+  "container-title": "Program Title",
+  "number": "Episode Number",
+  "medium": "Format",
+  "event-place": "Place",
+  "publisher": "Network",
+  "issued": "Date",
+  "dimensions": "Running Time",
+  "language": "Language",
+  "shortTitle": "Short Title",
+  "URL": "URL",
+  "accessed": "Accessed",
+  "archive": "Archive",
+  "archive_location": "Loc. in Archive",
+  "source": "Library Catalog",
+  "call-number": "Call Number",
+  "note": "Extra"
+}

@@ -1,0 +1,22 @@
+{
+  "book": "Software",
+  "author": "Programmer",
+  "title": "Title",
+  "abstract": "Abstract",
+  "collection-title": "Series Title",
+  "version": "Version",
+  "issued": "Date",
+  "medium": "System",
+  "event-place": "Place",
+  "publisher": "Company",
+  "genre": "Prog. Language",
+  "ISBN": "ISBN",
+  "shortTitle": "Short Title",
+  "URL": "URL",
+  "archive": "Archive",
+  "archive_location": "Loc. in Archive",
+  "source": "Library Catalog",
+  "call-number": "Call Number",
+  "accessed": "Accessed",
+  "note": "Extra"
+}

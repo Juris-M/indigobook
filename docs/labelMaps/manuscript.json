@@ -1,0 +1,20 @@
+{
+  "manuscript": "Manuscript",
+  "author": "Author",
+  "translator": "Translator",
+  "title": "Title",
+  "abstract": "Abstract",
+  "genre": "Type",
+  "event-place": "Place",
+  "issued": "Date",
+  "number-of-pages": "# of Pages",
+  "language": "Language",
+  "shortTitle": "Short Title",
+  "URL": "URL",
+  "accessed": "Accessed",
+  "archive": "Archive",
+  "archive_location": "Loc. in Archive",
+  "source": "Library Catalog",
+  "call-number": "Call Number",
+  "note": "Extra"
+}

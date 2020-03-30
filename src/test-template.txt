@@ -1,0 +1,25 @@
+>>===== MODE =====>>
+citation
+<<===== MODE =====<<
+
+>>===== KEYS =====>>
+${keysArray}
+<<===== KEYS =====<<
+
+>>===== DESCRIPTION =====>>
+${comment}
+<<===== DESCRIPTION =====<<
+
+>>===== RESULT =====>>
+${newCite}
+<<===== RESULT =====<<
+
+>>===== CITATION-ITEMS =====>>
+[
+${paramsArray}
+]
+<<===== CITATION-ITEMS =====<<
+
+>>===== INPUT =====>>
+${itemsArray}
+<<===== INPUT =====<<

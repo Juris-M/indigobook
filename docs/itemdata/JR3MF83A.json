@@ -1,42 +1,25 @@
-[
-  {
-    "fieldName": "itemType",
-    "value": "case",
-    "label": "Type"
+{
+  "id": "JR3MF83A",
+  "type": "legal_case",
+  "title": "Leonard v. Pepsico, Inc.",
+  "author": [
+    {
+      "given": "Bob",
+      "family": "Smith"
+    }
+  ],
+  "container-title": "F. Supp. 2d",
+  "volume": "116",
+  "authority": "district.court",
+  "page": "88",
+  "issued": {
+    "date-parts": [
+      [
+        1999,
+        10,
+        23
+      ]
+    ]
   },
-  {
-    "fieldName": "caseName",
-    "value": "Leonard v. Pepsico, Inc.",
-    "label": "Name"
-  },
-  {
-    "fieldName": "reporterVolume",
-    "value": "116",
-    "label": "Volume"
-  },
-  {
-    "fieldName": "reporter",
-    "value": "F. Supp. 2d",
-    "label": "Reporter"
-  },
-  {
-    "fieldName": "firstPage",
-    "value": "88",
-    "label": "Page"
-  },
-  {
-    "fieldName": "dateDecided",
-    "value": "1999",
-    "label": "Decided"
-  },
-  {
-    "fieldName": "jurisdiction",
-    "value": "US|Second Circuit|S.D. New York",
-    "label": "Jurisdiction"
-  },
-  {
-    "fieldName": "court",
-    "value": "district.court",
-    "label": "Court"
-  }
-]
+  "jurisdiction": "011us:c2:ny.sdUnited States|US|Second Circuit|S.D. New York"
+}

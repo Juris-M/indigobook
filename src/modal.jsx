@@ -7,6 +7,7 @@ import { urlParts } from './utils.js';
 import { startLogin, finishLogin, loginOK, logOut } from './login.js';
 import Editor from './editor.jsx';
 import FieldList from './fieldlist.jsx';
+import SaveButton from './save.jsx';
 
 import "./modal.css";
 
@@ -39,7 +40,7 @@ export const App = () => {
 
     // An effect to set up the event listeners
     useEffect(() => {
-        console.log('Set listeners');
+        console.log('Set listeners =14=');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
             // Pulling details from the event here makes it simpler to
@@ -106,7 +107,7 @@ export const App = () => {
                     <tbody>
                     <tr>
                       <td><button onClick={getEditCiteOff}>Cancel</button></td>
-                      <td><button>Save</button></td>
+                      <td><SaveButton/></td>
                     </tr>
                     </tbody>
                   </table>
