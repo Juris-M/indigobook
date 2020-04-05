@@ -1,4 +1,4 @@
-import saver from "./saver.js";
+import { saver } from "./saver.js";
 import composer from "./composer.js";
 import axios from "axios";
 import { urlParts } from "./utils.js";
@@ -6,7 +6,7 @@ import handleErr from "./err";
 
 var urlStub = urlParts().base;
 
-export default async (e, startSave, endSave) => {
+export default async (startSave, endSave) => {
     await startSave();
     var cite_id = window.localStorage.getItem('cite_id');
     var elem = document.getElementById("save-button");
@@ -36,16 +36,14 @@ export default async (e, startSave, endSave) => {
             id: `${realID}`
         };
         var newTest = composer(items, params, newCite, comment);
-        await saver(cite_id, newTest);
+        var result = await saver(cite_id, newTest, comment);
+        await endSave(result.html_url);
         elem.classList.remove("save-ok");
-        await endSave();
     } else {
         elem.classList.add("save-not-ok");
         elem.classList.add("black-wheel");
-        setTimeout(() => {
-            elem.classList.remove("save-not-ok");
-            elem.classList.remove("black-wheel");
-            endSave();
-        }, 3000);
+        await endSave();
+        elem.classList.remove("save-not-ok");
+        elem.classList.remove("black-wheel");
     }
 }

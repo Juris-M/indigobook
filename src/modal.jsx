@@ -8,6 +8,7 @@ import { startLogin, finishLogin, loginOK, logOut } from './login.js';
 import Editor from './editor.jsx';
 import FieldList from './fieldlist.jsx';
 import SaveButton from './save.jsx';
+import checkpull from './checkpull';
 
 import "./modal.css";
 
@@ -15,32 +16,53 @@ var urlStub = urlParts().base;
 
 export const App = () => {
     // States to report things into React
-    const [popupOn, setPopup] = useState(false);
+    const [popup, setPopup] = useState({
+        on: false,
+        edit: false
+    });
     const [bibdata, setBibdata] = useState({});
     const [evdata, setEvdata] = useState({});
     const [editCite, setEditCite] = useState(false);
     const [loginState, setLoginState] = useState(false);
 
     // Callbacks to manipulate the states
-    const openModal = useCallback(() => setPopup(popupOn => popupOn = true), []);
+    const openModalFinal = useCallback(() => setPopup(popup => {
+        return {
+            on: true,
+            edit: false
+        }
+    }), []);
+
+    const openModal = useCallback(async (url) => {
+        if (!url) {
+          url = await checkpull();
+        }
+        openModalFinal();
+    });
 
     // ZZZ We remove the ID and the text from localStorage on discretionary
     // closing of the popup.
-    const closeModal = useCallback(() => setPopup(popupOn => {
-          popupOn = false;
-          window.localStorage.removeItem('cite_id');
+    const closeModal = useCallback(() => setPopup(popup => {
+           window.localStorage.removeItem('cite_id');
           window.localStorage.removeItem('cite_text');
+          return {
+              on: false,
+              edit: false
+          }
     }), []);
-
     const getEvdata = useCallback((data) => setEvdata(evdata => data), []);
-    const getEditCiteOn = useCallback(() => setEditCite(editCite => editCite = true), []);
-    const getEditCiteOff = useCallback(() => setEditCite(editCite => editCite = false), []);
+    const getEditCiteOn = useCallback(() => setPopup(popup => {
+        return {
+            on: true,
+            edit: true
+        }
+    }), []);
     const getLoginStateOn = useCallback(() => setLoginState(loginState => loginState = true), []);
     const getLoginStateOff = useCallback(() => setLoginState(loginState => loginState = false), []);
 
     // An effect to set up the event listeners
     useEffect(() => {
-        console.log('Set listeners =14=');
+        console.log('Set listeners =49=');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
             // Pulling details from the event here makes it simpler to
@@ -67,16 +89,23 @@ export const App = () => {
         finishLogin(getLoginStateOn, getEvdata, openModal);
     });
 
+
+    // XXX
     useEffect(() => {
         if (loginOK()) {
             getLoginStateOn();
         }
     });
     
+    useEffect(() => {
+        var table = document.getElementById("login-base-buttons");
+        console.log("Got button table okay? " + table);
+    }, [popup]);
+
     // The popup
     return (
     <Popup 
-        open={popupOn}
+        open={popup.on}
         modal
         defaultOpen={false}
         closeOnDocumentClick
@@ -86,12 +115,12 @@ export const App = () => {
     {close => {
     return (
         <div className="modal">
-        <a className="close" onClick={close}>
+        <a className="close" onClick={closeModal}>
           &times;
         </a>
         <div className="header">
         {
-          editCite ? <Editor citeContent={evdata.cite} /> : <div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(evdata.cite)}}></div>
+          popup.edit ? <Editor citeContent={evdata.cite} /> : <div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(evdata.cite)}}></div>
         }
         </div>
         <div className="content">
@@ -100,20 +129,20 @@ export const App = () => {
         </div>
         {
             loginOK() ?
-                editCite ?
+                popup.edit ?
                 <div>
                   <textarea placeholder="Tell us about the proposed change to this cite form" id="modal-comment"></textarea>
                   <table className="actions balanced">
                     <tbody>
                     <tr>
-                      <td><button onClick={getEditCiteOff}>Cancel</button></td>
-                      <td><SaveButton/></td>
+                      <td><button onClick={() => {openModal()}}>Cancel</button></td>
+                      <td><SaveButton modal={openModal}/></td>
                     </tr>
                     </tbody>
                   </table>
                 </div>
                 :
-                <table className="actions balanced">
+                <table className="actions balanced" id="login-base-buttons">
                   <tbody>
                   <tr>
                     <td><button onClick={() => {logOut(); getLoginStateOff();}}>Logout</button></td>
@@ -130,7 +159,7 @@ export const App = () => {
                         The Jurism record for the citation are shown above. 
                     </p>
                     <p>
-                        Log in to GitHub to propose changes or additions to the cite examples.
+                        Log in to GitHub to propose a change.
                     </p>
                 </td>
                 <td><button onClick={startLogin}>Login</button></td>

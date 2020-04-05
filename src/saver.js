@@ -85,6 +85,7 @@ class Repo {
         this.getContents = getContents.bind(props);
         this.updateContents = updateContents.bind(props);
         this.createPullRequest = createPullRequest.bind(props);
+        this.getPullRequest = getPullRequest.bind(props);
     }
 }
 
@@ -122,7 +123,7 @@ async function fork (repoPath) {
 async function commits () {
     var props = protect(this);
     props.apiSuffix = `commits?sha=master`;
-    return await apiCall(props);
+    return apiCall(props);
 }
 
 async function patch (headSHA) {
@@ -133,20 +134,20 @@ async function patch (headSHA) {
         sha: headSHA,
         force: true
     };
-    await apiCall(props);
+    return apiCall(props);
 }
 
 async function getBranch (branchName, quiet) {
     var props = protect(this);
     props.apiSuffix = `git/ref/heads/${branchName}`;
-    return await apiCall(props, quiet);
+    return apiCall(props, quiet);
 }
 
 async function deleteBranch(citeCode) {
     var props = protect(this);
     props.apiMethod = "delete";
     props.apiSuffix = `git/refs/heads/${citeCode}`;
-    await apiCall(props);
+    return apiCall(props);
 }
 
 async function setBranch (branchName, SHA) {
@@ -157,14 +158,14 @@ async function setBranch (branchName, SHA) {
         ref: `refs/heads/${branchName}`,
         sha: SHA
     };
-    return await apiCall(props);
+    return apiCall(props);
 }
 
 async function getContents (citeCode) {
     var props = protect(this);
     var fileName = buildFileName(citeCode);
     props.apiSuffix = `contents/${fileName}?ref=${encodeURIComponent(citeCode)}`;
-    return await apiCall(props);
+    return apiCall(props);
 }
 
 async function updateContents (citeCode, message, content, contentsSHA) {
@@ -180,10 +181,10 @@ async function updateContents (citeCode, message, content, contentsSHA) {
     if (contentsSHA) {
         props.params.sha = contentsSHA;
     }
-    return await apiCall(props);
+    return apiCall(props);
 }
 
-async function createPullRequest(citeCode, userName, testContent) {
+async function createPullRequest(citeCode, userName, comment) {
     var props = protect(this);
     props.apiMethod = "post";
     props.apiSuffix = "pulls";
@@ -191,15 +192,22 @@ async function createPullRequest(citeCode, userName, testContent) {
         title: `Citation: ${citeCode}`,
         head: `${userName}:${citeCode}`,
         base: "master",
-        body: testContent,
+        body: comment,
         maintainer_can_modify: true
     };
-    await apiCall(props);
+    return apiCall(props);
+}
+
+async function getPullRequest(citeCode, userName) {
+    var props = protect(this);
+    props.apiMethod = "get";
+    props.apiSuffix = `pulls?head=${userName}:${citeCode}`;
+    return apiCall(props);
 }
 
 var github = new GitHub;
 
-const saver = async (citeCode, testContent) => {
+const saver = async (citeCode, testContent, comment) => {
 
     var testMessage = `Citation: style_${citeCode}.txt`;
     
@@ -242,7 +250,7 @@ const saver = async (citeCode, testContent) => {
     // also remove any pull requests associated with it. Pull requests
     // will always consist of a single commit.
     // console.log("(8)");
-    var branch = await ghfork.getBranch(citeCode, true);
+    var branch = ghfork.getBranch(citeCode, true);
     if (branch) {
         // console.log("(9)");
         await ghfork.deleteBranch(citeCode);
@@ -257,19 +265,31 @@ const saver = async (citeCode, testContent) => {
     if (!result) {
         // console.log("(11)");
         await ghfork.updateContents(citeCode, testMessage, newContent);
-        await ghrepo.createPullRequest(citeCode, userName);
+        var result = ghrepo.createPullRequest(citeCode, userName, comment);
     } else {
         var oldContent = result.content.split("\n").join("");
         if (newContent !== oldContent) {
             var contentsSHA = result.sha;
             // console.log("(12)");
             await ghfork.updateContents(citeCode, testMessage, newContent, contentsSHA);
-            await ghrepo.createPullRequest(citeCode, userName);
+            var result = ghrepo.createPullRequest(citeCode, userName, comment);
         }
     }
-    
-    // Create a pull request from the user fork and branch
-    // console.log("(13)");
+    return result;
 };
 
-export default saver;
+const pullreq = async (citeCode) => {
+    console.log("pullreq");
+    var apiToken = window.localStorage.getItem('access_token');
+    var client = github.client(apiToken);
+    var ghrepo = await client.repo("Juris-M/jsti-indigobook");
+    var ghme = await client.me();
+    var myinfo = ghme.info();
+    var userName = myinfo.login;
+    return ghrepo.getPullRequest(citeCode, userName);
+}
+
+export {
+    saver,
+    pullreq
+};

@@ -47,7 +47,7 @@ const finishLogin = (getLoginStateOn, getEvdata, openModal) => {
             if (elem) {
                 elem.scrollIntoView();
             }
-            getLoginStateOn();
+            // getLoginStateOn();
             openModal();
         }).catch((error) => {
             console.log("LOGIN ERROR: " + error.message);

@@ -62,7 +62,9 @@ export default async (cslObj) => {
         if ("object" === typeof val) {
             if ("undefined" === typeof val.length) {
                 if (val["date-parts"]) {
-                    val = val["date-parts"].join("-");
+                    var val = val["date-parts"].map(date => {
+                        return date.join("-");
+                    }).join("/");
                 } else if (val.literal) {
                     val = val.literal;
                 }
