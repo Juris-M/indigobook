@@ -55,8 +55,6 @@ export default async (cslObj) => {
     }
     var labelMap = labelMaps[cslObj.type];
     
-    console.log(JSON.stringify(labelMap, null, 2));
-    
     var ret = [];
     for (var key in cslObj) {
         if ("id" === key) continue;
@@ -94,6 +92,5 @@ export default async (cslObj) => {
             });
         }
     }
-    console.log(JSON.stringify(ret, null, 2));
     return ret;
 }
