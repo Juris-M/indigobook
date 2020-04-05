@@ -24,11 +24,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
-                loader: 'ts-loader',
-                exclude: /node_modules/,
-            },
-            {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
@@ -67,12 +62,10 @@ module.exports = {
         }),
         new CopyPlugin([
             { from: 'static/itemdata', to: 'itemdata' },
+            { from: 'static/courtMaps', to: 'courtMaps' },
+            { from: 'static/labelMaps', to: 'labelMaps' },
             { from: 'static/images', to: '.' },
             { from: 'static/pdf', to: '.' }
         ]),
-     ],
-    optimization: {
-        minimize: true,
-        minimizer: [new TerserPlugin()]
-    }
+     ]
 };

@@ -1,0 +1,15 @@
+{
+  "speech": "Presentation",
+  "author": "Presenter",
+  "title": "Title",
+  "abstract": "Abstract",
+  "genre": "Type",
+  "issued": "Date",
+  "event-place": "Place",
+  "event": "Meeting Name",
+  "URL": "URL",
+  "accessed": "Accessed",
+  "language": "Language",
+  "shortTitle": "Short Title",
+  "note": "Extra"
+}

@@ -1,14 +1,10 @@
 import React, {useState, useEffect, useCallback} from "react";
 import axios from 'axios';
 import './fieldlist.css';
+import displayer from "./displayer.js";
 import Spinner from "react-spinner";
 
 import './react-spinner.css';
-
-const axiosGetAsync = async (url) => {
-      var res = await axios(url);
-      return res;
-}
 
 export default (props) => {
     const [listItems, setListItems] = useState([]);
@@ -16,8 +12,10 @@ export default (props) => {
     useEffect(() => {
         var func = async () => {
           const key = props.id.slice(-8);
-          var response = await axiosGetAsync(props.urlStub + 'itemdata/' + key + '.json');
-          getItems(response.data);
+          var response = await axios({ url: props.urlStub + 'itemdata/' + key + '.json' });
+          // Magic here to transform CSL key/val on item to array of label + value objects
+          var displayItem = await displayer(response.data);
+          getItems(displayItem);
         }
         func();
     }, []);

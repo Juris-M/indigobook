@@ -95,6 +95,14 @@ img {
     cursor: pointer;
 }
 
+.modal .actions.balanced button.save-ok {
+    background: green;
+}
+
+.modal .actions.balanced button.save-not-ok {
+    background: yellow;
+}
+
 .modal .actions.balanced tr td:first-child button {
     color: black;
     background: lightgoldenrodyellow;

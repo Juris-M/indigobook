@@ -5,4 +5,3 @@ module.exports = merge (baseConfig, {
         minimize: true
     }
 });
-

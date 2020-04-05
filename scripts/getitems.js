@@ -4,8 +4,24 @@ const dom = require('xmldom').DOMParser;
 const fs = require("fs");
 const path = require("path");
 const xpath = require("xpath");
+const dateparser = require("./dateparser");
+
+var cslMap = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "scripts", "cslMap.json")).toString());
 
 const apiStub = "https://api.zotero.org/groups/2319948/items/";
+
+const dateVars = [
+    "locator-date", 
+    "issued", 
+    "event-date", 
+    "accessed", 
+    "original-date",
+    "publication-date",
+    "available-date",
+    "submitted",
+    "alt-issued",
+    "alt-event"
+]
 
 function fixHTML(txt) {
     return txt.replace(/&nbsp;/g, "")
@@ -42,18 +58,43 @@ if (!fs.existsSync(outputPath)) {
 
 var len = nodes.length;
 var count = len;
+var courtMap = {};
 for (var node of nodes) {
     let id = node.getAttribute("id");
     let key = id.slice(-8);
     axios.get( apiStub + key)
     .then((response) =>{
         const jObj = z2j.zoteroToJurismData(response.data);
-        const jMap = z2j.getLabelsAndVals(jObj);
-        const obj = jMap.fields;
-        // const obj = Object.keys(jMap.fields).map(key => jMap.fields[key]);
+        var cslObj = {};
+        for (var key in jObj) {
+            if ("key" === key) {
+                cslObj.id = jObj.key;
+            } else if ("creators" === key) {
+                for (var creator of jObj.creators) {
+                    var cslCreator = {};
+                    if (!cslObj[creator.creatorType]) {
+                        cslObj[cslMap[creator.creatorType]] = [];
+                    }
+                    cslCreator.given = creator.firstName;
+                    cslCreator.family = creator.lastName;
+                    cslObj[cslMap[creator.creatorType]].push(cslCreator);
+                }
+            } else {
+                if ("creators" === key) continue;
+                if (!cslMap[key]) continue;
+                if (!jObj[key]) continue;
+                if (dateVars.indexOf(cslMap[key]) > -1) {
+                    cslObj[cslMap[key]] = dateparser.parseDateToArray(jObj[key]);
+                } else if ("itemType" === key) {
+                    cslObj[cslMap[key]] = cslMap[jObj[key]];
+                } else {
+                    cslObj[cslMap[key]] = jObj[key];
+                }
+            }
+        }
 	    fs.writeFileSync(
-	        path.join(outputPath, jObj.key + ".json"), 
-	        JSON.stringify(obj, null, 2)
+	        path.join(outputPath, cslObj.id + ".json"), 
+	        JSON.stringify(cslObj, null, 2)
 	    );
         count--;
         if (count === 0) {
