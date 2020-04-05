@@ -23,6 +23,14 @@ export default async (e, startSave, endSave) => {
             method: "get",
             url: `${urlStub}/itemdata/${realID}.json`
         }).catch((e) => handleErr(e));
+        var item = result.data;
+        if (item.jurisdiction) {
+            var m = item.jurisdiction.match(/^([0-9]{3})/);
+            if (m) {
+                var offset = parseInt(m[1]);
+                item.jurisdiction = item.jurisdiction.slice(3, 3 + offset);
+            }
+        }
         var items = [result.data];
         var params = {
             id: `${realID}`
