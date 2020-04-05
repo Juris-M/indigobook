@@ -25,9 +25,9 @@ export default async (cslObj) => {
                     method: "get",
                     url: `${urlStub}/courtMaps/${countryCode}.json`
                 }).catch((e) => handleErr(e));
-                var countryAbbrevs = result.data;
-                courtMap[countryCode] = countryAbbrevs;
+                courtMap[countryCode] = result.data;
             }
+            var countryAbbrevs = courtMap[countryCode];
             var court = countryAbbrevs[jurisdictionCode][cslObj.authority];
             if (court) {
                 cslObj.authority = court;
