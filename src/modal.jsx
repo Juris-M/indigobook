@@ -24,6 +24,13 @@ export const App = () => {
     const [evdata, setEvdata] = useState({});
     const [editCite, setEditCite] = useState(false);
     const [loginState, setLoginState] = useState(false);
+    const [pullRequestURL, setPullRequestURL] = useState("");
+
+    const setPR = useCallback((url) => (setPullRequestURL(pullRequestURL => {
+        console.log("My Fucking URL: " + url);
+        pullRequestURL = url;
+        return pullRequestURL;
+    })));
 
     // Callbacks to manipulate the states
     const openModalFinal = useCallback(() => setPopup(popup => {
@@ -37,6 +44,8 @@ export const App = () => {
         if (!url) {
           url = await checkpull();
         }
+        console.log("Sending url to setURL: " + url);
+        setPR(url)
         openModalFinal();
     });
 
@@ -62,7 +71,7 @@ export const App = () => {
 
     // An effect to set up the event listeners
     useEffect(() => {
-        console.log('Set listeners =49=');
+        console.log('Set listeners =67=');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
             // Pulling details from the event here makes it simpler to
@@ -97,11 +106,6 @@ export const App = () => {
         }
     });
     
-    useEffect(() => {
-        var table = document.getElementById("login-base-buttons");
-        console.log("Got button table okay? " + table);
-    }, [popup]);
-
     // The popup
     return (
     <Popup 
@@ -120,7 +124,7 @@ export const App = () => {
         </a>
         <div className="header">
         {
-          popup.edit ? <Editor citeContent={evdata.cite} /> : <div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(evdata.cite)}}></div>
+           popup.edit ? <Editor citeContent={evdata.cite} /> : <div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(evdata.cite)}}></div>
         }
         </div>
         <div className="content">
@@ -146,6 +150,11 @@ export const App = () => {
                   <tbody>
                   <tr>
                     <td><button onClick={() => {logOut(); getLoginStateOff();}}>Logout</button></td>
+                      {
+                        pullRequestURL ?
+                          (<td><button onClick={() => {window.location.href = pullRequestURL}} className="review-button">Review</button></td>) :
+                          (<td hidden={true}><button>Review</button></td>)
+                      }
                     <td><button onClick={getEditCiteOn}>Edit</button></td>
                   </tr>
                   </tbody>

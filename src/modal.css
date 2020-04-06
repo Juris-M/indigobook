@@ -114,3 +114,6 @@ img {
     resize: vertical;
 }
 
+.modal .actions.balanced button.review-button {
+    background: green;
+}

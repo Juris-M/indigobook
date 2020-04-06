@@ -7,6 +7,8 @@ export default async () => {
         var result = await pullreq(cite_id);
         if (result && result.length) {
             console.log(`saved url: ${result[0].html_url}`);
+            return result[0].html_url;
         }
     }
+    return false;
 };
