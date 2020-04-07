@@ -70,7 +70,7 @@ export const App = () => {
 
     // An effect to set up the event listeners
     useEffect(() => {
-        console.log('Set listeners =71=');
+        console.log('Set listeners =72=');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
             // Pulling details from the event here makes it simpler to
