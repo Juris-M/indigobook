@@ -222,6 +222,12 @@ function DateParser () {
         if (thedate["date-parts"][0].length !== thedate["date-parts"][1].length) {
             thedate["date-parts"].pop();
         }
+        if (thedate["date-parts"][0].length === 0 && thedate["date-parts"][1].length === 0) {
+            delete thedate["date-parts"];
+            if (!thedate.literal) {
+                thedate = false;
+            }
+        }
         return thedate;
     };
 
