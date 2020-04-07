@@ -28,7 +28,6 @@ export const App = () => {
     const [pullRequestURL, setPullRequestURL] = useState("");
 
     const setPR = useCallback((url) => (setPullRequestURL(pullRequestURL => {
-        console.log("My Fucking URL: " + url);
         pullRequestURL = url;
         return pullRequestURL;
     })));
@@ -45,7 +44,6 @@ export const App = () => {
         if (!url) {
           url = await checkpull();
         }
-        console.log("Sending url to setURL: " + url);
         setPR(url)
         openModalFinal();
     });
