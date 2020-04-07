@@ -1,14 +1,15 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { Suspense, lazy, useState, useCallback, useEffect } from "react";
 import ReactDOM from "react-dom";
 
 import Popup from "reactjs-popup";
 import DOMPurify from 'dompurify'
 import { urlParts } from './utils.js';
-import { startLogin, finishLogin, loginOK, logOut } from './login.js';
 import Editor from './editor.jsx';
-import FieldList from './fieldlist.jsx';
 import SaveButton from './save.jsx';
 import checkpull from './checkpull';
+import { startLogin, finishLogin, loginOK, logOut } from './login.js';
+
+const FieldList = React.lazy(() => import('./fieldlist.jsx'));
 
 import "./modal.css";
 
@@ -71,7 +72,7 @@ export const App = () => {
 
     // An effect to set up the event listeners
     useEffect(() => {
-        console.log('Set listeners =67=');
+        console.log('Set listeners =70=');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
             // Pulling details from the event here makes it simpler to
@@ -129,7 +130,9 @@ export const App = () => {
         </div>
         <div className="content">
           {" "}
-          <FieldList id={evdata.id} urlStub={urlStub} />
+          <Suspense fallback={<div>Loading, please wait.</div>}>
+              <FieldList id={evdata.id} urlStub={urlStub} />
+          </Suspense>
         </div>
         {
             loginOK() ?
