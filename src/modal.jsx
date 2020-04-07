@@ -124,7 +124,7 @@ export const App = () => {
         <div className="header">
         {
            popup.edit ?
-             (<Suspense>
+             (<Suspense fallback={<span></span>}>
                  <Editor citeContent={evdata.cite} />
              </Suspense>)
              :
@@ -147,7 +147,7 @@ export const App = () => {
                     <tr>
                       <td><button onClick={() => {openModal()}}>Cancel</button></td>
                       <td>
-                          <Suspense>
+                          <Suspense fallback={<span></span>}>
                               <SaveButton modal={openModal}/>
                           </Suspense>
                       </td>
