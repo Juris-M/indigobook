@@ -61,7 +61,7 @@ export default async (cslObj) => {
         var val = cslObj[key];
         if ("object" === typeof val) {
             if ("undefined" === typeof val.length) {
-                if (val["date-parts"]) {
+                if (val["date-parts"] && val["date-parts"][0] && val["date-parts"][0][0]) {
                     var val = val["date-parts"].map(date => {
                         return date.join("-");
                     }).join("/");
