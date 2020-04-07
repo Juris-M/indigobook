@@ -70,7 +70,7 @@ export const App = () => {
 
     // An effect to set up the event listeners
     useEffect(() => {
-        console.log('Set listeners =70=');
+        console.log('Set listeners =71=');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
             // Pulling details from the event here makes it simpler to
@@ -123,7 +123,12 @@ export const App = () => {
         </a>
         <div className="header">
         {
-           popup.edit ? <Suspense><Editor citeContent={evdata.cite} /></Suspense> : <div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(evdata.cite)}}></div>
+           popup.edit ?
+             (<Suspense>
+                 <Editor citeContent={evdata.cite} />
+             </Suspense>)
+             :
+             (<div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(evdata.cite)}}></div>)
         }
         </div>
         <div className="content">
@@ -135,19 +140,23 @@ export const App = () => {
         {
             loginOK() ?
                 popup.edit ?
-                <div>
+                (<div>
                   <textarea placeholder="Tell us about the proposed change to this cite form" id="modal-comment"></textarea>
                   <table className="actions balanced">
                     <tbody>
                     <tr>
                       <td><button onClick={() => {openModal()}}>Cancel</button></td>
-                      <td><Suspense><SaveButton modal={openModal}/></Suspense></td>
+                      <td>
+                          <Suspense>
+                              <SaveButton modal={openModal}/>
+                          </Suspense>
+                      </td>
                     </tr>
                     </tbody>
                   </table>
-                </div>
+                </div>)
                 :
-                <table className="actions balanced" id="login-base-buttons">
+                (<table className="actions balanced" id="login-base-buttons">
                   <tbody>
                   <tr>
                     <td><button onClick={() => {logOut(); getLoginStateOff();}}>Logout</button></td>
@@ -159,7 +168,7 @@ export const App = () => {
                     <td><button onClick={getEditCiteOn}>Edit</button></td>
                   </tr>
                   </tbody>
-                </table>
+                </table>)
             :
             <table className="actions wideleft">
               <tbody>
