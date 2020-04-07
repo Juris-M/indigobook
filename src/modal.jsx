@@ -70,7 +70,7 @@ export const App = () => {
 
     // An effect to set up the event listeners
     useEffect(() => {
-        console.log('Set listeners =72=');
+        console.log('Set listeners =73=');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
             // Pulling details from the event here makes it simpler to
@@ -124,7 +124,7 @@ export const App = () => {
         <div className="header">
         {
            popup.edit ?
-             (<Suspense fallback={<span></span>}>
+             (<Suspense fallback={<div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(evdata.cite)}}></div>}>
                  <Editor citeContent={evdata.cite} />
              </Suspense>)
              :
@@ -147,7 +147,7 @@ export const App = () => {
                     <tr>
                       <td><button onClick={() => {openModal()}}>Cancel</button></td>
                       <td>
-                          <Suspense fallback={<span></span>}>
+                          <Suspense fallback={<button id="save-button">Save</button>}>
                               <SaveButton modal={openModal}/>
                           </Suspense>
                       </td>
