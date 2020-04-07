@@ -4,12 +4,12 @@ import ReactDOM from "react-dom";
 import Popup from "reactjs-popup";
 import DOMPurify from 'dompurify'
 import { urlParts } from './utils.js';
-import Editor from './editor.jsx';
-import SaveButton from './save.jsx';
 import checkpull from './checkpull';
 import { startLogin, finishLogin, loginOK, logOut } from './login.js';
 
 const FieldList = React.lazy(() => import('./fieldlist.jsx'));
+const Editor = React.lazy(() => import('./editor.jsx'));
+const SaveButton = React.lazy(() => import('./save.jsx'));
 
 import "./modal.css";
 
@@ -123,7 +123,7 @@ export const App = () => {
         </a>
         <div className="header">
         {
-           popup.edit ? <Editor citeContent={evdata.cite} /> : <div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(evdata.cite)}}></div>
+           popup.edit ? <Suspense><Editor citeContent={evdata.cite} /></Suspense> : <div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(evdata.cite)}}></div>
         }
         </div>
         <div className="content">
@@ -141,7 +141,7 @@ export const App = () => {
                     <tbody>
                     <tr>
                       <td><button onClick={() => {openModal()}}>Cancel</button></td>
-                      <td><SaveButton modal={openModal}/></td>
+                      <td><Suspense><SaveButton modal={openModal}/></Suspense></td>
                     </tr>
                     </tbody>
                   </table>
