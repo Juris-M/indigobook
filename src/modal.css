@@ -117,3 +117,7 @@ img {
 .modal .actions.balanced button.review-button {
     background: green;
 }
+
+.modal textarea {
+    background: lightgoldenrodyellow;
+}
