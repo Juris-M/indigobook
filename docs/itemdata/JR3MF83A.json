@@ -1,13 +1,7 @@
 {
   "id": "JR3MF83A",
   "type": "legal_case",
-  "title": "Leonard v. Pepsico, Inc.",
-  "author": [
-    {
-      "given": "Bob",
-      "family": "Smith"
-    }
-  ],
+  "title": "Leonard v. Pepsico, Incorporated",
   "container-title": "F. Supp. 2d",
   "volume": "116",
   "authority": "district.court",
