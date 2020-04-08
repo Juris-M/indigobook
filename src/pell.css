@@ -34,3 +34,7 @@
     text-decoration-color: transparent;
     font-variant: small-caps;
 }
+
+.pell textarea {
+    background: lightgoldenrodyellow;
+}
