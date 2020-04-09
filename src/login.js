@@ -5,6 +5,7 @@ import axios from 'axios';
 import { urlParts } from './utils.js';
 
 const startLogin = () => {
+    window.localStorage.removeItem('cite_url');
     const access_token = window.localStorage.getItem('access_token');
     if (access_token) return;
     window.localStorage.removeItem('block_login');
@@ -13,14 +14,13 @@ const startLogin = () => {
         // ID from Juris-M OAuth app reg
         var client_id = "eb529c0faf1bace5811d";
         if (document.location.host === "fbennett.github.io") {
-            console.log("HELLO fbennett.github.io");
             client_id = "28d992e126b54d095e4b";
         }
         document.location.href="https://github.com/login/oauth/authorize?client_id=" + client_id + "&scope=public_repo&status=98754325";
     }
 }
 
-const finishLogin = (getLoginStateOn, getEvdata, openModal) => {
+const finishLogin = (openModal) => {
     const block_login = window.localStorage.getItem('block_login');
     if (block_login) return;
     const params = urlParts();
@@ -39,15 +39,10 @@ const finishLogin = (getLoginStateOn, getEvdata, openModal) => {
             window.localStorage.setItem('access_token', response.data.token);
             let cite_id = window.localStorage.getItem('cite_id');
             let cite_text = window.localStorage.getItem('cite_text');
-            getEvdata({
-                id: cite_id,
-                cite: cite_text
-            });
             let elem = document.getElementById(cite_id);
             if (elem) {
                 elem.scrollIntoView();
             }
-            // getLoginStateOn();
             openModal();
         }).catch((error) => {
             console.log("LOGIN ERROR: " + error.message);
@@ -61,6 +56,10 @@ const loginOK = () => {
 }
 
 const logOut = () => {
+    // XXX In final production version, we need to distinguish cite_id and
+    // XXX cite_id_plus. We would use cite_id_plus here (id used in the document).
+    var elem = document.getElementById(window.localStorage.getItem("cite_id"));
+    window.localStorage.setItem("cite_text", elem.innerHTML);
     window.localStorage.removeItem('access_token');
     window.localStorage.setItem('block_login', true);
 }

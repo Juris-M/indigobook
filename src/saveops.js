@@ -11,12 +11,21 @@ export default async (startSave, endSave) => {
     var cite_id = window.localStorage.getItem('cite_id');
     var elem = document.getElementById("save-button");
     var realID = cite_id.slice(1);
+    
+    // Okay. Here is where our saved values come into play?
+
+    // NB: cite_text is either the document example or the user's pull request proposal
     var cite_text = window.localStorage.getItem('cite_text');
+    // NB: cite_desc will exist only if user has an active pull request
+    var cite_desc = window.localStorage.getItem('cite_desc');
+    
     var editor = document.getElementById("editor");
     var newCite = editor.content.innerHTML
             .replace(/\<u\>/g, "<span class=\"small-caps\">")
             .replace(/\<\/u\>/g, "</span>");
-    var comment = document.getElementById("modal-comment").value;
+    if (!cite_desc) {
+        cite_desc = document.getElementById("modal-comment").value;
+    }
     if (newCite !== cite_text) {
         elem.classList.add("save-ok");
         var result = await axios({
@@ -35,8 +44,8 @@ export default async (startSave, endSave) => {
         var params = {
             id: `${realID}`
         };
-        var newTest = composer(items, params, newCite, comment);
-        var result = await saver(cite_id, newTest, comment);
+        var newTest = composer(items, params, newCite, cite_desc);
+        var result = await saver(cite_id, newTest, cite_desc);
         await endSave(result.html_url);
         elem.classList.remove("save-ok");
     } else {

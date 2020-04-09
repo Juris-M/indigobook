@@ -32,10 +32,6 @@ var btoa = (str) => {
 const apiCall = async (props, quiet) => {
     var mth = props.apiMethod ? props.apiMethod : "get";
     var pth = [props.apiSection, props.repoPath, props.apiSuffix].filter((o) => o).join("/");
-    // console.log(mth + " :: " + pth);
-    // if (props.params) {
-    //     console.log(JSON.stringify(props.params, null, 2));
-    // }
     var result = await axios({
         method: mth,
         url: `${apiStub}/${pth}`,
@@ -168,13 +164,13 @@ async function getContents (citeCode) {
     return apiCall(props);
 }
 
-async function updateContents (citeCode, message, content, contentsSHA) {
+async function updateContents (citeCode, content, contentsSHA) {
     var props = protect(this);
     var fileName = buildFileName(citeCode);
     props.apiMethod = "put";
     props.apiSuffix = `contents/${fileName}`;
     props.params = {
-        message:  message,
+        message:  "Proposed edit",
         content: content,
         branch: citeCode
     };
@@ -209,8 +205,6 @@ var github = new GitHub;
 
 const saver = async (citeCode, testContent, comment) => {
 
-    var testMessage = `Citation: style_${citeCode}.txt`;
-    
     // Create client
     // console.log("(1)");
     var apiToken = window.localStorage.getItem('access_token');
@@ -222,10 +216,7 @@ const saver = async (citeCode, testContent, comment) => {
     
     // Get user name and user ID
     // console.log("(3)");
-    var ghme = await client.me();
-    var myinfo = ghme.info();
-    var userName = myinfo.login;
-    var userID = myinfo.id;
+    var userName = window.localStorage.getItem("cite_userName");
     
     // Instantiate fork, creating if necessary (true is for quiet)
     // console.log("(4)");
@@ -264,14 +255,14 @@ const saver = async (citeCode, testContent, comment) => {
     var newContent = btoa(testContent);
     if (!result) {
         // console.log("(11)");
-        await ghfork.updateContents(citeCode, testMessage, newContent);
+        await ghfork.updateContents(citeCode, newContent);
         var result = ghrepo.createPullRequest(citeCode, userName, comment);
     } else {
         var oldContent = result.content.split("\n").join("");
         if (newContent !== oldContent) {
             var contentsSHA = result.sha;
             // console.log("(12)");
-            await ghfork.updateContents(citeCode, testMessage, newContent, contentsSHA);
+            await ghfork.updateContents(citeCode, newContent, contentsSHA);
             var result = ghrepo.createPullRequest(citeCode, userName, comment);
         }
     }
@@ -279,17 +270,18 @@ const saver = async (citeCode, testContent, comment) => {
 };
 
 const pullreq = async (citeCode) => {
-    console.log("pullreq");
     var apiToken = window.localStorage.getItem('access_token');
     var client = github.client(apiToken);
     var ghrepo = await client.repo("Juris-M/jsti-indigobook");
     var ghme = await client.me();
     var myinfo = ghme.info();
-    var userName = myinfo.login;
-    return ghrepo.getPullRequest(citeCode, userName);
+    window.localStorage.setItem("cite_userName", myinfo.login);
+    
+    return ghrepo.getPullRequest(citeCode, myinfo.login);
 }
 
 export {
     saver,
-    pullreq
+    pullreq,
+    apiCall
 };

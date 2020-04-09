@@ -1,21 +1,15 @@
 import React, { useState, useCallback, useEffect } from "react";
 import Spinner from "react-spinner";
-import checkpull from './checkpull';
+import { checkPull, getPullRequestURL } from './checkpull';
 
 const SaveButton = (props) => {
   const [pendingOn, setPending] = useState(false);
   
   const startSave = useCallback(() => setPending(pendingOn => pendingOn = true), []);
-  const endSaveFinal = useCallback(() => setPending(pendingOn => {
-        pendingOn = false;
-        return pendingOn;
-  }), []);
 
-  const endSave = async (url) => {
-      if (!url) {
-        url = await checkpull();
-      }
-      await props.modal(url);
+  const endSave = async () => {
+      await checkPull();
+      await props.modal();
   }
 
     const handleClick = () => {
