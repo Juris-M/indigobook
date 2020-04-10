@@ -28,7 +28,7 @@ complexity of legal citation conventions, separate maintenance of the
 two resources is burdensome, with significant replication of work.
 
 This memo outlines an integrated approach to IB and JM Indigo Book
-updates, with a view to stream- lining the maintenance of both.
+updates, with a view to streamlining the maintenance of both.
 
 * Document view
 
@@ -37,29 +37,31 @@ with link markup, shown in the example below.
 
 [[./indigo-book-edit-1.png]]
 
+(Under the hood, citations are each marked up with an identifer in the
+format specified in Appendix 2 below.)
+
 * Feedback popup
 
-Clicking on the link would expose a popup showing the Jurism fields
-from which the citation is generated and, for logged-in users, a form
-for proposing a change to the example (illustrated in the linked [[https://juris-m.github.io/indigobook/][demo
+Clicking on the link opens a popup showing the Jurism fields
+from which the citation is generated (this is illustrated in the linked [[https://juris-m.github.io/indigobook/][demo
 page]]).
 
 [[./indigo-book-edit-2.png]]
 
 * Editorial workflow
 
-To casual readers, the popup would thus just show a simple quick
+To casual readers, the popup thus just shows a simple quick
 reference, listing the Jurism metadata needed to produce a correct
-citation. For logged-in users, the popup would also provide a
+citation. For logged-in users, the popup offers a
 self-explanatory mechanism for suggesting changes to the IB guidelines
 and the JM-IB style.
 
-Clicking the "Save" button would open the suggestion for review by an
+Clicking the "Save" button opens the suggestion for review by an
 editorial panel, leveraging the version control and discussion
 infrastructure of GitHub to manage discussion and disposition. The
-workflow is illustrated in the Appendix below.
+workflow is illustrated in the Appendix 1 below.
 
-* Appendix
+* Appendix 1: Workflow
 
 [[./workflow.png]]
 
@@ -106,6 +108,42 @@ The moving parts in this diagram may need some explanation.
             the IB text itself. The update would be automated by a
             separate tool, run independently of the workflow for
             proposed changes by a citation-maintenance editor.
+
+* Appendix 2: Citation ID format
+
+Citation IDs are set on the =name= attribute of citation spans
+in the text, and consist of three to five elements.
+
+{{{noindent}}}[[./cite-id-format.png]]
+
+** Required elements
+
+- 1. Prefix signal ::
+     Signals are set from a controlled list. The available signals
+     are: *none*, *eg*, *accord*, *see*, *seealso*, *seeeg*, *cf*,
+     *contra,* *butsee*, and *seegenerally*.
+
+- 2. Item key ::
+     The item key matches the key of an item in the =jsti-indigobook=
+     shared library.
+
+- 3. Position ::
+     The position marker must be an integer between one and three, where
+     *0* is first reference (full form), *1* is /id./, *2* is /id./ with
+     a pinpoint locator, and *3* is a subsequent reference.
+
+** Optional elements
+
+- 4. Pinpoint ::
+     The optional pinpoint reference is written freehand with "+"-style URI
+     encoding, using the [[https://citeproc-js.readthedocs.io/en/latest/csl-m/index.html#locator-terms][shorthand labels]] recognized by =citeproc-js=.
+
+- 5. Supplementary locator elements ::
+     Supplementary elements may be appended to the locator with a vertical
+     bar divider. If the first string following the divider parses as
+     0000-00-00, it is used as =locator-date= in citation input. All other
+     content is set on the =locator-extra= variable.
+
 		   
 * Footnotes
 
