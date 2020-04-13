@@ -11,7 +11,7 @@ export default (props) => {
     const getItems = useCallback((data) => setListItems((listItems) => listItems = data), []);
     useEffect(() => {
         var func = async () => {
-          const key = props.id.slice(-8);
+          const key = props.id.split("-")[1];
           var response = await axios({ url: props.urlStub + 'itemdata/' + key + '.json' });
           // Magic here to transform CSL key/val on item to array of label + value objects
           var displayItem = await displayer(response.data);

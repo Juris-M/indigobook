@@ -6,6 +6,7 @@ import DOMPurify from 'dompurify'
 import { urlParts } from './utils.js';
 import { checkPull, getPullRequestURL } from './checkpull';
 import { startLogin, finishLogin, loginOK, logOut } from './login.js';
+import parseID from './parseid';
 
 const FieldList = React.lazy(() => import('./fieldlist.jsx'));
 const Editor = React.lazy(() => import('./editor.jsx'));
@@ -16,7 +17,7 @@ import "./modal.css";
 var urlStub = urlParts().base;
 
 export const App = () => {
-    // States to report things into React
+    // States
     const [popup, setPopup] = useState({
         on: false,
         edit: false
@@ -24,7 +25,10 @@ export const App = () => {
     const [bibdata, setBibdata] = useState({});
     const [editCite, setEditCite] = useState(false);
     const [loginState, setLoginState] = useState(false);
-
+    const [params, setParams] = useState({});
+    
+    const storeParams = useCallback((obj) => setParams(params => params = obj));
+    
     const openModal = useCallback(async () => {
         if (loginOK()) {
            if (!getPullRequestURL()) {
@@ -35,31 +39,34 @@ export const App = () => {
         openModalFinal();
     });
 
-    // Callbacks to manipulate the states
+    // Callback setters
     const openModalFinal = useCallback(() => setPopup(popup => {
         return {
             on: true,
             edit: false
-        }
+        };
     }), []);
 
     const closeModal = useCallback(() => setPopup(popup => {
-          window.localStorage.removeItem('cite_id');
-          window.localStorage.removeItem('cite_text');
-          window.localStorage.removeItem('cite_desc');
-          window.localStorage.removeItem('cite_url');
-          return {
-              on: false,
-              edit: false
-          }
+        window.localStorage.removeItem('html_id');
+        window.localStorage.removeItem('html_info');
+        window.localStorage.removeItem('citation');
+        
+        window.localStorage.removeItem('cite_desc');
+        window.localStorage.removeItem('cite_url');
+        return {
+            on: false,
+            edit: false
+        };
     }), []);
     const getEditCiteOn = useCallback(() => setPopup(popup => {
         return {
             on: true,
             edit: true
-        }
+        };
     }), []);
-
+    
+    // Events
     useEffect(() => {
         console.log('Set listeners =99=');
         const nodes = document.getElementsByClassName("cite");
@@ -67,14 +74,19 @@ export const App = () => {
             // Pulling details from the event here makes it simpler to
             // repurpose the open event for login-revisits to the page.
             node.addEventListener("click", (ev) => {
-              let data = {
-                  id: ev.currentTarget.getAttribute("id"),
-                  cite: ev.currentTarget.innerHTML
-              }
-              window.localStorage.setItem('cite_id', data.id);
-              window.localStorage.setItem('cite_text', data.cite);
-              openModal();
-            })
+                var html_id = ev.currentTarget.getAttribute("id");
+                var rawName = ev.currentTarget.getAttribute("data-info");
+                
+                var info = parseCiteID(rawName);
+                if (info) {  
+                    storeParams(info.params);
+                    window.localStorage.setItem('html_id', html_id);
+                    window.localStorage.setItem('test_id', info.test_id);
+                    window.localStorage.setItem('citation', ev.currentTarget.innerHTML);
+                    
+                    openModal();
+                }
+            });
         }
         window.addEventListener("beforeunload", function(event) {
             window.localStorage.removeItem('access_token');
@@ -106,17 +118,17 @@ export const App = () => {
         <div className="header">
         {
            popup.edit ?
-             (<Suspense fallback={<div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(window.localStorage.getItem("cite_text"))}}></div>}>
-                 <Editor citeContent={window.localStorage.getItem("cite_text")} />
+             (<Suspense fallback={<div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(window.localStorage.getItem("citation"))}}></div>}>
+                 <Editor citeContent={window.localStorage.getItem("citation")} />
              </Suspense>)
              :
-             (<div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(window.localStorage.getItem("cite_text"))}}></div>)
+             (<div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(window.localStorage.getItem("citation"))}}></div>)
         }
         </div>
         <div className="content">
           {" "}
           <Suspense fallback={<div>Loading, please wait.</div>}>
-              <FieldList id={window.localStorage.getItem("cite_id")} urlStub={urlStub} />
+              <FieldList id={window.localStorage.getItem("test_id")} urlStub={urlStub} />
           </Suspense>
         </div>
         {
@@ -130,7 +142,7 @@ export const App = () => {
                       <td><button onClick={() => {openModal()}}>Cancel</button></td>
                       <td>
                           <Suspense fallback={<button id="save-button">Save</button>}>
-                              <SaveButton modal={openModal}/>
+                              <SaveButton modal={openModal} params={params}/>
                           </Suspense>
                       </td>
                     </tr>

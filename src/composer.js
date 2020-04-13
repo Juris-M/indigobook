@@ -1,6 +1,6 @@
 const composer = (items, params, newCite, comment) => {
     var keysArray = JSON.stringify(items.map((o) => o.id), null, 2);
-    var paramsArray = JSON.stringify(params, null, 2);
+    var paramsArray = JSON.stringify([params], null, 2);
     var itemsArray = JSON.stringify(items, null, 2);
     return `
 >>===== MODE =====>>

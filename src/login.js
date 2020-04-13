@@ -37,9 +37,8 @@ const finishLogin = (openModal) => {
         var url = 'https://our.law.nagoya-u.ac.jp/juris-m/authenticate/' + code + '?case=' + mode;
         axios.get(url).then((response) => {
             window.localStorage.setItem('access_token', response.data.token);
-            let cite_id = window.localStorage.getItem('cite_id');
-            let cite_text = window.localStorage.getItem('cite_text');
-            let elem = document.getElementById(cite_id);
+            let html_id = window.localStorage.getItem('html_id');
+            let elem = document.getElementById(html_id);
             if (elem) {
                 elem.scrollIntoView();
             }
@@ -56,10 +55,8 @@ const loginOK = () => {
 }
 
 const logOut = () => {
-    // XXX In final production version, we need to distinguish cite_id and
-    // XXX cite_id_plus. We would use cite_id_plus here (id used in the document).
-    var elem = document.getElementById(window.localStorage.getItem("cite_id"));
-    window.localStorage.setItem("cite_text", elem.innerHTML);
+    var elem = document.getElementById(window.localStorage.getItem("html_id"));
+    window.localStorage.setItem("citation", elem.innerHTML);
     window.localStorage.removeItem('access_token');
     window.localStorage.setItem('block_login', true);
 }

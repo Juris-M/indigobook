@@ -6,16 +6,15 @@ import handleErr from "./err";
 
 var urlStub = urlParts().base;
 
-export default async (startSave, endSave) => {
+export default async (params, startSave, endSave) => {
     await startSave();
-    var cite_id = window.localStorage.getItem('cite_id');
+    var test_id = window.localStorage.getItem('test_id');
     var elem = document.getElementById("save-button");
-    var realID = cite_id.slice(1);
     
     // Okay. Here is where our saved values come into play?
 
-    // NB: cite_text is either the document example or the user's pull request proposal
-    var cite_text = window.localStorage.getItem('cite_text');
+    // NB: citation is either the document example or the user's pull request proposal
+    var citation = window.localStorage.getItem('citation');
     // NB: cite_desc will exist only if user has an active pull request
     var cite_desc = window.localStorage.getItem('cite_desc');
     
@@ -26,11 +25,11 @@ export default async (startSave, endSave) => {
     if (!cite_desc) {
         cite_desc = document.getElementById("modal-comment").value;
     }
-    if (newCite !== cite_text) {
+    if (newCite !== citation) {
         elem.classList.add("save-ok");
         var result = await axios({
             method: "get",
-            url: `${urlStub}/itemdata/${realID}.json`
+            url: `${urlStub}/itemdata/${test_id}.json`
         }).catch((e) => handleErr(e));
         var item = result.data;
         if (item.jurisdiction) {
@@ -41,11 +40,8 @@ export default async (startSave, endSave) => {
             }
         }
         var items = [result.data];
-        var params = {
-            id: `${realID}`
-        };
         var newTest = composer(items, params, newCite, cite_desc);
-        var result = await saver(cite_id, newTest, cite_desc);
+        var result = await saver(test_id, newTest, cite_desc);
         await endSave(result.html_url);
         elem.classList.remove("save-ok");
     } else {

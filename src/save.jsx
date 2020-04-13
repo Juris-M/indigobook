@@ -14,7 +14,7 @@ const SaveButton = (props) => {
 
     const handleClick = () => {
         import(/* webpackChunkName: "saveops" */ './saveops').then(({ default: saveops }) => {
-            saveops(startSave, endSave);
+            saveops(props.params, startSave, endSave);
         });
     };
     return (
