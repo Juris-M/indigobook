@@ -4,10 +4,17 @@ import handleErr from "./err";
 
 var urlStub = urlParts().base;
 
+var positionMap = {
+    "0": "First reference",
+    "1": "Subsequent reference",
+    "2": "Id. reference",
+    "3": "Id. reference with locator"
+};
+
 var labelMaps = {};
 
 var courtMap = {};
-export default async (cslObj, locator) => {
+export default async (cslObj, locator, position) => {
     var offset = null;
     if (cslObj.jurisdiction) {
         var m = cslObj.jurisdiction.match(/^([0-9][0-9][0-9])/);
@@ -100,5 +107,9 @@ export default async (cslObj, locator) => {
             value: locator
         });
     }
+    ret.push({
+        label: "Position",
+        value: positionMap[position]
+    });
     return ret;
 }

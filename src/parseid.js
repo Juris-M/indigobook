@@ -24,7 +24,7 @@ export default (html_id) => {
     var elem = document.getElementById(html_id);
     var str = elem.getAttribute("data-info");
     var ret = false;
-    var m = str.match(/^([^\-]+)-([^\-]+)-([^\-\|]+)(?:\-(.*))*/);
+    var m = str.match(/^([^\-]+)-([^\-]+)-([^\-]+)(?:\-(.*))*/);
     if (m) {
         var test_id_buf = m.slice(1, 4);
         ret = {

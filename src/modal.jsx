@@ -30,6 +30,11 @@ export const App = () => {
     const storeParams = useCallback((obj) => setParams(params => params = obj));
     
     const openModal = useCallback(async () => {
+        // XXX For an overlay spinner, set a "popupCalled" state variable
+        // XXX here, to show spinner until "popup.on" is true.
+        var html_id = window.localStorage.getItem("html_id");
+        var info = parseCiteID(html_id);
+        storeParams(info.params);
         if (loginOK()) {
            if (!getPullRequestURL()) {
                // Set URL and proposed cite form of pull request in localStorage
@@ -60,9 +65,6 @@ export const App = () => {
         };
     }), []);
     const getEditCiteOn = useCallback(() => setPopup(popup => {
-        var html_id = window.localStorage.getItem("html_id");
-        var info = parseCiteID(html_id);
-        storeParams(info.params);
         return {
             on: true,
             edit: true
@@ -71,7 +73,7 @@ export const App = () => {
     
     // Events
     useEffect(() => {
-        console.log('Set listeners =112=');
+        console.log('Set listeners =115=');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
             // Pulling details from the event here makes it simpler to
@@ -129,7 +131,7 @@ export const App = () => {
         <div className="content">
           {" "}
           <Suspense fallback={<div>Loading, please wait.</div>}>
-              <FieldList test_id={window.localStorage.getItem("test_id")} urlStub={urlStub} />
+              <FieldList test_id={window.localStorage.getItem("test_id")} params={params} urlStub={urlStub} />
           </Suspense>
         </div>
         {
