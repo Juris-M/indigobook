@@ -54,6 +54,8 @@ const checkPull = async () => {
             // Okay, did it work?
             window.localStorage.setItem("citation", res.RESULT);
             window.localStorage.setItem("cite_desc", res.DESCRIPTION);
+        } else {
+            window.localStorage.removeItem("cite_desc");
         }
     }
 };

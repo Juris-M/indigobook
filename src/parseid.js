@@ -20,24 +20,28 @@ var signalMap = {
     Seegenerally: "See generally"
 }
 
-export default (str) => {
+export default (html_id) => {
+    var elem = document.getElementById(html_id);
+    var str = elem.getAttribute("data-info");
     var ret = false;
     var m = str.match(/^([^\-]+)-([^\-]+)-([^\-\|]+)(?:\-(.*))*/);
     if (m) {
+        var test_id_buf = m.slice(1, 4);
         ret = {
             test_id: null,
             params: {}
         };
-        ret.params.prefix = typeof signalMap[lst[0]] !== "undefined" ? signalMap[lst[0]] : lst[0];
-        ret.id = m[1];
-        ret.params.position = parseInt(m[2]);
-        
-        ret.test_id = lst.slice(0, 3);
-        
-        if (m[3]) {
-            ret.params.locator = m[3];
-            ret.test_id.push(btoa(m[3]));
+        if (m[1] !== "none") {
+            ret.params.prefix = typeof signalMap[m[1]] !== "undefined" ? signalMap[m[1]] : m[1];
         }
+        ret.params.id = m[2];
+        ret.params.position = parseInt(m[3]);
+        
+        if (m[4]) {
+            ret.params.locator = m[4];
+            test_id_buf.push(btoa(m[4]));
+        }
+        ret.test_id = test_id_buf.join("-");
     }
     return ret;
 }

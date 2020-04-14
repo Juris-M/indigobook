@@ -9,6 +9,7 @@ var urlStub = urlParts().base;
 export default async (params, startSave, endSave) => {
     await startSave();
     var test_id = window.localStorage.getItem('test_id');
+    var item_key = test_id.split("-")[1];
     var elem = document.getElementById("save-button");
     
     // Okay. Here is where our saved values come into play?
@@ -29,7 +30,7 @@ export default async (params, startSave, endSave) => {
         elem.classList.add("save-ok");
         var result = await axios({
             method: "get",
-            url: `${urlStub}/itemdata/${test_id}.json`
+            url: `${urlStub}/itemdata/${item_key}.json`
         }).catch((e) => handleErr(e));
         var item = result.data;
         if (item.jurisdiction) {

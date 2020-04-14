@@ -7,7 +7,7 @@ var urlStub = urlParts().base;
 var labelMaps = {};
 
 var courtMap = {};
-export default async (cslObj) => {
+export default async (cslObj, locator) => {
     var offset = null;
     if (cslObj.jurisdiction) {
         var m = cslObj.jurisdiction.match(/^([0-9][0-9][0-9])/);
@@ -93,6 +93,12 @@ export default async (cslObj) => {
                 value: val
             });
         }
+    }
+    if (locator) {
+        ret.push({
+            label: "Locator",
+            value: locator
+        });
     }
     return ret;
 }

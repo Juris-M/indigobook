@@ -6,7 +6,7 @@ import DOMPurify from 'dompurify'
 import { urlParts } from './utils.js';
 import { checkPull, getPullRequestURL } from './checkpull';
 import { startLogin, finishLogin, loginOK, logOut } from './login.js';
-import parseID from './parseid';
+import parseCiteID from './parseid';
 
 const FieldList = React.lazy(() => import('./fieldlist.jsx'));
 const Editor = React.lazy(() => import('./editor.jsx'));
@@ -60,6 +60,9 @@ export const App = () => {
         };
     }), []);
     const getEditCiteOn = useCallback(() => setPopup(popup => {
+        var html_id = window.localStorage.getItem("html_id");
+        var info = parseCiteID(html_id);
+        storeParams(info.params);
         return {
             on: true,
             edit: true
@@ -68,16 +71,14 @@ export const App = () => {
     
     // Events
     useEffect(() => {
-        console.log('Set listeners =99=');
+        console.log('Set listeners =112=');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
             // Pulling details from the event here makes it simpler to
             // repurpose the open event for login-revisits to the page.
             node.addEventListener("click", (ev) => {
                 var html_id = ev.currentTarget.getAttribute("id");
-                var rawName = ev.currentTarget.getAttribute("data-info");
-                
-                var info = parseCiteID(rawName);
+                var info = parseCiteID(html_id);
                 if (info) {  
                     storeParams(info.params);
                     window.localStorage.setItem('html_id', html_id);
@@ -128,7 +129,7 @@ export const App = () => {
         <div className="content">
           {" "}
           <Suspense fallback={<div>Loading, please wait.</div>}>
-              <FieldList id={window.localStorage.getItem("test_id")} urlStub={urlStub} />
+              <FieldList test_id={window.localStorage.getItem("test_id")} urlStub={urlStub} />
           </Suspense>
         </div>
         {
