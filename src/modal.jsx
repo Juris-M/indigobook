@@ -1,6 +1,9 @@
 import React, { Suspense, lazy, useState, useCallback, useEffect } from "react";
 import ReactDOM from "react-dom";
 
+import Spinner from "react-spinner";
+import './react-spinner.css';
+
 import Popup from "reactjs-popup";
 import DOMPurify from 'dompurify'
 import { urlParts } from './utils.js';
@@ -26,12 +29,16 @@ export const App = () => {
     const [editCite, setEditCite] = useState(false);
     const [loginState, setLoginState] = useState(false);
     const [params, setParams] = useState({});
+    const [callInProgress, setCallInProgress] = useState(false);
     
     const storeParams = useCallback((obj) => setParams(params => params = obj));
+
+    const storeCallInProgress = useCallback((val) => setCallInProgress(callInProgress => callInProgress = val));
     
     const openModal = useCallback(async () => {
         // XXX For an overlay spinner, set a "popupCalled" state variable
         // XXX here, to show spinner until "popup.on" is true.
+        storeCallInProgress(true);
         var html_id = window.localStorage.getItem("html_id");
         var info = parseCiteID(html_id);
         storeParams(info.params);
@@ -42,6 +49,7 @@ export const App = () => {
            }
         }
         openModalFinal();
+        storeCallInProgress(false);
     });
 
     // Callback setters
@@ -73,7 +81,7 @@ export const App = () => {
     
     // Events
     useEffect(() => {
-        console.log('Set listeners =115=');
+        console.log('Set listeners =124=');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
             // Pulling details from the event here makes it simpler to
@@ -104,7 +112,12 @@ export const App = () => {
 
     // The popup
     return (
-    <Popup 
+    <div>
+    {
+    callInProgress ?
+    (<div id="spinner-overlay"><Spinner/></div>)
+    :
+    (<Popup 
         open={popup.on}
         modal
         defaultOpen={false}
@@ -185,7 +198,7 @@ export const App = () => {
         }
       </div>
     )}}
-    </Popup>
-)}
+    </Popup>)
+}</div>)}
 
 ReactDOM.render(<App />, document.querySelector("#popup-root"));

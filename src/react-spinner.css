@@ -19,6 +19,13 @@
   left: 50%;
 }
 
+#spinner-overlay .react-spinner {
+    width: 26%;
+    height: 26%;
+    top: 37%;
+    left: 37%;
+}
+
 .black-wheel .react-spinner_bar {
     background-color: black;
 }
