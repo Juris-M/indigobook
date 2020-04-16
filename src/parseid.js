@@ -24,9 +24,9 @@ export default (html_id) => {
     var elem = document.getElementById(html_id);
     var str = elem.getAttribute("data-info");
     var ret = false;
-    var m = str.match(/^([^\-]+)-([^\-]+)-([^\-]+)(?:\-(.*))*/);
+    var m = str.match(/^([^\-]+)-([^\-]+)-([0-3]+)-([0-1]+)(?:\-(.*))*/);
     if (m) {
-        var test_id_buf = m.slice(1, 4);
+        var test_id_buf = m.slice(1, 5);
         ret = {
             test_id: null,
             params: {}
@@ -36,10 +36,10 @@ export default (html_id) => {
         }
         ret.params.id = m[2];
         ret.params.position = parseInt(m[3]);
-        
-        if (m[4]) {
-            ret.params.locator = m[4];
-            test_id_buf.push(btoa(m[4]));
+        ret.params["suppress-author"] = !!parseInt(m[4]);
+        if (m[5]) {
+            ret.params.locator = m[5];
+            test_id_buf.push(btoa(m[5]));
         }
         ret.test_id = test_id_buf.join("-");
     }

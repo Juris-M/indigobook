@@ -14,7 +14,7 @@ var positionMap = {
 var labelMaps = {};
 
 var courtMap = {};
-export default async (cslObj, locator, position) => {
+export default async (cslObj, params) => {
     var offset = null;
     if (cslObj.jurisdiction) {
         var m = cslObj.jurisdiction.match(/^([0-9][0-9][0-9])/);
@@ -101,15 +101,21 @@ export default async (cslObj, locator, position) => {
             });
         }
     }
-    if (locator) {
+    if (params.locator) {
         ret.push({
             label: "Locator",
-            value: locator
+            value: params.locator
         });
     }
     ret.push({
         label: "Position",
-        value: positionMap[position]
+        value: positionMap[params.position]
     });
+    if (params["suppress-author"]) {
+        ret.push({
+            label: "Suppress Author",
+            value: "✓"
+        });
+    }
     return ret;
 }

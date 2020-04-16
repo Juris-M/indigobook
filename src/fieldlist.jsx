@@ -13,7 +13,7 @@ export default (props) => {
         var func = async () => {
             var response = await axios({ url: props.urlStub + 'itemdata/' + props.params.id + '.json' });
             // Magic here to transform CSL key/val on item to array of label + value objects
-            var displayItem = await displayer(response.data, props.params.locator, props.params.position);
+            var displayItem = await displayer(response.data, props.params);
             getItems(displayItem);
         }
         func();
