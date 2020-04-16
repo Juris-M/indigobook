@@ -40,7 +40,7 @@ const finishLogin = (openModal) => {
             let html_id = window.localStorage.getItem('html_id');
             let elem = document.getElementById(html_id);
             if (elem) {
-                // elem.scrollIntoView();
+                elem.scrollIntoView();
             }
             openModal();
         }).catch((error) => {
