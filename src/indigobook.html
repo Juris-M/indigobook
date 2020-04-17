@@ -30,10 +30,7 @@
 
 <style type="text/css">
   body { word-wrap: break-word ; font-size: 12pt; line-height: 16pt; font-family: 'Libre Baskerville', Georgia, sans-serif;  }
-/*
-BREAKS JSDOM PARSE
-INVALID ATTRIBUTES
-  
+
     h1 { string-set: doctitle content() }
 	@page {  border: 0; margin-left: .75in; margin-right: .75in; margin-top: .75in; margin-bottom: .75in;
       widows:2;
@@ -46,7 +43,7 @@ INVALID ATTRIBUTES
 	@media screen {
 		body { margin: 0px 1.25em 0px 1.25em ; }
     }
-*/
+
 	div.bc { border: 2px solid #4B0082 ; padding: 10px; 
 	background-color: rgba(75, 0, 130,0.05); 
 	margin-top: 19px; margin-bottom: 6px; page-break-inside: avoid } 
@@ -92,15 +89,12 @@ INVALID ATTRIBUTES
 	@media print { 
 		div.cover { position: absolute; height: 11in; margin-left: 0; margin-top: 0; width: 8in; }
 	}
-/*
-BREAKS JSDOM PARSE
-INVALID ATTRIBUTES
 	@page:first {
 		@top-right { content: normal }
 		@bottom-right { content: normal }
 		margin: 0 ; 
 	}
-*/
+
 	p, li, td, th, .bc { font-family: 'Libre Baskerville', Georgia, serif;  }
 	p { text-align:left; margin:0; direction:ltr; padding-bottom: 9px; color: #000; text-indent: 0; font-size: 12pt ; line-height: 18pt; }
 
