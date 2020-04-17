@@ -1,0 +1,23 @@
+{
+  "id": "SIY2FYZH",
+  "type": "book",
+  "title": "Longitude: the true story of a lone genius who solved the greatest scientific problem of his time",
+  "author": [
+    {
+      "given": "Dava",
+      "family": "Sobel"
+    }
+  ],
+  "issued": {
+    "date-parts": [
+      [
+        1995
+      ]
+    ]
+  },
+  "number-of-pages": "208",
+  "language": "English",
+  "ISBN": "978-0-00-779016-6",
+  "shortTitle": "Longitude",
+  "source": "Amazon"
+}

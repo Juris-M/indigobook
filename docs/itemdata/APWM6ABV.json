@@ -1,0 +1,22 @@
+{
+  "id": "APWM6ABV",
+  "type": "legal_case",
+  "title": "Williamson v. United States",
+  "author": [
+    {
+      "family": "Jackson, Circuit Justice"
+    }
+  ],
+  "container-title": "F.2d",
+  "volume": "184",
+  "authority": "court.appeals",
+  "page": "280",
+  "issued": {
+    "date-parts": [
+      [
+        1950
+      ]
+    ]
+  },
+  "jurisdiction": "005us:c2United States|US|Second Circuit"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "L4TVSRGE",
+  "type": "book",
+  "title": "The Bluebook: a uniform system of citation",
+  "author": [
+    {
+      "family": "Columbia Law Review Ass'n"
+    },
+    {
+      "family": "Harvard Law Rev. Ass'n."
+    },
+    {
+      "family": "University of Pennsylvania Law Review Ass'n."
+    },
+    {
+      "family": "The Yale Law J. Ass'n."
+    }
+  ],
+  "edition": "20",
+  "issued": {
+    "date-parts": [
+      [
+        2015
+      ]
+    ]
+  }
+}
