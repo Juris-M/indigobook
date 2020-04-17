@@ -23,7 +23,7 @@ function normalizeName(obj, fieldMode, isTop) {
         if (!ret.multi) {
             ret.multi = {
                 _key: {}
-            }
+            };
         }
     }
     return ret;
@@ -42,6 +42,7 @@ function normalizeNames(obj) {
         var creator = obj.creators[i];
         if (getCreatorLabel(creator.creatorType)) {
             obj.creators[i] = normalizeName(creator, creator.fieldMode, true);
+            creator = obj.creators[i];
             for (var j in creator.multi._key) {
                 creator.multi._key[j] = normalizeName(creator.multi._key[j], creator.fieldMode);
             }

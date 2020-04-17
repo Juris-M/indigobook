@@ -1,6 +1,6 @@
 const axios = require('axios');
 const z2j = require("./zotero2jurism");
-const dom = require('xmldom').DOMParser;
+const dom = require('htmldom2').DOMParser;
 const fs = require("fs");
 const path = require("path");
 const xpath = require("xpath");
@@ -35,8 +35,9 @@ function fixHTML(txt) {
         .replace(/xmlns=\"[^\"]+\"/g, "");
 }
 
-var xml = fs.readFileSync(path.join(__dirname, "..", "src", "index.html")).toString();
+var xml = fs.readFileSync(path.join(__dirname, "..", "src", "indigobook.html")).toString();
 
+/*
 var xml = fixHTML(xml);
 
 var lines = xml.split("\n");
@@ -45,10 +46,11 @@ for (var i in lines) {
     lines[i] = lineno + " " + lines[i];
 }
 lines = lines.join("\n");
+ */
 
-var doc = new dom().parseFromString(xml);
+var doc = new dom().parseFromString(xml, 'text/html');
 
-var nodes = xpath.select("//a[contains(@class,'cite')]", doc);
+var nodes = xpath.select("//span[contains(@class,'cite')]", doc);
 
 var outputPath = path.join(__dirname, "..", "static", "itemdata");
 
@@ -56,14 +58,26 @@ if (!fs.existsSync(outputPath)) {
     fs.mkdirSync(outputPath);
 }
 
-var len = nodes.length;
-var count = len;
-var courtMap = {};
-for (var node of nodes) {
-    let id = node.getAttribute("id");
-    let key = id.slice(-8);
-    axios.get( apiStub + key)
-    .then((response) =>{
+const run = async () => {
+
+    var donesies = {};
+    
+    var len = nodes.length;
+    var count = len;
+    var courtMap = {};
+    for (var node of nodes) {
+        let info = node.getAttribute("data-info");
+        if (!info) continue;
+        var key = info.split("-")[1];
+        if (donesies[key]) continue;
+        donesies[key] = true;
+        console.log(key);
+        var response = await axios({
+            method: "get",
+            url: `${apiStub}${key}`
+        }).catch((err) => {
+            console.log(`ERROR: ${key} ${err.message} [${apiStub + key}]`);
+        });
         const jObj = z2j.zoteroToJurismData(response.data);
         var cslObj = {};
         for (var key in jObj) {
@@ -100,7 +114,7 @@ for (var node of nodes) {
         if (count === 0) {
 	        console.log(len + " items processed");
         }
-    }).catch((err) => {
-        console.log("ERROR: "+err.message);
-    });
+    }
 }
+
+run();

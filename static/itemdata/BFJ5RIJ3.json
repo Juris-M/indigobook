@@ -1,0 +1,30 @@
+{
+  "id": "BFJ5RIJ3",
+  "type": "legal_case",
+  "title": "McDonnell Douglas Corp. v. Green",
+  "container-title": "U.S.",
+  "volume": "411",
+  "authority": "supreme.court",
+  "number": "72-490",
+  "page": "792",
+  "issued": {
+    "date-parts": [
+      [
+        1973,
+        5,
+        14
+      ]
+    ]
+  },
+  "URL": "https://www.courtlistener.com/opinion/108786/mcdonnell-douglas-corp-v-green/",
+  "accessed": {
+    "date-parts": [
+      [
+        2020,
+        2,
+        22
+      ]
+    ]
+  },
+  "jurisdiction": "002usUnited States|US"
+}
