@@ -148,12 +148,17 @@ img {
 .cite { color: inherit; transition-duration: .2s; text-decoration: none; border-bottom: 2px solid transparent; }
 .cite:hover { color: #22272a; border-color: #22272a; cursor: pointer; }
 
-.cite.nodata::before{
-    content: "";
-    margin-right: 0px;
+.cite.nodata::before {
+    content: "👷 🚜";
+    color: #ffffff;
+    background: #ff0000;
+    padding: 3px 2px;
+    border-radius: 1em;
+    margin-right: 0.3em;
 }
+
 .cite.nodata {
-    color: #ffee00;
+    background: #ffee00;
 }
 .cite.nodata:hover {
     color: inherit;
