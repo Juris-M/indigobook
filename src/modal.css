@@ -159,6 +159,7 @@ img {
 
 .cite.nodata {
     background: #ffee00;
+    line-height: 170%
 }
 .cite.nodata:hover {
     color: inherit;
