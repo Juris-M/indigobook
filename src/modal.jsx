@@ -40,7 +40,9 @@ export const App = () => {
         // XXX here, to show spinner until "popup.on" is true.
         storeCallInProgress(true);
         var html_id = window.localStorage.getItem("html_id");
-        var info = parseCiteID(html_id);
+        var elem = document.getElementById(html_id);
+        var cite_id = elem.getAttribute("data-info");
+        var info = parseCiteID(cite_id);
         storeParams(info.params);
         if (loginOK()) {
            if (!getPullRequestURL()) {
@@ -94,15 +96,17 @@ export const App = () => {
 
     // Events
     useEffect(() => {
-        console.log('Set listeners =134=');
+        console.log('Set listeners =138=');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
             // Pulling details from the event here makes it simpler to
             // repurpose the open event for login-revisits to the page.
             node.addEventListener("click", (ev) => {
                 var html_id = ev.currentTarget.getAttribute("id");
-                var info = parseCiteID(html_id);
-                if (info) {  
+                var elem = document.getElementById(html_id);
+                var cite_id = elem.getAttribute("data-info");
+                var info = parseCiteID(cite_id);
+                if (info) {
                     storeParams(info.params);
                     window.localStorage.setItem('html_id', html_id);
                     window.localStorage.setItem('test_id', info.test_id);

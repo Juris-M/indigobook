@@ -18,7 +18,8 @@ const login = {
             if (document.location.host === "fbennett.github.io") {
                 client_id = "28d992e126b54d095e4b";
             }
-            document.location.href="https://github.com/login/oauth/authorize?client_id=" + client_id + "&scope=public_repo&status=98754325";
+            var url = `https://github.com/login/oauth/authorize?client_id=${client_id}&scope=public_repo&status=98754325&redirect_uri=${document.location.href}`;
+            document.location.href=url;
         }
     },
 
@@ -36,7 +37,7 @@ const login = {
             if (document.location.host === "fbennett.github.io") {
                 mode = "indigodev";
             }
-            var url = 'https://our.law.nagoya-u.ac.jp/juris-m/authenticate/' + code + '?case=' + mode;
+            var url = `https://our.law.nagoya-u.ac.jp/juris-m/authenticate/${code}?case=${mode}`;
             axios.get(url).then((response) => {
                 window.localStorage.setItem('access_token', response.data.token);
                 let html_id = window.localStorage.getItem('html_id');

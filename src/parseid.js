@@ -37,12 +37,10 @@ var signalMap = {
     subnom: "sub nom."
 }
 
-export default (html_id, toBase64) => {
+export default (str, toBase64) => {
     if (!toBase64) {
         toBase64 = btoa;
     }
-    var elem = document.getElementById(html_id);
-    var str = elem.getAttribute("data-info");
     var ret = false;
     var m = str.match(/^([^\-]+)-([^\-]+)-([0-3]+)-([0-1]+)(?:\-(.*))*/);
     if (m) {
