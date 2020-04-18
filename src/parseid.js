@@ -1,3 +1,5 @@
+import { getToBase64 } from "./utils.js";
+
 var signalMap = {
     none: "",
     eg: "e.g.",
@@ -39,7 +41,7 @@ var signalMap = {
 
 export default (str, toBase64) => {
     if (!toBase64) {
-        toBase64 = btoa;
+        toBase64 = getToBase64(btoa);
     }
     var ret = false;
     var m = str.match(/^([^\-]+)-([^\-]+)-([0-3]+)-([0-1]+)(?:\-(.*))*/);
@@ -51,7 +53,7 @@ export default (str, toBase64) => {
         };
         if (m[1] !== "none") {
             var lst = m[1].split("::");
-            lst.map((o) => {
+            lst = lst.map((o) => {
                 return typeof signalMap[o] !== "undefined" ? signalMap[o] : o;
             });
             var signal = lst.join(" ");
@@ -59,7 +61,9 @@ export default (str, toBase64) => {
         }
         ret.params.id = m[2];
         ret.params.position = parseInt(m[3]);
-        ret.params["suppress-author"] = !!parseInt(m[4]);
+        if (parseInt(m[4])) {
+            ret.params["suppress-author"] = !!parseInt(m[4]);
+        }
         if (m[5]) {
             ret.params.locator = m[5];
             test_id_buf.push(toBase64(m[5]));

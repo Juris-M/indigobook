@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getToBase64 } from "./utils.js";
 // const base64 = require("base-64");
 // const utf8 = require("utf8");
 
@@ -22,12 +23,7 @@ const buildFileName = (citeCode) => {
     return `style_${citeCode}.txt`;
 }
 
-/*
-var btoa = (str) => {
-    var bytes = utf8.encode(str);
-    return `${base64.encode(bytes)}`;
-}
-*/
+const toBase64 = getToBase64(btoa);
 
 const apiCall = async (props, quiet) => {
     var mth = props.apiMethod ? props.apiMethod : "get";
@@ -252,7 +248,7 @@ const saver = async (citeCode, testContent, comment) => {
     // console.log("(10)");
     var result = await ghfork.getContents(citeCode);
 
-    var newContent = btoa(testContent);
+    var newContent = toBase64(testContent);
     if (!result) {
         // console.log("(11)");
         await ghfork.updateContents(citeCode, newContent);

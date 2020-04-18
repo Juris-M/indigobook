@@ -1,4 +1,7 @@
 import { pullreq, apiCall } from './saver';
+import { getFromBase64 } from "./utils.js";
+
+const fromBase64 = getFromBase64(atob);
 
 const checkPull = async () => {
     var test_id = window.localStorage.getItem('test_id');
@@ -18,7 +21,7 @@ const checkPull = async () => {
             apiSuffix: `contents/style_${test_id}.txt?ref=${test_id}`,
             apiToken: `${apiToken}`
         });
-        var txt = atob(contents.content);
+        var txt = fromBase64(contents.content);
         var lst = txt.split("\n");
         var keys = ["DESCRIPTION", "RESULT"];
         var state = {};

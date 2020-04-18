@@ -1,3 +1,5 @@
+import utf8 from "utf8";
+
 const error = (e) => {
     console.log(e.toString());
 }
@@ -51,13 +53,29 @@ const logOut = () => {
     window.localStorage.setItem('block_login', true);
 };
 
+const getToBase64 = (func) => {
+    return (str) => {
+        var bytes = utf8.encode(str);
+        return func(bytes);
+    };
+};
+
+const getFromBase64 = (func) => {
+    return (str) => {
+        var bytes = func(str);
+        return utf8.decode(bytes);
+    };
+};
+
 export {
     urlParts,
     buildQuery,
     error,
     getPullRequestURL,
     loginOK,
-    logOut
+    logOut,
+    getToBase64,
+    getFromBase64
 }
 
 module = {
@@ -67,6 +85,8 @@ module = {
         error: error,
         getPullRequestURL: getPullRequestURL,
         loginOK: loginOK,
-        logOut: logOut
+        logOut: logOut,
+        getToBase64: getToBase64,
+        getFromBase64: getFromBase64
     }
 }
