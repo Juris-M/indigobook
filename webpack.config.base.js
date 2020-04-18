@@ -19,7 +19,7 @@ module.exports = {
         publicPath: ''
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js', '.jsx']
+        extensions: ['.js', '.jsx']
     },
     module: {
         rules: [
@@ -55,22 +55,14 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-            template: __dirname + '/src/index.html',
-            filename: 'index.html',
-            inject: 'body'
-        }),
-        new HtmlWebpackPlugin({
-            template: __dirname + '/src/indigobook.html',
-            filename: 'indigobook.html',
-            inject: 'body'
-        }),
         new CopyPlugin([
             { from: 'static/itemdata', to: 'itemdata' },
             { from: 'static/courtMaps', to: 'courtMaps' },
             { from: 'static/labelMaps', to: 'labelMaps' },
             { from: 'static/images', to: '.' },
-            { from: 'static/screen.css', to: './screen.css' }
+            { from: 'static/screen.css', to: './screen.css' },
+            { from: 'static/index.html', to: './index.html' },
+            { from: 'static/indigobook.html', to: './indigobook.html' }
         ]),
      ]
 };

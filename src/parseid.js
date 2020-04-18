@@ -17,10 +17,30 @@ var signalMap = {
     Cf: "Cf.",
     Contra: "Contra",
     Butsee: "But see",
-    Seegenerally: "See generally"
+    Seegenerally: "See generally",
+    butcf: "but cf.",
+    compare: "compare",
+    Butcf: "but cf.",
+    Compare: "compare",
+    with: "with",
+    and: "and",
+    affirmed: "aff'd",
+    affirming: "aff'g",
+    certdenied: "cert. denied",
+    other: "on other grounds",
+    revsub: "sub nom.",
+    affirmed: "aff'd",
+    affirming: "aff'g",
+    certdenied: "cert. denied",
+    reversed: "rev'd",
+    other: "on other grounds",
+    subnom: "sub nom."
 }
 
-export default (html_id) => {
+export default (html_id, toBase64) => {
+    if (!toBase64) {
+        toBase64 = btoa;
+    }
     var elem = document.getElementById(html_id);
     var str = elem.getAttribute("data-info");
     var ret = false;
@@ -32,14 +52,19 @@ export default (html_id) => {
             params: {}
         };
         if (m[1] !== "none") {
-            ret.params.prefix = typeof signalMap[m[1]] !== "undefined" ? signalMap[m[1]] : m[1];
+            var lst = m[1].split("::");
+            lst.map((o) => {
+                return typeof signalMap[o] !== "undefined" ? signalMap[o] : o;
+            });
+            var signal = lst.join(" ");
+            ret.params.prefix = `<i>${signal}</i>`;
         }
         ret.params.id = m[2];
         ret.params.position = parseInt(m[3]);
         ret.params["suppress-author"] = !!parseInt(m[4]);
         if (m[5]) {
             ret.params.locator = m[5];
-            test_id_buf.push(btoa(m[5]));
+            test_id_buf.push(toBase64(m[5]));
         }
         ret.test_id = test_id_buf.join("-");
     }

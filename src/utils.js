@@ -35,16 +35,38 @@ const buildQuery = (data) => {
     return '?`${ret}`';
 }
 
+const getPullRequestURL = () => {
+    return window.localStorage.getItem('cite_url');
+};
+
+const loginOK = () => {
+    const access_token = window.localStorage.getItem('access_token');
+    return !!access_token;
+};
+
+const logOut = () => {
+    var elem = document.getElementById(window.localStorage.getItem("html_id"));
+    window.localStorage.setItem("citation", elem.innerHTML);
+    window.localStorage.removeItem('access_token');
+    window.localStorage.setItem('block_login', true);
+};
+
 export {
     urlParts,
     buildQuery,
-    error
+    error,
+    getPullRequestURL,
+    loginOK,
+    logOut
 }
 
 module = {
     exports: {
         urlParts: urlParts,
         buildQuery: buildQuery,
-        error: error
+        error: error,
+        getPullRequestURL: getPullRequestURL,
+        loginOK: loginOK,
+        logOut: logOut
     }
 }

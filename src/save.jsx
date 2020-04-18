@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import Spinner from "react-spinner";
-import { checkPull, getPullRequestURL } from './checkpull';
+import { getPullRequestURL } from './utils.js';
+import checkPull from './checkpull';
 
 const SaveButton = (props) => {
   const [pendingOn, setPending] = useState(false);

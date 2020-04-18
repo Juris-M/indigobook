@@ -6,9 +6,9 @@ import './react-spinner.css';
 
 import Popup from "reactjs-popup";
 import DOMPurify from 'dompurify'
-import { urlParts } from './utils.js';
-import { checkPull, getPullRequestURL } from './checkpull';
-import { startLogin, finishLogin, loginOK, logOut } from './login.js';
+import { urlParts, getPullRequestURL, loginOK, logOut } from './utils.js';
+// import checkpull from './checkpull';
+// import { startLogin, finishLogin, loginOK, logOut } from './login.js';
 import parseCiteID from './parseid';
 
 const FieldList = React.lazy(() => import('./fieldlist.jsx'));
@@ -45,7 +45,7 @@ export const App = () => {
         if (loginOK()) {
            if (!getPullRequestURL()) {
                // Set URL and proposed cite form of pull request in localStorage
-               await checkPull();
+               await getCheckpull();
            }
         }
         openModalFinal();
@@ -72,6 +72,7 @@ export const App = () => {
             edit: false
         };
     }), []);
+    
     const getEditCiteOn = useCallback(() => setPopup(popup => {
         return {
             on: true,
@@ -79,9 +80,21 @@ export const App = () => {
         };
     }), []);
     
+    const getLogin = (funcName, arg) => {
+        return import(/* webpackChunkName: "login" */ './login.js').then(({ default: login }) => {
+            return login[funcName](arg);
+        }).catch(error => 'An error occurred while loading the Login component');
+    };
+
+    const getCheckpull = () => {
+        return import(/* webpackChunkName: "checkPull" */ './checkpull.js').then(({ default: checkPull }) => {
+            return checkPull();
+        }).catch(error => 'An error occurred while loading the Login component');
+    };
+
     // Events
     useEffect(() => {
-        console.log('Set listeners =127=');
+        console.log('Set listeners =134=');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
             // Pulling details from the event here makes it simpler to
@@ -107,7 +120,7 @@ export const App = () => {
     useEffect(() => {
         // Setting ID and text in localStore allows us to scroll to the
         // current location and reopen the popup after the redirect completes.
-        finishLogin(openModal);
+        getLogin("finishLogin", openModal);
     });
 
     // The popup
@@ -191,7 +204,7 @@ export const App = () => {
                         Log in to GitHub to propose a change.
                     </p>
                 </td>
-                <td><button onClick={startLogin}>Login</button></td>
+                <td><button onClick={() => { getLogin("startLogin"); return true; }}>Login</button></td>
               </tr>
               </tbody>
             </table>
