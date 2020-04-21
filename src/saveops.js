@@ -1,15 +1,12 @@
 import { saver } from "./saver.js";
 import composer from "./composer.js";
-import axios from "axios";
-import { urlParts } from "./utils.js";
 import handleErr from "./err";
 
-var urlStub = urlParts().base;
-
-export default async (params, startSave, endSave) => {
+export default async (citationInfo, startSave, endSave) => {
     await startSave();
-    var test_id = window.localStorage.getItem('test_id');
-    var item_key = test_id.split("-")[1];
+
+    var html_id = window.localStorage.getItem('html_id');
+    
     var elem = document.getElementById("save-button");
     
     // Okay. Here is where our saved values come into play?
@@ -26,23 +23,13 @@ export default async (params, startSave, endSave) => {
     if (!cite_desc) {
         cite_desc = document.getElementById("modal-comment").value;
     }
+    var citation_items = [];
     if (newCite !== citation) {
         elem.classList.add("save-ok");
-        var result = await axios({
-            method: "get",
-            url: `${urlStub}/itemdata/${item_key}.json`
-        }).catch((e) => handleErr(e));
-        var item = result.data;
-        if (item.jurisdiction) {
-            var m = item.jurisdiction.match(/^([0-9]{3})/);
-            if (m) {
-                var offset = parseInt(m[1]);
-                item.jurisdiction = item.jurisdiction.slice(3, 3 + offset);
-            }
-        }
-        var items = [result.data];
-        var newTest = composer(items, params, newCite, cite_desc);
-        var result = await saver(test_id, newTest, cite_desc);
+        var citationItems = JSON.parse(window.localStorage.getItem("cites_info"));
+        var items = JSON.parse(window.localStorage.getItem("cites_metadata"));
+        var newTest = composer(items, citationItems, newCite, cite_desc);
+        var result = await saver(html_id, newTest, cite_desc);
         await endSave(result.html_url);
         elem.classList.remove("save-ok");
     } else {

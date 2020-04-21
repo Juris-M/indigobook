@@ -1,7 +1,7 @@
 import React, { useState, useCallback, useEffect } from "react";
 import Spinner from "react-spinner";
 import { getPullRequestURL } from './utils.js';
-import checkPull from './checkpull';
+import checkpull from './checkpull';
 
 const SaveButton = (props) => {
   const [pendingOn, setPending] = useState(false);
@@ -9,13 +9,13 @@ const SaveButton = (props) => {
   const startSave = useCallback(() => setPending(pendingOn => pendingOn = true), []);
 
   const endSave = async () => {
-      await checkPull();
+      await checkpull(props.citationInfo);
       await props.modal();
   }
 
     const handleClick = () => {
         import(/* webpackChunkName: "saveops" */ './saveops').then(({ default: saveops }) => {
-            saveops(props.params, startSave, endSave);
+            saveops(props.citationInfo, startSave, endSave);
         });
     };
     return (

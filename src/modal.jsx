@@ -9,7 +9,7 @@ import DOMPurify from 'dompurify'
 import { urlParts, getPullRequestURL, loginOK, logOut } from './utils.js';
 // import checkpull from './checkpull';
 // import { startLogin, finishLogin, loginOK, logOut } from './login.js';
-import parseCiteID from './parseid';
+import parseid from './parseid';
 
 const FieldList = React.lazy(() => import('./fieldlist.jsx'));
 const Editor = React.lazy(() => import('./editor.jsx'));
@@ -28,10 +28,10 @@ export const App = () => {
     const [bibdata, setBibdata] = useState({});
     const [editCite, setEditCite] = useState(false);
     const [loginState, setLoginState] = useState(false);
-    const [params, setParams] = useState({});
+    const [citationInfo, setCitationInfo] = useState({});
     const [callInProgress, setCallInProgress] = useState(false);
     
-    const storeParams = useCallback((obj) => setParams(params => params = obj));
+    const storeCitationInfo = useCallback((obj) => setCitationInfo(citationInfo => citationInfo = obj));
 
     const storeCallInProgress = useCallback((val) => setCallInProgress(callInProgress => callInProgress = val));
     
@@ -42,12 +42,12 @@ export const App = () => {
         var html_id = window.localStorage.getItem("html_id");
         var elem = document.getElementById(html_id);
         var cite_id = elem.getAttribute("data-info");
-        var info = parseCiteID(cite_id);
-        storeParams(info.params);
+        var info = parseid(html_id, cite_id);
+        storeCitationInfo(info);
         if (loginOK()) {
            if (!getPullRequestURL()) {
                // Set URL and proposed cite form of pull request in localStorage
-               await getCheckpull();
+               await getCheckpull(info);
            }
         }
         openModalFinal();
@@ -64,11 +64,11 @@ export const App = () => {
 
     const closeModal = useCallback(() => setPopup(popup => {
         window.localStorage.removeItem('html_id');
-        window.localStorage.removeItem('html_info');
         window.localStorage.removeItem('citation');
-        
         window.localStorage.removeItem('cite_desc');
         window.localStorage.removeItem('cite_url');
+        window.localStorage.removeItem('cites_metadata');
+        window.localStorage.removeItem('cites_info');
         return {
             on: false,
             edit: false
@@ -88,15 +88,22 @@ export const App = () => {
         }).catch(error => 'An error occurred while loading the Login component');
     };
 
-    const getCheckpull = () => {
+    const getCheckpull = (citationInfo) => {
         return import(/* webpackChunkName: "checkPull" */ './checkpull.js').then(({ default: checkPull }) => {
-            return checkPull();
+            return checkPull(citationInfo);
         }).catch(error => 'An error occurred while loading the Login component');
     };
-
+    
+    const openInNamedTab = (url) => {
+        var a = document.createElement('a');
+        a.target="_github_pull_request";
+        a.href=url;
+        a.click();
+    }
+    
     // Events
     useEffect(() => {
-        console.log('Set listeners =146=');
+        console.log('Set listeners =160=');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
             // Pulling details from the event here makes it simpler to
@@ -105,13 +112,11 @@ export const App = () => {
                 var html_id = ev.currentTarget.getAttribute("id");
                 var elem = document.getElementById(html_id);
                 var cite_id = elem.getAttribute("data-info");
-                var info = parseCiteID(cite_id);
+                var info = parseid(html_id, cite_id);
                 if (info) {
-                    storeParams(info.params);
                     window.localStorage.setItem('html_id', html_id);
-                    window.localStorage.setItem('test_id', info.test_id);
                     window.localStorage.setItem('citation', ev.currentTarget.innerHTML);
-                    
+                    storeCitationInfo(info);
                     openModal();
                 }
             });
@@ -161,7 +166,7 @@ export const App = () => {
         <div className="content">
           {" "}
           <Suspense fallback={<div>Loading, please wait.</div>}>
-              <FieldList test_id={window.localStorage.getItem("test_id")} params={params} urlStub={urlStub} />
+              <FieldList citationInfo={citationInfo} urlStub={urlStub} />
           </Suspense>
         </div>
         {
@@ -175,7 +180,7 @@ export const App = () => {
                       <td><button onClick={() => {openModal()}}>Cancel</button></td>
                       <td>
                           <Suspense fallback={<button id="save-button">Save</button>}>
-                              <SaveButton modal={openModal} params={params}/>
+                              <SaveButton modal={openModal} citationInfo={citationInfo}/>
                           </Suspense>
                       </td>
                     </tr>
@@ -189,7 +194,7 @@ export const App = () => {
                     <td><button onClick={() => {logOut(); openModalFinal();}}>Logout</button></td>
                       {
                         getPullRequestURL() ?
-                          (<td><button onClick={() => {window.location.href = getPullRequestURL()}} className="review-button">Review</button></td>) :
+                          (<td><button onClick={() => {openInNamedTab(getPullRequestURL())}} className="review-button">Review</button></td>) :
                           (<td hidden={true}><button>Review</button></td>)
                       }
                     <td><button onClick={getEditCiteOn}>Edit</button></td>

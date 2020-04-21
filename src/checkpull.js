@@ -3,22 +3,22 @@ import { getFromBase64 } from "./utils.js";
 
 const fromBase64 = getFromBase64(atob);
 
-const checkPull = async () => {
-    var test_id = window.localStorage.getItem('test_id');
+const checkPull = async (citationInfo) => {
+    var html_id = citationInfo.html_id;
     // pullreq sets userName in localStorage
     // Apart from that, it serves here to screen out pull requests
     // that have been closed on merge or rejection.
-    var result = await pullreq(test_id);
+    var result = await pullreq(html_id);
     if (result && result.length) {
         window.localStorage.setItem('cite_url', result[0].html_url);
-        // This value is the same as "test_id" in localStorage
-        // var test_id = result[0].head.ref;
+        // This value is the same as "html_id" in localStorage
+        // var html_id = result[0].head.ref;
         var userName = window.localStorage.getItem("cite_userName");
         var apiToken = window.localStorage.getItem('access_token');
         var contents = await apiCall({
             apiSection: "repos",
             repoPath: `${userName}/jsti-indigobook`,
-            apiSuffix: `contents/style_${test_id}.txt?ref=${test_id}`,
+            apiSuffix: `contents/style_${html_id}.txt?ref=${html_id}`,
             apiToken: `${apiToken}`
         });
         var txt = fromBase64(contents.content);
