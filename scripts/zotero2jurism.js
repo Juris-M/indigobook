@@ -62,7 +62,7 @@ function zoteroToJurismData(obj) {
         var m = zObj.extra.match(/mlzsync1:([0-9][0-9][0-9][0-9])(.*)/);
         if (m) {
             offset = parseInt(m[1], 10);
-            extradata = JSON.parse(m[2].slice(0, offset))
+            extradata = JSON.parse(m[2].slice(0, offset));
             zObj.extra = zObj.extra.slice((offset+13));
         }
     }
@@ -84,7 +84,7 @@ function zoteroToJurismData(obj) {
             creatorMap[j] = {
                 zCreatorName: zCreatorName,
                 pos: creatorCounts[zCreatorName]
-            }
+            };
             creatorCounts[zCreatorName]++;
         }
         // FIX-UPS

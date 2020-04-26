@@ -20,11 +20,15 @@ var run = async () => {
         if (!rawKey) continue;
         var serializer = new XMLSerializer();
         var newCite = serializer.serializeToString(node);
+        newCite = newCite.replace(/\&amp;/g, "&");
         newCite = newCite.replace(/^<[^>]+>/, "").replace(/<[^>]+>$/, "");
         var info = parseid(html_id, rawKey, base64);
         if (!info) continue;
         var items = [];
         for (var itemInfo of info["citation-items"]) {
+            if (itemInfo.position == 1) {
+                itemInfo["near-note"] = 1;
+            }
             var item_key = itemInfo.id;
             var item = fs.readFileSync(path.join(__dirname, "..", "static", "itemdata", `${item_key}.json`)).toString();
             item = JSON.parse(item);
@@ -47,4 +51,8 @@ var run = async () => {
     }
 }
 
-run();
+if (require.main === module) {
+    run();
+} else {
+    module.exports = run;
+}

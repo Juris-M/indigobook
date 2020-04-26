@@ -7,6 +7,12 @@ const composer = (items, params, newCite, comment) => {
 citation
 <<===== MODE =====<<
 
+>>===== OPTIONS =====>>
+{
+    "wrap_url_and_doi": true
+}
+<<===== OPTIONS =====<<
+
 >>===== KEYS =====>>
 ${keysArray}
 <<===== KEYS =====<<
@@ -20,9 +26,7 @@ ${newCite}
 <<===== RESULT =====<<
 
 >>===== CITATION-ITEMS =====>>
-[
 ${paramsArray}
-]
 <<===== CITATION-ITEMS =====<<
 
 >>===== INPUT =====>>

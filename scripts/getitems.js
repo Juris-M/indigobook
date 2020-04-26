@@ -25,30 +25,7 @@ const dateVars = [
     "alt-event"
 ]
 
-function fixHTML(txt) {
-    return txt.replace(/&nbsp;/g, "")
-        .replace(/<br[^>]*>/g, "")
-        .replace(/(<input [^>]+)>/g, "$1/>")
-        .replace(/(<img [^>]+)>/g, "$1/>")
-        .replace(/(<link [^>]+)>/g, "$1/>")
-        .replace(/(<meta [^>]+)>/g, "$1/>")
-        .replace(/(<hr[^>]*)>/g, "$1/>")
-        .replace(/\ [<>]\ /g, " ")
-        .replace(/xmlns=\"[^\"]+\"/g, "");
-}
-
 var xml = fs.readFileSync(path.join(__dirname, "..", "static", "indigobook.html")).toString();
-
-/*
-var xml = fixHTML(xml);
-
-var lines = xml.split("\n");
-for (var i in lines) {
-    lineno = parseInt(i, 10) + 1;
-    lines[i] = lineno + " " + lines[i];
-}
-lines = lines.join("\n");
- */
 
 var doc = new dom().parseFromString(xml, 'text/html');
 
@@ -69,10 +46,11 @@ const run = async () => {
     var courtMap = {};
 
     for (var node of nodes) {
+        let html_id = node.getAttribute("id");
         let rawStr = node.getAttribute("data-info");
         if (!rawStr) continue;
 
-        var info = parseid(rawStr, base64encode);
+        var info = parseid(html_id, rawStr, base64encode);
         if (!info) continue;
         for (var item of info["citation-items"]) {
             var key = item.id;
@@ -118,6 +96,16 @@ const run = async () => {
                     }
                 }
             }
+            // Set seeAlso relations
+            if (jObj.relations && jObj.relations["dc:relation"]) {
+                var relations = jObj.relations["dc:relation"];
+                if ("string" === typeof relations) {
+                    relations = [relations];
+                }
+                cslObj.seeAlso = relations.map((o) => {
+                    return o.split("/").slice(-1)[0];
+                });
+            }
 	        fs.writeFileSync(
 	            filePath, 
 	            JSON.stringify(cslObj, null, 2)
@@ -130,4 +118,8 @@ const run = async () => {
     }
 }
 
-run();
+if (require.main === module) {
+    run();
+} else {
+    module.exports = run;
+}

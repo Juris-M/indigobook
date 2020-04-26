@@ -6,7 +6,7 @@ var signalMap = {
     accord: "accord",
     see: "see",
     seealso: "see also",
-    seeeg: "see e.g.",
+    seeeg: "see, e.g.",
     cf: "cf.",
     contra: "contra",
     butsee: "but see",
@@ -15,15 +15,16 @@ var signalMap = {
     Accord: "Accord",
     See: "See",
     Seealso: "See also",
-    Seeeg: "See e.g.",
+    Seeeg: "See, e.g.",
     Cf: "Cf.",
     Contra: "Contra",
     Butsee: "But see",
+    Butseeeg: "But see, e.g.",
     Seegenerally: "See generally",
     butcf: "but cf.",
     compare: "compare",
-    Butcf: "but cf.",
-    Compare: "compare",
+    Butcf: "But cf.",
+    Compare: "Compare",
     with: "with",
     and: "and",
     affirmed: "aff'd",
@@ -39,10 +40,33 @@ var signalMap = {
     subnom: "sub nom."
 }
 
+const commaCheck = (str) => {
+    var preSlice = [
+        "eg"
+    ];
+    var postSlice = [];
+    var noSlice = [
+        "affirmed",
+        "certdenied",
+        "reversed::other",
+        "reversed"
+    ];
+    str = str.toLowerCase();
+    if (noSlice.indexOf(str) > -1) {
+        return true;
+    } else if (preSlice.indexOf(str.slice(0, str.length)) > -1) {
+        return true;
+    } else if (postSlice.indexOf(str.slice(-1 * str.length)) > -1) {
+        return true;
+    }
+    return false;
+}
+
 export default (html_id, rawStr, base64encoder) => {
     if ("string" !== typeof html_id || "string" !== typeof rawStr) {
         throw "parseid must have two string arguments";
     }
+    rawStr = rawStr.replace(/\&lt;/g, "<").replace(/\&gt;/g, ">");
     if (!base64encoder) {
         var toBase64 = getToBase64(btoa);
     } else {
@@ -67,6 +91,9 @@ export default (html_id, rawStr, base64encoder) => {
                 });
                 var signal = lst.join(" ");
                 params.prefix = `<i>${signal}</i>`;
+                if (commaCheck(m[1])) {
+                    params.prefix = `${params.prefix},`;
+                }
             }
             params.id = m[2];
             params.position = parseInt(m[3]);
