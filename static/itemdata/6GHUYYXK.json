@@ -1,7 +1,7 @@
 {
   "id": "6GHUYYXK",
   "type": "legal_case",
-  "title": "Liriano v. Hobart Corp. (Liraino III)",
+  "title": "Liriano v. Hobart Corp. <span class=\"nodecor\">(</span>Liriano III<span class=\"nodecor\">)</span>",
   "container-title": "F.3d",
   "volume": "170",
   "authority": "court.appeals",
@@ -13,5 +13,6 @@
       ]
     ]
   },
+  "shortTitle": "Liriano III",
   "jurisdiction": "005us:c2United States|US|Second Circuit"
 }
