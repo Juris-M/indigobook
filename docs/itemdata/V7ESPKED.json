@@ -1,7 +1,7 @@
 {
   "id": "V7ESPKED",
   "type": "legal_case",
-  "title": "Liriano v. Hobart Corp. (Liriano II)",
+  "title": "Liriano v. Hobart Corp. <span class=\"nodecor\">(</span>Liriano II<span class=\"nodecor\">)</span>",
   "container-title": "N.Y.2d",
   "volume": "92",
   "authority": "court.appeals",
@@ -13,5 +13,6 @@
       ]
     ]
   },
+  "shortTitle": "Liriano II",
   "jurisdiction": "005us:nyUnited States|US|New York"
 }
