@@ -8,6 +8,8 @@ const xpath = require("xpath");
 const base64 = require("base-64").encode;
 const utf8 = require('utf8');
 
+const varMap = JSON.parse(fs.readFileSync(path.join(__dirname, "placeholder-map.json")).toString());
+
 var cite_desc = "Initial test checkin";
 
 var run = async () => {
@@ -22,6 +24,9 @@ var run = async () => {
         var newCite = serializer.serializeToString(node);
         newCite = newCite.replace(/\&amp;/g, "&");
         newCite = newCite.replace(/^<[^>]+>/, "").replace(/<[^>]+>$/, "");
+        for (var key in varMap) {
+            newCite = newCite.replace(`<var>${key}</var>`, varMap[key]);
+        }
         var info = parseid(html_id, rawKey, base64);
         if (!info) continue;
         var items = [];

@@ -1,7 +1,7 @@
 {
   "id": "YULWV3UL",
   "type": "entry-encyclopedia",
-  "title": "Restatement (Second) of Trusts",
+  "container-title": "Restatement (Second) of Trusts",
   "publisher": "Am. Law Inst.",
   "issued": {
     "date-parts": [
@@ -9,6 +9,5 @@
         1959
       ]
     ]
-  },
-  "page": "sec. 46"
+  }
 }
