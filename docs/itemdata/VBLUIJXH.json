@@ -2,8 +2,9 @@
   "id": "VBLUIJXH",
   "type": "legislation",
   "title": "Patient Protection and Affordable Care Act",
+  "container-title": "Stat.",
   "volume": "124",
-  "number": "111-148",
+  "number": "111\\-148",
   "issued": {
     "date-parts": [
       [
@@ -11,7 +12,7 @@
       ]
     ]
   },
-  "page": "119, 141-43",
+  "page": "119",
   "section": "1101",
   "jurisdiction": "002usUnited States|US",
   "gazette-flag": "1"

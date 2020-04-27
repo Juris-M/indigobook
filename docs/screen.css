@@ -27,3 +27,23 @@ span.cite {
 	color: white;
 	font-weight: bold;
 }
+
+.editing-progress-marker {
+    border: 2px solid black;
+    width: auto;
+    padding: 2em;
+    font-size: 200%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.editing-progress-marker.done {
+    background: green;
+    color: white;
+}
+
+.editing-progress-marker.wip {
+    background: yellow;
+    color: black;
+}
+

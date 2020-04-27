@@ -1,16 +1,15 @@
 {
   "id": "V32M226N",
   "type": "legislation",
-  "title": "Worthy Act",
+  "title": "Worthy Act [optional]",
   "container-title": "U.S.C.",
-  "volume": "50",
+  "volume": "52",
   "issued": {
     "date-parts": [
       [
-        2000
+        2001
       ]
     ]
   },
-  "section": "sec. 15",
   "jurisdiction": "002usUnited States|US"
 }
