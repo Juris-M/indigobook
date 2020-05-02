@@ -727,8 +727,13 @@ var nodes = xpath.select("//span[contains(@class, 'cite')]", doc);
 
 const getNodes = async () => {
     var ret = [];
+    var removals = {};
+        
     for (var node of nodes) {
 
+        // console.log("ONE MORE THING! Remove section values from these input objects and DB items.");
+        // process.exit();
+        
         // Get values of id, class, and data-info
         
         var html_id = node.getAttribute("id");
@@ -748,8 +753,16 @@ const getNodes = async () => {
 
         var section = null;
         var section = sectionVal[key].section;
-        
+
         if (key && section) {
+
+            // console.log(sectionVal[key].type);
+            removals[key] = true;
+            
+            /*
+             This was phase 1
+             */
+            /*
             var label = "";
             var m = section.match(/^(?:([a-z]+\.)\s+)*(.*)/);
             if (m) {
@@ -765,14 +778,20 @@ const getNodes = async () => {
             var lst = data_info.split("-").slice(0, 4);
             lst.push(locator);
             data_info = lst.join("-");
-            console.log(data_info);
-            node.setAttribute("data-info", data_info);
-            
+             console.log(data_info);
+             node.setAttribute("data-info", data_info);
+            */
         }
     }
-    var html = (new serializer()).serializeToString(doc);
-    html = html.replace(/\&amp;/g, "&");
-    fs.writeFileSync("indigobook-NEW.html", html);
+    /*
+     Also phase 1
+     */
+    /*
+     var html = (new serializer()).serializeToString(doc);
+     html = html.replace(/\&amp;/g, "&");
+     fs.writeFileSync("indigobook-NEW.html", html);
+     */
+    console.log(JSON.stringify(removals, null, 2));
 }
 
 
