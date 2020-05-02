@@ -103,7 +103,7 @@ export const App = () => {
     
     // Events
     useEffect(() => {
-        console.log('Set listeners =161=');
+        console.log('Set listeners =162=');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
             // Pulling details from the event here makes it simpler to
