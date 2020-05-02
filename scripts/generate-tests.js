@@ -25,7 +25,7 @@ var run = async () => {
         newCite = newCite.replace(/\&amp;/g, "&");
         newCite = newCite.replace(/^<[^>]+>/, "").replace(/<[^>]+>$/, "");
         for (var key in varMap) {
-            newCite = newCite.replace(`<var>${key}</var>`, varMap[key]);
+            newCite = newCite.replace(`<var>${key}</var>`, varMap[key].val);
         }
         var info = parseid(html_id, rawKey, base64);
         if (!info) continue;
