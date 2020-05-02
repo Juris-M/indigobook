@@ -1,94 +1,378 @@
 {
-    "Name of Statute [optional]": "Worthy Act [optional]",
-    "title no.": "52",
-    "section number": "15",
-    "(year published)": "2001",
-    "Name of Statute": "Worthy Act",
-    "Name of Publisher": "Lawyerly Press",
-    "year published": "2003",
-    "name of bill, if helpful": "Possibly Worthy Act",
-    "abbreviation from the list below": "H.R.",
-    "bill number": "12345",
-    "number of the Congress": "61",
-    "section, if not citing the entire bill": "5",
-    "year of publication": "2002",
-    "number of bill or resolution": "5687",
-    "number, or year if unnumbered, of the legislative body": "60",
-    "number or designation of the legislative session": "2",
-    "name of state, abbreviated as in <a href=\"#T12.1\">Table T12.1</a>, and year of enactment or publication, if unenacted": "Neb.",
-    "full title of hearing": "Regulation of reverse composition workarounds",
-    "bill number, if any": "56",
-    "name of committee or subcommittee": "Beehive Promotion Subcommittee",
-    "number of the legislative session": "62",
-    "optional pincite to page number": "21",
-    "abbreviation for the state’s name from <a href=\"#T12.1\">Table T12.1</a>": "Mont.",
-    "name and title of speaker": "Maxworth Haxenblad, Member, H. Comm. on Pollination",
-    "tit. no.": "50",
-    "x": "321",
-    "year": "2000",
-    "vol. no.": "23",
-    "page no.": "45",
-    "case name": "Smith v. Jones",
-    "docket number": "1234-567-89",
-    "secondary source if available": "2000 WL 123654",
-    "date": "Apr. 1, 2000",
-    "decision number": "13",
-    "issuing agency abbreviated according to table below": "FSA",
-    "directive number": "101",
-    "directive title": "Avoidance of Error",
-    "party name": "John Smith",
-    "citation to secondary source if available": "2000 WL 654321",
-    "citation to secondary source": "2000 WL 123456",
-    "TRADEMARK NAME": "Wordler",
-    "registration number": "1234567",
-    "Serial Number": "98765",
-    "description of decision": "Affirmed",
-    "title": "Internal Migration",
-    "page": "123",
-    "protesting party": "William Jones",
-    "volume number or year": "2005",
-    "source": "2005 WL 12345",
-    "location within source volume or year": "para. 13",
-    "investigation name": "Behavioral patterns of locusts",
-    "number": "12",
-    "status": "Review",
-    "service volume number": "32",
-    "publisher": "Doctorly Press",
-    "service, abbreviated as below": "CCH CGCH",
-    "page/paragraph number": "43",
-    "x-x-x": "12-34-56",
-    "pamph. no.": "14",
-    "x-x-x.x": "12-34-56.78",
-    "month day, year": "Dec. 31, 2000",
-    "x.x.x": "12.34.56",
-    "x.x": "12.34",
-    "x-x": "12-34",
-    "month year": "Apr. 2000",
-    "iss. no.": "16",
-    "Subject": "Civil",
-    "x-x.x": "12-34.56",
-    "x.x.x.x": "12.34.56.78",
-    "docket no.": "123-456",
-    "court no.": "2134",
-    "ch. no.": "78",
-    "act no.": "8921",
-    "sec. no.": "10",
-    "rule no.": "11",
-    "x-x-x-x": "12-34-56-78",
-    "subject": "Correctional Services",
-    "reg. no.": "6578",
-    "dep't name as abbreviated in Rules": "Env. Dept.",
-    "x:x-x.x": "12:34-56.78",
-    "law": "Uniform District Court Act",
-    "x:x-x-x": "12:34-56-78",
-    "agency abbreviation": "DOJ",
-    "law no.": "6587",
-    "volume": "89",
-    "act number": "92",
-    "debate number": "82",
-    "document number": "1234",
-    "xx": "26",
-    "xxx": "935S",
-    "xxxx": "3859",
-    "x:x": "123:456"
+    "Name of Statute [optional]": {
+        "val": "Worthy Act [optional]",
+        "field": "title"
+    },
+    "title no.": {
+        "val": "52",
+        "field": "volume"
+    },
+    "section number": {
+        "val": "15",
+        "field": "section"
+    },
+    "Name of Statute": {
+        "val": "Worthy Act",
+        "field": "title"
+    },
+    "Name of Publisher": {
+        "val": "Lawyerly Press",
+        "field": "publisher"
+    },
+    "year published": {
+        "val": "2003",
+        "field": "publication-date"
+    },
+    "name of bill, if helpful": {
+        "val": "Possibly Worthy Act",
+        "field": "title"
+    },
+    "abbreviation from the list below": {
+        "val": "H.R.",
+        "field": "authority"
+    },
+    "bill number": {
+        "val": "12345",
+        "field": "number"
+    },
+    "number of the Congress": {
+        "val": "61",
+        "field": "collection-number"
+    },
+    "section, if not citing the entire bill": {
+        "val": "5",
+        "field": "section"
+    },
+    "year of publication": {
+        "val": "2002",
+        "field": "issued"
+    },
+    "number of bill or resolution": {
+        "val": "5687",
+        "field": "number"
+    },
+    "number, or year if unnumbered, of the legislative body": {
+        "val": "60",
+        "field": "collection-number"
+    },
+    "number or designation of the legislative session": {
+        "val": "2",
+        "field": "chapter-number"
+    },
+    "name of state, abbreviated as in Table T12.1, and year of enactment or publication, if unenacted": {
+        "val": "Neb.",
+        "field": "jurisdiction"
+    },
+    "full title of hearing": {
+        "val": "Regulation of reverse composition workarounds",
+        "field": "title"
+    },
+    "bill number, if any": {
+        "val": "56",
+        "field": "number"
+    },
+    "name of committee or subcommittee": {
+        "val": "Beehive Promotion Subcommittee",
+        "field": "committee"
+    },
+    "number of the legislative session": {
+        "val": "62",
+        "field": "chapter-number"
+    },
+    "optional pincite to page number": {
+        "val": "21",
+        "field": "page"
+    },
+    "abbreviation for the state’s name from Table T12.1": {
+        "val": "Mont.",
+        "field": "jurisdiction"
+    },
+    "name and title of speaker": {
+        "val": "Maxworth Haxenblad, Member, H. Comm. on Pollination",
+        "field": "contributor"
+    },
+    "tit. no.": {
+        "val": "50",
+        "field": "volume"
+    },
+    "tit. no.-ch. no.": {
+        "val": "50/78",
+        "field": "volume"
+    },
+    "x": {
+        "val": "321",
+        "field": "page"
+    },
+    "year": {
+        "val": "2000",
+        "field": "issued"
+    },
+    "vol. no.": {
+        "val": "23",
+        "field": "volume"
+    },
+    "page no.": {
+        "val": "45",
+        "field": "page"
+    },
+    "case name": {
+        "val": "Smith v. Jones",
+        "field": "title"
+    },
+    "docket number": {
+        "val": "1234-567-89",
+        "field": "number"
+    },
+    "secondary source if available": {
+        "val": "2000 WL 123654",
+        "field": "references"
+    },
+    "date": {
+        "val": "Apr. 1, 2000",
+        "field": "issued"
+    },
+    "decision number": {
+        "val": "13",
+        "field": "number"
+    },
+    "issuing agency abbreviated according to table below": {
+        "val": "FSA",
+        "field": "authority"
+    },
+    "directive number": {
+        "val": "101",
+        "field": "number"
+    },
+    "directive title": {
+        "val": "Avoidance of Error",
+        "field": "title"
+    },
+    "party name": {
+        "val": "John Smith",
+        "field": "title"
+    },
+    "citation to secondary source if available": {
+        "val": "2000 WL 654321",
+        "field": "references"
+    },
+    "citation to secondary source": {
+        "val": "2000 WL 123456",
+        "field": "references"
+    },
+    "TRADEMARK NAME": {
+        "val": "Wordler",
+        "field": "title"
+    },
+    "registration number": {
+        "val": "1234567",
+        "field": "number"
+    },
+    "Serial Number": {
+        "val": "98765",
+        "field": "number"
+    },
+    "description of decision": {
+        "val": "Affirmed",
+        "field": "prefix"
+    },
+    "title": {
+        "val": "Internal Migration",
+        "field": "title"
+    },
+    "page": {
+        "val": "123",
+        "field": "page"
+    },
+    "protesting party": {
+        "val": "William Jones",
+        "field": "title"
+    },
+    "volume number or year": {
+        "val": "2005",
+        "field": "year-as-volume"
+    },
+    "source": {
+        "val": "2005 WL 12345",
+        "field": "references"
+    },
+    "location within source volume or year": {
+        "val": "para. 13",
+        "field": "section"
+    },
+    "investigation name": {
+        "val": "Behavioral patterns of locusts",
+        "field": "title"
+    },
+    "number": {
+        "val": "12",
+        "field": "number"
+    },
+    "status": {
+        "val": "Review",
+        "field": "genre"
+    },
+    "service volume number": {
+        "val": "32",
+        "field": "volume"
+    },
+    "publisher": {
+        "val": "Doctorly Press",
+        "field": "publisher"
+    },
+    "service, abbreviated as below": {
+        "val": "CCH CGCH",
+        "field": "archive"
+    },
+    "page/paragraph number": {
+        "val": "43",
+        "field": "page"
+    },
+    "x-x-x": {
+        "val": "12-34-56",
+        "field": "section"
+    },
+    "pamph. no.": {
+        "val": "14",
+        "field": "number"
+    },
+    "x-x-x.x": {
+        "val": "12-34-56.78",
+        "field": "section"
+    },
+    "month day, year": {
+        "val": "Dec. 31, 2000",
+        "field": "issued"
+    },
+    "x.x.x": {
+        "val": "12.34.56",
+        "field": "section"
+    },
+    "x.x": {
+        "val": "12.34",
+        "field": "section"
+    },
+    "x-x": {
+        "val": "12-34",
+        "field": "section"
+    },
+    "month year": {
+        "val": "Apr. 2000",
+        "field": "issued"
+    },
+    "iss. no.": {
+        "val": "16",
+        "field": "volume"
+    },
+    "Subject": {
+        "val": "Civil",
+        "field": "genre"
+    },
+    "x-x.x": {
+        "val": "12-34.56",
+        "field": "section"
+    },
+    "x.x.x.x": {
+        "val": "12.34.56.78",
+        "field": "section"
+    },
+    "docket no.": {
+        "val": "123-456",
+        "field": "number"
+    },
+    "court no.": {
+        "val": "2134",
+        "field": "page"
+    },
+    "ch. no.": {
+        "val": "78",
+        "field": "volume"
+    },
+    "act no.": {
+        "val": "8921",
+        "field": "section"
+    },
+    "sec. no.": {
+        "val": "10",
+        "field": "section"
+    },
+    "act no./sec. no.": {
+        "val": "8921/10",
+        "field": "section"
+    },
+    "rule no.": {
+        "val": "11",
+        "field": "section"
+    },
+    "x-x-x-x": {
+        "val": "12-34-56-78",
+        "field": "section"
+    },
+    "subject": {
+        "val": "Correctional Services",
+        "field": "genre"
+    },
+    "reg. no.": {
+        "val": "6578",
+        "field": "section"
+    },
+    "dep't name as abbreviated in Rules": {
+        "val": "Env. Dept.",
+        "field": "authority"
+    },
+    "x:x-x.x": {
+        "val": "12:34-56.78",
+        "field": "section"
+    },
+    "law": {
+        "val": "Uniform District Court Act",
+        "field": "title"
+    },
+    "x:x-x-x": {
+        "val": "12:34-56-78",
+        "field": "section"
+    },
+    "agency abbreviation": {
+        "val": "DOJ",
+        "field": "authority"
+    },
+    "law no.": {
+        "val": "6587",
+        "field": "number"
+    },
+    "volume": {
+        "val": "89",
+        "field": "volume"
+    },
+    "act number": {
+        "val": "92",
+        "field": "number"
+    },
+    "debate number": {
+        "val": "82",
+        "field": "number"
+    },
+    "document number": {
+        "val": "1234",
+        "field": "number"
+    },
+    "xx": {
+        "val": "26",
+        "field": "number"
+    },
+    "xxx": {
+        "val": "935S",
+        "field": "section"
+    },
+    "xxxx": {
+        "val": "3859",
+        "field": "section"
+    },
+    "x:x": {
+        "val": "123:456",
+        "field": "section"
+    },
+    "section-or-page no.": {
+        "val": "465",
+        "field": "section"
+    }
 }
