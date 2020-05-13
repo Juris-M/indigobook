@@ -1,17 +1,15 @@
 {
   "id": "JEWE47AY",
-  "type": "legislation",
-  "container-title": "Okla. Gaz.",
+  "type": "bill",
   "volume": "23",
+  "page": "45",
   "issued": {
     "date-parts": [
       [
-        2000,
-        4,
-        1
+        2000
       ]
     ]
   },
-  "section": "45",
+  "container-title": "Okla. Gaz.",
   "jurisdiction": "005us:okUnited States|US|Oklahoma"
 }

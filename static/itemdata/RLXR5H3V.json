@@ -1,7 +1,8 @@
 {
   "id": "RLXR5H3V",
-  "type": "legislation",
-  "container-title": "N.Y. C.P.L.R.",
+  "type": "legal_case",
+  "container-title": "N.Y. C.P.L.R.  |  Consol.",
+  "page": "11",
   "issued": {
     "date-parts": [
       [
@@ -9,7 +10,5 @@
       ]
     ]
   },
-  "section": "11",
-  "publisher": "Consol.",
   "jurisdiction": "005us:nyUnited States|US|New York"
 }

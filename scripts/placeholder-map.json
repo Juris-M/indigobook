@@ -28,11 +28,11 @@
         "field": "title"
     },
     "abbreviation from the list below": {
-        "val": "H.R.",
-        "field": "authority"
+        "val": "",
+        "field": "dummy"
     },
     "bill number": {
-        "val": "12345",
+        "val": "S. 12345",
         "field": "number"
     },
     "number of the Congress": {
@@ -48,7 +48,7 @@
         "field": "issued"
     },
     "number of bill or resolution": {
-        "val": "5687",
+        "val": "Leg. Draft 5687",
         "field": "number"
     },
     "number, or year if unnumbered, of the legislative body": {
@@ -59,25 +59,41 @@
         "val": "2",
         "field": "chapter-number"
     },
-    "name of state, abbreviated as in Table T12.1, and year of enactment or publication, if unenacted": {
+    "name of state, abbreviated as in Table T12.1": {
         "val": "Neb.",
         "field": "jurisdiction"
+    },
+    "Name of the legislature (i.e. Cong.)": {
+        "val": "Cong.",
+        "field": "authority"
+    },
+    "Name of the legislature (i.e. Leg.)": {
+        "val": "Leg.",
+        "field": "authority"
+    },
+    "year of enactment, or of publication if unenacted": {
+        "val": "2018",
+        "field": "issued"
     },
     "full title of hearing": {
         "val": "Regulation of reverse composition workarounds",
         "field": "title"
     },
-    "bill number, if any": {
-        "val": "56",
+    "Congressional bill number, if any": {
+        "val": "H.R. 56",
+        "field": "number"
+    },
+    "Legislative bill number, if any": {
+        "val": "L.D. 56",
         "field": "number"
     },
     "name of committee or subcommittee": {
         "val": "Beehive Promotion Subcommittee",
-        "field": "committee"
+        "field": "note"
     },
     "number of the legislative session": {
         "val": "62",
-        "field": "chapter-number"
+        "field": "collection-number"
     },
     "optional pincite to page number": {
         "val": "21",
@@ -172,7 +188,7 @@
         "field": "number"
     },
     "description of decision": {
-        "val": "Affirmed",
+        "val": "Description of content",
         "field": "prefix"
     },
     "title": {
@@ -187,13 +203,25 @@
         "val": "William Jones",
         "field": "title"
     },
-    "volume number or year": {
-        "val": "2005",
-        "field": "year-as-volume"
+    "year as volume": {
+        "val": "2006",
+        "field": "collection-number"
     },
-    "source": {
-        "val": "2005 WL 12345",
-        "field": "references"
+    "service name": {
+        "val": "WL",
+        "field": "container-title"
+    },
+    "archive location": {
+        "val": "123654",
+        "field": "archive_location"
+    },
+    "filing date": {
+        "val": "Apr. 1, 2020",
+        "field": "submitted"
+    },
+    "electronic archive": {
+        "val": "LEXIS",
+        "field": "archive"
     },
     "location within source volume or year": {
         "val": "para. 13",
@@ -207,6 +235,14 @@
         "val": "12",
         "field": "number"
     },
+    "investigation number": {
+        "val": "13",
+        "field": "number"
+    },
+    "publication number": {
+        "val": "15",
+        "field": "call-number"
+    },
     "status": {
         "val": "Review",
         "field": "genre"
@@ -216,11 +252,11 @@
         "field": "volume"
     },
     "publisher": {
-        "val": "Doctorly Press",
+        "val": "CCH",
         "field": "publisher"
     },
     "service, abbreviated as below": {
-        "val": "CCH CGCH",
+        "val": "CGCH",
         "field": "archive"
     },
     "page/paragraph number": {

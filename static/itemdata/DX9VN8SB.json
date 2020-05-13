@@ -1,8 +1,8 @@
 {
   "id": "DX9VN8SB",
   "type": "legislation",
-  "title": "R.I. Code R.",
-  "volume": "50-12",
+  "container-title": "R.I. Code R.",
+  "volume": "50/78",
   "issued": {
     "date-parts": [
       [
@@ -10,7 +10,7 @@
       ]
     ]
   },
-  "section": "§ 123",
+  "section": "sec. 321",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:riUnited States|US|Rhode Island"
 }

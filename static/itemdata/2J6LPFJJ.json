@@ -1,7 +1,7 @@
 {
   "id": "2J6LPFJJ",
   "type": "legislation",
-  "container-title": "Wis. Admin. Code DOJ",
+  "container-title": "Wis. Admin. Code",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +9,6 @@
       ]
     ]
   },
-  "jurisdiction": "005us:wiUnited States|US|Wisconsin"
+  "jurisdiction": "005us:wiUnited States|US|Wisconsin",
+  "authority": "DOJ"
 }

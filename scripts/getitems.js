@@ -68,6 +68,7 @@ const run = async () => {
                 console.log(`ERROR: ${key} ${err.message} [${apiStub + key}]`);
                 process.exit();
             });
+            console.log(JSON.stringify(response.data, null, 2));
             const jObj = z2j.zoteroToJurismData(response.data);
             var cslObj = {};
             for (var key in jObj) {

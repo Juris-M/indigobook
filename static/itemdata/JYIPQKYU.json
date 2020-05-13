@@ -2,8 +2,15 @@
   "id": "JYIPQKYU",
   "type": "bill",
   "title": "Possibly Worthy Act",
-  "number": "12345",
-  "authority": "H.R.",
+  "number": "S. 12345",
+  "authority": "Cong.",
+  "issued": {
+    "date-parts": [
+      [
+        2002
+      ]
+    ]
+  },
   "jurisdiction": "002usUnited States|US",
   "collection-number": "61"
 }

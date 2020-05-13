@@ -3,5 +3,12 @@
   "type": "legal_case",
   "container-title": "Eur. Ct. H.R.",
   "page": "3859",
+  "issued": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  },
   "jurisdiction": "002usUnited States|US"
 }

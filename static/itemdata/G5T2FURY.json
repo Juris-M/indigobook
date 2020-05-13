@@ -2,6 +2,13 @@
   "id": "G5T2FURY",
   "type": "legislation",
   "container-title": "N.H. Rev. Stat. Ann.",
+  "issued": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  },
   "publisher": "LexisNexis",
   "jurisdiction": "005us:nhUnited States|US|New Hampshire"
 }

@@ -149,7 +149,7 @@ function getLabelsAndVals(obj) {
         } else {
             return 0;
         }
-    })
+    });
     for (var fieldName in obj) {
         if (!obj[fieldName]) continue;
         if (["dateModified", "dateAdded"].indexOf(fieldName) > -1) continue;
@@ -183,5 +183,3 @@ module.exports = {
     zoteroToJurismData: zoteroToJurismData,
     getLabelsAndVals: getLabelsAndVals
 }
-
-

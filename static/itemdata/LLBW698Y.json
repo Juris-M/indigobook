@@ -1,7 +1,7 @@
 {
   "id": "LLBW698Y",
   "type": "legislation",
-  "container-title": "N.Y. Correctional Services Law",
+  "container-title": "N.Y.  |  Law",
   "issued": {
     "date-parts": [
       [
@@ -9,7 +9,8 @@
       ]
     ]
   },
-  "section": "sec. 123",
+  "section": "sec. 321",
   "publisher": "LexisNexis",
-  "jurisdiction": "005us:nyUnited States|US|New York"
+  "jurisdiction": "005us:nyUnited States|US|New York",
+  "genre": "Correctional Services"
 }

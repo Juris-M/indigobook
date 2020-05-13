@@ -94,6 +94,11 @@ export default async (cslObj, params) => {
                 label: "Item Type",
                 value: labelMap[val]
             });
+        } else if ("admin-flag" === key || "gazette-flag" === key) {
+            ret.push({
+                label: labelMap[key],
+                value: "✓"
+            });
         } else {
             ret.push({
                 label: labelMap[key],

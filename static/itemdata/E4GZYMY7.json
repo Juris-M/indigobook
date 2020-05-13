@@ -3,6 +3,13 @@
   "type": "legislation",
   "container-title": "Haw. Gov’t Reg.",
   "volume": "16",
+  "issued": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  },
   "page": "45",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:hiUnited States|US|Hawaii"

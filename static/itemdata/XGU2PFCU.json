@@ -2,8 +2,19 @@
   "id": "XGU2PFCU",
   "type": "legal_case",
   "title": "John Smith",
-  "container-title": ",  |  B.P.A.I.",
-  "number": "1234-567-89",
-  "references": "2000 WL 654321",
-  "jurisdiction": "002usUnited States|US"
+  "container-title": "WL",
+  "authority": "B.P.A.I.",
+  "number": "1234\\-567\\-89",
+  "issued": {
+    "date-parts": [
+      [
+        2000,
+        4,
+        1
+      ]
+    ]
+  },
+  "archive_location": "654321",
+  "jurisdiction": "002usUnited States|US",
+  "collection-number": "2006"
 }

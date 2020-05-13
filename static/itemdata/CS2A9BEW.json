@@ -1,8 +1,8 @@
 {
   "id": "CS2A9BEW",
   "type": "legislation",
-  "title": "N.J. Laws",
-  "volume": "2000",
-  "section": "45",
-  "jurisdiction": "005us:njUnited States|US|New Jersey"
+  "container-title": "N.J. Laws",
+  "page": "45",
+  "jurisdiction": "005us:njUnited States|US|New Jersey",
+  "collection-number": "2006"
 }

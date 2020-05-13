@@ -1,7 +1,8 @@
 {
   "id": "DCWD2M7A",
-  "type": "legislation",
-  "container-title": "N.Y. C.P.L.R.",
+  "type": "legal_case",
+  "container-title": "N.Y. C.P.L.R.  |  McKinney",
+  "page": "11",
   "issued": {
     "date-parts": [
       [
@@ -9,7 +10,5 @@
       ]
     ]
   },
-  "section": "11",
-  "publisher": "McKinney",
   "jurisdiction": "005us:nyUnited States|US|New York"
 }

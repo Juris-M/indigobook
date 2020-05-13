@@ -2,8 +2,19 @@
   "id": "F6GXTC68",
   "type": "legal_case",
   "title": "Smith v. Jones",
-  "container-title": ", CFPB",
+  "authority": "CFPB",
   "number": "13",
-  "references": "2000 WL 123654",
-  "jurisdiction": "002usUnited States|US"
+  "issued": {
+    "date-parts": [
+      [
+        2000,
+        4,
+        1
+      ]
+    ]
+  },
+  "archive_location": "123654",
+  "archive": "LEXIS",
+  "jurisdiction": "002usUnited States|US",
+  "collection-number": "2006"
 }

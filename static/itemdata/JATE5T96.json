@@ -1,8 +1,7 @@
 {
   "id": "JATE5T96",
   "type": "legislation",
-  "title": "Me. Code R.",
-  "volume": "12-34-56",
+  "container-title": "x- |  Me. Code R.",
   "issued": {
     "date-parts": [
       [
@@ -10,6 +9,7 @@
       ]
     ]
   },
+  "page": "321",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:meUnited States|US|Maine"
 }

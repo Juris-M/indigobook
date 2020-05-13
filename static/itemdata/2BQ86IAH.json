@@ -1,7 +1,7 @@
 {
   "id": "2BQ86IAH",
   "type": "legislation",
-  "title": "N. Mar. I. Code",
+  "container-title": "N. Mar. I. Code",
   "volume": "50",
   "issued": {
     "date-parts": [
@@ -10,6 +10,6 @@
       ]
     ]
   },
-  "section": "§ 123",
-  "jurisdiction": "005us:mpUnited States|US|Northern Mariana Islands"
+  "section": "sec. 321",
+  "jurisdiction": "005us:msUnited States|US|Mississippi"
 }

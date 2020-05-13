@@ -3,6 +3,13 @@
   "type": "legislation",
   "container-title": "Pa. Stat. and Cons. Stat. Ann.",
   "volume": "50",
+  "issued": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  },
   "page": "321",
   "publisher": "West",
   "jurisdiction": "005us:paUnited States|US|Pennsylvania"

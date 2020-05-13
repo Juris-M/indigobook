@@ -2,6 +2,13 @@
   "id": "PQ2ERNIR",
   "type": "legislation",
   "container-title": "N.J. Stat. Ann.",
+  "issued": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  },
   "publisher": "West",
   "jurisdiction": "005us:njUnited States|US|New Jersey"
 }

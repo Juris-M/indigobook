@@ -2,6 +2,13 @@
   "id": "H2LILF7V",
   "type": "legislation",
   "container-title": "Ohio Gov’t",
+  "issued": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  },
   "page": "45",
   "jurisdiction": "005us:ohUnited States|US|Ohio"
 }

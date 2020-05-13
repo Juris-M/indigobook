@@ -1,7 +1,7 @@
 {
   "id": "TGGZDSUX",
   "type": "legislation",
-  "container-title": "P.R. Leyes An.tit.",
+  "container-title": "P.R. Leyes An.",
   "issued": {
     "date-parts": [
       [
@@ -9,6 +9,14 @@
       ]
     ]
   },
-  "section": "123, § 123",
-  "jurisdiction": "005us:prUnited States|US|Puerto Rico"
+  "page": "321",
+  "section": "sec. 321",
+  "jurisdiction": "005us:prUnited States|US|Puerto Rico",
+  "publication-date": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  }
 }

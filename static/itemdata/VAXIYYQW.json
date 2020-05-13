@@ -2,16 +2,14 @@
   "id": "VAXIYYQW",
   "type": "legislation",
   "container-title": "Mass. Reg.",
-  "volume": "15",
+  "volume": "16",
   "issued": {
     "date-parts": [
       [
-        2000,
-        4,
-        1
+        2000
       ]
     ]
   },
-  "section": "45",
+  "page": "45",
   "jurisdiction": "005us:maUnited States|US|Massachusetts"
 }

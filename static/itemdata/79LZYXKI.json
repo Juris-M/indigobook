@@ -1,7 +1,7 @@
 {
   "id": "79LZYXKI",
   "type": "legislation",
-  "container-title": "Mass. Gen. Laws Ann.",
+  "container-title": "Mass. Gen. Laws Ann. ch.",
   "issued": {
     "date-parts": [
       [
@@ -9,7 +9,7 @@
       ]
     ]
   },
-  "section": "ch. 123, § 123",
+  "section": "sec. 321",
   "publisher": "West",
   "jurisdiction": "005us:maUnited States|US|Massachusetts"
 }

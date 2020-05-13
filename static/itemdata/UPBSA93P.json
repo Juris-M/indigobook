@@ -1,8 +1,16 @@
 {
   "id": "UPBSA93P",
   "type": "bill",
-  "number": "5687",
+  "number": "Leg. Draft 5687",
+  "authority": "Leg.",
   "chapter-number": "2",
+  "issued": {
+    "date-parts": [
+      [
+        2018
+      ]
+    ]
+  },
   "jurisdiction": "005us:neUnited States|US|Nebraska",
   "collection-number": "60"
 }

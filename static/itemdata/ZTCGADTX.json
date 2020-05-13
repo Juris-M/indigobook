@@ -1,7 +1,7 @@
 {
   "id": "ZTCGADTX",
   "type": "legislation",
-  "container-title": "Cal. Civil Code",
+  "container-title": "Cal.  |  Code   |  Deering",
   "issued": {
     "date-parts": [
       [
@@ -9,7 +9,7 @@
       ]
     ]
   },
-  "section": "sec. 123",
-  "publisher": "Deering",
-  "jurisdiction": "005us:caUnited States|US|California"
+  "section": "sec. 321",
+  "jurisdiction": "005us:caUnited States|US|California",
+  "genre": "Civil"
 }

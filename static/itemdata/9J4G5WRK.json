@@ -2,6 +2,13 @@
   "id": "9J4G5WRK",
   "type": "legislation",
   "container-title": "Ohio Dep’t",
+  "issued": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  },
   "page": "45",
   "jurisdiction": "005us:ohUnited States|US|Ohio"
 }

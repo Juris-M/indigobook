@@ -168,6 +168,7 @@
   "network": "publisher",
   "regulation": "regulation",
   "gazetteFlag": "gazette-flag",
+  "adminFlag": "admin-flag",
   "regulatoryBody": "authority",
   "regulationType": "genre",
   "report": "report",

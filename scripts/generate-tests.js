@@ -10,6 +10,8 @@ const utf8 = require('utf8');
 
 const varMap = JSON.parse(fs.readFileSync(path.join(__dirname, "placeholder-map.json")).toString());
 
+// console.log(`VALUE: ${JSON.stringify(varMap["Name of the legislature (i.e. Leg.)"])}`);
+
 var cite_desc = "Initial test checkin";
 
 var run = async () => {
@@ -23,10 +25,18 @@ var run = async () => {
         var serializer = new XMLSerializer();
         var newCite = serializer.serializeToString(node);
         newCite = newCite.replace(/\&amp;/g, "&");
-        newCite = newCite.replace(/^<[^>]+>/, "").replace(/<[^>]+>$/, "");
+        newCite = newCite.replace(/<\/var>/g, "[/VAR]").replace(/<var>/g, "[VAR]");
+        newCite = newCite.replace(/<span>[^<]+<\/span>/g, "");
+        newCite = newCite.replace(/\[VAR\]/g, "<var>").replace(/\[\/VAR\]/g, "</var>");
+        newCite = newCite.replace(/<span[^>]*>/g, "").replace(/<\/span>/g, "");
+        newCite = newCite.replace(/<a[^>]*>/g, "").replace(/<\/a>/g, "");
         for (var key in varMap) {
             newCite = newCite.replace(`<var>${key}</var>`, varMap[key].val);
+            //if (html_id === "c159" && key === "Name of the legislature (i.e. Leg.)") {
+            //    console.log(`AFTER CONV: ${newCite}`);
+            //}
         }
+        newCite = newCite.replace(/<span[^>]+>/g, "").replace(/<\/span>/g, "");
         var info = parseid(html_id, rawKey, base64);
         if (!info) continue;
         var items = [];

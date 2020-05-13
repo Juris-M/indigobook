@@ -1,7 +1,7 @@
 {
   "id": "8TFJMI7D",
   "type": "legislation",
-  "title": "D.C. Mun. Regs.",
+  "container-title": "D.C. Mun. Regs.",
   "issued": {
     "date-parts": [
       [
@@ -9,6 +9,6 @@
       ]
     ]
   },
-  "section": "tit. 123, sec. 123",
+  "section": "sec. 321",
   "jurisdiction": "005us:dcUnited States|US|District of Columbia"
 }

@@ -1,7 +1,7 @@
 {
   "id": "4BV2EXJ4",
   "type": "legislation",
-  "title": "Pa. Cons. Stat.",
+  "container-title": "Pa. Cons. Stat.",
   "volume": "50",
   "issued": {
     "date-parts": [
@@ -10,6 +10,6 @@
       ]
     ]
   },
-  "section": "§ 123",
+  "section": "sec. 321",
   "jurisdiction": "005us:paUnited States|US|Pennsylvania"
 }

@@ -1,8 +1,8 @@
 {
   "id": "A5LJHI5V",
   "type": "legislation",
-  "title": "Colo. Reg.",
-  "volume": "15",
+  "container-title": "Colo. Reg.",
+  "volume": "16",
   "issued": {
     "date-parts": [
       [
@@ -10,7 +10,6 @@
       ]
     ]
   },
-  "section": "45",
-  "publisher": "Apr.",
+  "page": "45",
   "jurisdiction": "005us:coUnited States|US|Colorado"
 }

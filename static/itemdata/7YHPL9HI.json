@@ -1,8 +1,8 @@
 {
   "id": "7YHPL9HI",
   "type": "legislation",
-  "title": "Miss. Code R.",
-  "volume": "50-12",
+  "container-title": "Miss. Code R.",
+  "volume": "50/78",
   "issued": {
     "date-parts": [
       [
@@ -10,7 +10,7 @@
       ]
     ]
   },
-  "section": "§ 123",
+  "section": "sec. 321",
   "publisher": "LexisNexis",
-  "jurisdiction": "005us:msUnited States|US|Mississippi"
+  "jurisdiction": "002usUnited States|US"
 }

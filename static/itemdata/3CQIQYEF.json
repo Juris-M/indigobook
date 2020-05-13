@@ -2,8 +2,20 @@
   "id": "3CQIQYEF",
   "type": "legal_case",
   "title": "William Jones",
-  "container-title": "Comp. Gen.",
-  "number": "1234-567-89",
-  "references": "2005 WL 12345",
-  "jurisdiction": "002usUnited States|US"
+  "container-title": "WL",
+  "authority": "Comp. Gen.",
+  "number": "1234\\-567\\-89",
+  "issued": {
+    "date-parts": [
+      [
+        2000,
+        4,
+        1
+      ]
+    ]
+  },
+  "archive_location": "123654",
+  "jurisdiction": "002usUnited States|US",
+  "collection-number": "2006",
+  "admin-flag": "1"
 }

@@ -76,7 +76,8 @@ var signalMap = {
   certdenied: "cert. denied",
   reversed: "rev'd",
   other: "on other grounds",
-  subnom: "sub nom."
+  subnom: "sub nom.",
+  description: "Description of content,"
 };
 
 var commaCheck = function commaCheck(str) {
@@ -135,7 +136,12 @@ var _default = function _default(html_id, rawStr, base64encoder) {
             return typeof signalMap[o] !== "undefined" ? signalMap[o] : o;
           });
           var signal = lst.join(" ");
-          params.prefix = "<i>".concat(signal, "</i>");
+
+          if (m[1] === "description") {
+            params.prefix = signal;
+          } else {
+            params.prefix = "<i>".concat(signal, "</i>");
+          }
 
           if (commaCheck(m[1])) {
             params.prefix = "".concat(params.prefix, ",");

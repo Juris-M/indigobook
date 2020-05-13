@@ -2,6 +2,7 @@
   "id": "T9S9LVAC",
   "type": "legislation",
   "container-title": "Guam Pub. L.",
+  "number": "6587",
   "issued": {
     "date-parts": [
       [
@@ -9,6 +10,5 @@
       ]
     ]
   },
-  "section": "1234",
   "jurisdiction": "005us:guUnited States|US|Guam"
 }

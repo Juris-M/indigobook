@@ -2,8 +2,19 @@
   "id": "YLXSAJRR",
   "type": "legal_case",
   "title": "Smith v. Jones",
-  "container-title": ", CFTC",
-  "number": "1234-567-89",
-  "references": "2000 WL 123654",
-  "jurisdiction": "002usUnited States|US"
+  "authority": "cftc",
+  "number": "1234\\-567\\-89",
+  "issued": {
+    "date-parts": [
+      [
+        2000,
+        4,
+        1
+      ]
+    ]
+  },
+  "archive_location": "123654",
+  "archive": "LEXIS",
+  "jurisdiction": "002usUnited States|US",
+  "collection-number": "2006"
 }

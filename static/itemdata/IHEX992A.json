@@ -1,8 +1,9 @@
 {
   "id": "IHEX992A",
-  "type": "legislation",
-  "title": "Conn. L.J.",
+  "type": "legal_case",
+  "container-title": "Conn. L.J.",
   "volume": "23",
+  "page": "45",
   "issued": {
     "date-parts": [
       [
@@ -10,7 +11,5 @@
       ]
     ]
   },
-  "section": "45",
-  "publisher": "Apr. 1,",
   "jurisdiction": "005us:ctUnited States|US|Connecticut"
 }

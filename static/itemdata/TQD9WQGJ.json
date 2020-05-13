@@ -1,8 +1,8 @@
 {
   "id": "TQD9WQGJ",
   "type": "legislation",
-  "title": "Repub. Tex. Laws",
-  "volume": "2000",
-  "section": "45",
-  "jurisdiction": "005us:txUnited States|US|Texas"
+  "container-title": "Repub. Tex. Laws",
+  "page": "45",
+  "jurisdiction": "005us:txUnited States|US|Texas",
+  "collection-number": "2006"
 }

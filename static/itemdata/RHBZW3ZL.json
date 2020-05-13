@@ -3,5 +3,6 @@
   "type": "legal_case",
   "container-title": "IL",
   "number": "123-456",
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "002usUnited States|US",
+  "collection-number": "2005"
 }
