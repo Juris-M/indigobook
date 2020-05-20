@@ -67,6 +67,11 @@ function zoteroToJurismData(obj) {
         }
     }
     if (extradata) {
+        if (extradata.xtype) {
+            zObj.itemType = extradata.xtype;
+        }
+    }
+    if (extradata) {
         if (extradata.extracreators) {
             for (var j=0,jlen=extradata.extracreators.length;j<jlen;j++) {
                 zObj.creators.push(zCreator);

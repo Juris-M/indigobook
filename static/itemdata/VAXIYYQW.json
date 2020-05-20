@@ -1,12 +1,14 @@
 {
   "id": "VAXIYYQW",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Mass. Reg.",
   "volume": "16",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

@@ -2,6 +2,7 @@
   "id": "2P77WH6C",
   "type": "legislation",
   "container-title": "Md. Code Ann.",
+  "volume": "Ins.",
   "issued": {
     "date-parts": [
       [
@@ -10,6 +11,5 @@
     ]
   },
   "publisher": "West",
-  "jurisdiction": "005us:mdUnited States|US|Maryland",
-  "genre": "Correctional Services"
+  "jurisdiction": "005us:mdUnited States|US|Maryland"
 }

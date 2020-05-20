@@ -1,8 +1,7 @@
 {
   "id": "IXDECFLX",
-  "type": "legal_case",
+  "type": "regulation",
   "container-title": "Minn. R.",
-  "page": "11",
   "issued": {
     "date-parts": [
       [
@@ -10,5 +9,6 @@
       ]
     ]
   },
+  "section": "r. 11",
   "jurisdiction": "005us:mnUnited States|US|Minnesota"
 }

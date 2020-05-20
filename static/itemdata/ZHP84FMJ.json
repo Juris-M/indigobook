@@ -1,7 +1,7 @@
 {
   "id": "ZHP84FMJ",
   "type": "legislation",
-  "container-title": "Mass. Ann. Laws ch.",
+  "container-title": "Mass. Ann. Laws",
   "issued": {
     "date-parts": [
       [
@@ -9,7 +9,7 @@
       ]
     ]
   },
-  "section": "sec. 321",
+  "section": "ch. 21, sec. 15",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:maUnited States|US|Massachusetts"
 }

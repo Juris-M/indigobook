@@ -1,12 +1,13 @@
 {
   "id": "7L22EVYX",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Miss. Gov’t Reg.",
   "volume": "16",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        4
       ]
     ]
   },

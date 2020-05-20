@@ -1,12 +1,14 @@
 {
   "id": "RS34FISQ",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Iowa Admin. Bull.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

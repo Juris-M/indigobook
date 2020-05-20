@@ -4,13 +4,13 @@
   "title": "Worthy Act",
   "container-title": "U.S.C.A.",
   "volume": "52",
-  "issued": {
+  "publisher": "Lawyerly Press",
+  "jurisdiction": "002usUnited States|US",
+  "publication-date": {
     "date-parts": [
       [
         2003
       ]
     ]
-  },
-  "publisher": "Lawyerly Press",
-  "jurisdiction": "002usUnited States|US"
+  }
 }

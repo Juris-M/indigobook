@@ -1,8 +1,8 @@
 {
   "id": "TVX588G3",
   "type": "legal_case",
-  "container-title": "IL App.",
-  "page": "2134",
-  "jurisdiction": "002usUnited States|US",
-  "collection-number": "2005"
+  "authority": "appellate.court",
+  "number": "123\\-456",
+  "jurisdiction": "008us:il:d3United States|US|Illinois|Third District",
+  "collection-number": "2006"
 }

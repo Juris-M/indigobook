@@ -1,12 +1,13 @@
 {
   "id": "67SXHLGQ",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Ark. Reg.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        4
       ]
     ]
   },

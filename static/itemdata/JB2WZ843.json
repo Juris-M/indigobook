@@ -1,12 +1,14 @@
 {
   "id": "JB2WZ843",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Utah Bull.",
   "volume": "16",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

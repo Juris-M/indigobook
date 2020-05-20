@@ -1,11 +1,12 @@
 {
   "id": "LND7U8EF",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Ohio Monthly Rec.",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        4
       ]
     ]
   },

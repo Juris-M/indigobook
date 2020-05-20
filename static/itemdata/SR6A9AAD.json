@@ -1,12 +1,14 @@
 {
   "id": "SR6A9AAD",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Okla. Reg.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

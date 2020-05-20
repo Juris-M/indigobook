@@ -1,7 +1,8 @@
 {
   "id": "RVQTNW8H",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "N.H. Code R.",
+  "volume": "Med.",
   "issued": {
     "date-parts": [
       [
@@ -9,6 +10,7 @@
       ]
     ]
   },
+  "section": "r. 11",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:nhUnited States|US|New Hampshire"
 }

@@ -1,6 +1,6 @@
 {
   "id": "3QZG4TBG",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Alaska Admin. Code",
   "issued": {
     "date-parts": [
@@ -9,6 +9,6 @@
       ]
     ]
   },
-  "page": "321",
+  "section": "tit. 321",
   "jurisdiction": "005us:akUnited States|US|Alaska"
 }

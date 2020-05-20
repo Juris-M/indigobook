@@ -2,14 +2,14 @@
   "id": "KUZA9BAK",
   "type": "legislation",
   "container-title": "Md. Code Ann.",
-  "issued": {
-    "date-parts": [
-      [
-        2000
-      ]
-    ]
-  },
+  "volume": "Ins.",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:mdUnited States|US|Maryland",
-  "genre": "Correctional Services"
+  "publication-date": {
+    "date-parts": [
+      [
+        2003
+      ]
+    ]
+  }
 }

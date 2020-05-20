@@ -1,12 +1,13 @@
 {
   "id": "A5LJHI5V",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Colo. Reg.",
   "volume": "16",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        4
       ]
     ]
   },

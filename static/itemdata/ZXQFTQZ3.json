@@ -1,7 +1,7 @@
 {
   "id": "ZXQFTQZ3",
   "type": "legislation",
-  "container-title": "Cal.  |  Code",
+  "container-title": "Cal. Civil Code",
   "issued": {
     "date-parts": [
       [
@@ -11,6 +11,5 @@
   },
   "section": "sec. 321",
   "publisher": "West",
-  "jurisdiction": "005us:caUnited States|US|California",
-  "genre": "Civil"
+  "jurisdiction": "005us:caUnited States|US|California"
 }

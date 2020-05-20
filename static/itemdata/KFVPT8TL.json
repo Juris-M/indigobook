@@ -1,12 +1,14 @@
 {
   "id": "KFVPT8TL",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Or. Bull.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

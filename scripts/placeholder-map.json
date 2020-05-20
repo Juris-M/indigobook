@@ -7,7 +7,7 @@
         "val": "52",
         "field": "volume"
     },
-    "section number": {
+    "section no.": {
         "val": "15",
         "field": "section"
     },
@@ -316,8 +316,8 @@
         "field": "number"
     },
     "court no.": {
-        "val": "2134",
-        "field": "page"
+        "val": "3d",
+        "field": "none"
     },
     "ch. no.": {
         "val": "78",
@@ -344,16 +344,16 @@
         "field": "section"
     },
     "subject": {
-        "val": "Correctional Services",
-        "field": "genre"
+        "val": "Ins.",
+        "field": "volume"
     },
     "reg. no.": {
         "val": "6578",
         "field": "section"
     },
     "dep't name as abbreviated in Rules": {
-        "val": "Env. Dept.",
-        "field": "authority"
+        "val": "Med.",
+        "field": "volume"
     },
     "x:x-x.x": {
         "val": "12:34-56.78",
@@ -410,5 +410,41 @@
     "section-or-page no.": {
         "val": "465",
         "field": "section"
+    },
+    "title locator": {
+        "val": "654",
+        "field": "section"
+    },
+    "section locator": {
+        "val": "987",
+        "field": "section"
+    },
+    "Reg. or Spec.": {
+        "val": "Reg.",
+        "field": "genre"
+    },
+    "article no.": {
+        "val": "579",
+        "field": "section"
+    },
+    "full title no.": {
+        "val": "56-12-34",
+        "field": "section"
+    },
+    "chapter no.": {
+        "val": "21",
+        "field": "section"
+    },
+    "N.Y. [subject] Law": {
+        "val": "N.Y. Lab. Law",
+        "field": "title"
+    },
+    "N.Y. [subject] Law Consol.": {
+        "val": "N.Y. Lab. Law Consol.",
+        "field": "title"
+    },
+    "sheet no.": {
+        "val": "41",
+        "field": "number"
     }
 }

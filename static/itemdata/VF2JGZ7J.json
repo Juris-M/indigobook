@@ -1,12 +1,13 @@
 {
   "id": "VF2JGZ7J",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Vt. Gov’t Reg.",
   "volume": "16",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        4
       ]
     ]
   },

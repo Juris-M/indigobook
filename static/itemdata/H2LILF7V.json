@@ -1,11 +1,13 @@
 {
   "id": "H2LILF7V",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Ohio Gov’t",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

@@ -2,6 +2,7 @@
   "id": "GXPEF2TT",
   "type": "legislation",
   "container-title": "Ark. Code R.",
+  "volume": "12\\-34\\-56",
   "issued": {
     "date-parts": [
       [
@@ -9,7 +10,7 @@
       ]
     ]
   },
-  "page": "321",
+  "section": "sec. 321",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:arUnited States|US|Arkansas"
 }

@@ -1,12 +1,14 @@
 {
   "id": "Y6P8VHI7",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "D.C. Reg.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

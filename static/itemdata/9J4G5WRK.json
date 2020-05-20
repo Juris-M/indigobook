@@ -1,11 +1,13 @@
 {
   "id": "9J4G5WRK",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Ohio Dep’t",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

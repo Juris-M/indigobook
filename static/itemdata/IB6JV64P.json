@@ -1,12 +1,14 @@
 {
   "id": "IB6JV64P",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Mont. Admin. Reg.",
   "volume": "16",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

@@ -1,12 +1,13 @@
 {
   "id": "4C3TXMYL",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Del Gov’t Reg.",
   "volume": "16",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        4
       ]
     ]
   },

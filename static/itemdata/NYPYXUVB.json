@@ -1,12 +1,14 @@
 {
   "id": "NYPYXUVB",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Va. Reg. Regs.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

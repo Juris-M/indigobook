@@ -1,12 +1,14 @@
 {
   "id": "KZCW7PKQ",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "N.M. Reg.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

@@ -1,12 +1,14 @@
 {
   "id": "JXJ2FSZ2",
-  "type": "legislation",
-  "container-title": "Cal. Regulatoryice Reg.",
+  "type": "regulation",
+  "container-title": "Cal. Regulatory Notice Reg.",
   "volume": "16",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

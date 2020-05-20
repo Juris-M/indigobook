@@ -1,12 +1,14 @@
 {
   "id": "9M5IFIXZ",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Kan. Reg.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

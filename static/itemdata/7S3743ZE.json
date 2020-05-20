@@ -1,12 +1,14 @@
 {
   "id": "7S3743ZE",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Mich. Reg.",
   "volume": "16",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

@@ -1,12 +1,13 @@
 {
   "id": "BHBGD838",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Tenn. Admin. Reg.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        4
       ]
     ]
   },

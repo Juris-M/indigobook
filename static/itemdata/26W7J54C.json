@@ -1,12 +1,14 @@
 {
   "id": "26W7J54C",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Wash. Reg.",
   "volume": "16",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

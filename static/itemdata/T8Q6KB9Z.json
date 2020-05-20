@@ -1,12 +1,14 @@
 {
   "id": "T8Q6KB9Z",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Wis. Admin. Reg.",
   "volume": "16",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

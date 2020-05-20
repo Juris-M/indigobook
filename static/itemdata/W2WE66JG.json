@@ -1,12 +1,14 @@
 {
   "id": "W2WE66JG",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Pa. Bull.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

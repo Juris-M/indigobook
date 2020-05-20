@@ -1,12 +1,14 @@
 {
   "id": "ZQBNUZGW",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Del. Reg. Regs.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

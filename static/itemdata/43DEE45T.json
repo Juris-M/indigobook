@@ -1,12 +1,14 @@
 {
   "id": "43DEE45T",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Ill. Reg.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

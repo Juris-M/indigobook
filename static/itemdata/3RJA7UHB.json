@@ -1,12 +1,14 @@
 {
   "id": "3RJA7UHB",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Idaho Admin. Bull.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

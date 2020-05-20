@@ -49,6 +49,8 @@ const run = async () => {
         let html_id = node.getAttribute("id");
         let rawStr = node.getAttribute("data-info");
         if (!rawStr) continue;
+	
+	console.log(html_id);
 
         var info = parseid(html_id, rawStr, base64encode);
         if (!info) continue;
@@ -68,7 +70,7 @@ const run = async () => {
                 console.log(`ERROR: ${key} ${err.message} [${apiStub + key}]`);
                 process.exit();
             });
-            console.log(JSON.stringify(response.data, null, 2));
+            // console.log(JSON.stringify(response.data, null, 2));
             const jObj = z2j.zoteroToJurismData(response.data);
             var cslObj = {};
             for (var key in jObj) {

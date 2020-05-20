@@ -1,7 +1,8 @@
 {
   "id": "P7P7AD5M",
-  "type": "legislation",
-  "container-title": "x- |  Del. Code Regs.",
+  "type": "regulation",
+  "container-title": "Del. Code Regs.",
+  "volume": "12\\-34\\-56",
   "issued": {
     "date-parts": [
       [
@@ -9,7 +10,7 @@
       ]
     ]
   },
-  "page": "321",
+  "section": "321",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:deUnited States|US|Delaware"
 }

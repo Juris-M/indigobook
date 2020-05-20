@@ -7,9 +7,12 @@
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },
-  "jurisdiction": "005us:ctUnited States|US|Connecticut"
+  "jurisdiction": "005us:ctUnited States|US|Connecticut",
+  "admin-flag": "1"
 }

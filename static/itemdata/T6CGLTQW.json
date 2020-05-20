@@ -1,12 +1,13 @@
 {
   "id": "T6CGLTQW",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Ky. Admin. Reg.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        4
       ]
     ]
   },

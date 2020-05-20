@@ -1,12 +1,13 @@
 {
   "id": "NXHKZFMI",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Me. Gov’t Reg.",
   "volume": "16",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        4
       ]
     ]
   },

@@ -1,12 +1,13 @@
 {
   "id": "B64C43Z3",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Conn. Gov’t Reg.",
   "volume": "16",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        4
       ]
     ]
   },

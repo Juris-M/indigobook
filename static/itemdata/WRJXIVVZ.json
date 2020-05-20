@@ -1,8 +1,7 @@
 {
   "id": "WRJXIVVZ",
   "type": "legislation",
-  "title": "Uniform District Court Act",
-  "container-title": "N.Y.",
+  "title": "N.Y. Uniform District Court Act",
   "issued": {
     "date-parts": [
       [
@@ -10,7 +9,7 @@
       ]
     ]
   },
-  "section": "sec. 321",
+  "section": "sec. 15",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:nyUnited States|US|New York"
 }

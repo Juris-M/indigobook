@@ -1,12 +1,14 @@
 {
   "id": "2HCHMYSP",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "N. Mar. I. Reg.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

@@ -1,12 +1,14 @@
 {
   "id": "P2R7L8ZR",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "W. Va. Reg.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
-        2000
+        2000,
+        12,
+        31
       ]
     ]
   },

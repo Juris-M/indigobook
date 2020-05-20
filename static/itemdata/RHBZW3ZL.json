@@ -1,8 +1,8 @@
 {
   "id": "RHBZW3ZL",
   "type": "legal_case",
-  "container-title": "IL",
-  "number": "123-456",
-  "jurisdiction": "002usUnited States|US",
-  "collection-number": "2005"
+  "authority": "supreme.court",
+  "number": "123\\-456",
+  "jurisdiction": "005us:ilUnited States|US|Illinois",
+  "collection-number": "2006"
 }
