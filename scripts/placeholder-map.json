@@ -396,7 +396,7 @@
         "field": "number"
     },
     "xxx": {
-        "val": "935S",
+        "val": "9355",
         "field": "section"
     },
     "xxxx": {
@@ -446,5 +446,13 @@
     "sheet no.": {
         "val": "41",
         "field": "number"
+    },
+    "Tex. [subject] Code Ann.": {
+        "val": "Tex. Agric. Code Ann.",
+        "field": "title"
+    },
+    "label and pinpoint": {
+        "val": "§ 205",
+        "field": "section"
     }
 }
