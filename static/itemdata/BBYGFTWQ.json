@@ -1,9 +1,10 @@
 {
   "id": "BBYGFTWQ",
   "type": "legal_case",
-  "container-title": "Inter-Am. Ct. H.R. ser. E",
+  "container-title": "Inter-Am. Ct. H.R.",
+  "authority": "iachr",
   "number": "26",
-  "page": "935S",
   "note": "newbie",
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "007oas.intOrganization of American States|OAS.INT",
+  "genre": "E"
 }

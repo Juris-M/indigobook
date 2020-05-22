@@ -2,6 +2,8 @@
   "id": "6XMIJF7Y",
   "type": "legal_case",
   "container-title": "I.C.J.",
-  "jurisdiction": "002usUnited States|US",
-  "collection-number": "2005"
+  "authority": "icj",
+  "page": "45",
+  "jurisdiction": "006un.intUnited Nations|UN.INT",
+  "collection-number": "2006"
 }

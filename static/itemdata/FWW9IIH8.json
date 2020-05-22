@@ -1,8 +1,9 @@
 {
   "id": "FWW9IIH8",
   "type": "legal_case",
-  "container-title": "Inter-Am. Ct. H.R. ser. D",
+  "container-title": "Inter-Am. Ct. H.R.",
+  "authority": "iachr",
   "number": "26",
-  "page": "935S",
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "007oas.intOrganization of American States|OAS.INT",
+  "genre": "D"
 }

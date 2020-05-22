@@ -2,7 +2,9 @@
   "id": "GII5WWIA",
   "type": "legal_case",
   "container-title": "Eur. Ct. H.R.",
-  "page": "3859",
+  "volume": "89",
+  "authority": "echr",
+  "page": "45",
   "issued": {
     "date-parts": [
       [
@@ -10,5 +12,5 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "007coe.intCouncil of Europe|COE.INT"
 }

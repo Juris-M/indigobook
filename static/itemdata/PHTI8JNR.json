@@ -2,7 +2,8 @@
   "id": "PHTI8JNR",
   "type": "report",
   "number": "1234",
-  "page": "321",
-  "container-title": "Parl. Eur. Doc. SEC",
-  "jurisdiction": "002usUnited States|US"
+  "genre": "SEC",
+  "page": "45",
+  "container-title": "Parl. Eur. Doc.",
+  "jurisdiction": "006eu.intEuropean Union|EU.INT"
 }

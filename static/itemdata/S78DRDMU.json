@@ -1,7 +1,10 @@
 {
   "id": "S78DRDMU",
   "type": "legal_case",
-  "container-title": "Common Mkt. Rep. CCH",
-  "jurisdiction": "002usUnited States|US",
-  "collection-number": "2005"
+  "container-title": "Common Mkt. Rep.",
+  "authority": "ecj",
+  "page": "45",
+  "publisher": "CCH",
+  "jurisdiction": "011eu.int:cjeuEuropean Union|EU.INT|Court of Justice",
+  "collection-number": "2006"
 }

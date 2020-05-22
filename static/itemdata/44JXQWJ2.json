@@ -2,7 +2,8 @@
   "id": "44JXQWJ2",
   "type": "report",
   "number": "1234",
-  "page": "321",
-  "container-title": "Eur. Parl. Doc. COM",
-  "jurisdiction": "002usUnited States|US"
+  "genre": "COM",
+  "page": "45",
+  "container-title": "Eur. Parl. Doc.",
+  "jurisdiction": "006eu.intEuropean Union|EU.INT"
 }

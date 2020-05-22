@@ -1,8 +1,9 @@
 {
   "id": "W7CW54XH",
   "type": "legislation",
-  "container-title": "J.O. L",
+  "container-title": "J.O.",
   "number": "92",
-  "jurisdiction": "002usUnited States|US",
+  "jurisdiction": "006eu.intEuropean Union|EU.INT",
+  "genre": "L",
   "collection-number": "2006"
 }

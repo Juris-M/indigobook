@@ -1,7 +1,7 @@
 {
   "id": "TL6UR24Z",
   "type": "legislation",
-  "container-title": "Tex.  |  Code Ann.",
+  "title": "Tex. Agric. Code Ann.",
   "issued": {
     "date-parts": [
       [
@@ -9,8 +9,7 @@
       ]
     ]
   },
-  "section": "sec. 321",
+  "section": "15",
   "publisher": "West",
-  "jurisdiction": "005us:txUnited States|US|Texas",
-  "genre": "Civil"
+  "jurisdiction": "005us:txUnited States|US|Texas"
 }

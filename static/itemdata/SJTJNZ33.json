@@ -1,7 +1,8 @@
 {
   "id": "SJTJNZ33",
   "type": "legislation",
-  "container-title": "S.D. Sess. Laws ch.",
+  "container-title": "S.D. Sess. Laws",
   "jurisdiction": "005us:sdUnited States|US|South Dakota",
-  "collection-number": "2006"
+  "collection-number": "2006",
+  "gazette-flag": "1"
 }

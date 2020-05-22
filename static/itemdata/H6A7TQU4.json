@@ -1,7 +1,9 @@
 {
   "id": "H6A7TQU4",
   "type": "legal_case",
-  "container-title": "Inter-Am. Ct. H.R. ser. A",
+  "container-title": "Inter-Am. Ct. H.R.",
+  "authority": "iachr",
   "number": "26",
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "007oas.intOrganization of American States|OAS.INT",
+  "genre": "A"
 }
