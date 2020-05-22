@@ -1,6 +1,6 @@
 {
   "id": "67SXHLGQ",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Ark. Reg.",
   "volume": "23",
   "issued": {
@@ -11,6 +11,6 @@
       ]
     ]
   },
-  "section": "45",
+  "page": "45",
   "jurisdiction": "005us:arUnited States|US|Arkansas"
 }

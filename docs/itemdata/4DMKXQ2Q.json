@@ -1,8 +1,8 @@
 {
   "id": "4DMKXQ2Q",
   "type": "legal_case",
-  "container-title": "Inter-Am. Ct. H.R. ser. C",
+  "authority": "iachr",
   "number": "26",
-  "note": "key: \nhtml_id: c794",
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "007oas.intOrganization of American States|OAS.INT",
+  "genre": "C"
 }

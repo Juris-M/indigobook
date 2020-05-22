@@ -1,9 +1,17 @@
 {
   "id": "FBB5P6PL",
-  "type": "legislation",
+  "type": "report",
   "title": "Internal Migration",
-  "container-title": "U.S. Dep’t of State, Bureau of Democracy, H.R. and Lab.",
+  "authority": "Bureau of Democracy, H.R. and Lab.|U.S. Dep’t of State",
+  "issued": {
+    "date-parts": [
+      [
+        2000,
+        4,
+        1
+      ]
+    ]
+  },
   "page": "123",
-  "note": "key: \nhtml_id: c267",
   "jurisdiction": "002usUnited States|US"
 }

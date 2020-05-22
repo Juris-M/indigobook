@@ -1,7 +1,7 @@
 {
   "id": "BSBSSXK9",
-  "type": "legislation",
-  "title": "Md. Code Regs.",
+  "type": "regulation",
+  "container-title": "Md. Code Regs.",
   "issued": {
     "date-parts": [
       [
@@ -9,6 +9,5 @@
       ]
     ]
   },
-  "section": "1234",
   "jurisdiction": "005us:mdUnited States|US|Maryland"
 }

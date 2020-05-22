@@ -1,9 +1,15 @@
 {
   "id": "2AXKQQ3C",
-  "type": "legislation",
-  "container-title": "Guam Admin. R. &#38; Regs.",
+  "type": "regulation",
+  "container-title": "Guam Admin. R. & Regs.",
   "volume": "50",
-  "page": "321",
-  "note": "key: \nhtml_id: c736",
+  "issued": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  },
+  "section": "sec. 15",
   "jurisdiction": "005us:guUnited States|US|Guam"
 }

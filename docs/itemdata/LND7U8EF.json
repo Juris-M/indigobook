@@ -1,6 +1,6 @@
 {
   "id": "LND7U8EF",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Ohio Monthly Rec.",
   "issued": {
     "date-parts": [
@@ -10,6 +10,6 @@
       ]
     ]
   },
-  "section": "45",
+  "page": "45",
   "jurisdiction": "005us:ohUnited States|US|Ohio"
 }

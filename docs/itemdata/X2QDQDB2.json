@@ -1,6 +1,6 @@
 {
   "id": "X2QDQDB2",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Ohio Admin. Code",
   "issued": {
     "date-parts": [
@@ -9,6 +9,5 @@
       ]
     ]
   },
-  "section": "11",
   "jurisdiction": "005us:ohUnited States|US|Ohio"
 }

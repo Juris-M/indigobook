@@ -1,17 +1,17 @@
 {
   "id": "5SZPK6DM",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Mo. Reg.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
         2000,
-        4,
-        1
+        12,
+        31
       ]
     ]
   },
-  "section": "45",
+  "page": "45",
   "jurisdiction": "005us:moUnited States|US|Missouri"
 }

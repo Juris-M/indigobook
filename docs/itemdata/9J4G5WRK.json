@@ -1,8 +1,16 @@
 {
   "id": "9J4G5WRK",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Ohio Dep’t",
+  "issued": {
+    "date-parts": [
+      [
+        2000,
+        12,
+        31
+      ]
+    ]
+  },
   "page": "45",
-  "note": "key: \nhtml_id: c605",
   "jurisdiction": "005us:ohUnited States|US|Ohio"
 }

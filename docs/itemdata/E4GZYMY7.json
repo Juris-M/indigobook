@@ -1,10 +1,17 @@
 {
   "id": "E4GZYMY7",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Haw. Gov’t Reg.",
   "volume": "16",
+  "issued": {
+    "date-parts": [
+      [
+        2000,
+        4
+      ]
+    ]
+  },
   "page": "45",
-  "note": "key: \nhtml_id: c401",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:hiUnited States|US|Hawaii"
 }

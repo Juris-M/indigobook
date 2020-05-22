@@ -1,8 +1,9 @@
 {
   "id": "6VIYWAWJ",
   "type": "legislation",
-  "title": "D.C. Code Adv. Leg. Serv.",
-  "volume": "2000-14",
-  "section": "45",
-  "jurisdiction": "005us:dcUnited States|US|District of Columbia"
+  "container-title": "D.C. Code Adv. Leg. Serv.",
+  "volume": "14",
+  "page": "45",
+  "jurisdiction": "005us:dcUnited States|US|District of Columbia",
+  "collection-number": "2006"
 }

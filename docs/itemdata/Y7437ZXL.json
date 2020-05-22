@@ -1,17 +1,17 @@
 {
   "id": "Y7437ZXL",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Md. Reg.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
         2000,
-        4,
-        1
+        12,
+        31
       ]
     ]
   },
-  "section": "45",
+  "page": "45",
   "jurisdiction": "005us:mdUnited States|US|Maryland"
 }

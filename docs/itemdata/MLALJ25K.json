@@ -1,7 +1,7 @@
 {
   "id": "MLALJ25K",
-  "type": "legislation",
-  "title": "S.D. Admin. R.",
+  "type": "regulation",
+  "container-title": "S.D. Admin. R.",
   "issued": {
     "date-parts": [
       [
@@ -9,6 +9,5 @@
       ]
     ]
   },
-  "section": "11",
   "jurisdiction": "005us:sdUnited States|US|South Dakota"
 }

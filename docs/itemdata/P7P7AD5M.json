@@ -1,8 +1,8 @@
 {
   "id": "P7P7AD5M",
-  "type": "legislation",
-  "title": "Del. Code Regs.",
-  "volume": "12-34-56",
+  "type": "regulation",
+  "container-title": "Del. Code Regs.",
+  "volume": "12\\-34\\-56",
   "issued": {
     "date-parts": [
       [
@@ -10,7 +10,7 @@
       ]
     ]
   },
-  "section": "§ 123",
+  "section": "321",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:deUnited States|US|Delaware"
 }

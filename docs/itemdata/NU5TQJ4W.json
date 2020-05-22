@@ -1,7 +1,7 @@
 {
   "id": "NU5TQJ4W",
-  "type": "legislation",
-  "title": "D.C. Code Mun. Regs.",
+  "type": "regulation",
+  "container-title": "D.C. Code Mun. Regs.",
   "issued": {
     "date-parts": [
       [
@@ -9,7 +9,7 @@
       ]
     ]
   },
-  "section": "tit. 123 sec. 123",
+  "section": "tit. 654, sec. 987",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:dcUnited States|US|District of Columbia"
 }

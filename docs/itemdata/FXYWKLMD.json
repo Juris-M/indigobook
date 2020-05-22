@@ -1,10 +1,17 @@
 {
   "id": "FXYWKLMD",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Wyo. Gov’t Reg.",
   "volume": "16",
+  "issued": {
+    "date-parts": [
+      [
+        2000,
+        4
+      ]
+    ]
+  },
   "page": "45",
-  "note": "key: \nhtml_id: c729",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:wyUnited States|US|Wyoming"
 }

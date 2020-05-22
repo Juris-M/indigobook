@@ -2,8 +2,17 @@
   "id": "XGFHDGYR",
   "type": "legal_case",
   "title": "Smith v. Jones",
-  "container-title": "T.T.A.B.",
-  "references": "2000 WL 123456",
-  "note": "key: \nhtml_id: c247",
-  "jurisdiction": "002usUnited States|US"
+  "container-title": "WL",
+  "authority": "T.T.A.B.",
+  "issued": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  },
+  "archive_location": "123654",
+  "jurisdiction": "002usUnited States|US",
+  "collection-number": "2006",
+  "admin-flag": "1"
 }

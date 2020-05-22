@@ -1,6 +1,6 @@
 {
   "id": "56S35GWU",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Utah Admin. Code",
   "issued": {
     "date-parts": [
@@ -9,6 +9,5 @@
       ]
     ]
   },
-  "section": "r. 12-34-56",
   "jurisdiction": "005us:utUnited States|US|Utah"
 }

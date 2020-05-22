@@ -1,8 +1,8 @@
 {
   "id": "AY6QHXRG",
   "type": "legislation",
-  "title": "Wis. Sess. Laws",
-  "volume": "2000",
-  "section": "45",
-  "jurisdiction": "005us:wiUnited States|US|Wisconsin"
+  "container-title": "Wis. Sess. Laws",
+  "page": "45",
+  "jurisdiction": "005us:wiUnited States|US|Wisconsin",
+  "collection-number": "2006"
 }

@@ -1,10 +1,15 @@
 {
   "id": "JRWBT7LB",
-  "type": "legal_case",
+  "type": "regulation",
   "title": "Avoidance of Error",
-  "container-title": "U.S.D.A.",
-  "authority": "FSA",
   "number": "101",
-  "note": "key: \nhtml_id: c245",
-  "jurisdiction": "002usUnited States|US"
+  "issued": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  },
+  "jurisdiction": "002usUnited States|US",
+  "authority": "U.S.D.A.|FSA"
 }

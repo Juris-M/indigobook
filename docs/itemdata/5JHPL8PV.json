@@ -1,10 +1,10 @@
 {
   "id": "5JHPL8PV",
   "type": "legislation",
-  "container-title": "N.H. Rev. Stat. Ann. Adv.  Legis. Serv.",
-  "number": "14",
+  "container-title": "N.H. Rev. Stat. Ann. Adv. Legis. Serv.",
+  "volume": "14",
   "page": "45",
-  "note": "key: \nhtml_id: c541",
   "publisher": "LexisNexis",
-  "jurisdiction": "005us:nhUnited States|US|New Hampshire"
+  "jurisdiction": "005us:nhUnited States|US|New Hampshire",
+  "collection-number": "2006"
 }

@@ -1,7 +1,7 @@
 {
   "id": "8K328LX9",
-  "type": "legislation",
-  "title": "S.C. Code Ann. Regs.",
+  "type": "regulation",
+  "container-title": "S.C. Code Ann. Regs.",
   "issued": {
     "date-parts": [
       [
@@ -9,6 +9,5 @@
       ]
     ]
   },
-  "section": "1234",
   "jurisdiction": "005us:scUnited States|US|South Carolina"
 }

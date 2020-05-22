@@ -1,17 +1,17 @@
 {
   "id": "JB2WZ843",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Utah Bull.",
-  "volume": "15",
+  "volume": "16",
   "issued": {
     "date-parts": [
       [
         2000,
-        4,
-        1
+        12,
+        31
       ]
     ]
   },
-  "section": "45",
+  "page": "45",
   "jurisdiction": "005us:utUnited States|US|Utah"
 }

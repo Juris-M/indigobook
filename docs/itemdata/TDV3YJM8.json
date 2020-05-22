@@ -1,8 +1,8 @@
 {
   "id": "TDV3YJM8",
   "type": "legislation",
-  "title": "Wyo. Code R.",
-  "volume": "50-12",
+  "container-title": "Wyo. Code R.",
+  "volume": "50/78",
   "issued": {
     "date-parts": [
       [
@@ -10,7 +10,7 @@
       ]
     ]
   },
-  "section": "§ 123",
+  "section": "sec. 321",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:wyUnited States|US|Wyoming"
 }

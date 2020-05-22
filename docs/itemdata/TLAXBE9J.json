@@ -1,7 +1,7 @@
 {
   "id": "TLAXBE9J",
-  "type": "legislation",
-  "title": "Mass. Code Regs.",
+  "type": "regulation",
+  "container-title": "Mass. Code Regs.",
   "volume": "50",
   "issued": {
     "date-parts": [
@@ -10,7 +10,6 @@
       ]
     ]
   },
-  "section": "10",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:maUnited States|US|Massachusetts"
 }

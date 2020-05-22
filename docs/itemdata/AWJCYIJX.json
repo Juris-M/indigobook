@@ -1,10 +1,17 @@
 {
   "id": "AWJCYIJX",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Ga. Gov’t Reg.",
   "volume": "16",
+  "issued": {
+    "date-parts": [
+      [
+        2000,
+        4
+      ]
+    ]
+  },
   "page": "45",
-  "note": "key: \nhtml_id: c393",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:gaUnited States|US|Georgia"
 }

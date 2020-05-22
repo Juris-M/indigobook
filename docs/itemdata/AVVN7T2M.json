@@ -1,8 +1,8 @@
 {
   "id": "AVVN7T2M",
   "type": "legislation",
-  "title": "Tex. Gen. Laws",
-  "volume": "2000",
-  "section": "45",
-  "jurisdiction": "005us:txUnited States|US|Texas"
+  "container-title": "Tex. Gen. Laws",
+  "page": "45",
+  "jurisdiction": "005us:txUnited States|US|Texas",
+  "collection-number": "2006"
 }

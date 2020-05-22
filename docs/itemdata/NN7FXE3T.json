@@ -1,7 +1,7 @@
 {
   "id": "NN7FXE3T",
-  "type": "legislation",
-  "title": "Ind. Admin. Code",
+  "type": "regulation",
+  "container-title": "Ind. Admin. Code",
   "volume": "50",
   "issued": {
     "date-parts": [
@@ -10,7 +10,6 @@
       ]
     ]
   },
-  "section": "11",
   "publisher": "West",
   "jurisdiction": "005us:inUnited States|US|Indiana"
 }

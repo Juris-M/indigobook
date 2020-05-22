@@ -1,17 +1,17 @@
 {
   "id": "R4ZJE2Z2",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "N.Y. Reg.",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
         2000,
-        4,
-        1
+        12,
+        31
       ]
     ]
   },
-  "section": "45",
+  "page": "45",
   "jurisdiction": "005us:nyUnited States|US|New York"
 }

@@ -1,7 +1,7 @@
 {
   "id": "IB2YYKAF",
   "type": "legislation",
-  "title": "Colo. Code Regs.",
+  "container-title": "Colo. Code Regs.",
   "volume": "23",
   "issued": {
     "date-parts": [
@@ -10,7 +10,6 @@
       ]
     ]
   },
-  "section": "§ 12-34",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:coUnited States|US|Colorado"
 }

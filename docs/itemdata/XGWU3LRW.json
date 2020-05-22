@@ -1,10 +1,17 @@
 {
   "id": "XGWU3LRW",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "R.I. Gov’t Reg.",
   "volume": "16",
+  "issued": {
+    "date-parts": [
+      [
+        2000,
+        4
+      ]
+    ]
+  },
   "page": "45",
-  "note": "key: \nhtml_id: c639",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:riUnited States|US|Rhode Island"
 }

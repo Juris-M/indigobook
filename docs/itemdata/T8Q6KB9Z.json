@@ -1,17 +1,17 @@
 {
   "id": "T8Q6KB9Z",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Wis. Admin. Reg.",
-  "volume": "15",
+  "volume": "16",
   "issued": {
     "date-parts": [
       [
         2000,
-        4,
-        1
+        12,
+        31
       ]
     ]
   },
-  "section": "45",
+  "page": "45",
   "jurisdiction": "005us:wiUnited States|US|Wisconsin"
 }

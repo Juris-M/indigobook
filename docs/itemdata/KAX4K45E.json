@@ -1,7 +1,16 @@
 {
   "id": "KAX4K45E",
   "type": "patent",
-  "number": "98765",
-  "note": "key: \nhtml_id: c255",
+  "submitted": {
+    "date-parts": [
+      [
+        2020,
+        4,
+        1
+      ]
+    ]
+  },
+  "call-number": "98765",
+  "genre": "Trademark",
   "jurisdiction": "002usUnited States|US"
 }

@@ -1,17 +1,17 @@
 {
   "id": "26W7J54C",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Wash. Reg.",
-  "volume": "15",
+  "volume": "16",
   "issued": {
     "date-parts": [
       [
         2000,
-        4,
-        1
+        12,
+        31
       ]
     ]
   },
-  "section": "45",
+  "page": "45",
   "jurisdiction": "005us:waUnited States|US|Washington"
 }

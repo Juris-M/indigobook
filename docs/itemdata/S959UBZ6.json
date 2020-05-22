@@ -3,8 +3,13 @@
   "type": "legislation",
   "container-title": "Ill. Comp. Stat. Ann.",
   "volume": "78",
-  "section": "8921/10",
-  "note": "key: \nhtml_id: c414",
+  "issued": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  },
   "publisher": "West",
   "jurisdiction": "005us:ilUnited States|US|Illinois"
 }

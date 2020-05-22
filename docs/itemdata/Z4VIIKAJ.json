@@ -1,7 +1,7 @@
 {
   "id": "Z4VIIKAJ",
-  "type": "legislation",
-  "title": "Mo. Code Regs. Ann.",
+  "type": "regulation",
+  "container-title": "Mo. Code Regs. Ann.",
   "issued": {
     "date-parts": [
       [
@@ -9,6 +9,6 @@
       ]
     ]
   },
-  "section": "tit. 123, sec. 12-34.56",
+  "section": "tit. 52, sec. 15",
   "jurisdiction": "005us:moUnited States|US|Missouri"
 }

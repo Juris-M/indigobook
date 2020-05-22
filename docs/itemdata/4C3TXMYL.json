@@ -1,10 +1,17 @@
 {
   "id": "4C3TXMYL",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Del Gov’t Reg.",
   "volume": "16",
+  "issued": {
+    "date-parts": [
+      [
+        2000,
+        4
+      ]
+    ]
+  },
   "page": "45",
-  "note": "key: \nhtml_id: c369",
   "publisher": "LexisNexis",
   "jurisdiction": "002usUnited States|US"
 }

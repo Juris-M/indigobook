@@ -1,6 +1,6 @@
 {
   "id": "TXHXR9EP",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Mich. Admin. Code",
   "issued": {
     "date-parts": [
@@ -9,6 +9,5 @@
       ]
     ]
   },
-  "section": "r. 12.34",
   "jurisdiction": "005us:miUnited States|US|Michigan"
 }

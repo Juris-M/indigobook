@@ -1,7 +1,7 @@
 {
   "id": "ZQC2FBIF",
   "type": "legislation",
-  "title": "R.I. Gen. Laws",
+  "container-title": "R.I. Gen. Laws",
   "volume": "50",
   "issued": {
     "date-parts": [
@@ -10,6 +10,5 @@
       ]
     ]
   },
-  "section": "§ 12-34-56",
   "jurisdiction": "005us:riUnited States|US|Rhode Island"
 }

@@ -2,9 +2,9 @@
   "id": "INB34WPT",
   "type": "legislation",
   "container-title": "Va. Adv. Legis. Serv.",
-  "number": "14",
+  "volume": "14",
   "page": "45",
-  "note": "key: \nhtml_id: c693",
   "publisher": "LexisNexis",
-  "jurisdiction": "005us:vaUnited States|US|Virginia"
+  "jurisdiction": "005us:vaUnited States|US|Virginia",
+  "collection-number": "2006"
 }

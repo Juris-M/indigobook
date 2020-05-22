@@ -1,8 +1,8 @@
 {
   "id": "S55EAMR8",
   "type": "legislation",
-  "title": "Alaska Sess. Laws",
-  "volume": "2000",
-  "section": "45",
-  "jurisdiction": "005us:akUnited States|US|Alaska"
+  "container-title": "Alaska Sess. Laws",
+  "page": "45",
+  "jurisdiction": "005us:akUnited States|US|Alaska",
+  "collection-number": "2006"
 }

@@ -1,7 +1,7 @@
 {
   "id": "LRJMCIKR",
   "type": "legislation",
-  "title": "Tex. Admin. Code",
+  "container-title": "Tex. Admin. Code",
   "volume": "50",
   "issued": {
     "date-parts": [
@@ -10,6 +10,5 @@
       ]
     ]
   },
-  "section": "§ 12.34",
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:txUnited States|US|Texas"
 }

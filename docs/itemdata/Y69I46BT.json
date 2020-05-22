@@ -1,8 +1,8 @@
 {
   "id": "Y69I46BT",
   "type": "legislation",
-  "title": "Neb. Laws",
-  "volume": "2000",
-  "section": "45",
-  "jurisdiction": "005us:neUnited States|US|Nebraska"
+  "container-title": "Neb. Laws",
+  "page": "45",
+  "jurisdiction": "005us:neUnited States|US|Nebraska",
+  "collection-number": "2006"
 }

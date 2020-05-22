@@ -2,9 +2,20 @@
   "id": "VR43Z9SJ",
   "type": "report",
   "title": "Behavioral patterns of locusts",
-  "number": "12",
-  "genre": "Review",
-  "note": "key: \nhtml_id: c291",
-  "container-title": ", Inv.  | , USITC Pub.",
-  "jurisdiction": "002usUnited States|US"
+  "number": "13",
+  "genre": "Inv.",
+  "authority": "USITC",
+  "issued": {
+    "date-parts": [
+      [
+        2000,
+        4,
+        1
+      ]
+    ]
+  },
+  "call-number": "15",
+  "note": "Review",
+  "jurisdiction": "002usUnited States|US",
+  "status": "Review"
 }

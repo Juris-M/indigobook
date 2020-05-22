@@ -2,8 +2,18 @@
   "id": "I2KA8B96",
   "type": "legal_case",
   "title": "Smith v. Jones",
-  "container-title": "Dep’t of Labor",
-  "number": "1234-567-89",
-  "note": "key: \nhtml_id: c263",
-  "jurisdiction": "002usUnited States|US"
+  "authority": "Dep't of Labor",
+  "number": "1234\\-567\\-89",
+  "issued": {
+    "date-parts": [
+      [
+        2000,
+        4,
+        1
+      ]
+    ]
+  },
+  "jurisdiction": "002usUnited States|US",
+  "genre": "Description of content",
+  "admin-flag": "1"
 }

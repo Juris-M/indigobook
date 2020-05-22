@@ -1,7 +1,7 @@
 {
   "id": "YGRZJ7CP",
-  "type": "legislation",
-  "title": "Mass. Code Regs.",
+  "type": "regulation",
+  "container-title": "Mass. Code Regs.",
   "volume": "50",
   "issued": {
     "date-parts": [
@@ -10,6 +10,5 @@
       ]
     ]
   },
-  "section": "10",
   "jurisdiction": "005us:maUnited States|US|Massachusetts"
 }

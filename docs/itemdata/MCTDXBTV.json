@@ -3,7 +3,12 @@
   "type": "legislation",
   "container-title": "Ill. Comp. Stat.",
   "volume": "78",
-  "section": "8921/10",
-  "note": "key: \nhtml_id: c413",
+  "issued": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  },
   "jurisdiction": "005us:ilUnited States|US|Illinois"
 }

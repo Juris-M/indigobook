@@ -1,17 +1,17 @@
 {
   "id": "X3WLF6GG",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "Fla. Admin. Weekly",
   "volume": "23",
   "issued": {
     "date-parts": [
       [
         2000,
-        4,
-        1
+        12,
+        31
       ]
     ]
   },
-  "section": "45",
+  "page": "45",
   "jurisdiction": "005us:flUnited States|US|Florida"
 }

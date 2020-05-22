@@ -2,7 +2,12 @@
   "id": "NAKP6SNH",
   "type": "legislation",
   "container-title": "N.J. Admin. Code",
-  "section": "12:34-56.78",
-  "note": "key: \nhtml_id: c550",
+  "issued": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  },
   "jurisdiction": "005us:njUnited States|US|New Jersey"
 }

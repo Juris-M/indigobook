@@ -1,8 +1,8 @@
 {
   "id": "3EWQJUCE",
   "type": "legislation",
-  "title": "Ga. Laws",
-  "volume": "2000",
-  "section": "45",
-  "jurisdiction": "005us:gaUnited States|US|Georgia"
+  "container-title": "Ga. Laws",
+  "page": "45",
+  "jurisdiction": "005us:gaUnited States|US|Georgia",
+  "collection-number": "2006"
 }

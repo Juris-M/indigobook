@@ -1,8 +1,8 @@
 {
   "id": "AA3RSMUC",
   "type": "legislation",
-  "title": "V.I. Code R.",
-  "volume": "50-12",
+  "container-title": "V.I. Code R.",
+  "volume": "50/78",
   "issued": {
     "date-parts": [
       [
@@ -10,7 +10,6 @@
       ]
     ]
   },
-  "section": "§ 12-34",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:viUnited States|US|U.S. Virgin Islands"
 }

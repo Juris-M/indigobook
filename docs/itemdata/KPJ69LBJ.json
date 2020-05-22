@@ -1,7 +1,7 @@
 {
   "id": "KPJ69LBJ",
-  "type": "legislation",
-  "title": "Cal. Code Regs.",
+  "type": "regulation",
+  "container-title": "Cal. Code Regs.",
   "issued": {
     "date-parts": [
       [
@@ -9,6 +9,6 @@
       ]
     ]
   },
-  "section": "tit. 123, sec. 123",
+  "section": "tit. 654, sec. 987",
   "jurisdiction": "005us:caUnited States|US|California"
 }

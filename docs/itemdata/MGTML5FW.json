@@ -3,10 +3,17 @@
   "type": "legal_case",
   "title": "John Smith",
   "volume": "32",
-  "number": "1234-567-89",
+  "number": "1234\\-567\\-89",
   "page": "43",
-  "note": "key: \nhtml_id: c295",
-  "publisher": "Doctorly Press",
-  "archive": "CCH CGCH",
-  "jurisdiction": "002usUnited States|US"
+  "issued": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  },
+  "publisher": "CCH",
+  "archive": "CGCH",
+  "jurisdiction": "002usUnited States|US",
+  "admin-flag": "1"
 }

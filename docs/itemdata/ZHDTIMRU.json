@@ -1,10 +1,17 @@
 {
   "id": "ZHDTIMRU",
-  "type": "legislation",
+  "type": "regulation",
   "container-title": "N.H. Gov’t Reg.",
   "volume": "16",
+  "issued": {
+    "date-parts": [
+      [
+        2000,
+        4
+      ]
+    ]
+  },
   "page": "45",
-  "note": "key: \nhtml_id: c545",
   "publisher": "LexisNexis",
   "jurisdiction": "005us:nhUnited States|US|New Hampshire"
 }

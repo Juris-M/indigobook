@@ -2,7 +2,12 @@
   "id": "4IDZRMES",
   "type": "legislation",
   "container-title": "La. Stat. Ann.",
-  "section": "123:456",
-  "note": "key: \nhtml_id: c452",
+  "issued": {
+    "date-parts": [
+      [
+        2000
+      ]
+    ]
+  },
   "jurisdiction": "005us:laUnited States|US|Louisiana"
 }
