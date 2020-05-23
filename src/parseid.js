@@ -42,10 +42,12 @@ var signalMap = {
 }
 
 const commaCheck = (str) => {
-    var preSlice = [
+    var whitelist = [
         "eg"
     ];
-    var postSlice = [];
+    var blacklist = [
+        "generally"
+    ];
     var noSlice = [
         "affirmed",
         "certdenied",
@@ -55,10 +57,17 @@ const commaCheck = (str) => {
     str = str.toLowerCase();
     if (noSlice.indexOf(str) > -1) {
         return true;
-    } else if (preSlice.indexOf(str.slice(0, str.length)) > -1) {
-        return true;
-    } else if (postSlice.indexOf(str.slice(-1 * str.length)) > -1) {
-        return true;
+    } else {
+        for (var substr of blacklist) {
+            if (str.indexOf(substr) > -1) {
+                return false;
+            }
+        }
+        for (var substr of whitelist) {
+            if (str.indexOf(substr) > -1) {
+                return true;
+            }
+        }
     }
     return false;
 }
@@ -98,6 +107,7 @@ export default (html_id, rawStr, base64encoder) => {
                 }
                 if (commaCheck(m[1])) {
                     params.prefix = `${params.prefix},`;
+                    console.log(`OK! ${html_id}`);
                 }
             }
             params.id = m[2];

@@ -81,17 +81,47 @@ var signalMap = {
 };
 
 var commaCheck = function commaCheck(str) {
-  var preSlice = ["eg"];
-  var postSlice = [];
+  var whitelist = ["eg"];
+  var blacklist = ["generally"];
   var noSlice = ["affirmed", "certdenied", "reversed::other", "reversed"];
   str = str.toLowerCase();
 
   if (noSlice.indexOf(str) > -1) {
     return true;
-  } else if (preSlice.indexOf(str.slice(0, str.length)) > -1) {
-    return true;
-  } else if (postSlice.indexOf(str.slice(-1 * str.length)) > -1) {
-    return true;
+  } else {
+    var _iterator = _createForOfIteratorHelper(blacklist),
+        _step;
+
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var substr = _step.value;
+
+        if (str.indexOf(substr) > -1) {
+          return false;
+        }
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+
+    var _iterator2 = _createForOfIteratorHelper(whitelist),
+        _step2;
+
+    try {
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        var substr = _step2.value;
+
+        if (str.indexOf(substr) > -1) {
+          return true;
+        }
+      }
+    } catch (err) {
+      _iterator2.e(err);
+    } finally {
+      _iterator2.f();
+    }
   }
 
   return false;
@@ -118,12 +148,12 @@ var _default = function _default(html_id, rawStr, base64encoder) {
   var test_id = [];
   var strLst = rawStr.split("++");
 
-  var _iterator = _createForOfIteratorHelper(strLst),
-      _step;
+  var _iterator3 = _createForOfIteratorHelper(strLst),
+      _step3;
 
   try {
-    for (_iterator.s(); !(_step = _iterator.n()).done;) {
-      var str = _step.value;
+    for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+      var str = _step3.value;
       var m = str.match(/^([^\-]+)-([^\-]+)-([0-3]+)-([0-1]+)(?:\-(.*))*/);
 
       if (m) {
@@ -145,6 +175,7 @@ var _default = function _default(html_id, rawStr, base64encoder) {
 
           if (commaCheck(m[1])) {
             params.prefix = "".concat(params.prefix, ",");
+            console.log("OK! ".concat(html_id));
           }
         }
 
@@ -167,9 +198,9 @@ var _default = function _default(html_id, rawStr, base64encoder) {
       }
     }
   } catch (err) {
-    _iterator.e(err);
+    _iterator3.e(err);
   } finally {
-    _iterator.f();
+    _iterator3.f();
   }
 
   ret.test_id = test_id.join("++");

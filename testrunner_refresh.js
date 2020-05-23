@@ -51,8 +51,27 @@ const getTableKeys = () => {
     return ret;
 };
 
-if (!arg || !(arg.match(/^c[0-9]{3}$/) || arg === "tables")) {
-    console.log("Error: argument must be of the form \"c000\" or \"style_c000\" or \"tables\".");
+const getNonTableKeys = () => {    
+    var ret = [];
+    for (var filename of fs.readdirSync(testPath())) {
+        var testKey = filename.replace(/^style\_/, "").slice(0, -4);
+        var num = parseInt(testKey.slice(1), 10);
+        if (typeof num !== "number" || num > 231) {
+            continue;
+        }
+        var keys = getItemKeys(testKey);
+        for (var key of keys) {
+            if (ret.indexOf(key) === -1) {
+                ret.push(key);
+            }
+        }
+        fs.unlinkSync(testPath(filename));
+    }
+    return ret;
+};
+
+if (!arg || !(arg.match(/^c[0-9]{3}$/) || arg === "tables" || arg === "nontables")) {
+    console.log("Error: argument must be of the form \"c000\" or \"style_c000\" or \"tables\" or \"nontables\".");
     process.exit();
 }
 
@@ -107,11 +126,12 @@ var run = async (arg) => {
     if (arg === "tables") {
         // This also deletes target test fixtures
         var keys = getTableKeys();
+    } else if (arg === "nontables") {
+        var keys = getNonTableKeys();
     } else {
         var keys = getItemKeys(arg);
         deleteTest(arg);
     }
-    console.log(`Keys: ${JSON.stringify(keys)}`);
     deleteItems(keys);
     await getItems();
     await generateTests();

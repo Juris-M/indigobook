@@ -50,8 +50,6 @@ const run = async () => {
         let rawStr = node.getAttribute("data-info");
         if (!rawStr) continue;
 	
-	console.log(html_id);
-
         var info = parseid(html_id, rawStr, base64encode);
         if (!info) continue;
         for (var item of info["citation-items"]) {
@@ -62,7 +60,6 @@ const run = async () => {
             if (fs.existsSync(filePath)) {
                 continue;
             }
-            console.log("Getting " + filePath);
             var response = await axios({
                 method: "get",
                 url: `${apiStub}${key}`

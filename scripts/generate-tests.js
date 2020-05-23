@@ -26,17 +26,17 @@ var run = async () => {
         var newCite = serializer.serializeToString(node);
         newCite = newCite.replace(/\&amp;/g, "&");
         newCite = newCite.replace(/<\/var>/g, "[/VAR]").replace(/<var>/g, "[VAR]");
-        newCite = newCite.replace(/<span>[^<]+<\/span>/g, "");
+        //newCite = newCite.replace(/<span>[^<]+<\/span>/g, "");
         newCite = newCite.replace(/\[VAR\]/g, "<var>").replace(/\[\/VAR\]/g, "</var>");
-        newCite = newCite.replace(/<span[^>]*>/g, "").replace(/<\/span>/g, "");
-        newCite = newCite.replace(/<a[^>]*>/g, "").replace(/<\/a>/g, "");
+        newCite = newCite.replace(/<span hidden[^>]*>(.*?)<\/span>/g, "$1");
+        // newCite = newCite.replace(/<a[^>]*>/g, "").replace(/<\/a>/g, "");
         for (var key in varMap) {
             newCite = newCite.replace(`<var>${key}</var>`, varMap[key].val);
             //if (html_id === "c159" && key === "Name of the legislature (i.e. Leg.)") {
             //    console.log(`AFTER CONV: ${newCite}`);
             //}
         }
-        newCite = newCite.replace(/<span[^>]+>/g, "").replace(/<\/span>/g, "");
+        newCite = newCite.replace(/^<span[^>]+>/, "").replace(/<\/span>$/, "");
         var info = parseid(html_id, rawKey, base64);
         if (!info) continue;
         var items = [];
