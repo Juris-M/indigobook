@@ -14,7 +14,8 @@
       ]
     ]
   },
-  "archive_location": "654321",
+  "archive_location": "123654",
   "jurisdiction": "002usUnited States|US",
-  "collection-number": "2006"
+  "collection-number": "2006",
+  "admin-flag": "1"
 }
