@@ -6,6 +6,9 @@ var getItems = require("./scripts/getitems");
 var generateTests = require("./scripts/generate-tests");
 const { spawn } = require("child_process");
 
+var custom = [
+  // Test IDs (html_id) go here.
+]
 
 const itemPath = (filename) => {
     var itemStub = path.join(__dirname, "static", "itemdata");
@@ -70,7 +73,7 @@ const getNonTableKeys = () => {
     return ret;
 };
 
-if (!arg || !(arg.match(/^c[0-9]{3}$/) || arg === "tables" || arg === "nontables")) {
+if (!arg || !(arg.match(/^c[0-9]{3}$/) || arg === "tables" || arg === "nontables" || arg === "custom")) {
     console.log("Error: argument must be of the form \"c000\" or \"style_c000\" or \"tables\" or \"nontables\".");
     process.exit();
 }
@@ -128,6 +131,13 @@ var run = async (arg) => {
         var keys = getTableKeys();
     } else if (arg === "nontables") {
         var keys = getNonTableKeys();
+    } else if (arg === "custom") {
+        var customArgs = custom;
+        var keys = [];
+        for (var customArg of customArgs) {
+            keys = keys.concat(getItemKeys(customArg));
+            deleteTest(customArg);
+        }
     } else {
         var keys = getItemKeys(arg);
         deleteTest(arg);
