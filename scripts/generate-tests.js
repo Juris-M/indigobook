@@ -37,6 +37,7 @@ var run = async () => {
             //}
         }
         newCite = newCite.replace(/^<span[^>]+>/, "").replace(/<\/span>$/, "");
+        newCite = newCite.replace(/\s+/g, " ");
         var info = parseid(html_id, rawKey, base64);
         if (!info) continue;
         var items = [];

@@ -76,7 +76,7 @@
         "field": "issued"
     },
     "full title of hearing": {
-        "val": "Regulation of reverse composition workarounds",
+        "val": "Regulation of reverse composition workarounds of 2002",
         "field": "title"
     },
     "Congressional bill number, if any": {
@@ -99,7 +99,7 @@
         "val": "21",
         "field": "page"
     },
-    "abbreviation for the state’s name from Table T12.1": {
+    "abbreviation for the state’s name from <a href=\"#T12.1\">Table T12.1</a>": {
         "val": "Mont.",
         "field": "jurisdiction"
     },
