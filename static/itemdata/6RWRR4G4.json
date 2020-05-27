@@ -1,8 +1,9 @@
 {
   "id": "6RWRR4G4",
   "type": "webpage",
-  "title": "ESPN, http://www.espn.go.com/ (last visited",
-  "issued": {
+  "container-title": "ESPN",
+  "URL": "http://www.espn.go.com/",
+  "accessed": {
     "date-parts": [
       [
         2015,

@@ -1,11 +1,15 @@
 {
   "id": "GQY43XIS",
   "type": "legal_case",
-  "title": "American Express Travel Related Servs., Inc., CFPB No.  -CFPB-0013 (Dec. 24, 2013)",
+  "title": "American Express Travel Related Servs., Inc.",
+  "authority": "CFPB",
+  "number": "2013\\-CFPB\\-0013",
   "issued": {
     "date-parts": [
       [
-        2013
+        2013,
+        12,
+        24
       ]
     ]
   },

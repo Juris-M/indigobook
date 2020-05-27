@@ -1,7 +1,9 @@
 {
   "id": "VU45UDJP",
   "type": "legislation",
-  "title": "X Unif. Mediation Act § 8, 7A Pt. III U.L.A. 137",
+  "title": "Unif. Mediation Act",
+  "container-title": "U.L.A.",
+  "volume": "7A Pt. III",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,7 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "page": "137",
+  "jurisdiction": "002usUnited States|US",
+  "gazette-flag": "1"
 }

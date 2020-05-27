@@ -1,7 +1,10 @@
 {
   "id": "2GHDK9K8",
-  "type": "legislation",
-  "title": "Clinical Social Work Medicare Equality Act of  , S. 1083, 107th Cong. § 2(b) (2001)",
+  "type": "bill",
+  "title": "Clinical Social Work Medicare Equality Act of 2001",
+  "number": "S. 1083",
+  "section": "sec. 2(b)",
+  "authority": "Cong.",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +12,6 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "002usUnited States|US",
+  "collection-number": "107"
 }

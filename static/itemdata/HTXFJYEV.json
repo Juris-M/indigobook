@@ -1,7 +1,10 @@
 {
   "id": "HTXFJYEV",
   "type": "bill",
-  "title": "Paycheck Fairness Act, H.R. 11, 111th Cong. § 203",
+  "title": "Paycheck Fairness Act",
+  "number": "H.R. 11",
+  "section": "sec. 203",
+  "authority": "Cong.",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +12,6 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "002usUnited States|US",
+  "collection-number": "111"
 }

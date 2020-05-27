@@ -1,7 +1,18 @@
 {
   "id": "WN6L6K3Z",
   "type": "book",
-  "title": "1 Melville B. Nimmer & David Nimmer, Nimmer on Copyright § 1.01[B][1][a] at 1–14–15",
+  "title": "Nimmer on Copyright",
+  "author": [
+    {
+      "given": "Melville B.",
+      "family": "Nimmer"
+    },
+    {
+      "given": "David",
+      "family": "Nimmer"
+    }
+  ],
+  "volume": "1",
   "issued": {
     "date-parts": [
       [

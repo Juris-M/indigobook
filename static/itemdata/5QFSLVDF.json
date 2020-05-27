@@ -1,11 +1,14 @@
 {
   "id": "5QFSLVDF",
   "type": "legal_case",
-  "title": "T.D.  , 17 Treas. Dec. Int. Rev. 39 (1915)",
+  "title": "T.D. 2135",
+  "container-title": "Treas. Dec. Int. Rev.",
+  "volume": "17",
+  "page": "39",
   "issued": {
     "date-parts": [
       [
-        2135
+        1915
       ]
     ]
   },

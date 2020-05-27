@@ -1,11 +1,19 @@
 {
   "id": "SC2WBGB3",
   "type": "legislation",
-  "title": "Family Sponsor Immigration Act of 2002",
+  "title": "Family Sponsor Immigration Act",
   "container-title": "Stat.",
   "volume": "116",
   "number": "107\\-150",
+  "issued": {
+    "date-parts": [
+      [
+        2002
+      ]
+    ]
+  },
   "page": "74",
   "jurisdiction": "002usUnited States|US",
+  "collection-number": "2002",
   "gazette-flag": "1"
 }

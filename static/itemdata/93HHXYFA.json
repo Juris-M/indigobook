@@ -1,7 +1,14 @@
 {
   "id": "93HHXYFA",
   "type": "article-newspaper",
-  "title": "Charlie Savage, U.N. Commission Presses U.S. on Torture, N.Y. Times,  , at A6",
+  "title": "U.N. Commission Presses U.S. on Torture",
+  "author": [
+    {
+      "given": "Charlie",
+      "family": "Savage"
+    }
+  ],
+  "container-title": "N.Y. Times",
   "issued": {
     "date-parts": [
       [
@@ -11,5 +18,6 @@
       ]
     ]
   },
+  "page": "A6",
   "jurisdiction": "002usUnited States|US"
 }

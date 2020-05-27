@@ -1,7 +1,8 @@
 {
   "id": "C4QKG5YK",
   "type": "bill",
-  "title": "S. 812, 108th Cong.",
+  "number": "S. 812",
+  "authority": "Cong.",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +10,6 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "002usUnited States|US",
+  "collection-number": "108"
 }

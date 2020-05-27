@@ -1,13 +1,20 @@
 {
   "id": "ZEV9UXK4",
   "type": "legal_case",
-  "title": "X Pl.’s Resp. to Defs.’ Mot. for Summ. J. at 14, Martinez-Mendoza v. Champion Int’l Corp., 340 F.3d   (11th Cir. 2003) (No. 06-19139)",
+  "title": "Martinez-Mendoza v. Champion Int’l Corp.",
+  "container-title": "F.3d",
+  "volume": "340",
+  "authority": "court.appeals",
+  "number": "06\\-19139",
+  "page": "1200",
   "issued": {
     "date-parts": [
       [
-        1200
+        2003
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "shortTitle": "Martinez-Mendoza",
+  "jurisdiction": "006us:c11United States|US|Eleventh Circuit",
+  "document-name": "Pl.’s Resp. to Defs.’ Mot. for Summ. J."
 }

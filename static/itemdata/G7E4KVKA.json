@@ -1,7 +1,12 @@
 {
   "id": "G7E4KVKA",
   "type": "legal_case",
-  "title": "Decl. of Martha Woodmansee at 7, Salinger v. Colting, 641 F. Supp. 2d 250 (S.D.N.Y.(No. 09 Civ. 05095)",
+  "title": "Salinger v. Colting",
+  "container-title": "F. Supp. 2d",
+  "volume": "641",
+  "authority": "district.court",
+  "number": "09 Civ. 05095",
+  "page": "250",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +14,7 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "shortTitle": "Salinger",
+  "jurisdiction": "011us:c2:ny.sdUnited States|US|Second Circuit|S.D. New York",
+  "document-name": "Decl. of Martha Woodmansee"
 }

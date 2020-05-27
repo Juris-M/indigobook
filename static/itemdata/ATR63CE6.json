@@ -1,7 +1,14 @@
 {
   "id": "ATR63CE6",
   "type": "article-magazine",
-  "title": "Jack Dickey, The Power of Taylor Swift, Time,  , at 13",
+  "title": "The Power of Taylor Swift",
+  "author": [
+    {
+      "given": "Jack",
+      "family": "Dickey"
+    }
+  ],
+  "container-title": "Time",
   "issued": {
     "date-parts": [
       [
@@ -10,5 +17,6 @@
         24
       ]
     ]
-  }
+  },
+  "page": "13"
 }

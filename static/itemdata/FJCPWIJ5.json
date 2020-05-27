@@ -1,7 +1,24 @@
 {
   "id": "FJCPWIJ5",
   "type": "chapter",
-  "title": "Roger Angell, This Old Man, in The Best American Essays   (Ariel Levy & Robert Atwan eds.,2015)",
+  "title": "This Old Man",
+  "author": [
+    {
+      "given": "Roger",
+      "family": "Angell"
+    }
+  ],
+  "editor": [
+    {
+      "given": "Ariel",
+      "family": "Levy"
+    },
+    {
+      "given": "Robert",
+      "family": "Atwan"
+    }
+  ],
+  "container-title": "The Best American Essays 2015",
   "issued": {
     "date-parts": [
       [

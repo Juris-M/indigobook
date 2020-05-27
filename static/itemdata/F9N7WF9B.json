@@ -1,7 +1,12 @@
 {
   "id": "F9N7WF9B",
   "type": "legal_case",
-  "title": "X Davey v. The Mary Frost, 7 F. Cas. 11 (E.D. Tx.(No. 3591)",
+  "title": "Davey v. The Mary Frost",
+  "container-title": "F. Cas.",
+  "volume": "7",
+  "authority": "district.court",
+  "number": "3591",
+  "page": "11",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +14,6 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "archive_location": "3591",
+  "jurisdiction": "011us:c5:tx.edUnited States|US|Fifth Circuit|E.D. Texas"
 }

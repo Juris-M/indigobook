@@ -1,7 +1,14 @@
 {
   "id": "QSADDMTW",
-  "type": "article-newspaper",
-  "title": "Mike Masnick, Left Shark Bites Back: 3D Printer Sculptor Hires Lawyer To Respond to Katy Perry’s Bogus Takedown, TechDirt ( , 12:27 PM), https://www.techdirt.com/articles/20150209/11373729960/left-shark-bites-back-3d-printer-sculptor-hires-lawyer-to-respond-to-katy-perrys-bogus-takedown.shtml",
+  "type": "post-weblog",
+  "title": "Left Shark Bites Back: 3D Printer Sculptor Hires Lawyer To Respond to Katy Perry’s Bogus Takedown",
+  "author": [
+    {
+      "given": "Mike",
+      "family": "Masnick"
+    }
+  ],
+  "container-title": "TechDirt",
   "issued": {
     "date-parts": [
       [
@@ -11,5 +18,6 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "URL": "https://www.techdirt.com/articles/20150209/11373729960/left-shark-bites-back-3d-printer-sculptor-hires-lawyer-to-respond-to-katy-perrys-bogus-takedown.shtml",
+  "note": "event-date: 12:27 PM"
 }

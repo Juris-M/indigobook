@@ -1,7 +1,8 @@
 {
   "id": "UZE3M5F2",
-  "type": "bill",
-  "title": "S. Rep. No. 106-261, at 441",
+  "type": "report",
+  "number": "106\\-261",
+  "genre": "S. Rep.",
   "issued": {
     "date-parts": [
       [

@@ -1,7 +1,10 @@
 {
   "id": "YA7FAQCY",
   "type": "legal_case",
-  "title": "Rev. Proc. 97-27,  -21 I.R.B. 11",
+  "container-title": "I.R.B.",
+  "volume": "21",
+  "number": "97\\-27",
+  "page": "11",
   "issued": {
     "date-parts": [
       [
@@ -10,5 +13,7 @@
     ]
   },
   "jurisdiction": "002usUnited States|US",
+  "collection-number": "1997",
+  "genre": "Rev. Proc.",
   "admin-flag": "1"
 }

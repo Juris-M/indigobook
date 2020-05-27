@@ -1,11 +1,32 @@
 {
   "id": "T9PVWBJK",
-  "type": "post-weblog",
-  "title": "Parker Higgins & Sarah Jeong, Archive of 5 Useful Articles Newsletter, 5 Useful Articles, http://tinyletter.com/5ua (last visited March 2,",
+  "type": "webpage",
+  "author": [
+    {
+      "given": "Parker",
+      "family": "Higgins"
+    },
+    {
+      "given": "Sarah",
+      "family": "Jeong"
+    }
+  ],
+  "container-title": "5 Useful Articles",
+  "genre": "Archive of 5 Useful Articles Newsletter",
   "issued": {
     "date-parts": [
       [
         2015
+      ]
+    ]
+  },
+  "URL": "http://tinyletter.com/5ua",
+  "accessed": {
+    "date-parts": [
+      [
+        2015,
+        3,
+        2
       ]
     ]
   }

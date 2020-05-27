@@ -1,7 +1,14 @@
 {
   "id": "8PJM64JN",
   "type": "article-newspaper",
-  "title": "Vikas Bajaj, Rules for the Marijuana Market, N.Y. Times,  , at A20",
+  "title": "Rules for the Marijuana Market",
+  "author": [
+    {
+      "given": "Vikas",
+      "family": "Bajaj"
+    }
+  ],
+  "container-title": "N.Y. Times",
   "issued": {
     "date-parts": [
       [
@@ -11,5 +18,6 @@
       ]
     ]
   },
+  "page": "A20",
   "jurisdiction": "002usUnited States|US"
 }

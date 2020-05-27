@@ -1,13 +1,18 @@
 {
   "id": "YRKTRYNB",
   "type": "legal_case",
-  "title": "X Compl. 5, Parsell v. Shell Oil Co., 421 F. Supp.   (D. Conn. 1976)",
+  "title": "Parsell v. Shell Oil Co.",
+  "container-title": "F. Supp.",
+  "volume": "421",
+  "authority": "district.court",
+  "page": "1275",
   "issued": {
     "date-parts": [
       [
-        1275
+        1976
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "010us:c2:ct.dUnited States|US|Second Circuit|D. Connecticut",
+  "document-name": "Compl."
 }

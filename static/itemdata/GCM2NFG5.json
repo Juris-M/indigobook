@@ -1,7 +1,10 @@
 {
   "id": "GCM2NFG5",
   "type": "hearing",
-  "title": "Hearing on L.D. 319 Before the Health and Human Servs. Comm., 127th Leg., Reg. Sess. (Me.",
+  "section": "Health and Human Servs. Comm.",
+  "number": "L.D. 319",
+  "authority": "Leg.",
+  "chapter-number": "Reg.",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +12,6 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:meUnited States|US|Maine",
+  "collection-number": "127"
 }

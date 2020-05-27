@@ -1,13 +1,19 @@
 {
   "id": "KTSJDMKU",
-  "type": "legislation",
-  "title": "X H.R.  , 111th Cong. § 2(c)(4)",
+  "type": "bill",
+  "number": "H.R. 1746",
+  "section": "sec. 2(c)(4)",
+  "authority": "Cong.",
+  "references": "<i>as reported by</i> H. Comm. on Transp. and Infrastructure",
   "issued": {
     "date-parts": [
       [
-        1746
+        2009,
+        4,
+        23
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "002usUnited States|US",
+  "collection-number": "111"
 }
