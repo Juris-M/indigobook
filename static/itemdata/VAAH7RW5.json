@@ -1,7 +1,14 @@
 {
   "id": "VAAH7RW5",
-  "type": "report",
-  "title": "Lincoln Univ., U.S. Dep't of Educ., No. 13-68-SF",
+  "type": "legal_case",
+  "title": "Lincoln Univ.",
+  "contributor": [
+    {
+      "family": "Labor"
+    }
+  ],
+  "authority": "U.S. Dep't of Educ.",
+  "number": "13\\-68\\-SF",
   "issued": {
     "date-parts": [
       [
@@ -11,5 +18,6 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "002usUnited States|US",
+  "admin-flag": "1"
 }

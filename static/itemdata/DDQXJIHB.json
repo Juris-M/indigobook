@@ -1,8 +1,7 @@
 {
   "id": "DDQXJIHB",
   "type": "patent",
-  "title": "U.S. Trademark Application Serial No. 86,680,743 (filed",
-  "issued": {
+  "submitted": {
     "date-parts": [
       [
         2015,
@@ -11,5 +10,7 @@
       ]
     ]
   },
+  "call-number": "86,680,743",
+  "genre": "Trademark",
   "jurisdiction": "002usUnited States|US"
 }

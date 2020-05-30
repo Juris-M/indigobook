@@ -1,7 +1,9 @@
 {
   "id": "WBPLY7X9",
   "type": "legal_case",
-  "title": "OFCCP v. Bank of Am., 97-OFC-16, Secretary's Decision and Order of Remand (Dep't of Labor",
+  "title": "OFCCP v. Bank of Am.",
+  "authority": "Dep't of Labor",
+  "number": "97\\-OFC\\-16",
   "issued": {
     "date-parts": [
       [
@@ -12,5 +14,6 @@
     ]
   },
   "jurisdiction": "002usUnited States|US",
+  "genre": "Secretary's Decision and Order of Remand",
   "admin-flag": "1"
 }

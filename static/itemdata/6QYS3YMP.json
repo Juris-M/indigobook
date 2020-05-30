@@ -1,11 +1,15 @@
 {
   "id": "6QYS3YMP",
   "type": "legal_case",
-  "title": "X Arizona Livestock Auction, Inc., 55 Agric Dec.   (U.S.D.A. 1996)",
+  "title": "Arizona Livestock Auction, Inc.",
+  "container-title": "Agric Dec.",
+  "volume": "55",
+  "authority": "U.S.D.A.",
+  "page": "1121",
   "issued": {
     "date-parts": [
       [
-        1121
+        1996
       ]
     ]
   },

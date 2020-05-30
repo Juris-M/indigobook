@@ -1,7 +1,9 @@
 {
   "id": "PZNXP2Y4",
   "type": "regulation",
-  "title": "Exec. Order 13,136, 3 C.F.R. 216",
+  "container-title": "C.F.R.",
+  "volume": "3",
+  "number": "13,136",
   "issued": {
     "date-parts": [
       [
@@ -11,5 +13,8 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "page": "216",
+  "jurisdiction": "002usUnited States|US",
+  "genre": "Exec. Order",
+  "gazette-flag": "1"
 }

@@ -1,8 +1,8 @@
 {
   "id": "GYEHKKI7",
   "type": "patent",
-  "title": "U.S. Patent No. 8,112,504 B2 (filed",
-  "issued": {
+  "number": "8,112,504",
+  "submitted": {
     "date-parts": [
       [
         2009,
@@ -11,5 +11,6 @@
       ]
     ]
   },
+  "status": "B2",
   "jurisdiction": "002usUnited States|US"
 }

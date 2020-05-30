@@ -1,7 +1,11 @@
 {
   "id": "YECBWQJH",
   "type": "legal_case",
-  "title": "Shell Offshore, Inc., 94 Interior Dec. 69 (IBLA",
+  "title": "Shell Offshore, Inc.",
+  "container-title": "Interior Dec.",
+  "volume": "94",
+  "authority": "IBLA",
+  "page": "69",
   "issued": {
     "date-parts": [
       [
