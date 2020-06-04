@@ -38,7 +38,8 @@ var signalMap = {
     reversed: "rev'd",
     other: "on other grounds",
     subnom: "sub nom.",
-    description: "Description of content,"
+    description: "Description of content,",
+    semicolon: "; "
 }
 
 const commaCheck = (str) => {
@@ -100,7 +101,7 @@ export default (html_id, rawStr, base64encoder) => {
                     return typeof signalMap[o] !== "undefined" ? signalMap[o] : o;
                 });
                 var signal = lst.join(" ");
-                if (m[1] === "description") {
+                if (m[1] === "description" || m[1] === "semicolon") {
                     params.prefix = signal;
                 } else {
                     params.prefix = `<i>${signal}</i>`;

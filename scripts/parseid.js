@@ -77,7 +77,8 @@ var signalMap = {
   reversed: "rev'd",
   other: "on other grounds",
   subnom: "sub nom.",
-  description: "Description of content,"
+  description: "Description of content,",
+  semicolon: "; "
 };
 
 var commaCheck = function commaCheck(str) {
@@ -167,7 +168,7 @@ var _default = function _default(html_id, rawStr, base64encoder) {
           });
           var signal = lst.join(" ");
 
-          if (m[1] === "description") {
+          if (m[1] === "description" || m[1] === "semicolon") {
             params.prefix = signal;
           } else {
             params.prefix = "<i>".concat(signal, "</i>");
