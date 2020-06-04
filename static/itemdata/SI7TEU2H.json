@@ -1,14 +1,21 @@
 {
   "id": "SI7TEU2H",
   "type": "legal_case",
-  "title": "Poplogix LLC, SEC No-Action Letter,   WL 4472794 (Nov. 5, 2010)",
+  "title": "Poplogix LLC",
+  "container-title": "WL",
+  "authority": "SEC",
+  "page": "4472794",
   "issued": {
     "date-parts": [
       [
-        2010
+        2010,
+        11,
+        5
       ]
     ]
   },
   "jurisdiction": "002usUnited States|US",
+  "collection-number": "2010",
+  "genre": "No-Action Letter",
   "admin-flag": "1"
 }

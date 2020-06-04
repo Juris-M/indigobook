@@ -1,7 +1,9 @@
 {
   "id": "7KQPUYSP",
   "type": "legal_case",
-  "title": "People v. Doe,   IL 102345",
+  "title": "People v. Doe",
+  "authority": "supreme.court",
+  "page": "102345",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,6 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:ilUnited States|US|Illinois",
+  "collection-number": "2011"
 }

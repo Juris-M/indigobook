@@ -1,9 +1,12 @@
 {
-  "id": "EIGG38NP",
+  "id": "Z2UT2AXV",
   "type": "legal_case",
   "title": "Smith v. Jones",
+  "container-title": "So.2d",
+  "volume": "650",
   "authority": "supreme.court",
-  "number": "93\\-2345",
+  "number": "94\\-2345",
+  "page": "500",
   "issued": {
     "date-parts": [
       [
@@ -15,6 +18,6 @@
   },
   "jurisdiction": "005us:laUnited States|US|Louisiana",
   "seeAlso": [
-    "EQZ6RI89"
+    "Y9QH9F68"
   ]
 }

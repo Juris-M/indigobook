@@ -1,7 +1,12 @@
 {
   "id": "J2X5BRN3",
   "type": "legal_case",
-  "title": "Protecting and Promoting the Open Internet, GN Docket No. 14-28, Notice of Proposed Rulemaking, 29 FCC Rcd 5561",
+  "title": "Protecting and Promoting the Open Internet",
+  "container-title": "FCC Rcd",
+  "volume": "29",
+  "number": "14\\-28",
+  "page": "5561",
+  "references": "Notice of Proposed Rulemaking",
   "issued": {
     "date-parts": [
       [
@@ -10,5 +15,6 @@
     ]
   },
   "jurisdiction": "002usUnited States|US",
+  "genre": "GN Docket",
   "admin-flag": "1"
 }

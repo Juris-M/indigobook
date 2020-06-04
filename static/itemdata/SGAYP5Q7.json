@@ -1,14 +1,22 @@
 {
   "id": "SGAYP5Q7",
   "type": "legal_case",
-  "title": "Envirosolve, LLC, FAA Order No.  -2, 2006 WL 465371 (Feb. 7, 2006)",
+  "title": "Envirosolve, LLC",
+  "container-title": "WL",
+  "authority": "F.A.A.",
+  "number": "2006\\-2",
+  "page": "465371",
   "issued": {
     "date-parts": [
       [
-        2006
+        2006,
+        2,
+        7
       ]
     ]
   },
   "jurisdiction": "002usUnited States|US",
+  "collection-number": "2006",
+  "genre": "FAA Order",
   "admin-flag": "1"
 }

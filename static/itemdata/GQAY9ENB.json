@@ -1,7 +1,10 @@
 {
   "id": "GQAY9ENB",
   "type": "report",
-  "title": "Polyvinyl Alcohol from China, Japan, and Taiwan, Inv. Nos. 701-TA-309, 731-TA-528, 731-TA-529, USITC Pub. 4067",
+  "title": "Polyvinyl Alcohol from China, Japan, and Taiwan",
+  "number": "701\\-TA\\-309|731\\-TA\\-528|731\\-TA\\-529",
+  "genre": "Inv.",
+  "authority": "USITC",
   "issued": {
     "date-parts": [
       [
@@ -11,5 +14,6 @@
       ]
     ]
   },
+  "call-number": "4067",
   "jurisdiction": "002usUnited States|US"
 }

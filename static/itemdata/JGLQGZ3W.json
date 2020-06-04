@@ -1,7 +1,10 @@
 {
   "id": "JGLQGZ3W",
-  "type": "report",
-  "title": "SEC Staff Accounting Bulletin No. 99, 64 Fed. Reg. 45150",
+  "type": "regulation",
+  "title": "SEC Staff Accounting Bulletin",
+  "container-title": "Fed. Reg.",
+  "volume": "64",
+  "number": "99",
   "issued": {
     "date-parts": [
       [
@@ -11,5 +14,6 @@
       ]
     ]
   },
+  "page": "45150",
   "jurisdiction": "002usUnited States|US"
 }

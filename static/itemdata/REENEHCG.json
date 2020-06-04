@@ -1,7 +1,9 @@
 {
   "id": "REENEHCG",
   "type": "regulation",
-  "title": "Exec. Order 12,900, 59 FR 9061",
+  "container-title": "FR",
+  "volume": "59",
+  "number": "12,900",
   "issued": {
     "date-parts": [
       [
@@ -11,5 +13,8 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "page": "9061",
+  "jurisdiction": "002usUnited States|US",
+  "genre": "Exec. Order",
+  "gazette-flag": "1"
 }

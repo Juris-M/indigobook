@@ -1,11 +1,15 @@
 {
   "id": "BW4QEGDT",
   "type": "legal_case",
-  "title": "X Prime Roofing Corp., No. 07-  (OSHRC Feb. 5, 2008)",
+  "title": "Prime Roofing Corp.",
+  "authority": "OSHRC",
+  "number": "07\\-1409",
   "issued": {
     "date-parts": [
       [
-        1409
+        2008,
+        2,
+        5
       ]
     ]
   },

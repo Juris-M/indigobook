@@ -1,14 +1,21 @@
 {
   "id": "FHGWZSGZ",
   "type": "legal_case",
-  "title": "IAP-Hill, LLC, B-406289 et al,   CPD ¶ 151 (Comp. Gen. Apr. 4, 2012)",
+  "title": "IAP-Hill, LLC",
+  "container-title": "CPD",
+  "authority": "Comp. Gen.",
+  "number": "B-406289 et al",
+  "page": "para. 151",
   "issued": {
     "date-parts": [
       [
-        2012
+        2012,
+        4,
+        4
       ]
     ]
   },
   "jurisdiction": "002usUnited States|US",
+  "collection-number": "2012",
   "admin-flag": "1"
 }

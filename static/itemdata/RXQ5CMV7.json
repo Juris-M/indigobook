@@ -1,14 +1,19 @@
 {
   "id": "RXQ5CMV7",
   "type": "legal_case",
-  "title": "OxyHeal Medical Systems, Inc., SBA No. SIZ-5707 (Jan. 19",
+  "title": "OxyHeal Medical Systems, Inc.",
+  "authority": "SBA",
+  "number": "SIZ-5707",
   "issued": {
     "date-parts": [
       [
-        2016
+        2016,
+        1,
+        19
       ]
     ]
   },
   "jurisdiction": "002usUnited States|US",
+  "collection-number": "2016",
   "admin-flag": "1"
 }

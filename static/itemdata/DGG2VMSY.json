@@ -1,14 +1,19 @@
 {
   "id": "DGG2VMSY",
   "type": "legal_case",
-  "title": "SSR 62-2,  -1974 Soc. Sec. Rep. Serv. 69 (Jan. 1, 1962)",
+  "container-title": "Soc. Sec. Rep. Serv.",
+  "number": "SSR 62\\-2",
+  "page": "69",
   "issued": {
     "date-parts": [
       [
-        1960
+        1962,
+        1,
+        1
       ]
     ]
   },
   "jurisdiction": "002usUnited States|US",
+  "collection-number": "1960-1974",
   "admin-flag": "1"
 }

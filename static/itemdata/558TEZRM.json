@@ -1,14 +1,21 @@
 {
   "id": "558TEZRM",
   "type": "legal_case",
-  "title": "MP Environmental Funding LLC, SEC Interprative Letter,   WL 2838964 (Sep. 19, 2007)",
+  "title": "MP Environmental Funding LLC",
+  "container-title": "WL",
+  "authority": "SEC",
+  "page": "2838964",
   "issued": {
     "date-parts": [
       [
-        2007
+        2007,
+        9,
+        19
       ]
     ]
   },
   "jurisdiction": "002usUnited States|US",
+  "collection-number": "2007",
+  "genre": "Interpretive Letter",
   "admin-flag": "1"
 }

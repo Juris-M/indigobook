@@ -4,14 +4,14 @@
   "title": "Unif. Mediation Act",
   "container-title": "U.L.A.",
   "volume": "7A Pt. III",
-  "issued": {
+  "page": "137",
+  "jurisdiction": "002usUnited States|US",
+  "gazette-flag": "1",
+  "publication-date": {
     "date-parts": [
       [
         2006
       ]
     ]
-  },
-  "page": "137",
-  "jurisdiction": "002usUnited States|US",
-  "gazette-flag": "1"
+  }
 }

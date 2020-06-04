@@ -1,14 +1,21 @@
 {
   "id": "JH6M97Z6",
   "type": "legal_case",
-  "title": "X Phoenix Environmental Design, Inc., B-4 3, 2016 WL 873296 (Comp. Gen. Mar. 7, 2016)",
+  "title": "Phoenix Environmental Design, Inc.",
+  "container-title": "WL",
+  "authority": "Comp. Gen.",
+  "number": "B\\-412503",
+  "page": "873296",
   "issued": {
     "date-parts": [
       [
-        1250
+        2016,
+        3,
+        7
       ]
     ]
   },
   "jurisdiction": "002usUnited States|US",
+  "collection-number": "2016",
   "admin-flag": "1"
 }

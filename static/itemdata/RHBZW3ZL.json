@@ -2,7 +2,14 @@
   "id": "RHBZW3ZL",
   "type": "legal_case",
   "authority": "supreme.court",
-  "number": "123\\-456",
+  "page": "456123",
+  "issued": {
+    "date-parts": [
+      [
+        2006
+      ]
+    ]
+  },
   "jurisdiction": "005us:ilUnited States|US|Illinois",
   "collection-number": "2006"
 }

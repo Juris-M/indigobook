@@ -1,14 +1,18 @@
 {
   "id": "ZL9I89K7",
   "type": "legal_case",
-  "title": "US Pagoda, Inc., CCH OSHD ¶ 33123 (No. 10- , 2011)",
+  "title": "US Pagoda, Inc.",
+  "container-title": "OSHD",
+  "number": "10\\-2035",
+  "page": "para. 33123",
   "issued": {
     "date-parts": [
       [
-        2035
+        2011
       ]
     ]
   },
+  "publisher": "CCH",
   "jurisdiction": "002usUnited States|US",
   "admin-flag": "1"
 }

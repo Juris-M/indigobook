@@ -1,7 +1,10 @@
 {
   "id": "ASCFVBXG",
-  "type": "report",
-  "title": "SEC Whistleblower Rules,  Exchange Act Release No. 75592, 80 Fed. Reg 47829",
+  "type": "regulation",
+  "title": "SEC Whistleblower Rules",
+  "container-title": "Fed. Reg.",
+  "volume": "80",
+  "number": "75592",
   "issued": {
     "date-parts": [
       [
@@ -11,5 +14,8 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "page": "47829",
+  "jurisdiction": "002usUnited States|US",
+  "genre": "Exchange Act Release",
+  "authority": "SEC"
 }

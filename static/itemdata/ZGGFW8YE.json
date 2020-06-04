@@ -1,7 +1,10 @@
 {
   "id": "ZGGFW8YE",
   "type": "legal_case",
-  "title": "X Space Communications Co., 66 Comp. Gen. 2",
+  "title": "Space Communications Co.",
+  "container-title": "Comp. Gen.",
+  "volume": "66",
+  "page": "2",
   "issued": {
     "date-parts": [
       [
