@@ -1,6 +1,7 @@
 {
   "patent": "Patent",
   "author": "Inventor",
+  "contributor": "Contributor",
   "recipient": "Recipient",
   "title": "Title",
   "abstract": "Abstract",

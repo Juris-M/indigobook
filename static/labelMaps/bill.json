@@ -1,6 +1,7 @@
 {
   "bill": "Bill",
   "author": "Sponsor",
+  "contributor": "Contributor",
   "translator": "Translator",
   "title": "Title",
   "container-title": "Code",

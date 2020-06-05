@@ -1,6 +1,7 @@
 {
   "personal_communication": "Letter",
   "author": "Author",
+  "contributor": "Contributor",
   "recipient": "Recipient",
   "title": "Title",
   "abstract": "Abstract",
