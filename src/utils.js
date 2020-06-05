@@ -48,7 +48,7 @@ const loginOK = () => {
 
 const logOut = () => {
     var elem = document.getElementById(window.localStorage.getItem("html_id"));
-    window.localStorage.setItem("citation", elem.innerHTML);
+    window.localStorage.setItem("citation", window.localStorage.getItem('citation_orig'));
     window.localStorage.removeItem('access_token');
     window.localStorage.setItem('block_login', true);
 };

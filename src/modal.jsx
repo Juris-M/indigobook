@@ -19,6 +19,8 @@ import "./modal.css";
 
 var urlStub = urlParts().base;
 
+import placeholders from '../scripts/placeholder-map.json';
+
 export const App = () => {
     // States
     const [popup, setPopup] = useState({
@@ -101,9 +103,15 @@ export const App = () => {
         a.click();
     }
     
+    const applyPlaceholders = (str) => {
+        for (var key in placeholders) {
+            str = str.replace(`<var>${key}</var>`, placeholders[key].val);
+        }
+        return str;
+    };
+    
     // Events
     useEffect(() => {
-        console.log('Set listeners =162=');
         const nodes = document.getElementsByClassName("cite");
         for (var node of nodes) {
             // Pulling details from the event here makes it simpler to
@@ -115,7 +123,8 @@ export const App = () => {
                 var info = parseid(html_id, cite_id);
                 if (info) {
                     window.localStorage.setItem('html_id', html_id);
-                    window.localStorage.setItem('citation', ev.currentTarget.innerHTML);
+                    window.localStorage.setItem('citation', applyPlaceholders(ev.currentTarget.innerHTML));
+                    window.localStorage.setItem('citation_orig', window.localStorage.getItem('citation'));
                     storeCitationInfo(info);
                     openModal();
                 }
