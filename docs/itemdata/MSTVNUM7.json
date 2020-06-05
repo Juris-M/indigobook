@@ -1,0 +1,18 @@
+{
+  "id": "MSTVNUM7",
+  "type": "book",
+  "title": "Beyond Freedom and Dignity",
+  "author": [
+    {
+      "given": "B.F.",
+      "family": "Skinner"
+    }
+  ],
+  "issued": {
+    "date-parts": [
+      [
+        2002
+      ]
+    ]
+  }
+}

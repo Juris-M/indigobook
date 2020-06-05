@@ -1,6 +1,7 @@
 {
   "song": "Audio Recording",
   "author": "Performer",
+  "contributor": "Contributor",
   "composer": "Composer",
   "title": "Title",
   "abstract": "Abstract",
@@ -13,7 +14,6 @@
   "publisher": "Label",
   "edition": "Release",
   "issued": "Date",
-  "section": "Opus No.",
   "original-date": "Orig. Date",
   "dimensions": "Running Time",
   "language": "Language",

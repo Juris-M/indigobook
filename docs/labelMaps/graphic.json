@@ -1,6 +1,7 @@
 {
   "graphic": "Artwork",
   "author": "Artist",
+  "contributor": "Contributor",
   "title": "Title",
   "abstract": "Abstract",
   "medium": "Medium",

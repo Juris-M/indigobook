@@ -1,0 +1,20 @@
+{
+  "id": "2PUBC97D",
+  "type": "legal_case",
+  "title": "Smith v. Jones",
+  "authority": "court.appeal",
+  "number": "93\\-2345",
+  "issued": {
+    "date-parts": [
+      [
+        1994,
+        7,
+        15
+      ]
+    ]
+  },
+  "jurisdiction": "008us:la:c1United States|US|Louisiana|Louisiana 1st Cir",
+  "seeAlso": [
+    "SAC2FCQD"
+  ]
+}

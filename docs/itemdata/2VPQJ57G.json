@@ -1,0 +1,16 @@
+{
+  "id": "2VPQJ57G",
+  "type": "legal_case",
+  "title": "People v. Doe",
+  "authority": "appellate.court",
+  "page": "101234",
+  "issued": {
+    "date-parts": [
+      [
+        2011
+      ]
+    ]
+  },
+  "jurisdiction": "008us:il:d1United States|US|Illinois|First District",
+  "collection-number": "2011"
+}

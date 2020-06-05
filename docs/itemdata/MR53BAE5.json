@@ -1,0 +1,16 @@
+{
+  "id": "MR53BAE5",
+  "type": "legal_case",
+  "title": "Smith v. Jones",
+  "authority": "supreme.court",
+  "page": "22",
+  "issued": {
+    "date-parts": [
+      [
+        2012
+      ]
+    ]
+  },
+  "jurisdiction": "005us:coUnited States|US|Colorado",
+  "collection-number": "2012"
+}

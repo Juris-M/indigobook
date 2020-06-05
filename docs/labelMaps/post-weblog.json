@@ -1,6 +1,8 @@
 {
   "post-weblog": "Blog Post",
   "author": "Author",
+  "commenter": "Commenter",
+  "contributor": "Contributor",
   "title": "Title",
   "abstract": "Abstract",
   "container-title": "Blog Title",
