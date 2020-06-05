@@ -37,6 +37,7 @@ const getCSL = (field, fieldList, dateList) => {
 }
 
 const runItemMaps = async () => {
+    console.log(`Get schema: ${schemaURL}`);
     var obj = await axios({
         method: "get",
         url: schemaURL
@@ -143,6 +144,7 @@ const runItemMaps = async () => {
 }
 
 const runJurisdictionMaps = async () => {
+    console.log(`Get abbrev index: ${abbrevIndexURL}`);
     var indexObj = await axios({
         method: "get",
         url: abbrevIndexURL
@@ -154,6 +156,7 @@ const runJurisdictionMaps = async () => {
             var retJurisdiction = {};
             var outFile = `${m[1]}.json`;
             var outPath = path.join(__dirname, "..", "static", "courtMaps", outFile);
+	    console.log(`Get abbrevs: ${abbrevStub}/${indexInfo.filename}`);
             var abbrevsObj = await axios({
                 method: "get",
                 url: `${abbrevStub}/${indexInfo.filename}`
