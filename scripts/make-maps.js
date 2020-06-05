@@ -6,6 +6,8 @@ const schemaURL = "https://raw.githubusercontent.com/Juris-M/zotero-schema/maste
 const abbrevIndexURL = "https://raw.githubusercontent.com/Juris-M/jurism-abbreviations/master/DIRECTORY_LISTING.json";
 const abbrevStub = "https://raw.githubusercontent.com/Juris-M/jurism-abbreviations/master";
 
+const jurisMapDir = path.join(__dirname, "..", "..", "JM", "jurism", "juris-maps");
+
 const handleErr = (e, url) => {
     console.log(`Axios fail: ${e.message} (${url})`);
     process.exit();
@@ -143,39 +145,57 @@ const runItemMaps = async () => {
     }
 }
 
+const extractCourtMap = (obj) => {
+    var fullJurisdictionID = [];
+    for (var i=0,ilen=obj.jurisdictions.length; i<ilen; i++) {
+        var entry = obj.jurisdictions[i];
+        if ("undefined" === typeof entry[2]) {
+            fullJurisdictionID.push(entry[0]);
+        } else {
+            fullJurisdictionID.push(`${fullJurisdictionID[entry[2]]}:${entry[0]}`);
+        }
+    }
+    var fullCourtName = [];
+    for (var i=0,ilen=obj.courts.length; i<ilen; i++) {
+        var entry = obj.courts[i];
+        fullCourtName.push(obj.courtNames[entry[1]]);
+    }
+    var ret = {};
+    for (var i=0,ilen=obj.courtJurisdictionLinks.length; i<ilen; i++) {
+        var entry = obj.courtJurisdictionLinks[i];
+        if (!ret[fullJurisdictionID[entry[0]]]) {
+            ret[fullJurisdictionID[entry[0]]] = {};
+        }
+        ret[fullJurisdictionID[entry[0]]][obj.courts[entry[1]][0]] = fullCourtName[entry[1]];
+    }
+    return ret;
+};
+
 const runJurisdictionMaps = async () => {
-    console.log(`Get abbrev index: ${abbrevIndexURL}`);
-    var indexObj = await axios({
-        method: "get",
-        url: abbrevIndexURL
-    }).catch((e) => handleErr(e, abbrevIndexURL));
-    var index = indexObj.data;
-    for (var indexInfo of index) {
-        var m = indexInfo.filename.match(/^auto-([a-z]+).*/);
+    for (var filename of fs.readdirSync(jurisMapDir)) {
+        if (filename.slice(-5) !== ".json") continue;
+        var m = filename.match(/^juris-([a-z]+)-map.json/);
         if (m) {
-            var retJurisdiction = {};
+            // var retJurisdiction = {};
             var outFile = `${m[1]}.json`;
             var outPath = path.join(__dirname, "..", "static", "courtMaps", outFile);
-	    console.log(`Get abbrevs: ${abbrevStub}/${indexInfo.filename}`);
-            var abbrevsObj = await axios({
-                method: "get",
-                url: `${abbrevStub}/${indexInfo.filename}`
-            }).catch((e) => handleErr(e, `${abbrevStub}/${indexInfo.filename}`));
-            var abbrevs = abbrevsObj.data;
-            for (var key in abbrevs.xdata) {
-                if ("default" === key) continue;
-                if (abbrevs.xdata[key]["institution-part"]) {
-                    retJurisdiction[key] = abbrevs.xdata[key]["institution-part"];
-                }
+            var jurisMapFilePath = `${jurisMapDir}/juris-${m[1]}-map.json`;
+            var obj = JSON.parse(fs.readFileSync(jurisMapFilePath).toString());
+            if (obj.courts) {
+                console.log(`Court abbrevs from: ${filename}`);
+                var retCourts = extractCourtMap(obj);
+            } else {
+                var retCourts = {};
+                retCourts[m[1]] = {};
             }
-            fs.writeFileSync(outPath, JSON.stringify(retJurisdiction));
+            fs.writeFileSync(outPath, JSON.stringify(retCourts));
         }
     }
 };
 
 const run = async () => {
     await runItemMaps();
-    await runJurisdictionMaps();
+    await runJurisdictionMaps().catch((e) => console.log(e));
 }
 
 
