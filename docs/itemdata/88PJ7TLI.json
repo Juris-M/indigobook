@@ -1,0 +1,22 @@
+{
+  "id": "88PJ7TLI",
+  "type": "legal_case",
+  "title": "Federal Express Corporation",
+  "container-title": "WL",
+  "authority": "F.A.A.",
+  "number": "2002\\-20",
+  "page": "31777976",
+  "issued": {
+    "date-parts": [
+      [
+        2002,
+        1,
+        1
+      ]
+    ]
+  },
+  "jurisdiction": "002usUnited States|US",
+  "collection-number": "2002",
+  "genre": "FAA Order",
+  "admin-flag": "1"
+}

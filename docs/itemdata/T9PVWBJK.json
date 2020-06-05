@@ -1,0 +1,33 @@
+{
+  "id": "T9PVWBJK",
+  "type": "webpage",
+  "author": [
+    {
+      "given": "Parker",
+      "family": "Higgins"
+    },
+    {
+      "given": "Sarah",
+      "family": "Jeong"
+    }
+  ],
+  "container-title": "5 Useful Articles",
+  "genre": "Archive of 5 Useful Articles Newsletter",
+  "issued": {
+    "date-parts": [
+      [
+        2015
+      ]
+    ]
+  },
+  "URL": "http://tinyletter.com/5ua",
+  "accessed": {
+    "date-parts": [
+      [
+        2015,
+        3,
+        2
+      ]
+    ]
+  }
+}

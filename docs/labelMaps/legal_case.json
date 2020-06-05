@@ -1,6 +1,8 @@
 {
   "legal_case": "Case",
   "author": "Author",
+  "contributor": "Contributor",
+  "commenter": "Commenter",
   "translator": "Translator",
   "title": "Case Name",
   "admin-flag": "Admin Ref",

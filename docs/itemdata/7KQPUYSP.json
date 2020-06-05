@@ -1,0 +1,16 @@
+{
+  "id": "7KQPUYSP",
+  "type": "legal_case",
+  "title": "People v. Doe",
+  "authority": "supreme.court",
+  "page": "102345",
+  "issued": {
+    "date-parts": [
+      [
+        2011
+      ]
+    ]
+  },
+  "jurisdiction": "005us:ilUnited States|US|Illinois",
+  "collection-number": "2011"
+}

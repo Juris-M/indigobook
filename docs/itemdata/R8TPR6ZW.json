@@ -1,0 +1,16 @@
+{
+  "id": "R8TPR6ZW",
+  "type": "legal_case",
+  "title": "Jones v. Smith",
+  "authority": "court.appeals",
+  "page": "35",
+  "issued": {
+    "date-parts": [
+      [
+        2012
+      ]
+    ]
+  },
+  "jurisdiction": "005us:coUnited States|US|Colorado",
+  "collection-number": "2012"
+}

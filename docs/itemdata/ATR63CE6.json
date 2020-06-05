@@ -1,0 +1,22 @@
+{
+  "id": "ATR63CE6",
+  "type": "article-magazine",
+  "title": "The Power of Taylor Swift",
+  "author": [
+    {
+      "given": "Jack",
+      "family": "Dickey"
+    }
+  ],
+  "container-title": "Time",
+  "issued": {
+    "date-parts": [
+      [
+        2014,
+        11,
+        24
+      ]
+    ]
+  },
+  "page": "13"
+}

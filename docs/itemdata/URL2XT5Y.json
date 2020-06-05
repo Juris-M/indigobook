@@ -1,0 +1,17 @@
+{
+  "id": "URL2XT5Y",
+  "type": "webpage",
+  "title": "Google Books Ngram Viewer",
+  "container-title": "Google",
+  "URL": "https://books.google.com/ngrams",
+  "accessed": {
+    "date-parts": [
+      [
+        2012,
+        4,
+        17
+      ]
+    ]
+  },
+  "note": "references: select corpus “English Fiction”; then search for “Arrakis”"
+}

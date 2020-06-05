@@ -1,6 +1,7 @@
 {
   "post": "Forum Post",
   "author": "Author",
+  "contributor": "Contributor",
   "title": "Title",
   "abstract": "Abstract",
   "container-title": "Forum/Listserv Title",

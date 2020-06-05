@@ -1,0 +1,24 @@
+{
+  "id": "VIZ9TPGP",
+  "type": "book",
+  "title": "Nimmer on Copyright",
+  "author": [
+    {
+      "given": "Melville",
+      "family": "Nimmer"
+    },
+    {
+      "given": "David",
+      "family": "Nimmer"
+    }
+  ],
+  "volume": "3",
+  "edition": "Rev.",
+  "issued": {
+    "date-parts": [
+      [
+        2015
+      ]
+    ]
+  }
+}

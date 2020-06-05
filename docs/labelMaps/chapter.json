@@ -1,6 +1,7 @@
 {
   "chapter": "Book Section",
   "author": "Author",
+  "contributor": "Contributor",
   "editor": "Editor",
   "container-author": "Book Author",
   "translator": "Translator",

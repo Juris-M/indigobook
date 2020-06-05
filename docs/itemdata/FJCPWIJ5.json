@@ -1,0 +1,29 @@
+{
+  "id": "FJCPWIJ5",
+  "type": "chapter",
+  "title": "This Old Man",
+  "author": [
+    {
+      "given": "Roger",
+      "family": "Angell"
+    }
+  ],
+  "editor": [
+    {
+      "given": "Ariel",
+      "family": "Levy"
+    },
+    {
+      "given": "Robert",
+      "family": "Atwan"
+    }
+  ],
+  "container-title": "The Best American Essays 2015",
+  "issued": {
+    "date-parts": [
+      [
+        2015
+      ]
+    ]
+  }
+}

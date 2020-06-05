@@ -1,0 +1,26 @@
+{
+  "id": "IKVDQELG",
+  "type": "book",
+  "title": "One Hundred Years of Solitude",
+  "author": [
+    {
+      "given": "Gabriel García",
+      "family": "Márquez"
+    }
+  ],
+  "translator": [
+    {
+      "given": "Gregory",
+      "family": "Rabassa"
+    }
+  ],
+  "publisher": "Harper & Row",
+  "issued": {
+    "date-parts": [
+      [
+        2003
+      ]
+    ]
+  },
+  "note": "original-date: 1967"
+}

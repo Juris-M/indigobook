@@ -1,0 +1,18 @@
+{
+  "id": "CJB47F83",
+  "type": "legal_case",
+  "title": "Jones v. Smith",
+  "authority": "court.appeals",
+  "number": "09\\-230",
+  "issued": {
+    "date-parts": [
+      [
+        2015,
+        4,
+        17
+      ]
+    ]
+  },
+  "jurisdiction": "005us:c9United States|US|Ninth Circuit",
+  "document-name": "Compl."
+}

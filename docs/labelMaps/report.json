@@ -1,6 +1,7 @@
 {
   "report": "Report",
   "author": "Author",
+  "contributor": "Contributor",
   "translator": "Translator",
   "collection-editor": "Series Editor",
   "title": "Title",
@@ -13,7 +14,7 @@
   "medium": "Medium",
   "event-place": "Place",
   "authority": "Institution",
-  "section": "Commttee",
+  "committee": "Committee",
   "collection-number": "Assy. No.",
   "issued": "Date",
   "page": "Pages",

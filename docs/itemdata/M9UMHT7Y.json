@@ -2,9 +2,9 @@
   "id": "M9UMHT7Y",
   "type": "legal_case",
   "title": "State v. Green",
+  "container-title": "WL",
   "authority": "court.appeals",
   "number": "2012AP1475\\-CR",
-  "page": "5811261",
   "issued": {
     "date-parts": [
       [
@@ -14,7 +14,7 @@
       ]
     ]
   },
-  "archive": "WL",
+  "archive_location": "5811261",
   "jurisdiction": "005us:wiUnited States|US|Wisconsin",
   "collection-number": "2013"
 }
