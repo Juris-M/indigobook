@@ -1,6 +1,20 @@
 {
   "id": "4ZHJC4FU",
   "type": "legal_case",
-  "title": "X Doe v. Roe, 595 N.W.2d 346, ¶27",
-  "jurisdiction": "002usUnited States|US"
+  "title": "Doe v. Roe",
+  "container-title": "N.W.2d",
+  "volume": "595",
+  "authority": "court.appeals",
+  "page": "346",
+  "issued": {
+    "date-parts": [
+      [
+        2001
+      ]
+    ]
+  },
+  "jurisdiction": "005us:wiUnited States|US|Wisconsin",
+  "seeAlso": [
+    "LSZ3PDWX"
+  ]
 }

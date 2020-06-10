@@ -1,9 +1,11 @@
 {
-  "id": "8QRFPHJ8",
+  "id": "3W3F7YNR",
   "type": "legal_case",
   "title": "Byer v. Wright",
+  "container-title": "N.E.2d",
+  "volume": "827",
   "authority": "court.appeals",
-  "page": "1797",
+  "page": "835",
   "issued": {
     "date-parts": [
       [
@@ -12,9 +14,8 @@
     ]
   },
   "jurisdiction": "009us:oh:d11United States|US|Ohio|11th District",
-  "collection-number": "2005",
   "seeAlso": [
-    "3W3F7YNR",
+    "8QRFPHJ8",
     "MSTQ7IAJ"
   ]
 }

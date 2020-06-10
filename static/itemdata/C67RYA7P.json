@@ -1,5 +1,5 @@
 {
-  "id": "32236N2B",
+  "id": "C67RYA7P",
   "type": "legal_case",
   "title": "Smith v. Jones",
   "container-title": "N.W.2d",
@@ -9,12 +9,12 @@
   "issued": {
     "date-parts": [
       [
-        1997
+        1996
       ]
     ]
   },
-  "jurisdiction": "005us:ndUnited States|US|North Dakota",
+  "jurisdiction": "005us:sdUnited States|US|South Dakota",
   "seeAlso": [
-    "3RCX9URX"
+    "UU24MAXN"
   ]
 }

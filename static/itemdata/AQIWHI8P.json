@@ -1,19 +1,21 @@
 {
-  "id": "UEKHI79P",
+  "id": "AQIWHI8P",
   "type": "legal_case",
-  "title": "Robinson v. State",
+  "title": "Hunter v. State",
+  "container-title": "P.2d",
+  "volume": "264",
   "authority": "court.criminal.appeals",
-  "page": "24",
+  "page": "997",
   "issued": {
     "date-parts": [
       [
-        1997
+        1953
       ]
     ]
   },
   "jurisdiction": "005us:okUnited States|US|Oklahoma",
-  "collection-number": "1997",
   "seeAlso": [
-    "QEA3BWB8"
+    "Q3ZJ2GL7",
+    "F6IXWE9L"
   ]
 }

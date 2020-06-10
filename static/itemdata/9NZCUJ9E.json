@@ -1,11 +1,11 @@
 {
-  "id": "UJJBLZ2X",
+  "id": "9NZCUJ9E",
   "type": "legal_case",
   "title": "Bianco v. Horror One Prods.",
-  "container-title": "P.3d",
-  "volume": "202",
+  "container-title": "N.M.",
+  "volume": "145",
   "authority": "supreme.court",
-  "page": "810",
+  "page": "551",
   "issued": {
     "date-parts": [
       [
@@ -15,7 +15,7 @@
   },
   "jurisdiction": "005us:nmUnited States|US|New Mexico",
   "seeAlso": [
-    "9NZCUJ9E",
-    "BQDHKEFK"
+    "BQDHKEFK",
+    "UJJBLZ2X"
   ]
 }

@@ -1,7 +1,9 @@
 {
   "id": "Q3ZJ2GL7",
   "type": "legal_case",
-  "title": "Hunter v. State,   OK CR 155, 97 Okl.Cr. 402, 264 P.2d 997",
+  "title": "Hunter v. State",
+  "authority": "court.criminal.appeals",
+  "page": "155",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,10 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:okUnited States|US|Oklahoma",
+  "collection-number": "1953",
+  "seeAlso": [
+    "AQIWHI8P",
+    "F6IXWE9L"
+  ]
 }

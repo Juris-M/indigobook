@@ -1,13 +1,15 @@
 {
   "id": "SRMBMJMQ",
   "type": "legal_case",
-  "title": "X Smith v. Jones, 95-KA-0 -SCT (Miss. 1997)",
+  "title": "Smith v. Jones",
+  "authority": "supreme.court",
+  "number": "95-KA-01234-SCT",
   "issued": {
     "date-parts": [
       [
-        1234
+        1997
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:msUnited States|US|Mississippi"
 }

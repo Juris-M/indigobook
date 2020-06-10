@@ -1,11 +1,9 @@
 {
-  "id": "D4MF2V2Q",
+  "id": "LSZ3PDWX",
   "type": "legal_case",
-  "title": "Smith v. Jones",
-  "container-title": "Wis. 2d",
-  "volume": "214",
-  "authority": "supreme.court",
-  "page": "408",
+  "title": "Doe v. Roe",
+  "authority": "court.appeals",
+  "page": "15",
   "issued": {
     "date-parts": [
       [
@@ -14,7 +12,8 @@
     ]
   },
   "jurisdiction": "005us:wiUnited States|US|Wisconsin",
+  "collection-number": "2001",
   "seeAlso": [
-    "M684PZFM"
+    "4ZHJC4FU"
   ]
 }

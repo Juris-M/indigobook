@@ -1,20 +1,21 @@
 {
-  "id": "7SNUTX49",
+  "id": "98JJPCZ6",
   "type": "legal_case",
-  "title": "Bowling Green v. Godwin",
+  "title": "Bonacorsi v. Wheeling & Lake Erie Ry. Co.",
+  "container-title": "N.E.2d",
+  "volume": "767",
   "authority": "supreme.court",
-  "page": "3563",
+  "page": "707",
   "issued": {
     "date-parts": [
       [
-        2006
+        2002
       ]
     ]
   },
   "jurisdiction": "005us:ohUnited States|US|Ohio",
-  "collection-number": "2006",
   "seeAlso": [
-    "9CSEJF6C",
-    "HPEFSYTX"
+    "PS3GAYLY",
+    "S9TTP3HN"
   ]
 }

@@ -1,9 +1,11 @@
 {
-  "id": "5ZR67Y8L",
+  "id": "58RBQLAM",
   "type": "legal_case",
   "title": "Saucier v. State Tax Assessor",
+  "container-title": "A.2d",
+  "volume": "708",
   "authority": "supreme.judicial.court",
-  "page": "61",
+  "page": "28",
   "issued": {
     "date-parts": [
       [
@@ -12,8 +14,7 @@
     ]
   },
   "jurisdiction": "005us:meUnited States|US|Maine",
-  "collection-number": "1998",
   "seeAlso": [
-    "58RBQLAM"
+    "5ZR67Y8L"
   ]
 }

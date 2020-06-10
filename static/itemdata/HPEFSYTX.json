@@ -1,9 +1,10 @@
 {
-  "id": "7SNUTX49",
+  "id": "HPEFSYTX",
   "type": "legal_case",
   "title": "Bowling Green v. Godwin",
-  "authority": "supreme.court",
-  "page": "3563",
+  "container-title": "N.E.2d",
+  "volume": "850",
+  "page": "698",
   "issued": {
     "date-parts": [
       [
@@ -11,10 +12,9 @@
       ]
     ]
   },
-  "jurisdiction": "005us:ohUnited States|US|Ohio",
-  "collection-number": "2006",
+  "jurisdiction": "002usUnited States|US",
   "seeAlso": [
     "9CSEJF6C",
-    "HPEFSYTX"
+    "7SNUTX49"
   ]
 }

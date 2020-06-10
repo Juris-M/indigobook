@@ -1,7 +1,9 @@
 {
   "id": "UU24MAXN",
   "type": "legal_case",
-  "title": "Smith v. Jones,   S.D. 15, 600 N.W. 2d 900",
+  "title": "Smith v. Jones",
+  "authority": "supreme.court",
+  "page": "15",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,9 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:sdUnited States|US|South Dakota",
+  "collection-number": "1996",
+  "seeAlso": [
+    "C67RYA7P"
+  ]
 }

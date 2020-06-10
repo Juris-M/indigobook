@@ -1,9 +1,11 @@
 {
-  "id": "CN33JYZH",
+  "id": "F5KDLGSU",
   "type": "legal_case",
   "title": "Doe v. Roe",
+  "container-title": "P.2d",
+  "volume": "989",
   "authority": "supreme.court",
-  "page": "12",
+  "page": "1312",
   "issued": {
     "date-parts": [
       [
@@ -12,9 +14,8 @@
     ]
   },
   "jurisdiction": "005us:mtUnited States|US|Montana",
-  "collection-number": "1998",
   "seeAlso": [
-    "F5KDLGSU",
+    "CN33JYZH",
     "RCPKPDHU"
   ]
 }

@@ -1,9 +1,11 @@
 {
-  "id": "TE2BWL36",
+  "id": "LXRG3K6I",
   "type": "legal_case",
   "title": "Smith v. Jones",
+  "container-title": "P.2d",
+  "volume": "998",
   "authority": "court.appeals",
-  "page": "16",
+  "page": "250",
   "issued": {
     "date-parts": [
       [
@@ -12,9 +14,7 @@
     ]
   },
   "jurisdiction": "005us:utUnited States|US|Utah",
-  "collection-number": "1999",
   "seeAlso": [
-    "EQKGTHUV",
-    "LXRG3K6I"
+    "TE2BWL36"
   ]
 }
