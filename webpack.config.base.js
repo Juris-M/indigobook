@@ -62,7 +62,7 @@ module.exports = {
             { from: 'static/images', to: '.' },
             { from: 'static/screen.css', to: './screen.css' },
             { from: 'static/index.html', to: './index.html' },
-            { from: 'static/indigobook.html', to: './indigobook.html' }
+            { from: 'static/indigobook.html', to: './indigobook.html' },
             { from: 'static/indigobook-diffs.html', to: './indigobook-diffs.html' }
         ]),
      ]
