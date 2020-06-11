@@ -455,6 +455,9 @@ li {
 </head>
 <body>
 <h1>IndigoBook diffs</h1>
+<div style="border-radius:1em;border: solid black 2px;padding:1em;width:60%;margin:1em auto;">
+  Return to <a href="index.html">IndigoBook+Jurism project page</a>
+</div>
 <p>
 This page shows changes made to the text of citation examples in the IndigoBook
 in connection with the IndigoBook+Jurism integration. The revised forms in
