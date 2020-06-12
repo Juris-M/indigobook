@@ -79,7 +79,7 @@ export default async (cslObj, params) => {
                     label: labelMap[key],
                     value: val
                 });
-            } else {
+            } else if ("seeAlso" !== key) {
                 var nameLabel = labelMap[key];
                 for (var name of val) {
                     ret.push({
