@@ -11,6 +11,7 @@ import { urlParts, getPullRequestURL, loginOK, logOut } from './utils.js';
 // import { startLogin, finishLogin, loginOK, logOut } from './login.js';
 import parseid from './parseid';
 
+const TabbedDisplay = React.lazy(() => import('./tabbeddisplay.jsx'));
 const FieldList = React.lazy(() => import('./fieldlist.jsx'));
 const Editor = React.lazy(() => import('./editor.jsx'));
 const SaveButton = React.lazy(() => import('./save.jsx'));
@@ -174,9 +175,17 @@ export const App = () => {
         </div>
         <div className="content">
           {" "}
-          <Suspense fallback={<div>Loading, please wait.</div>}>
-              <FieldList citationInfo={citationInfo} urlStub={urlStub} />
-          </Suspense>
+          {
+              citationInfo["citation-items"].length > 1
+              ?
+                  <Suspense fallback={<div>Loading, please wait.</div>}>
+                      <TabbedDisplay citationInfo={citationInfo} urlStub={urlStub} />
+                  </Suspense>
+              :
+                  <Suspense fallback={<div>Loading, please wait.</div>}>
+                      <FieldList selectedIndex={0} citationInfo={citationInfo} urlStub={urlStub} />
+                  </Suspense>
+          }
         </div>
         {
             loginOK() ?

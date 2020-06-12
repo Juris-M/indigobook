@@ -13,7 +13,7 @@ var cache = {};
 
 export default (props) => {
     const [listItems, setListItems] = useState([]);
-    const storeItems = useCallback((data) => setListItems((listItems) => listItems = data), []);
+    const storeListItems = useCallback((data) => setListItems((listItems) => listItems = data), []);
     useEffect(() => {
         var func = async () => {
             var citationItems = props.citationInfo["citation-items"];
@@ -30,9 +30,11 @@ export default (props) => {
             }
             window.localStorage.setItem('cites_metadata', JSON.stringify(items));
             window.localStorage.setItem('cites_info', JSON.stringify(citationItems));
+
+
             // Magic here to transform CSL key/val on item to array of label + value objects
-            var displayItem = await displayer(items[0], citationItems[0]);
-            storeItems(displayItem);
+            var displayItem = await displayer(items[props.selectedIndex], citationItems[0]);
+            storeListItems(displayItem);
         };
         func();
     }, []);
@@ -42,7 +44,7 @@ export default (props) => {
             {
                 listItems.map(info => {
                     return (
-                        <tr key={info.label}>
+                        <tr key={props.selectedIndex +"::" + info.label}>
                             <td className="label">{info.label}</td>
                             <td className="value">{info.value}</td>
                         </tr>
