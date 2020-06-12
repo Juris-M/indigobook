@@ -43,14 +43,21 @@ export const App = () => {
         // XXX here, to show spinner until "popup.on" is true.
         storeCallInProgress(true);
         var html_id = window.localStorage.getItem("html_id");
-        var elem = document.getElementById(html_id);
-        var cite_id = elem.getAttribute("data-info");
-        var info = parseid(html_id, cite_id);
-        storeCitationInfo(info);
+        if (html_id.match(/^c[0-9]{3}$/)) {
+            var elem = document.getElementById(html_id);
+            var cite_id = elem.getAttribute("data-info");
+            var info = parseid(html_id, cite_id);
+            storeCitationInfo(info);
+        } else {
+            cite_id = "";
+            storeCitationInfo({
+                html_id: html_id
+            });
+        }
         if (loginOK()) {
            if (!getPullRequestURL()) {
                // Set URL and proposed cite form of pull request in localStorage
-               await getCheckpull(info);
+               await getCheckpull(html_id);
            }
         }
         openModalFinal();
@@ -91,9 +98,9 @@ export const App = () => {
         }).catch(error => 'An error occurred while loading the Login component');
     };
 
-    const getCheckpull = (citationInfo) => {
+    const getCheckpull = (html_id) => {
         return import(/* webpackChunkName: "checkPull" */ './checkpull.js').then(({ default: checkPull }) => {
-            return checkPull(citationInfo);
+            return checkPull(html_id);
         }).catch(error => 'An error occurred while loading the Login component');
     };
     
@@ -118,17 +125,25 @@ export const App = () => {
             // Pulling details from the event here makes it simpler to
             // repurpose the open event for login-revisits to the page.
             node.addEventListener("click", (ev) => {
-                var html_id = ev.currentTarget.getAttribute("id");
-                var elem = document.getElementById(html_id);
+                var elem = ev.currentTarget;
+                var html_id = elem.getAttribute("id");
                 var cite_id = elem.getAttribute("data-info");
-                var info = parseid(html_id, cite_id);
-                if (info) {
+                if (html_id === "add-a-cite-button") {
+                    html_id = Math.random().toString(36).replace(/[^a-zA-Z]+/g, '').substr(0, 5);
                     window.localStorage.setItem('html_id', html_id);
-                    window.localStorage.setItem('citation', applyPlaceholders(ev.currentTarget.innerHTML));
-                    window.localStorage.setItem('citation_orig', window.localStorage.getItem('citation'));
-                    storeCitationInfo(info);
-                    openModal();
+                    window.localStorage.setItem('citation', '');
+                    window.localStorage.setItem('citation_orig', '');
+                } else {
+                    var info = parseid(html_id, cite_id);
+                    if (info) {
+                        window.localStorage.setItem('html_id', html_id);
+                        window.localStorage.setItem('citation', applyPlaceholders(ev.currentTarget.innerHTML));
+                        window.localStorage.setItem('citation_orig', window.localStorage.getItem('citation'));
+                        storeCitationInfo(info);
+                        openModal();
+                    }
                 }
+                openModal();
             });
         }
         window.addEventListener("beforeunload", function(event) {
@@ -170,21 +185,38 @@ export const App = () => {
                  <Editor citeContent={window.localStorage.getItem("citation")} />
              </Suspense>)
              :
-             (<div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(window.localStorage.getItem("citation"))}}></div>)
+             (citationInfo && citationInfo["citation-items"]) ?
+                 (<div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(window.localStorage.getItem("citation"))}}></div>)
+                 :
+                 (<div className="header">(log in via GitHub to enter a citation example here)</div>)
         }
         </div>
         <div className="content">
           {" "}
           {
-              citationInfo["citation-items"].length > 1
-              ?
-                  <Suspense fallback={<div>Loading, please wait.</div>}>
-                      <TabbedDisplay citationInfo={citationInfo} urlStub={urlStub} />
-                  </Suspense>
-              :
-                  <Suspense fallback={<div>Loading, please wait.</div>}>
-                      <FieldList selectedIndex={0} citationInfo={citationInfo} urlStub={urlStub} />
-                  </Suspense>
+              (citationInfo && citationInfo["citation-items"]) ?
+                  (citationInfo["citation-items"].length > 1) ?
+                      <Suspense fallback={<div>Loading, please wait.</div>}>
+                          <TabbedDisplay citationInfo={citationInfo} urlStub={urlStub} />
+                      </Suspense>
+                      :
+                      <Suspense fallback={<div>Loading, please wait.</div>}>
+                          <FieldList selectedIndex={0} citationInfo={citationInfo} urlStub={urlStub} />
+                      </Suspense>
+                  :
+                  <p>
+                      To propose a new citation example, you will need a GitHub account.
+                      Here are the steps:
+                      <ul>
+                        <li>Log in (via this popup or another) using your GitHub ID and password.</li>
+                        <li>Click the <b>Edit</b> button.</li>
+                        <li>Enter the citation text above, and provide an explanation of the citation and
+                            indicate where in the IndigoBook it should be placed below.</li>
+                        <li>Click the <b>Save</b> button.</li>
+                        <li>If you have notifications enabled in your GitHub account, you will be
+                            informed by email when the editors take up the issue.</li>
+                      </ul>
+                  </p>
           }
         </div>
         {

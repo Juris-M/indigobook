@@ -30,7 +30,8 @@ export default async (citationInfo, startSave, endSave) => {
         var items = JSON.parse(window.localStorage.getItem("cites_metadata"));
         var newTest = composer(items, citationItems, newCite, cite_desc);
         var result = await saver(html_id, newTest, cite_desc);
-        await endSave(result.html_url);
+        window.localStorage.setItem('cite_url', result.html_url);
+        await endSave();
         elem.classList.remove("save-ok");
     } else {
         elem.classList.add("save-not-ok");

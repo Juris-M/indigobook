@@ -35,7 +35,7 @@ const apiCall = async (props, quiet) => {
             Authorization: `token ${props.apiToken}`
         },
         data: props.params
-    }).catch((e) => handleErr(e, "API fail", quiet));
+    }).catch((e) => handleErr(e, `API fail for ${mth} on ${apiStub}/${pth}`, quiet));
     return result ? result.data : false;
 }
 
@@ -237,7 +237,7 @@ const saver = async (citeCode, testContent, comment) => {
     // also remove any pull requests associated with it. Pull requests
     // will always consist of a single commit.
     // console.log("(8)");
-    var branch = ghfork.getBranch(citeCode, true);
+    var branch = await ghfork.getBranch(citeCode, true);
     if (branch) {
         // console.log("(9)");
         await ghfork.deleteBranch(citeCode);
@@ -252,20 +252,21 @@ const saver = async (citeCode, testContent, comment) => {
     if (!result) {
         // console.log("(11)");
         await ghfork.updateContents(citeCode, newContent);
-        var result = ghrepo.createPullRequest(citeCode, userName, comment);
+        var result = await ghrepo.createPullRequest(citeCode, userName, comment);
     } else {
         var oldContent = result.content.split("\n").join("");
         if (newContent !== oldContent) {
             var contentsSHA = result.sha;
             // console.log("(12)");
             await ghfork.updateContents(citeCode, newContent, contentsSHA);
-            var result = ghrepo.createPullRequest(citeCode, userName, comment);
+            var result = await ghrepo.createPullRequest(citeCode, userName, comment);
         }
     }
     return result;
 };
 
 const pullreq = async (citeCode) => {
+    console.log(`pullreq citeCode: ${citeCode}`);
     var apiToken = window.localStorage.getItem('access_token');
     var client = github.client(apiToken);
     var ghrepo = await client.repo("Juris-M/jsti-indigobook");

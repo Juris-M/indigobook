@@ -3,8 +3,7 @@ import { getFromBase64 } from "./utils.js";
 
 const fromBase64 = getFromBase64(atob);
 
-const checkPull = async (citationInfo) => {
-    var html_id = citationInfo.html_id;
+const checkPull = async (html_id) => {
     // pullreq sets userName in localStorage
     // Apart from that, it serves here to screen out pull requests
     // that have been closed on merge or rejection.

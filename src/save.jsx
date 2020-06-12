@@ -9,7 +9,7 @@ const SaveButton = (props) => {
   const startSave = useCallback(() => setPending(pendingOn => pendingOn = true), []);
 
   const endSave = async () => {
-      await checkpull(props.citationInfo);
+      await checkpull(props.citationInfo.html_id);
       await props.modal();
   }
 
