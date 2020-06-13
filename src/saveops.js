@@ -19,7 +19,10 @@ export default async (citationInfo, startSave, endSave) => {
     var editor = document.getElementById("editor");
     var newCite = editor.content.innerHTML
             .replace(/\<u\>/g, "<span class=\"small-caps\">")
-            .replace(/\<\/u\>/g, "</span>");
+            .replace(/\<\/u\>/g, "</span>")
+            .replace(/^\<div\>/, "")
+            .replace(/\<\/div\>$/, "")
+            .replace(/\<br\/*\>/, "");
     if (!cite_desc) {
         cite_desc = document.getElementById("modal-comment").value;
     }
@@ -28,6 +31,15 @@ export default async (citationInfo, startSave, endSave) => {
         elem.classList.add("save-ok");
         var citationItems = JSON.parse(window.localStorage.getItem("cites_info"));
         var items = JSON.parse(window.localStorage.getItem("cites_metadata"));
+        for (var item of items) {
+            if (item.jurisdiction) {
+                var m = item.jurisdiction.match(/^([0-9]{3})[a-z]/)
+                if (m) {
+                    var offset = parseInt(m[1], 10);
+                    item.jurisdiction = item.jurisdiction.slice(3, (3+offset));
+                }
+            }
+        }
         var newTest = composer(items, citationItems, newCite, cite_desc);
         var result = await saver(html_id, newTest, cite_desc);
         window.localStorage.setItem('cite_url', result.html_url);
