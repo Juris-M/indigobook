@@ -205,7 +205,10 @@ const saver = async (citeCode, testContent, comment) => {
     // console.log("(1)");
     var apiToken = window.localStorage.getItem('access_token');
     var client = github.client(apiToken);
-    
+
+    // User info
+    var ghme = await client.me();
+
     // Instantiate test repo
     // console.log("(2)");
     var ghrepo = await client.repo("Juris-M/jsti-indigobook");

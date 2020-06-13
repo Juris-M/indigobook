@@ -30,13 +30,16 @@ export default async (citationInfo, startSave, endSave) => {
     if (newCite !== citation) {
         elem.classList.add("save-ok");
         var citationItems = JSON.parse(window.localStorage.getItem("cites_info"));
-        var items = JSON.parse(window.localStorage.getItem("cites_metadata"));
-        for (var item of items) {
-            if (item.jurisdiction) {
-                var m = item.jurisdiction.match(/^([0-9]{3})[a-z]/)
-                if (m) {
-                    var offset = parseInt(m[1], 10);
-                    item.jurisdiction = item.jurisdiction.slice(3, (3+offset));
+        var items = window.localStorage.getItem("cites_metadata");
+        if (!!items) {
+            items = JSON.parse(items);
+            for (var item of items) {
+                if (item.jurisdiction) {
+                    var m = item.jurisdiction.match(/^([0-9]{3})[a-z]/)
+                    if (m) {
+                        var offset = parseInt(m[1], 10);
+                        item.jurisdiction = item.jurisdiction.slice(3, (3+offset));
+                    }
                 }
             }
         }
