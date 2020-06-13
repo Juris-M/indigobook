@@ -1,7 +1,9 @@
 {
   "id": "PS3GAYLY",
   "type": "legal_case",
-  "title": "Bonacorsi v. Wheeling & Lake Erie Ry. Co., 95 Ohio St.3d 314,  -Ohio-2220, 767 N.E.2d 707, ¶ 15",
+  "title": "Bonacorsi v. Wheeling & Lake Erie Ry. Co.",
+  "authority": "supreme.court",
+  "page": "2220",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,10 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:ohUnited States|US|Ohio",
+  "collection-number": "2002",
+  "seeAlso": [
+    "98JJPCZ6",
+    "S9TTP3HN"
+  ]
 }

@@ -1,0 +1,20 @@
+{
+  "id": "3HYRNHLB",
+  "type": "legal_case",
+  "title": "Smith v. Jones",
+  "container-title": "Utah Adv. Rep.",
+  "volume": "380",
+  "authority": "supreme.court",
+  "page": "24",
+  "issued": {
+    "date-parts": [
+      [
+        1999
+      ]
+    ]
+  },
+  "jurisdiction": "005us:utUnited States|US|Utah",
+  "seeAlso": [
+    "YLL5N6B3"
+  ]
+}

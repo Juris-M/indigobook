@@ -1,0 +1,19 @@
+{
+  "id": "M684PZFM",
+  "type": "legal_case",
+  "title": "Smith v. Jones",
+  "authority": "supreme.court",
+  "page": "1",
+  "issued": {
+    "date-parts": [
+      [
+        2001
+      ]
+    ]
+  },
+  "jurisdiction": "005us:wiUnited States|US|Wisconsin",
+  "collection-number": "2001",
+  "seeAlso": [
+    "D4MF2V2Q"
+  ]
+}

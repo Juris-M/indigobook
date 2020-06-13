@@ -1,0 +1,20 @@
+{
+  "id": "C67RYA7P",
+  "type": "legal_case",
+  "title": "Smith v. Jones",
+  "container-title": "N.W.2d",
+  "volume": "600",
+  "authority": "supreme.court",
+  "page": "900",
+  "issued": {
+    "date-parts": [
+      [
+        1996
+      ]
+    ]
+  },
+  "jurisdiction": "005us:sdUnited States|US|South Dakota",
+  "seeAlso": [
+    "UU24MAXN"
+  ]
+}

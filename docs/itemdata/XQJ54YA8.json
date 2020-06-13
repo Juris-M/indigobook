@@ -1,7 +1,9 @@
 {
   "id": "XQJ54YA8",
   "type": "legal_case",
-  "title": "Doe v. Roe,   WY 12, 989 P.2d 1312 (Wyo. 2001)",
+  "title": "Doe v. Roe",
+  "authority": "supreme.court",
+  "page": "12",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,9 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:wyUnited States|US|Wyoming",
+  "collection-number": "2001",
+  "seeAlso": [
+    "H7ZGHIYV"
+  ]
 }

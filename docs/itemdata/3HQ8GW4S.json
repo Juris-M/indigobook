@@ -1,7 +1,9 @@
 {
   "id": "3HQ8GW4S",
   "type": "legal_case",
-  "title": "Smith v. Jones,   VT 1, ¶ 12, 169 Vt. 203, 850 A.2d 421",
+  "title": "Smith v. Jones",
+  "authority": "supreme.court",
+  "page": "1",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,10 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:vtUnited States|US|Vermont",
+  "collection-number": "2001",
+  "seeAlso": [
+    "QAL4VKX3",
+    "FUUEH7ZD"
+  ]
 }

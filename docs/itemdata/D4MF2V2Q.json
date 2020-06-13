@@ -1,6 +1,20 @@
 {
   "id": "D4MF2V2Q",
   "type": "legal_case",
-  "title": "X Smith v. Jones, 214 Wis. 2d 408, ¶12",
-  "jurisdiction": "002usUnited States|US"
+  "title": "Smith v. Jones",
+  "container-title": "Wis. 2d",
+  "volume": "214",
+  "authority": "supreme.court",
+  "page": "408",
+  "issued": {
+    "date-parts": [
+      [
+        2001
+      ]
+    ]
+  },
+  "jurisdiction": "005us:wiUnited States|US|Wisconsin",
+  "seeAlso": [
+    "M684PZFM"
+  ]
 }

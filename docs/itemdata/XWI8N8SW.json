@@ -1,7 +1,9 @@
 {
   "id": "XWI8N8SW",
   "type": "legal_case",
-  "title": "Estate of Hoch v. Stifel,   ME 24, 16 A.3d 137",
+  "title": "Estate of Hoch v. Stifel",
+  "authority": "supreme.judicial.court",
+  "page": "24",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,9 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:meUnited States|US|Maine",
+  "collection-number": "2011",
+  "seeAlso": [
+    "TXAB757I"
+  ]
 }
