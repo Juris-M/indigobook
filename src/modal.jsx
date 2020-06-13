@@ -79,6 +79,7 @@ export const App = () => {
         window.localStorage.removeItem('cite_url');
         window.localStorage.removeItem('cites_metadata');
         window.localStorage.removeItem('cites_info');
+        window.localStorage.removeItem('test_content');
         return {
             on: false,
             edit: false
@@ -99,8 +100,8 @@ export const App = () => {
     };
 
     const getCheckpull = (html_id) => {
-        return import(/* webpackChunkName: "checkPull" */ './checkpull.js').then(({ default: checkPull }) => {
-            return checkPull(html_id);
+        return import(/* webpackChunkName: "checkPull" */ './checkpull.js').then(async ({ default: checkPull }) => {
+            await checkPull(html_id);
         }).catch(error => 'An error occurred while loading the Login component');
     };
     
@@ -135,7 +136,7 @@ export const App = () => {
                     window.localStorage.setItem('citation_orig', '');
                 } else {
                     var info = parseid(html_id, cite_id);
-                    if (info) {
+                    if (!!info) {
                         window.localStorage.setItem('html_id', html_id);
                         window.localStorage.setItem('citation', applyPlaceholders(ev.currentTarget.innerHTML));
                         window.localStorage.setItem('citation_orig', window.localStorage.getItem('citation'));
@@ -185,7 +186,7 @@ export const App = () => {
                  <Editor citeContent={window.localStorage.getItem("citation")} />
              </Suspense>)
              :
-             (citationInfo && citationInfo["citation-items"]) ?
+             (window.localStorage.getItem("citation")) ?
                  (<div className="header" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(window.localStorage.getItem("citation"))}}></div>)
                  :
                  (<div className="header">(log in via GitHub to enter a citation example here)</div>)
@@ -204,9 +205,11 @@ export const App = () => {
                           <FieldList selectedIndex={0} citationInfo={citationInfo} urlStub={urlStub} />
                       </Suspense>
                   :
-                  <p>
-                      To propose a new citation example, you will need a GitHub account.
-                      Here are the steps:
+                  <div>
+                      <p>
+                          To propose a new citation example, you will need a GitHub account.
+                          Here are the steps:
+                      </p>
                       <ul>
                         <li>Log in (via this popup or another) using your GitHub ID and password.</li>
                         <li>Click the <b>Edit</b> button.</li>
@@ -216,7 +219,7 @@ export const App = () => {
                         <li>If you have notifications enabled in your GitHub account, you will be
                             informed by email when the editors take up the issue.</li>
                       </ul>
-                  </p>
+                  </div>
           }
         </div>
         {

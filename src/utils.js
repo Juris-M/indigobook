@@ -14,7 +14,8 @@ const urlParts = () => {
     while (match = qrex.exec(url)) {
         query[match[1]] = match[2];
     }
-    if (match = frex.exec(url)) {
+    match = frex.exec(url);
+    if (match) {
         frag = match[1];
     }
     url = url.replace(/\?.*/, "").replace(/\#.*/, "");
@@ -49,6 +50,8 @@ const loginOK = () => {
 const logOut = () => {
     var elem = document.getElementById(window.localStorage.getItem("html_id"));
     window.localStorage.setItem("citation", window.localStorage.getItem('citation_orig'));
+    window.localStorage.removeItem('cite_url');
+    window.localStorage.removeItem('test_content');
     window.localStorage.removeItem('access_token');
     window.localStorage.setItem('block_login', true);
 };

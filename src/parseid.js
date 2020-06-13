@@ -108,7 +108,6 @@ export default (html_id, rawStr, base64encoder) => {
                 }
                 if (commaCheck(m[1])) {
                     params.prefix = `${params.prefix},`;
-                    console.log(`OK! ${html_id}`);
                 }
             }
             params.id = m[2];

@@ -7,11 +7,17 @@ const checkPull = async (html_id) => {
     // pullreq sets userName in localStorage
     // Apart from that, it serves here to screen out pull requests
     // that have been closed on merge or rejection.
-    var result = await pullreq(html_id);
-    if (result && result.length) {
-        window.localStorage.setItem('cite_url', result[0].html_url);
-        // This value is the same as "html_id" in localStorage
-        // var html_id = result[0].head.ref;
+    var cite_url = false;
+    var test_content = false;
+    if (window.localStorage.getItem('cite_url')) {
+        cite_url = window.localStorage.getItem('cite_url');
+        test_content = window.localStorage.getItem('test_content');
+    } else {
+        var result = await pullreq(html_id);
+        if (!!result && result.length > 0) {
+            cite_url = result[0].html_url;
+            window.localStorage.setItem('cite_url', cite_url);
+        }
         var userName = window.localStorage.getItem("cite_userName");
         var apiToken = window.localStorage.getItem('access_token');
         var contents = await apiCall({
@@ -20,8 +26,15 @@ const checkPull = async (html_id) => {
             apiSuffix: `contents/style_${html_id}.txt?ref=${html_id}`,
             apiToken: `${apiToken}`
         });
-        var txt = fromBase64(contents.content);
-        var lst = txt.split("\n");
+        var test_content = fromBase64(contents.content);
+    }
+    if (test_content) {
+        // This value is the same as "html_id" in localStorage
+        // var html_id = result[0].head.ref;
+        /*
+        console.log(txt);
+         */
+        var lst = test_content.split("\n");
         var keys = ["DESCRIPTION", "RESULT"];
         var state = {};
         var rex = {

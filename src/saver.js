@@ -238,7 +238,7 @@ const saver = async (citeCode, testContent, comment) => {
     // will always consist of a single commit.
     // console.log("(8)");
     var branch = await ghfork.getBranch(citeCode, true);
-    if (branch) {
+    if (!!branch) {
         // console.log("(9)");
         await ghfork.deleteBranch(citeCode);
     }
@@ -262,19 +262,19 @@ const saver = async (citeCode, testContent, comment) => {
             var result = await ghrepo.createPullRequest(citeCode, userName, comment);
         }
     }
+    window.localStorage.setItem('test_content', testContent);
     return result;
 };
 
 const pullreq = async (citeCode) => {
-    console.log(`pullreq citeCode: ${citeCode}`);
     var apiToken = window.localStorage.getItem('access_token');
     var client = github.client(apiToken);
     var ghrepo = await client.repo("Juris-M/jsti-indigobook");
     var ghme = await client.me();
     var myinfo = ghme.info();
     window.localStorage.setItem("cite_userName", myinfo.login);
-    
-    return ghrepo.getPullRequest(citeCode, myinfo.login);
+    var ret = await ghrepo.getPullRequest(citeCode, myinfo.login);
+    return ret;
 }
 
 export {
