@@ -12,7 +12,8 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US",
+  "authority": "supreme.court",
+  "jurisdiction": "005us:ohUnited States|US|Ohio",
   "seeAlso": [
     "9CSEJF6C",
     "7SNUTX49"
