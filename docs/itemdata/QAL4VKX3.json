@@ -12,7 +12,8 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US",
+  "authority": "supreme.court",
+  "jurisdiction": "005us:vtUnited States|US|Vermont",
   "seeAlso": [
     "3HQ8GW4S",
     "FUUEH7ZD"
