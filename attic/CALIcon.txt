@@ -1,0 +1,155 @@
+CALIcon Session Proposal
+Frank Bennett
+February 24, 2020
+1 Summary
+Join this session to learn how a union of the open-access Indigo Book and the
+open-source Jurism reference manager can extend the scope of the former,
+improve the quality of the latter, and save everyone a great deal of time.
+
+2 Description
+
+This session concerns two resources. The Indigo Book is an open-access guide
+to legal citation. Jurism is a variant of the open-source Zotero reference
+manager, extended to handle legal materials. The session will cover the
+background of each, explain why it is important, and proceed to outline
+a plan for a next-generation approach to legal citation management. The
+session aims to be comfortable for Luddites and inspiring to Wizards.
+The two marquee projects of the session share a relation to The Bluebook:
+A Uniform System of Citation, to which US courts and law reviews have
+long looked for standard rules of legal citation. Indigo Book is a public-
+domain statement of those rules, free for download. Jurism is an open-source
+reference manager that applies the rules to generate standard citations. The
+premise of both is that citation rules can and should be made more accessible
+and easier to follow.
+The Bluebook has been the target of considerable criticism over the years
+for its complexity, and for zealous protection of its commercial interest in
+a public standard. Nonetheless, prominent challengersmost notably the
+ALWD Citation Manual and Chicago's own Maroonbookhave (like Indigo
+Book) opted in the end to closely follow the Bluebook's rules. As Christine
+Hurt observed in 2002,
+
+1 this is the expected outcome of network eects:
+simply stated, standardizing citation rules makes sense, the market abhors
+
+1
+Christine Hurt, Network Eects and Legal Citation: How Antitrust Theory Predicts
+1
+divergence, and all other things being equal, this oers an advantage to the
+rst mover.
+
+Yet authors bound by Bluebook rules complain of two things: the com-
+plexity of the rules themselves; and the need to trawl through an ever-
+expanding volume of text to master each iteration of the style.
+
+2 The two
+issues are separable. The complexity of the style reects that of the under-
+lying material, and that is a product of the US federal system itself, beyond
+editorial control. The burden of trawling through text in search of guidance,
+however, is another matter, and connects directly to the main topic of this
+session.
+Technology has an answer to complex citation requirements. The basic
+idea, implemented in the venerable PASCAL language circa 1985,
+3 and on
+a venerable PDP-11 in 1990,
+4 is to store item details in a database of some
+sort (a library), and to use those details to generate citations automatically.
+This is reference management, and tools for this purpose have been in com-
+mon use in most elds of research for decades. Using a reference manager,
+an author writes their article, sets the style, and outputs their manuscript.
+That's it. In a well-supported eld, the detailed arcana of citation guidelines
+are of interest primarily to copy editors, obsessive citation geeks, and people
+who maintain reference management software.
+Despite the reference-intensive nature of our discipline,
+5 lawyers have
+not yet experienced this generational wave in research support tools, largely
+because legal resources have a dierent kind of complexity. Research in
+other elds draws heavily on a limited number of resource types (books,
+articles, etc.), which have uniform metadata (title, volume, journal, etc.), but
+are expressed in a bewildering variety of citation styles.
+6 In contrast, legal
+Who Will Build a Better Bluebook Mousetrap in the Age of Electronic Mice, 87 Iowa L.
+Rev. 1257 (2002).
+2
+Compare Columbia Law Review Assn et al., The Bluebook: A Uniform System of
+Citation (19th ed. 2010) (weighing in at 511 pages) with Columbia Law Review Assn
+et al., The Bluebook: A Uniform System of Citation (20th ed. 2015) (extending to 560
+pages).
+3
+See BibTeX, Wikipedia (2019), https://en.wikipedia.org/w/index.php?title=
+BibTeX&oldid=926358916.f; see also Leslie Lamport, L
+ATEX: A Document Preparation
+System (1986); Oren Patashnik, BibTeXing (Feb. 8, 1988), http://mirrors.ctan.org/
+biblio/bibtex/base/btxdoc.pdf; Oren Patashnik, Designing BibTeX Styles (Feb. 8,
+1988), http://mirrors.ctan.org/biblio/bibtex/contrib/doc/btxhak.pdf.
+4
+Oral History of Ernest Beutler, Legends in Hematology (American Society of Hematol-
+ogy Nov. 6, 1990), https://www.hematology.org/About/History/Legends/1616.aspx.
+5
+See Fred R. Shapiro, Origins of Bibliometrics, Citation Indexing, and Citation Anal-
+ysis: The Neglected Legal Literature, 43 J. Am. Soc. Info. Sci. 337 (1992).
+6
+A leading repository contains over 2,000 unique stylesheets. Ocial repository for
+2
+researchers are blessed with a single dominant style, but that style addresses
+an uneven eld of resources, some subject to sporadic revision (statutes and
+regulations), and many bound by idiosyncratic citation conventions (such as
+vendor-neutral cases, bills, resolutions, codied versus uncodied legislation,
+and vendor-bound legislative services).
+7 These are very dierent challenges,
+and tools developed for other communities are not immediately adaptable
+to the needs of the law. As acknowledged by Dan Stillman, lead developer
+of Zotero:
+There's a huge amount of necessary complexity in the multilin-
+gual and legal functionality, and developing it requires a high
+level of specialized knowledge that we (and most developers we
+would want to hire) simply don't have.
+8
+In fact, Jurism addresses the issues to which Dan refers here.
+9 The point
+that he makes is only that, as Zotero is a tool for general use, a merger of
+Jurism functionality into Zotero is beyond the scope of his own project. In
+other words, bringing reference management to the law is a task for the legal
+community to spearheadand today we can get there in a few short steps.
+As Indigo Book and Jurism exemplify, open resources can be built: the
+more serious challenge is in their maintenance. This is where a union of the
+two projects comes into its own.
+Updating a citation system with the size and complexity of Indigo Book
+or Bluebook poses a problem of scalability. The volume of interrelated detail
+is considerable, and no editor can have close familiarity with developments in
+every corner of the US national system at all levels. The Bluebook addresses
+this by oering prizes for participation in an online survey in the lead-up to
+a new edition.
+10 This works, but it is rather cumbersome, largely opaque,
+and operates only at ve-year intervals.
+Citation Style Language (CSL) citation styles (Feb. 22, 2020), https://github.com/
+citation-style-language/styles.
+7
+For a cram course on the some of the complexities involved, see Thomas Bruce, Making
+Metasausage, (Cornell Legal Information Instittue, May 7, 2012Aug. 25, 2014), https:
+//blog.law.cornell.edu/metasausage/.
+8
+Comment by Dan Stillman (dstillman), Zotero Forums, (July 19, 2018), https://
+forums.zotero.org/discussion/comment/313006#Comment_313006
+9
+By extending Zotero's legal item types, adding a full set of identiers for US courts
+and jurisdictions, and implementing per-jurisdiction citation stylesheets.
+10
+In 2013, survey takers were oered the exciting possibility of winning a Kindle
+Paperwhite e-reader or a free paper copy of the 20th edition and a two-year sub-
+scription to the Bluebook Online website. See Emily Lawson, The Bluebook needs
+you!, UHLC Nota Bene (Oct. 16, 2013), https://notabeneuh.blogspot.com/2013/10/
+the-bluebook-needs-you.html.
+3
+With complete automation of the examples it contains, Indigo Book can
+take advantage of Jurism infrastructure to test revisions for consistency and
+side eects. With that quality-assurance backstop, feedback can be processed
+on a rolling basis, and updates can be released at more frequent intervals.
+The result will be a citation system consistent with Bluebook rules, more
+responsive to practical requirements, and with full reference manager support
+thrown in for free.
+A prototype version of a dynamic Indigo Book supporting this workow
+will be demonstrated at the session, with open access to participants. The
+session will conclude with a discussion of organizational requirements for the
+initiative.
+4
+
