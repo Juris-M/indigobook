@@ -1,16 +1,1 @@
-{
-  "webpage": "Web Page",
-  "author": "Author",
-  "contributor": "Contributor",
-  "translator": "Translator",
-  "title": "Title",
-  "abstract": "Abstract",
-  "container-title": "Website Title",
-  "genre": "Website Type",
-  "issued": "Date",
-  "shortTitle": "Short Title",
-  "URL": "URL",
-  "accessed": "Accessed",
-  "language": "Language",
-  "note": "Extra"
-}
+[["type","Web Page"],["title","Title"],["author","Author"],["contributor","Contributor"],["translator","Translator"],["abstract","Abstract"],["container-title","Website Title"],["genre","Website Type"],["issued","Date"],["shortTitle","Short Title"],["URL","URL"],["accessed","Accessed"],["language","Language"],["note","Extra"]]

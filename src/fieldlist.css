@@ -1,6 +1,7 @@
 .table-display .label {
     font-weight: bold;
     text-align: right;
+    min-width: max-content;
 }
 
 .table-display .label:after {
@@ -16,3 +17,4 @@
 .spin-central {
     text-align: center;
 }
+
