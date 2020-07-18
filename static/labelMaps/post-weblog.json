@@ -1,16 +1,1 @@
-{
-  "post-weblog": "Blog Post",
-  "author": "Author",
-  "commenter": "Commenter",
-  "contributor": "Contributor",
-  "title": "Title",
-  "abstract": "Abstract",
-  "container-title": "Blog Title",
-  "genre": "Website Type",
-  "issued": "Date",
-  "URL": "URL",
-  "accessed": "Accessed",
-  "language": "Language",
-  "shortTitle": "Short Title",
-  "note": "Extra"
-}
+[["type","Blog Post"],["title","Title"],["author","Author"],["commenter","Commenter"],["contributor","Contributor"],["abstract","Abstract"],["container-title","Blog Title"],["genre","Website Type"],["issued","Date"],["URL","URL"],["accessed","Accessed"],["language","Language"],["shortTitle","Short Title"],["note","Extra"]]

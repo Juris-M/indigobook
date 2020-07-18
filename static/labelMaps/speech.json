@@ -1,16 +1,1 @@
-{
-  "speech": "Presentation",
-  "author": "Presenter",
-  "contributor": "Contributor",
-  "title": "Title",
-  "abstract": "Abstract",
-  "genre": "Type",
-  "issued": "Date",
-  "event-place": "Place",
-  "event": "Meeting Name",
-  "URL": "URL",
-  "accessed": "Accessed",
-  "language": "Language",
-  "shortTitle": "Short Title",
-  "note": "Extra"
-}
+[["type","Presentation"],["title","Title"],["contributor","Contributor"],["abstract","Abstract"],["genre","Type"],["issued","Date"],["event-place","Place"],["event","Meeting Name"],["URL","URL"],["accessed","Accessed"],["language","Language"],["shortTitle","Short Title"],["note","Extra"]]

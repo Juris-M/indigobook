@@ -61,51 +61,76 @@ export default async (cslObj, params) => {
         labelMaps[cslObj.type] = result.data;
     }
     var labelMap = labelMaps[cslObj.type];
-    
-    var ret = [];
-    for (var key in cslObj) {
-        if ("id" === key) continue;
-        var val = cslObj[key];
+
+    const decodeVal = (val) => {
+        var value;
+        if (!val) return false;
+        
+        // Returns a string or an array of string values.
+        
         if ("object" === typeof val) {
             if ("undefined" === typeof val.length) {
                 if (val["date-parts"] && val["date-parts"][0] && val["date-parts"][0][0]) {
-                    var val = val["date-parts"].map(date => {
+                    value = val["date-parts"].map(date => {
                         return date.join("-");
                     }).join("/");
                 } else if (val.literal) {
-                    val = val.literal;
+                    value = val.literal;
+                } else {
+                    value = false;
+                    console.log("Ouch");
                 }
-                ret.push({
-                    label: labelMap[key],
-                    value: val
-                });
-            } else if ("seeAlso" !== key) {
-                var nameLabel = labelMap[key];
+            } else {
+                value = [];
                 for (var name of val) {
-                    ret.push({
-                        label: nameLabel,
-                        value: [name.family, name.given].join(", ")
-                    });
-                    nameLabel = "";
+                    value.push([name.family, name.given].join(", "));
+                }
+                if (value.length === 0) {
+                    value = false;
                 }
             }
-        } else if ("type" === key) {
+        } else {
+            value = val;
+        }
+        return value;
+    };
+    
+    // Step through the labels, check each for presence in item, push Label and (decoded) val.
+    var ret = [];
+    var value, label;
+    for (var mapInfo of labelMap) {
+        if (mapInfo[0] === "type") {
             ret.push({
                 label: "Item Type",
-                value: labelMap[val]
+                value: mapInfo[1]
             });
-        } else if ("admin-flag" === key || "gazette-flag" === key) {
+        } else if ( mapInfo[0] === "admin-flag" || mapInfo[0] === "gazette-flag") {
             ret.push({
-                label: labelMap[key],
+                label: mapInfo[1],
                 value: "✓"
             });
         } else {
-            ret.push({
-                label: labelMap[key],
-                value: val
-            });
+            label = mapInfo[1];
+            var value = decodeVal(cslObj[mapInfo[0]]);
+            if (value) {
+                if ("object" === typeof value) {
+                    for (var v of value) {
+                        ret.push({
+                            label: label,
+                            value: v
+                        });
+                        label = "";
+                    }
+                } else {
+                    ret.push({
+                        label: label,
+                        value: value
+                    });
+                }
+            }
         }
     }
+    
     if (params.locator) {
         ret.push({
             label: "Locator",
