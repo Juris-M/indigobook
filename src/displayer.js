@@ -105,10 +105,12 @@ export default async (cslObj, params) => {
                 value: mapInfo[1]
             });
         } else if ( mapInfo[0] === "admin-flag" || mapInfo[0] === "gazette-flag") {
-            ret.push({
-                label: mapInfo[1],
-                value: "✓"
-            });
+            if (cslObj[mapInfo[0]]) {
+                ret.push({
+                    label: mapInfo[1],
+                    value: "✓"
+                });
+            }
         } else {
             label = mapInfo[1];
             var value = decodeVal(cslObj[mapInfo[0]]);
