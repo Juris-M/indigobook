@@ -30,19 +30,24 @@ const makeTypes = () => {
                 continue;
             }
             typeZtoCSL[zType] = cslType;
+            
         }
     }
     for (var zType in typeZtoCSL) {
         var cslType = typeZtoCSL[zType];
-        cslToLabel[cslType] = [
-            [
-                "type",
-                obj.locales["en-US"].itemTypes[zType]
-            ]
-        ];
-        setOneFieldLabelForType(cslToLabel[cslType], zType, 0);
-        setCreatorLabelsForType(cslToLabel[cslType], zType);
-        setFieldLabelsForType(cslToLabel[cslType], zType);
+
+        // TEMPORARY HACK FOR DEMO! THIS NEEDS TO INCLUDE AND COPE WITH ALL JURISM-VALID TYPES
+        if (!cslToLabel[cslType]) {
+            cslToLabel[cslType] = [
+                [
+                    "type",
+                    obj.locales["en-US"].itemTypes[zType]
+                ]
+            ];
+            setOneFieldLabelForType(cslToLabel[cslType], zType, 0);
+            setCreatorLabelsForType(cslToLabel[cslType], zType);
+            setFieldLabelsForType(cslToLabel[cslType], zType);
+        }
     }
     return cslToLabel;
 }
