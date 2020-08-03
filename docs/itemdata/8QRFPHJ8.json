@@ -1,7 +1,9 @@
 {
   "id": "8QRFPHJ8",
   "type": "legal_case",
-  "title": "Byer v. Wright, 160 Ohio App.3d 472,  -Ohio-1797, 827 N.E.2d 835 (11th Dist.)",
+  "title": "Byer v. Wright",
+  "authority": "court.appeals",
+  "page": "1797",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,10 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "009us:oh:d11United States|US|Ohio|11th District",
+  "collection-number": "2005",
+  "seeAlso": [
+    "3W3F7YNR",
+    "MSTQ7IAJ"
+  ]
 }

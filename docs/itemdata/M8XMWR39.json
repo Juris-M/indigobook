@@ -1,7 +1,9 @@
 {
   "id": "M8XMWR39",
   "type": "legal_case",
-  "title": "Yumac Home Furniture v. Caguas Lumber Yard,   TSPR 148",
+  "title": "Yumac Home Furniture v. Caguas Lumber Yard",
+  "authority": "tribunal.supremo",
+  "page": "148",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,6 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:prUnited States|US|Puerto Rico",
+  "collection-number": "2015"
 }

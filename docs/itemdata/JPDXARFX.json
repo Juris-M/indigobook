@@ -1,6 +1,7 @@
 {
   "id": "JPDXARFX",
   "type": "legal_case",
-  "title": "X Y.B. Eur. Conv. on H.R.",
-  "jurisdiction": "002usUnited States|US"
+  "container-title": "Y.B. Eur. Conv. on H.R.",
+  "authority": "echr",
+  "jurisdiction": "007coe.intCouncil of Europe|COE.INT"
 }

@@ -1,7 +1,9 @@
 {
   "id": "BQDHKEFK",
   "type": "legal_case",
-  "title": "Bianco v. Horror One Prods.,  -NMSC-006, ¶ 10, 145 N.M. 551.",
+  "title": "Bianco v. Horror One Prods.",
+  "authority": "supreme.court",
+  "page": "006",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,10 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:nmUnited States|US|New Mexico",
+  "collection-number": "2009",
+  "seeAlso": [
+    "9NZCUJ9E",
+    "UJJBLZ2X"
+  ]
 }

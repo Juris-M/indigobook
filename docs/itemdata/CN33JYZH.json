@@ -1,7 +1,9 @@
 {
   "id": "CN33JYZH",
   "type": "legal_case",
-  "title": "Doe v. Roe,   MT 12, ¶¶ 44-45, 286 Mont. 175, 989 P.2d 1312",
+  "title": "Doe v. Roe",
+  "authority": "supreme.court",
+  "page": "12",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,10 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:mtUnited States|US|Montana",
+  "collection-number": "1998",
+  "seeAlso": [
+    "F5KDLGSU",
+    "RCPKPDHU"
+  ]
 }

@@ -1,7 +1,9 @@
 {
   "id": "UEKHI79P",
   "type": "legal_case",
-  "title": "Robinson v. State,   OK CR 24, ¶ 3, 68 OBJ 1379, 1381",
+  "title": "Robinson v. State",
+  "authority": "court.criminal.appeals",
+  "page": "24",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,9 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:okUnited States|US|Oklahoma",
+  "collection-number": "1997",
+  "seeAlso": [
+    "QEA3BWB8"
+  ]
 }

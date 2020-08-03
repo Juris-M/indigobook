@@ -6,7 +6,7 @@ span.cite {
 
 /* #ffee00; */
 
-#save-button-container {
+#fixed-button-container {
 	position: fixed;
 	right: 40px;
 	top:10px;
@@ -28,6 +28,18 @@ span.cite {
 	font-weight: bold;
 }
 
+.cite#add-a-cite-button {
+	border: 1px solid black;
+	border-radius: 0.5em;
+	font-size: larger;
+	background: green;
+	color: white;
+	font-weight: bold;
+}
+
+.cite#add-a-cite-button::before {
+    content: '';
+}
 .editing-progress-marker {
     border: 2px solid black;
     width: auto;

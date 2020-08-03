@@ -1,0 +1,20 @@
+{
+  "id": "WCPICWKH",
+  "type": "legal_case",
+  "title": "Smith v. Jones",
+  "container-title": "P.2d",
+  "volume": "998",
+  "authority": "supreme.court",
+  "page": "250",
+  "issued": {
+    "date-parts": [
+      [
+        1999
+      ]
+    ]
+  },
+  "jurisdiction": "005us:utUnited States|US|Utah",
+  "seeAlso": [
+    "YLL5N6B3"
+  ]
+}

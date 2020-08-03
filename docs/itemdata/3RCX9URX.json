@@ -1,7 +1,9 @@
 {
   "id": "3RCX9URX",
   "type": "legal_case",
-  "title": "Smith v. Jones,   ND 15, ¶ 21",
+  "title": "Smith v. Jones",
+  "authority": "supreme.court",
+  "page": "15",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,9 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:ndUnited States|US|North Dakota",
+  "collection-number": "1997",
+  "seeAlso": [
+    "32236N2B"
+  ]
 }

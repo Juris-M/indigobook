@@ -1,7 +1,9 @@
 {
   "id": "YLL5N6B3",
   "type": "legal_case",
-  "title": "Smith v. Jones,   UT 16",
+  "title": "Smith v. Jones",
+  "authority": "supreme.court",
+  "page": "16",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,10 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:utUnited States|US|Utah",
+  "collection-number": "1999",
+  "seeAlso": [
+    "3HYRNHLB",
+    "WCPICWKH"
+  ]
 }

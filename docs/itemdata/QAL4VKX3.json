@@ -1,0 +1,21 @@
+{
+  "id": "QAL4VKX3",
+  "type": "legal_case",
+  "title": "Smith v. Jones",
+  "container-title": "A.2d",
+  "volume": "850",
+  "page": "421",
+  "issued": {
+    "date-parts": [
+      [
+        2001
+      ]
+    ]
+  },
+  "authority": "supreme.court",
+  "jurisdiction": "005us:vtUnited States|US|Vermont",
+  "seeAlso": [
+    "3HQ8GW4S",
+    "FUUEH7ZD"
+  ]
+}

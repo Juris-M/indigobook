@@ -1,7 +1,9 @@
 {
   "id": "6EC2AI38",
   "type": "legal_case",
-  "title": "ABC Company vs. XYZ Company,   MP 1 ¶10",
+  "title": "ABC Company vs. XYZ Company",
+  "authority": "supreme.court",
+  "page": "1",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,6 @@
       ]
     ]
   },
-  "jurisdiction": "010us:c9:mp.dUnited States|US|Ninth Circuit|D. Northern Mariana Islands"
+  "jurisdiction": "005us:mpUnited States|US|N. Mar. I.",
+  "collection-number": "2001"
 }

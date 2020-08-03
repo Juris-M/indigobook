@@ -1,7 +1,9 @@
 {
   "id": "VSTNWQW4",
   "type": "legal_case",
-  "title": "Skinner v. Braum’s Ice Cream Store,   OK 11, 890 P.2d 922",
+  "title": "Skinner v. Braum’s Ice Cream Store",
+  "authority": "supreme.court",
+  "page": "11",
   "issued": {
     "date-parts": [
       [
@@ -9,5 +11,9 @@
       ]
     ]
   },
-  "jurisdiction": "002usUnited States|US"
+  "jurisdiction": "005us:okUnited States|US|Oklahoma",
+  "collection-number": "1995",
+  "seeAlso": [
+    "R7N5G9KX"
+  ]
 }

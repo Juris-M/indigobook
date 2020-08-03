@@ -1,7 +1,11 @@
 {
   "id": "HFLZFEMW",
   "type": "legal_case",
-  "title": "Midas Securities, LLC., Exchange Act Release No. 66200, 102 SEC Docket 3123, 102 SEC Docket 3137",
+  "title": "Midas Securities, LLC., Exchange Act Release",
+  "container-title": "SEC Docket",
+  "volume": "102",
+  "number": "66200",
+  "page": "3137",
   "issued": {
     "date-parts": [
       [
