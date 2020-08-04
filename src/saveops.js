@@ -2,6 +2,48 @@ import { saver } from "./saver.js";
 import composer from "./composer.js";
 import handleErr from "./err";
 
+/*
+ Maybe this should just rebuild the DOM element from scratch.
+*/
+const cleanupHTML = (deletes, node, depth) => {
+    if (node.nodeType === 1) {
+        if (node.tagName === "SPAN") {
+            var hasSmallCaps = false;
+            var attr = node.getAttribute("style");
+            if (attr) {
+                hasSmallCaps = attr.indexOf("small-caps") > -1;
+            }
+            if (hasSmallCaps) {
+                node.setAttribute("style", "font-variant: small-caps:");
+                node.removeAttribute("lang");
+            } else {
+                deletes.push(node);
+            }
+        }
+        if (depth > 0 && ["SPAN", "I", "B", "SUP"].indexOf(node.tagName) === -1) {
+            deletes.push(node);
+        }
+        for (var i=0,ilen=node.childNodes.length; i<ilen; i++) {
+            var child = node.childNodes[i];
+            deletes = cleanupHTML(deletes, child, depth+1);
+        }
+    }
+    if (depth === 0) {
+        for (var i=deletes.length-1; i>-1; i--) {
+            var delnode = deletes[i];
+            for (var j=0,jlen=delnode.childNodes.length; j<jlen; j++) {
+                if (delnode.childNodes[j]) {
+                    var cln = delnode.childNodes[j].cloneNode(true);
+                    delnode.parentNode.insertBefore(cln, delnode);
+                }
+            }
+            delnode.parentNode.removeChild(delnode);
+        }
+        return [];
+    }
+    return deletes;
+}
+
 export default async (citationInfo, startSave, endSave) => {
     await startSave();
 
@@ -17,12 +59,21 @@ export default async (citationInfo, startSave, endSave) => {
     var cite_desc = window.localStorage.getItem('cite_desc');
     
     var editor = document.getElementById("editor");
+
+    var styleNodes = editor.content.getElementsByTagName("style");
+    for (var i=styleNodes.length-1; i>-1; i--) {
+        editor.content.removeChild(styleNodes[i]);
+    }
+    cleanupHTML([], editor.content, 0);
+    // Need also to strip out extraneous inline garbage added by Word.
+    // (basically everything but small-caps)
     var newCite = editor.content.innerHTML
             .replace(/\<u\>/g, "<span class=\"small-caps\">")
-            .replace(/\<\/u\>/g, "</span>")
-            .replace(/^\<div\>/, "")
-            .replace(/\<\/div\>$/, "")
-            .replace(/\<br\/*\>/, "");
+            .replace(/<\/u>/g, "</span>")
+            .replace(/<\/?div[^>]*>/g, "")
+            .replace(/<\/?p[^>]*>/g, "")
+            .replace(/\<br\/*\>/g, "")
+            .trim();
     if (!cite_desc) {
         cite_desc = document.getElementById("modal-comment").value;
     }
