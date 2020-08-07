@@ -65,6 +65,7 @@ const getToBase64 = (func) => {
 
 const getFromBase64 = (func) => {
     return (str) => {
+        console.log(str);
         var bytes = func(str);
         return utf8.decode(bytes);
     };

@@ -14,13 +14,13 @@ const cleanupHTML = (deletes, node, depth) => {
                 hasSmallCaps = attr.indexOf("small-caps") > -1;
             }
             if (hasSmallCaps) {
-                node.setAttribute("style", "font-variant: small-caps:");
+                node.setAttribute("style", "font-variant:small-caps;");
                 node.removeAttribute("lang");
             } else {
                 deletes.push(node);
             }
         }
-        if (depth > 0 && ["SPAN", "I", "B", "SUP"].indexOf(node.tagName) === -1) {
+        if (depth > 0 && ["SPAN", "I", "B", "SUP", "U"].indexOf(node.tagName) === -1) {
             deletes.push(node);
         }
         for (var i=0,ilen=node.childNodes.length; i<ilen; i++) {
@@ -68,7 +68,7 @@ export default async (citationInfo, startSave, endSave) => {
     // Need also to strip out extraneous inline garbage added by Word.
     // (basically everything but small-caps)
     var newCite = editor.content.innerHTML
-            .replace(/\<u\>/g, "<span class=\"small-caps\">")
+            .replace(/\<u\>/g, "<span style=\"font-variant:small-caps;\">")
             .replace(/<\/u>/g, "</span>")
             .replace(/<\/?div[^>]*>/g, "")
             .replace(/<\/?p[^>]*>/g, "")
