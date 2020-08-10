@@ -38,6 +38,16 @@ const buildQuery = (data) => {
     return '?`${ret}`';
 }
 
+const getRepoAddr = () => {
+    var ret = null;
+    if (window.location.pathname.indexOf("indigobook/for-briefs-and-memoranda.html") > -1) {
+        ret = "indigobook";
+    } else {
+        ret = "indigobook-law-review";
+    }
+    return ret;
+}
+
 const getPullRequestURL = () => {
     return window.localStorage.getItem('cite_url');
 };
@@ -79,7 +89,8 @@ export {
     loginOK,
     logOut,
     getToBase64,
-    getFromBase64
+    getFromBase64,
+    getRepoAddr
 }
 
 module = {
@@ -91,6 +102,7 @@ module = {
         loginOK: loginOK,
         logOut: logOut,
         getToBase64: getToBase64,
-        getFromBase64: getFromBase64
+        getFromBase64: getFromBase64,
+        getRepoAddr: getRepoAddr
     }
 }

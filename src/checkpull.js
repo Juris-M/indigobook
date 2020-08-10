@@ -1,5 +1,5 @@
 import { pullreq, apiCall } from './saver';
-import { getFromBase64 } from "./utils.js";
+import { getFromBase64, getRepoAddr } from "./utils.js";
 
 const fromBase64 = getFromBase64(atob);
 
@@ -22,7 +22,7 @@ const checkPull = async (html_id) => {
         var apiToken = window.localStorage.getItem('access_token');
         var contents = await apiCall({
             apiSection: "repos",
-            repoPath: `${userName}/jsti-indigobook`,
+            repoPath: `${userName}/jsti-${getRepoAddr()}`,
             apiSuffix: `contents/style_${html_id}.txt?ref=${html_id}`,
             apiToken: `${apiToken}`
         });
