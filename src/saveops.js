@@ -20,7 +20,7 @@ const cleanupHTML = (deletes, node, depth) => {
                 deletes.push(node);
             }
         }
-        if (depth > 0 && ["SPAN", "I", "B", "SUP", "U"].indexOf(node.tagName) === -1) {
+        if (depth > 0 && ["SPAN", "I", "B", "SUP", "U", "A"].indexOf(node.tagName) === -1) {
             deletes.push(node);
         }
         for (var i=0,ilen=node.childNodes.length; i<ilen; i++) {
