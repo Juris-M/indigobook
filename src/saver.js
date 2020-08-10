@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getToBase64 } from "./utils.js";
+import { getToBase64, getRepoAddr } from "./utils.js";
 // const base64 = require("base-64");
 // const utf8 = require("utf8");
 
@@ -166,7 +166,7 @@ async function updateContents (citeCode, content, contentsSHA) {
     props.apiMethod = "put";
     props.apiSuffix = `contents/${fileName}`;
     props.params = {
-        message:  "Proposed edit",
+        message:  `Proposed edit to ${citeCode}`,
         content: content,
         branch: citeCode
     };
@@ -211,7 +211,7 @@ const saver = async (citeCode, testContent, comment) => {
 
     // Instantiate test repo
     // console.log("(2)");
-    var ghrepo = await client.repo("Juris-M/jsti-indigobook");
+    var ghrepo = await client.repo(`Juris-M/jsti-${getRepoAddr()}`);
     
     // Get user name and user ID
     // console.log("(3)");
@@ -219,11 +219,11 @@ const saver = async (citeCode, testContent, comment) => {
     
     // Instantiate fork, creating if necessary (true is for quiet)
     // console.log("(4)");
-    var ghfork = await client.repo(`${userName}/jsti-indigobook`, true);
+    var ghfork = await client.repo(`${userName}/jsti-${getRepoAddr()}`, true);
     var result = ghfork.info();
     if (!result.full_name) {
         // console.log("(5)");
-        result = await ghme.fork('Juris-M/jsti-indigobook').catch((e) => handleErr(e, "create fork"));
+        result = await ghme.fork(`Juris-M/jsti-${getRepoAddr()}`).catch((e) => handleErr(e, "create fork"));
     }
     
     // Align fork to the latest test repo master commit
@@ -272,7 +272,7 @@ const saver = async (citeCode, testContent, comment) => {
 const pullreq = async (citeCode) => {
     var apiToken = window.localStorage.getItem('access_token');
     var client = github.client(apiToken);
-    var ghrepo = await client.repo("Juris-M/jsti-indigobook");
+    var ghrepo = await client.repo(`Juris-M/jsti-${getRepoAddr()}`);
     var ghme = await client.me();
     var myinfo = ghme.info();
     window.localStorage.setItem("cite_userName", myinfo.login);
